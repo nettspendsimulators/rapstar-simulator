@@ -12,10 +12,13 @@ var total_streams: int = 0
 var total_sales: int = 0
 var total_money: int = 0
 var total_fame: int = 0
+## Multiplicador de streams na primeira semana, vindo da campanha de marketing.
+var initial_potential: float = 1.0
 
 
 func to_dict() -> Dictionary:
 	return {
+		"initial_potential": initial_potential,
 		"content_type": content_type,
 		"content_id": content_id,
 		"release_week": release_week,
@@ -35,4 +38,5 @@ static func from_dict(data: Dictionary) -> ReleaseData:
 	release.total_sales = int(data.get("total_sales", 0))
 	release.total_money = int(data.get("total_money", 0))
 	release.total_fame = int(data.get("total_fame", 0))
+	release.initial_potential = float(data.get("initial_potential", 1.0))
 	return release

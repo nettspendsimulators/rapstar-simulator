@@ -9,6 +9,13 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v2(payload["career"], balance)
 	if version < 3:
 		_migrate_to_v3(payload["career"], balance)
+	if version < 4:
+		_migrate_to_v4(payload["career"])
+
+
+## v4: campanhas de marketing. Lançamentos antigos ficam sem bônus de campanha.
+static func _migrate_to_v4(career: Dictionary) -> void:
+	career["marketing_campaigns"] = []
 
 
 ## v3: Vocal, Letra, Beat e Produção independentes na música.

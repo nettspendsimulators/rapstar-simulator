@@ -1,0 +1,132 @@
+[gd_resource type="Resource" script_class="MarketingRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/marketing_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/marketing_action_definition.gd" id="2_action"]
+[ext_resource type="Script" path="res://scripts/definitions/marketing_outcome_definition.gd" id="3_outcome"]
+
+[sub_resource type="Resource" id="action_social"]
+script = ExtResource("2_action")
+id = "social"
+display_name = "Redes sociais"
+cost = 800
+reach = 5000
+duration_weeks = 3
+hype_impact = 8.0
+
+[sub_resource type="Resource" id="action_teaser"]
+script = ExtResource("2_action")
+id = "teaser"
+display_name = "Teaser"
+cost = 500
+reach = 3000
+duration_weeks = 2
+hype_impact = 10.0
+
+[sub_resource type="Resource" id="action_pre_save"]
+script = ExtResource("2_action")
+id = "pre_save"
+display_name = "Pré-save"
+cost = 300
+reach = 2000
+duration_weeks = 2
+hype_impact = 6.0
+return_potential = 1.1
+pre_save_rate = 0.05
+
+[sub_resource type="Resource" id="action_influencers"]
+script = ExtResource("2_action")
+id = "influencers"
+display_name = "Influenciadores"
+cost = 2000
+reach = 20000
+duration_weeks = 2
+hype_impact = 14.0
+return_potential = 1.2
+required_fame = 10
+
+[sub_resource type="Resource" id="action_interviews"]
+script = ExtResource("2_action")
+id = "interviews"
+display_name = "Entrevistas"
+cost = 1000
+reach = 8000
+duration_weeks = 2
+hype_impact = 12.0
+required_fame = 10
+required_reputation = 3
+
+[sub_resource type="Resource" id="action_radio"]
+script = ExtResource("2_action")
+id = "radio"
+display_name = "Rádio"
+cost = 1500
+reach = 15000
+duration_weeks = 3
+hype_impact = 12.0
+return_potential = 1.1
+required_fame = 20
+
+[sub_resource type="Resource" id="action_playlists"]
+script = ExtResource("2_action")
+id = "playlists"
+display_name = "Playlists"
+cost = 3000
+reach = 40000
+duration_weeks = 3
+hype_impact = 15.0
+return_potential = 1.3
+required_fame = 30
+
+[sub_resource type="Resource" id="action_paid_ads"]
+script = ExtResource("2_action")
+id = "paid_ads"
+display_name = "Publicidade paga"
+cost = 5000
+reach = 80000
+duration_weeks = 4
+hype_impact = 18.0
+required_fame = 50
+
+[sub_resource type="Resource" id="action_video"]
+script = ExtResource("2_action")
+id = "video"
+display_name = "Videoclipe"
+cost = 20000
+reach = 150000
+duration_weeks = 4
+hype_impact = 25.0
+return_potential = 1.4
+required_fame = 100
+required_reputation = 5
+
+[sub_resource type="Resource" id="outcome_below"]
+script = ExtResource("3_outcome")
+id = "below"
+label = "Ficou abaixo do esperado"
+weight = 25.0
+multiplier = 0.6
+
+[sub_resource type="Resource" id="outcome_normal"]
+script = ExtResource("3_outcome")
+id = "normal"
+label = "Funcionou como esperado"
+weight = 50.0
+
+[sub_resource type="Resource" id="outcome_great"]
+script = ExtResource("3_outcome")
+id = "great"
+label = "Funcionou muito bem"
+weight = 20.0
+multiplier = 1.4
+
+[sub_resource type="Resource" id="outcome_opportunity"]
+script = ExtResource("3_outcome")
+id = "opportunity"
+label = "Gerou uma oportunidade inesperada"
+weight = 5.0
+multiplier = 1.8
+
+[resource]
+script = ExtResource("1_rules")
+actions = Array[ExtResource("2_action")]([SubResource("action_social"), SubResource("action_teaser"), SubResource("action_pre_save"), SubResource("action_influencers"), SubResource("action_interviews"), SubResource("action_radio"), SubResource("action_playlists"), SubResource("action_paid_ads"), SubResource("action_video")])
+outcomes = Array[ExtResource("3_outcome")]([SubResource("outcome_below"), SubResource("outcome_normal"), SubResource("outcome_great"), SubResource("outcome_opportunity")])

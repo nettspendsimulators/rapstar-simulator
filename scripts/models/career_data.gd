@@ -12,6 +12,7 @@ var songs: Array[SongData] = []
 var albums: Array[AlbumData] = []
 var releases: Array[ReleaseData] = []
 var scheduled_releases: Array[ScheduledRelease] = []
+var marketing_campaigns: Array[MarketingCampaign] = []
 var finance_history: Array[FinanceEntry] = []
 var week_reports: Array[WeekReport] = []
 var next_id: int = 1
@@ -65,6 +66,13 @@ func find_active_schedule(content_id: String) -> ScheduledRelease:
 	return null
 
 
+func find_campaign(song_id: String) -> MarketingCampaign:
+	for campaign in marketing_campaigns:
+		if campaign.song_id == song_id:
+			return campaign
+	return null
+
+
 func find_album_of_song(song_id: String) -> AlbumData:
 	for album in albums:
 		if song_id in album.song_ids:
@@ -106,6 +114,7 @@ func to_dict() -> Dictionary:
 		"albums": albums.map(func(item: AlbumData) -> Dictionary: return item.to_dict()),
 		"releases": releases.map(func(item: ReleaseData) -> Dictionary: return item.to_dict()),
 		"scheduled_releases": scheduled_releases.map(func(item: ScheduledRelease) -> Dictionary: return item.to_dict()),
+		"marketing_campaigns": marketing_campaigns.map(func(item: MarketingCampaign) -> Dictionary: return item.to_dict()),
 		"finance_history": finance_history.map(func(item: FinanceEntry) -> Dictionary: return item.to_dict()),
 		"week_reports": week_reports.map(func(item: WeekReport) -> Dictionary: return item.to_dict()),
 	}
@@ -128,6 +137,8 @@ static func from_dict(data: Dictionary) -> CareerData:
 		career.releases.append(ReleaseData.from_dict(item))
 	for item: Dictionary in data.get("scheduled_releases", []):
 		career.scheduled_releases.append(ScheduledRelease.from_dict(item))
+	for item: Dictionary in data.get("marketing_campaigns", []):
+		career.marketing_campaigns.append(MarketingCampaign.from_dict(item))
 	for item: Dictionary in data.get("finance_history", []):
 		career.finance_history.append(FinanceEntry.from_dict(item))
 	for item: Dictionary in data.get("week_reports", []):

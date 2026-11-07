@@ -22,6 +22,9 @@ extends Resource
 @export var song_quality: SongQualityRules
 @export var collaborators: CollaboratorCatalog
 
+@export_group("Marketing")
+@export var marketing: MarketingRules
+
 @export_group("Capas")
 ## As capas são recortadas em quadrado e salvas neste tamanho, em pixels.
 @export var cover_size: int = 512

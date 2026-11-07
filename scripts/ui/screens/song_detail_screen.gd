@@ -11,6 +11,7 @@ func _ready() -> void:
 	_song = GameManager.career.find_song(context.get("song_id", ""))
 	_build_attribute_rows()
 	%EditButton.pressed.connect(func() -> void: navigate(Screen.SONG_EDITOR, {"song_id": _song.id}))
+	%MarketingButton.pressed.connect(func() -> void: navigate(Screen.MARKETING, {"song_id": _song.id}))
 	%BackButton.pressed.connect(navigate.bind(Screen.SONGS))
 	super()
 

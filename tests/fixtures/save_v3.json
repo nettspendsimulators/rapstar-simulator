@@ -1,0 +1,314 @@
+{
+	"career": {
+		"albums": [
+			{
+				"cover_file": "",
+				"format_id": "album",
+				"id": "album_4",
+				"production_cost": 250,
+				"quality": 49,
+				"release_week": -1,
+				"song_ids": [
+					"song_5",
+					"song_6"
+				],
+				"status": "unreleased",
+				"title": "Álbum vazio"
+			}
+		],
+		"artist_name": "MC Tres",
+		"current_week": 3,
+		"energy": 55,
+		"fame": 6,
+		"finance_history": [
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -40000,
+				"category": "collaborator",
+				"description": "Produtor Cardo: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -100000,
+				"category": "collaborator",
+				"description": "Feat JID: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "improvement",
+				"description": "Melhoria de Vocal: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Lançamento: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Single agendado",
+				"week": 1
+			},
+			{
+				"amount": -75,
+				"category": "improvement",
+				"description": "Melhoria de Beat: Single agendado",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Agendamento: Single agendado",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Inédita solta",
+				"week": 1
+			},
+			{
+				"amount": -200,
+				"category": "production",
+				"description": "Produção de Álbum: Álbum vazio",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 1",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 2",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "production",
+				"description": "Ampliação de projeto: Álbum vazio",
+				"week": 1
+			},
+			{
+				"amount": 150,
+				"category": "work",
+				"description": "Trabalho como Entregador",
+				"week": 2
+			},
+			{
+				"amount": 75,
+				"category": "streams",
+				"description": "Streams: Hit lançado",
+				"week": 2
+			},
+			{
+				"amount": 21,
+				"category": "streams",
+				"description": "Streams: Hit lançado",
+				"week": 3
+			}
+		],
+		"money": 759271,
+		"next_id": 7,
+		"releases": [
+			{
+				"content_id": "song_1",
+				"content_type": "song",
+				"release_week": 1,
+				"total_fame": 6,
+				"total_money": 96,
+				"total_sales": 0,
+				"total_streams": 9680
+			}
+		],
+		"reputation": 1,
+		"scheduled_releases": [
+			{
+				"content_id": "song_2",
+				"paid_cost": 50,
+				"scheduled_week": 5,
+				"status": "scheduled"
+			}
+		],
+		"songs": [
+			{
+				"attribute_bases": {
+					"beat": 48,
+					"lyrics": 44,
+					"production": 79,
+					"vocal": 43
+				},
+				"attribute_points": {
+					"vocal": 2
+				},
+				"beat_roll": -0.27673065662384,
+				"cover_file": "capa_a.webp",
+				"credits": {
+					"beatmakers": [],
+					"feats": [
+						"jid"
+					],
+					"producers": [
+						"cardo"
+					]
+				},
+				"feat_score": 89,
+				"id": "song_1",
+				"production_cost": 140100,
+				"production_roll": -0.661423563957214,
+				"quality": 59,
+				"release_week": 1,
+				"status": "released",
+				"title": "Hit lançado"
+			},
+			{
+				"attribute_bases": {
+					"beat": 45,
+					"lyrics": 52,
+					"production": 47,
+					"vocal": 51
+				},
+				"attribute_points": {
+					"beat": 4
+				},
+				"beat_roll": -0.665587544441223,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_2",
+				"production_cost": 100,
+				"production_roll": -0.4244225025177,
+				"quality": 49,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Single agendado"
+			},
+			{
+				"attribute_bases": {
+					"beat": 48,
+					"lyrics": 57,
+					"production": 50,
+					"vocal": 46
+				},
+				"attribute_points": {},
+				"beat_roll": -0.216661870479584,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_3",
+				"production_cost": 100,
+				"production_roll": 0.010343074798584,
+				"quality": 50,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Inédita solta"
+			},
+			{
+				"attribute_bases": {
+					"beat": 45,
+					"lyrics": 51,
+					"production": 49,
+					"vocal": 56
+				},
+				"attribute_points": {},
+				"beat_roll": -0.672412037849426,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_5",
+				"production_cost": 100,
+				"production_roll": -0.173725605010986,
+				"quality": 50,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa 1"
+			},
+			{
+				"attribute_bases": {
+					"beat": 46,
+					"lyrics": 50,
+					"production": 48,
+					"vocal": 43
+				},
+				"attribute_points": {},
+				"beat_roll": -0.559073865413666,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_6",
+				"production_cost": 100,
+				"production_roll": -0.234707117080688,
+				"quality": 47,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa 2"
+			}
+		],
+		"week_reports": [
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 150,
+						"note": "",
+						"sales": 0,
+						"streams": 0,
+						"title": "Você trabalhou como Entregador."
+					},
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 5,
+						"money": 75,
+						"note": "",
+						"sales": 0,
+						"streams": 7534,
+						"title": "Hit lançado"
+					}
+				],
+				"week": 2
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 1,
+						"money": 21,
+						"note": "",
+						"sales": 0,
+						"streams": 2146,
+						"title": "Hit lançado"
+					}
+				],
+				"week": 3
+			}
+		]
+	},
+	"version": 3
+}

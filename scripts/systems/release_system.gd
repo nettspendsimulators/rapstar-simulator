@@ -6,13 +6,15 @@ var _balance: GameBalance
 var _economy: EconomySystem
 var _time: TimeSystem
 var _performance: PerformanceSystem
+var _marketing: MarketingSystem
 
 
-func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem) -> void:
+func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem, marketing: MarketingSystem) -> void:
 	_balance = balance
 	_economy = economy
 	_time = time
 	_performance = performance
+	_marketing = marketing
 
 
 ## Conteúdo que pode ser lançado ou agendado agora.
@@ -63,10 +65,12 @@ func schedule(career: CareerData, content_id: String, week: int) -> ActionResult
 	if not error.is_empty():
 		return ActionResult.failure(error)
 	var cost := release_cost(content)
-	if not _economy.can_afford(career, cost):
-		return _economy.insufficient_funds(cost)
+	var total_cost := cost + _marketing.unpaid_cost(career, content.id)
+	if not _economy.can_afford(career, total_cost):
+		return _economy.insufficient_funds(total_cost)
 
 	_economy.spend(career, cost, "Agendamento: %s" % content.title, FinanceEntry.CATEGORY_RELEASE)
+	_marketing.start_campaign(career, content.id)
 	var entry := ScheduledRelease.new()
 	entry.content_id = content.id
 	entry.scheduled_week = week
@@ -92,6 +96,7 @@ func cancel_schedule(career: CareerData, content_id: String) -> ActionResult:
 	if entry == null:
 		return ActionResult.failure("Este lançamento não está agendado.")
 	_cancel_and_refund(career, entry)
+	_marketing.pause_campaign(career, content_id)
 	var title := career.find_content(content_id).title
 	return ActionResult.success("Agendamento de \"%s\" cancelado. %s devolvidos." % [title, Fmt.money(entry.paid_cost)], entry)
 
@@ -120,7 +125,7 @@ func process_week(career: CareerData, report: WeekReport) -> void:
 		var is_album := release_entry.content_type == ReleaseData.TYPE_ALBUM
 		var rules := _balance.album_performance if is_album else _balance.song_performance
 		var age_weeks := maxi(_time.weeks_since(career, release_entry.release_week) - 1, 0)
-		var units_multiplier := 1.0
+		var units_multiplier := _marketing.units_multiplier(release_entry, age_weeks)
 		var fame_multiplier := 1.0
 		if is_album:
 			var album_format := _balance.find_album_format(content.format_id)
@@ -179,6 +184,8 @@ func _publish(career: CareerData, content: ReleasableContent, report: WeekReport
 	release_entry.content_type = ReleaseData.TYPE_ALBUM if content is AlbumData else ReleaseData.TYPE_SONG
 	release_entry.content_id = content.id
 	release_entry.release_week = career.current_week
+	if content is SongData:
+		release_entry.initial_potential = _marketing.finish_campaign(career, content, report)
 	career.releases.append(release_entry)
 
 	var multiplier := 1.0
@@ -197,6 +204,7 @@ func _release_tracks(career: CareerData, album: AlbumData, report: WeekReport) -
 		if song.is_released():
 			continue
 		song.mark_released(career.current_week)
+		_marketing.finish_campaign(career, song, report)
 		var entry := career.find_active_schedule(song_id)
 		if entry == null:
 			continue

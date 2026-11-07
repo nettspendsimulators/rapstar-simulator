@@ -19,8 +19,9 @@ var song_quality := SongQualitySystem.new(balance)
 var work := WorkSystem.new(economy)
 var music := MusicSystem.new(balance, economy, song_quality, rng)
 var albums := AlbumSystem.new(balance, economy)
-var releases := ReleaseSystem.new(balance, economy, time, performance)
-var weeks := WeekSystem.new(balance, time, economy, work, releases)
+var marketing := MarketingSystem.new(balance, economy, rng)
+var releases := ReleaseSystem.new(balance, economy, time, performance, marketing)
+var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing)
 
 
 func _init() -> void:
@@ -101,6 +102,14 @@ func reschedule_release(content_id: String, week: int) -> ActionResult:
 
 func cancel_schedule(content_id: String) -> ActionResult:
 	return _notify_if_ok(releases.cancel_schedule(career, content_id))
+
+
+func add_marketing_action(song_id: String, action_id: String) -> ActionResult:
+	return _notify_if_ok(marketing.add_action(career, song_id, action_id))
+
+
+func remove_marketing_action(song_id: String, action_id: String) -> ActionResult:
+	return _notify_if_ok(marketing.remove_action(career, song_id, action_id))
 
 
 func _notify_if_ok(result: ActionResult) -> ActionResult:

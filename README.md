@@ -28,6 +28,7 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Trabalho, ou mudar preços e valores iniciais | `data/game_balance.tres` (pelo Inspector do Godot) |
 | Produtor, beatmaker ou feat, e seus atributos | `data/collaborators.tres` |
 | Custo de um colaborador | `cost` em `data/collaborators.tres` |
+| Ação ou resultado de marketing, e os parâmetros da expectativa | `data/marketing.tres` |
 | Pesos da nota, custo e limite das melhorias | `song_quality` em `data/game_balance.tres` |
 | Formato de projeto | Nova entrada em `album_formats` em `data/game_balance.tres` |
 | Atributo de música (gênero, duração...) | `SongData`: campo, `to_dict` e `from_dict` |
@@ -57,6 +58,10 @@ godot --headless --path . --script res://tests/test_music.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_song_attributes.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_marketing.gd
 ```
 
 ## Regras do sistema musical
@@ -105,6 +110,20 @@ para lançar ou agendar.
   como um lançamento imediato.
 - Se uma faixa com single agendado sair antes em um projeto, o single é cancelado e reembolsado.
 - O formato de um projeto agendado só muda depois de cancelar o agendamento.
+
+**Marketing (singles):** a campanha é montada na tela de Marketing da música.
+
+- Ações ficam planejadas até o agendamento, que paga lançamento e marketing juntos.
+- Com a música já agendada, uma ação nova é paga na hora e começa com menos tempo que as outras.
+- Cada ação tem uma duração ideal. Menos tempo reduz o rendimento, e tempo demais também.
+- A expectativa depende das ações, do tempo, da qualidade, da fama, da quantidade de ações e do
+  alcance.
+- Cancelar devolve só o custo do lançamento. O marketing pago continua valendo para um novo
+  agendamento, e ações pagas não saem da campanha.
+- No lançamento, um sorteio define o resultado: abaixo do esperado, normal, muito bom ou oportunidade
+  inesperada. Ele gera alcance, expectativa, pré-saves, novos fãs, exposição, popularidade e potencial.
+- Do resultado, só o potencial afeta o jogo por enquanto: multiplica os streams em até 1,5x na
+  primeira semana, e o bônus cai 30% por semana. Os demais dados ficam guardados para sistemas futuros.
 
 **Reputação:** muda só ao lançar. Qualidade acima de 50 aumenta, abaixo de 50 diminui.
 

@@ -4,7 +4,7 @@ extends Screen
 func _ready() -> void:
 	%PendingTable.set_headers(["Nome", "Tipo", "Nota", "Custo de lançamento", "Situação"])
 	%PendingTable.set_column_expand_ratio(4, 2)
-	%ScheduleTable.set_headers(["Nome", "Tipo", "Semana programada", "Status"])
+	%ScheduleTable.set_headers(["Nome", "Tipo", "Semana programada", "Status", "Expectativa"])
 	%ReleasedTable.set_headers(["Nome", "Tipo", "Semana", "Streams", "Vendas", "Dinheiro", "Fama"])
 	%PendingTable.item_selected.connect(_on_pending_selected)
 	%ScheduleTable.item_selected.connect(%MessageLabel.set_text.bind(""))
@@ -52,7 +52,8 @@ func _situation_text(content: ReleasableContent) -> String:
 	if content is AlbumData:
 		var album_format := GameManager.balance.find_album_format(content.format_id)
 		return album_format.progress_text(content.song_ids.size())
-	return "Pronta"
+	var planned_cost := GameManager.marketing.unpaid_cost(GameManager.career, content.id)
+	return "Pronta" if planned_cost == 0 else "Marketing a pagar: %s" % Fmt.money(planned_cost)
 
 
 func _on_pending_selected() -> void:
@@ -84,7 +85,13 @@ func _fill_schedule() -> void:
 			GameManager.releases.content_type_label(content),
 			Fmt.number(entry.scheduled_week),
 			entry.status_label(),
+			_expectation_text(entry),
 		], entry.content_id if entry.is_active() else null, content.cover_file)
+
+
+func _expectation_text(entry: ScheduledRelease) -> String:
+	var campaign := GameManager.career.find_campaign(entry.content_id)
+	return str(campaign.hype) if campaign != null and entry.is_active() else "—"
 
 
 func _fill_released() -> void:

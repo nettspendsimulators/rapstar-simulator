@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/definitions/song_quality_rules.gd" id="5_quality"]
 [ext_resource type="Resource" path="res://data/collaborators.tres" id="6_collaborators"]
 [ext_resource type="Script" path="res://scripts/definitions/song_attribute_definition.gd" id="7_attribute"]
+[ext_resource type="Resource" path="res://data/marketing.tres" id="8_marketing"]
 
 [sub_resource type="Resource" id="job_delivery"]
 script = ExtResource("2_job")
@@ -121,6 +122,7 @@ script = ExtResource("1_balance")
 jobs = Array[ExtResource("2_job")]([SubResource("job_delivery"), SubResource("job_waiter"), SubResource("job_heavy")])
 song_quality = SubResource("quality_rules")
 collaborators = ExtResource("6_collaborators")
+marketing = ExtResource("8_marketing")
 album_formats = Array[ExtResource("3_format")]([SubResource("format_ep"), SubResource("format_album"), SubResource("format_mixtape")])
 song_performance = SubResource("song_rules")
 album_performance = SubResource("album_rules")
