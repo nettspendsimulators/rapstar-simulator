@@ -11,7 +11,7 @@ func _ready() -> void:
 	_song = GameManager.career.find_song(context.get("song_id", ""))
 	_build_attribute_rows()
 	%EditButton.pressed.connect(func() -> void: navigate(Screen.SONG_EDITOR, {"song_id": _song.id}))
-	%MarketingButton.pressed.connect(func() -> void: navigate(Screen.MARKETING, {"song_id": _song.id}))
+	%MarketingButton.pressed.connect(func() -> void: navigate(Screen.MARKETING, {"content_id": _song.id, "back": Screen.SONG_DETAIL}))
 	%BackButton.pressed.connect(navigate.bind(Screen.SONGS))
 	super()
 
@@ -79,11 +79,18 @@ func _refresh_row(attribute_id: String) -> void:
 
 func _status_text() -> String:
 	if _song.is_released():
-		return "Lançada na semana %s. Atributos bloqueados." % Fmt.number(_song.release_week)
+		return "Lançada na semana %s. Atributos bloqueados.%s" % [Fmt.number(_song.release_week), _performance_text()]
 	var album := GameManager.career.find_album_of_song(_song.id)
 	if album != null:
-		return "Não lançada. Faz parte de \"%s\"." % album.title
-	return "Não lançada."
+		return "%s. Faz parte de \"%s\"." % [_song.display_status(), album.title]
+	return "%s." % _song.display_status()
+
+
+func _performance_text() -> String:
+	var performance := GameManager.career.find_performance(_song.id)
+	if performance == null:
+		return ""
+	return "\nReproduções: %s  |  %s" % [Fmt.number(performance.total_plays), GameManager.streaming.trend_label(performance)]
 
 
 func _credits_text() -> String:
@@ -92,8 +99,18 @@ func _credits_text() -> String:
 		"Produtores: %s" % _names_text(CollaboratorCatalog.names(catalog.producers, _song.credits.producer_ids)),
 		"Beatmakers: %s" % _names_text(CollaboratorCatalog.names(catalog.beatmakers, _song.credits.beatmaker_ids)),
 		"Feats: %s (nota %d)" % [_names_text(CollaboratorCatalog.names(catalog.feats, _song.credits.feat_ids)), _song.feat_score],
+		"Sample: %s" % _sample_text(),
 		"Investido: %s" % Fmt.money(_song.production_cost),
 	])
+
+
+func _sample_text() -> String:
+	var definition := GameManager.balance.samples.find_sample(_song.sample.sample_id)
+	if definition == null:
+		return "—"
+	if definition.is_own():
+		return "%s (\"%s\")" % [definition.display_name, GameManager.career.find_song(_song.sample.song_id).title]
+	return definition.display_name
 
 
 func _names_text(names: PackedStringArray) -> String:

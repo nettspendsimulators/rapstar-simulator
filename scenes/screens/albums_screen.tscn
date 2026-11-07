@@ -77,6 +77,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Editar"
 
+[node name="MarketingButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Marketing"
+
 [node name="NewButton" type="Button" parent="Column/ButtonRow"]
 unique_name_in_owner = true
 layout_mode = 2

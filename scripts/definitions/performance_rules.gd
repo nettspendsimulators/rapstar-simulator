@@ -15,3 +15,5 @@ extends Resource
 @export_range(0.0, 1.0) var min_age_factor: float = 0.1
 ## Bônus de unidades por ponto de fama do artista.
 @export var fame_bonus_per_point: float = 0.005
+## Maior multiplicador que a fama pode dar às unidades.
+@export var max_fame_factor: float = 20.0

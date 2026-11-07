@@ -1,0 +1,235 @@
+[gd_resource type="Resource" script_class="StreamingRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/streaming_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/platform_definition.gd" id="2_platform"]
+[ext_resource type="Script" path="res://scripts/definitions/trajectory_definition.gd" id="3_trajectory"]
+
+[sub_resource type="Resource" id="platform_spotify"]
+script = ExtResource("2_platform")
+id = "spotify"
+display_name = "Spotify"
+description = "A maior vitrine de streaming, onde produção bem cuidada faz diferença."
+audience_share = 0.45
+affinity_attribute = "production"
+affinity_strength = 0.4
+money_per_play = 0.01
+listeners_per_play = 0.3
+followers_per_play = 0.02
+listeners_label = "Ouvintes mensais"
+followers_label = "Seguidores"
+plays_label = "Streams"
+catalog_label = "Músicas populares"
+
+[sub_resource type="Resource" id="platform_apple"]
+script = ExtResource("2_platform")
+id = "apple_music"
+display_name = "Apple Music"
+description = "Público fiel, que paga mais por reprodução e valoriza bons vocais."
+audience_share = 0.2
+affinity_attribute = "vocal"
+affinity_strength = 0.4
+money_per_play = 0.015
+listeners_per_play = 0.25
+followers_per_play = 0.015
+listeners_label = "Ouvintes"
+followers_label = "Seguidores"
+plays_label = "Plays"
+catalog_label = "Catálogo"
+
+[sub_resource type="Resource" id="platform_deezer"]
+script = ExtResource("2_platform")
+id = "deezer"
+display_name = "Deezer"
+description = "Público menor, atento às letras."
+audience_share = 0.08
+affinity_attribute = "lyrics"
+affinity_strength = 0.4
+money_per_play = 0.012
+listeners_per_play = 0.25
+followers_per_play = 0.015
+listeners_label = "Ouvintes"
+followers_label = "Seguidores"
+plays_label = "Plays"
+catalog_label = "Catálogo"
+
+[sub_resource type="Resource" id="platform_soundcloud"]
+script = ExtResource("2_platform")
+id = "soundcloud"
+display_name = "SoundCloud"
+description = "A casa do underground: paga pouco, mas abraça bons beats e cria comunidade."
+audience_share = 0.07
+affinity_attribute = "beat"
+affinity_strength = 0.6
+money_per_play = 0.004
+followers_per_play = 0.03
+likes_per_play = 0.04
+followers_label = "Seguidores"
+plays_label = "Plays"
+catalog_label = "Faixas"
+extra_label = "Curtidas"
+
+[sub_resource type="Resource" id="platform_youtube"]
+script = ExtResource("2_platform")
+id = "youtube"
+display_name = "YouTube"
+description = "Muitas visualizações que pagam pouco, ótimas para ser descoberto."
+audience_share = 0.2
+affinity_attribute = "vocal"
+affinity_strength = 0.2
+money_per_play = 0.003
+followers_per_play = 0.01
+followers_label = "Inscritos"
+plays_label = "Visualizações"
+catalog_label = "Vídeos e músicas"
+
+[sub_resource type="Resource" id="platform_store"]
+script = ExtResource("2_platform")
+id = "digital_store"
+display_name = "Loja digital"
+description = "Venda direta de singles e projetos. Poucas unidades, mas cada uma rende bem."
+kind = "store"
+plays_label = "Vendas"
+catalog_label = "À venda"
+
+[sub_resource type="Resource" id="platform_radio"]
+script = ExtResource("2_platform")
+id = "radio"
+display_name = "Rádio"
+description = "Só toca quem tem fama ou uma ação de Rádio na campanha."
+kind = "radio"
+audience_share = 0.05
+money_per_play = 0.005
+plays_label = "Execuções"
+catalog_label = "Em rotação"
+required_fame = 50
+unlock_action = "radio"
+
+[sub_resource type="Resource" id="trajectory_legacy"]
+script = ExtResource("3_trajectory")
+id = "legacy"
+label = "Lançamento antigo"
+weekly_decay = 0.9
+base_weight = 0.0
+
+[sub_resource type="Resource" id="trajectory_instant_hit"]
+script = ExtResource("3_trajectory")
+id = "instant_hit"
+label = "Hit imediato"
+debut = 2.2
+weekly_decay = 0.88
+floor_value = 0.2
+quality_weight = 1.0
+hype_weight = 1.5
+fame_weight = 0.5
+
+[sub_resource type="Resource" id="trajectory_slow_growth"]
+script = ExtResource("3_trajectory")
+id = "slow_growth"
+label = "Crescimento lento"
+debut = 0.5
+ramp_weeks = 6
+ramp_peak = 1.4
+weekly_decay = 0.96
+floor_value = 0.25
+quality_weight = 0.6
+
+[sub_resource type="Resource" id="trajectory_steady"]
+script = ExtResource("3_trajectory")
+id = "steady"
+label = "Crescimento constante"
+ramp_weeks = 8
+ramp_peak = 1.3
+weekly_decay = 0.985
+floor_value = 0.3
+base_weight = 2.0
+quality_weight = 0.5
+
+[sub_resource type="Resource" id="trajectory_viral"]
+script = ExtResource("3_trajectory")
+id = "viral"
+label = "Explosão viral"
+debut = 0.7
+weekly_decay = 0.93
+floor_value = 0.2
+surge_boost = 4.0
+surge_decay = 0.75
+base_weight = 0.3
+quality_weight = 0.3
+hype_weight = 0.5
+attention_weight = 1.5
+
+[sub_resource type="Resource" id="trajectory_delayed"]
+script = ExtResource("3_trajectory")
+id = "delayed"
+label = "Crescimento semanas depois"
+debut = 0.5
+weekly_decay = 0.98
+floor_value = 0.3
+surge_boost = 1.8
+surge_decay = 0.92
+surge_week_min = 4
+surge_week_max = 9
+base_weight = 0.6
+quality_weight = 0.5
+
+[sub_resource type="Resource" id="trajectory_platform_focus"]
+script = ExtResource("3_trajectory")
+id = "platform_focus"
+label = "Sucesso em uma plataforma"
+debut = 1.1
+weekly_decay = 0.93
+floor_value = 0.2
+spotlight_platform = "auto"
+spotlight_boost = 3.0
+base_weight = 0.8
+
+[sub_resource type="Resource" id="trajectory_underground"]
+script = ExtResource("3_trajectory")
+id = "underground"
+label = "Sucesso underground"
+debut = 0.6
+weekly_decay = 0.985
+floor_value = 0.3
+spotlight_platform = "soundcloud"
+spotlight_boost = 2.0
+base_weight = 0.6
+quality_weight = 0.8
+fame_weight = -1.5
+
+[sub_resource type="Resource" id="trajectory_debut_crash"]
+script = ExtResource("3_trajectory")
+id = "debut_crash"
+label = "Grande estreia e queda"
+debut = 3.0
+weekly_decay = 0.6
+base_weight = 0.7
+quality_weight = -0.5
+hype_weight = 2.0
+
+[sub_resource type="Resource" id="trajectory_flop"]
+script = ExtResource("3_trajectory")
+id = "flop"
+label = "Fracasso"
+debut = 0.25
+weekly_decay = 0.8
+floor_value = 0.05
+base_weight = 0.7
+quality_weight = -1.5
+hype_weight = -0.3
+
+[sub_resource type="Resource" id="trajectory_catalog_late"]
+script = ExtResource("3_trajectory")
+id = "catalog_late"
+label = "Sucesso tardio de catálogo"
+debut = 0.6
+surge_boost = 1.2
+surge_decay = 0.99
+surge_week_min = 10
+surge_week_max = 20
+base_weight = 0.4
+quality_weight = 0.6
+
+[resource]
+script = ExtResource("1_rules")
+platforms = Array[ExtResource("2_platform")]([SubResource("platform_spotify"), SubResource("platform_apple"), SubResource("platform_deezer"), SubResource("platform_soundcloud"), SubResource("platform_youtube"), SubResource("platform_store"), SubResource("platform_radio")])
+trajectories = Array[ExtResource("3_trajectory")]([SubResource("trajectory_legacy"), SubResource("trajectory_instant_hit"), SubResource("trajectory_slow_growth"), SubResource("trajectory_steady"), SubResource("trajectory_viral"), SubResource("trajectory_delayed"), SubResource("trajectory_platform_focus"), SubResource("trajectory_underground"), SubResource("trajectory_debut_crash"), SubResource("trajectory_flop"), SubResource("trajectory_catalog_late")])

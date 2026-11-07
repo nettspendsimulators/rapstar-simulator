@@ -53,7 +53,9 @@ func _situation_text(content: ReleasableContent) -> String:
 		var album_format := GameManager.balance.find_album_format(content.format_id)
 		return album_format.progress_text(content.song_ids.size())
 	var planned_cost := GameManager.marketing.unpaid_cost(GameManager.career, content.id)
-	return "Pronta" if planned_cost == 0 else "Marketing a pagar: %s" % Fmt.money(planned_cost)
+	if planned_cost > 0:
+		return "Marketing a pagar: %s" % Fmt.money(planned_cost)
+	return "Pronta (vazou)" if content.is_leaked() else "Pronta"
 
 
 func _on_pending_selected() -> void:
@@ -84,7 +86,7 @@ func _fill_schedule() -> void:
 			content.title,
 			GameManager.releases.content_type_label(content),
 			Fmt.number(entry.scheduled_week),
-			entry.status_label(),
+			"Vazado" if entry.is_active() and content.is_leaked() else entry.status_label(),
 			_expectation_text(entry),
 		], entry.content_id if entry.is_active() else null, content.cover_file)
 

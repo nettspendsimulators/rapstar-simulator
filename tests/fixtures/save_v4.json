@@ -1,0 +1,577 @@
+{
+	"career": {
+		"albums": [
+			{
+				"cover_file": "capa_b.webp",
+				"format_id": "ep",
+				"id": "album_8",
+				"production_cost": 160,
+				"quality": 50,
+				"release_week": 2,
+				"song_ids": [
+					"song_5",
+					"song_6",
+					"song_7"
+				],
+				"status": "released",
+				"title": "EP lançado"
+			},
+			{
+				"cover_file": "",
+				"format_id": "album",
+				"id": "album_9",
+				"production_cost": 200,
+				"quality": 0,
+				"release_week": -1,
+				"song_ids": [],
+				"status": "unreleased",
+				"title": "Álbum vazio"
+			}
+		],
+		"artist_name": "MC Quatro",
+		"current_week": 4,
+		"energy": 35,
+		"fame": 18,
+		"finance_history": [
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Hit com campanha",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Agendamento: Hit com campanha",
+				"week": 1
+			},
+			{
+				"amount": -500,
+				"category": "marketing",
+				"description": "Marketing (Teaser): Hit com campanha",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Single simples",
+				"week": 2
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Lançamento: Single simples",
+				"week": 2
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Campanha ativa",
+				"week": 2
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Agendamento: Campanha ativa",
+				"week": 2
+			},
+			{
+				"amount": -500,
+				"category": "marketing",
+				"description": "Marketing (Teaser): Campanha ativa",
+				"week": 2
+			},
+			{
+				"amount": -800,
+				"category": "marketing",
+				"description": "Marketing (Redes sociais): Campanha ativa",
+				"week": 2
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Campanha planejada",
+				"week": 2
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 1",
+				"week": 2
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 2",
+				"week": 2
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 3",
+				"week": 2
+			},
+			{
+				"amount": -160,
+				"category": "production",
+				"description": "Produção de EP: EP lançado",
+				"week": 2
+			},
+			{
+				"amount": -75,
+				"category": "release",
+				"description": "Lançamento: EP lançado",
+				"week": 2
+			},
+			{
+				"amount": -200,
+				"category": "production",
+				"description": "Produção de Álbum: Álbum vazio",
+				"week": 2
+			},
+			{
+				"amount": 32,
+				"category": "streams",
+				"description": "Streams: Hit com campanha",
+				"week": 3
+			},
+			{
+				"amount": 16,
+				"category": "streams",
+				"description": "Streams: Single simples",
+				"week": 3
+			},
+			{
+				"amount": 137,
+				"category": "sales",
+				"description": "Vendas de EP: EP lançado",
+				"week": 3
+			},
+			{
+				"amount": 150,
+				"category": "work",
+				"description": "Trabalho como Entregador",
+				"week": 4
+			},
+			{
+				"amount": 14,
+				"category": "streams",
+				"description": "Streams: Hit com campanha",
+				"week": 4
+			},
+			{
+				"amount": 45,
+				"category": "streams",
+				"description": "Streams: Single simples",
+				"week": 4
+			},
+			{
+				"amount": 148,
+				"category": "sales",
+				"description": "Vendas de EP: EP lançado",
+				"week": 4
+			}
+		],
+		"marketing_campaigns": [
+			{
+				"actions": [
+					{
+						"action_id": "teaser",
+						"paid_cost": 500,
+						"weeks_active": 1
+					}
+				],
+				"hype": 10,
+				"result": {
+					"expectation": 14,
+					"exposure": 52,
+					"initial_potential": 1.035,
+					"new_fans": 14,
+					"outcome_id": "great",
+					"outcome_label": "Funcionou muito bem",
+					"popularity": 0,
+					"pre_saves": 0,
+					"reach": 2835
+				},
+				"song_id": "song_1",
+				"status": "completed"
+			},
+			{
+				"actions": [
+					{
+						"action_id": "teaser",
+						"paid_cost": 500,
+						"weeks_active": 2
+					},
+					{
+						"action_id": "social",
+						"paid_cost": 800,
+						"weeks_active": 2
+					}
+				],
+				"hype": 22,
+				"result": null,
+				"song_id": "song_3",
+				"status": "active"
+			},
+			{
+				"actions": [
+					{
+						"action_id": "pre_save",
+						"paid_cost": 0,
+						"weeks_active": 0
+					}
+				],
+				"hype": 0,
+				"result": null,
+				"song_id": "song_4",
+				"status": "planning"
+			}
+		],
+		"money": 897457,
+		"next_id": 10,
+		"releases": [
+			{
+				"content_id": "song_1",
+				"content_type": "song",
+				"initial_potential": 1.035,
+				"release_week": 2,
+				"total_fame": 2,
+				"total_money": 46,
+				"total_sales": 0,
+				"total_streams": 4616
+			},
+			{
+				"content_id": "song_2",
+				"content_type": "song",
+				"initial_potential": 1.0,
+				"release_week": 2,
+				"total_fame": 4,
+				"total_money": 61,
+				"total_sales": 0,
+				"total_streams": 6076
+			},
+			{
+				"content_id": "album_8",
+				"content_type": "album",
+				"initial_potential": 1.0,
+				"release_week": 2,
+				"total_fame": 12,
+				"total_money": 285,
+				"total_sales": 952,
+				"total_streams": 0
+			}
+		],
+		"reputation": 0,
+		"scheduled_releases": [
+			{
+				"content_id": "song_1",
+				"paid_cost": 50,
+				"scheduled_week": 2,
+				"status": "released"
+			},
+			{
+				"content_id": "song_3",
+				"paid_cost": 50,
+				"scheduled_week": 9,
+				"status": "scheduled"
+			}
+		],
+		"songs": [
+			{
+				"attribute_bases": {
+					"beat": 56,
+					"lyrics": 43,
+					"production": 44,
+					"vocal": 56
+				},
+				"attribute_points": {},
+				"beat_roll": 0.766772508621216,
+				"cover_file": "capa_a.webp",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_1",
+				"production_cost": 100,
+				"production_roll": -0.809659600257874,
+				"quality": 50,
+				"release_week": 2,
+				"status": "released",
+				"title": "Hit com campanha"
+			},
+			{
+				"attribute_bases": {
+					"beat": 48,
+					"lyrics": 54,
+					"production": 52,
+					"vocal": 52
+				},
+				"attribute_points": {},
+				"beat_roll": -0.240935981273651,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_2",
+				"production_cost": 100,
+				"production_roll": 0.239284515380859,
+				"quality": 51,
+				"release_week": 2,
+				"status": "released",
+				"title": "Single simples"
+			},
+			{
+				"attribute_bases": {
+					"beat": 50,
+					"lyrics": 54,
+					"production": 43,
+					"vocal": 54
+				},
+				"attribute_points": {},
+				"beat_roll": 0.0576350688934326,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_3",
+				"production_cost": 100,
+				"production_roll": -0.93845796585083,
+				"quality": 50,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Campanha ativa"
+			},
+			{
+				"attribute_bases": {
+					"beat": 49,
+					"lyrics": 49,
+					"production": 45,
+					"vocal": 47
+				},
+				"attribute_points": {},
+				"beat_roll": -0.14810985326767,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_4",
+				"production_cost": 100,
+				"production_roll": -0.667498707771301,
+				"quality": 48,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Campanha planejada"
+			},
+			{
+				"attribute_bases": {
+					"beat": 53,
+					"lyrics": 46,
+					"production": 52,
+					"vocal": 48
+				},
+				"attribute_points": {},
+				"beat_roll": 0.414775729179382,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_5",
+				"production_cost": 100,
+				"production_roll": 0.30257773399353,
+				"quality": 50,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa 1"
+			},
+			{
+				"attribute_bases": {
+					"beat": 50,
+					"lyrics": 48,
+					"production": 50,
+					"vocal": 46
+				},
+				"attribute_points": {},
+				"beat_roll": 0.0555765628814697,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_6",
+				"production_cost": 100,
+				"production_roll": -0.0126407146453857,
+				"quality": 49,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa 2"
+			},
+			{
+				"attribute_bases": {
+					"beat": 48,
+					"lyrics": 47,
+					"production": 55,
+					"vocal": 57
+				},
+				"attribute_points": {},
+				"beat_roll": -0.318157076835632,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_7",
+				"production_cost": 100,
+				"production_roll": 0.726540327072144,
+				"quality": 52,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa 3"
+			}
+		],
+		"week_reports": [
+			{
+				"entries": [
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 0,
+						"money": 0,
+						"note": "Expectativa em 10.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Campanha: Hit com campanha"
+					},
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 0,
+						"money": 0,
+						"note": "Funcionou muito bem. Alcance 2.835, expectativa 14, 0 pré-saves, 14 novos fãs.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Resultado da campanha: Hit com campanha"
+					},
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 0,
+						"money": 0,
+						"note": "Single lançado como agendado. Reputação +0.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Hit com campanha"
+					}
+				],
+				"week": 2
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 2,
+						"money": 32,
+						"note": "",
+						"sales": 0,
+						"streams": 3228,
+						"title": "Hit com campanha"
+					},
+					{
+						"cover_file": "",
+						"fame": 1,
+						"money": 16,
+						"note": "",
+						"sales": 0,
+						"streams": 1551,
+						"title": "Single simples"
+					},
+					{
+						"cover_file": "capa_b.webp",
+						"fame": 6,
+						"money": 137,
+						"note": "",
+						"sales": 458,
+						"streams": 0,
+						"title": "EP lançado"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Expectativa em 16.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Campanha: Campanha ativa"
+					}
+				],
+				"week": 3
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 150,
+						"note": "",
+						"sales": 0,
+						"streams": 0,
+						"title": "Você trabalhou como Entregador."
+					},
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 0,
+						"money": 14,
+						"note": "",
+						"sales": 0,
+						"streams": 1388,
+						"title": "Hit com campanha"
+					},
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 45,
+						"note": "",
+						"sales": 0,
+						"streams": 4525,
+						"title": "Single simples"
+					},
+					{
+						"cover_file": "capa_b.webp",
+						"fame": 6,
+						"money": 148,
+						"note": "",
+						"sales": 494,
+						"streams": 0,
+						"title": "EP lançado"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Expectativa em 22.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Campanha: Campanha ativa"
+					}
+				],
+				"week": 4
+			}
+		]
+	},
+	"version": 4
+}

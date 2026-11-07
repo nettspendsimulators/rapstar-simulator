@@ -1,0 +1,113 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/artist_profile_screen.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
+[ext_resource type="PackedScene" path="res://scenes/components/cover_picker.tscn" id="3_cover"]
+[ext_resource type="Script" path="res://scripts/ui/components/cover_preview.gd" id="4_preview"]
+
+[node name="ArtistProfileScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderRow" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Column/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleLabel"
+text = "Perfil do artista"
+
+[node name="ArtistOption" type="OptionButton" parent="Column/HeaderRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Body" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Side" type="PanelContainer" parent="Column/Body"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+
+[node name="SideColumn" type="VBoxContainer" parent="Column/Body/Side"]
+layout_mode = 2
+
+[node name="OwnProfile" type="VBoxContainer" parent="Column/Body/Side/SideColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CoverPicker" parent="Column/Body/Side/SideColumn/OwnProfile" instance=ExtResource("3_cover")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BioEdit" type="LineEdit" parent="Column/Body/Side/SideColumn/OwnProfile"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Descrição do perfil"
+max_length = 140
+
+[node name="BioButton" type="Button" parent="Column/Body/Side/SideColumn/OwnProfile"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salvar descrição"
+
+[node name="CollaboratorCover" type="TextureRect" parent="Column/Body/Side/SideColumn"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+script = ExtResource("4_preview")
+
+[node name="Main" type="VBoxContainer" parent="Column/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="Column/Body/Main"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+
+[node name="BioLabel" type="Label" parent="Column/Body/Main"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="StatsLabel" type="Label" parent="Column/Body/Main"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="FilterOption" type="OptionButton" parent="Column/Body/Main"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="CatalogTable" type="Tree" parent="Column/Body/Main"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="MessageLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MessageLabel"
+
+[node name="BackButton" type="Button" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Voltar"

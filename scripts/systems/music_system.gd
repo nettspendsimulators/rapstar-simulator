@@ -27,7 +27,7 @@ func _init(balance: GameBalance, economy: EconomySystem, quality: SongQualitySys
 	_rng = rng
 
 
-func create_song(career: CareerData, title: String, credits: SongCredits = null, cover_file: String = "") -> ActionResult:
+func create_song(career: CareerData, title: String, credits: SongCredits = null, cover_file: String = "", sample: SongSample = null) -> ActionResult:
 	var clean_title := title.strip_edges()
 	if clean_title.is_empty():
 		return ActionResult.failure("Dê um nome para a música.")
@@ -35,14 +35,19 @@ func create_song(career: CareerData, title: String, credits: SongCredits = null,
 	var credits_error := _validate_credits(song_credits)
 	if not credits_error.is_empty():
 		return ActionResult.failure(credits_error)
+	var song_sample := sample if sample != null else SongSample.new()
+	var sample_error := _validate_sample(career, song_sample, "")
+	if not sample_error.is_empty():
+		return ActionResult.failure(sample_error)
 	var production_cost := _balance.song_production_cost
 	var hires := _new_hires(song_credits, SongCredits.new())
-	var total_cost := production_cost + _hires_cost(hires)
+	var total_cost := production_cost + _hires_cost(hires) + sample_cost(song_sample)
 	if not _economy.can_afford(career, total_cost):
 		return _economy.insufficient_funds(total_cost)
 
 	_economy.spend(career, production_cost, "Produção de música: %s" % clean_title, FinanceEntry.CATEGORY_PRODUCTION)
 	_pay_hires(career, hires, clean_title)
+	_pay_sample(career, song_sample, clean_title)
 	var song := SongData.new()
 	song.id = career.new_id("song")
 	song.title = clean_title
@@ -56,6 +61,7 @@ func create_song(career: CareerData, title: String, credits: SongCredits = null,
 	song.attribute_bases[SongData.ATTRIBUTE_PRODUCTION] = _quality.production_score(song_credits, song.production_roll)
 	song.feat_score = _quality.feats_score(song_credits)
 	song.credits = song_credits
+	song.sample = song_sample
 	_update_quality(song)
 	career.songs.append(song)
 	return ActionResult.success("\"%s\" produzida. Nota: %d." % [song.title, song.quality], song)
@@ -63,7 +69,8 @@ func create_song(career: CareerData, title: String, credits: SongCredits = null,
 
 ## Só colaboradores novos são pagos, e remover alguém não gera reembolso.
 ## A nota só muda nas partes cujos colaboradores mudaram. As melhorias são mantidas.
-func edit_song(career: CareerData, song_id: String, title: String, credits: SongCredits, cover_file: String) -> ActionResult:
+## Sem informar sample, a música mantém o atual. Um SongSample vazio remove o sample.
+func edit_song(career: CareerData, song_id: String, title: String, credits: SongCredits, cover_file: String, sample: SongSample = null) -> ActionResult:
 	var song := career.find_song(song_id)
 	if song == null:
 		return ActionResult.failure("Música não encontrada.")
@@ -75,12 +82,20 @@ func edit_song(career: CareerData, song_id: String, title: String, credits: Song
 	var credits_error := _validate_credits(credits)
 	if not credits_error.is_empty():
 		return ActionResult.failure(credits_error)
+	var new_sample := sample if sample != null else song.sample
+	var sample_error := _validate_sample(career, new_sample, song.id)
+	if not sample_error.is_empty():
+		return ActionResult.failure(sample_error)
 	var hires := _new_hires(credits, song.credits)
-	var hires_cost := _hires_cost(hires)
+	var new_sample_cost := 0 if new_sample.equals(song.sample) else sample_cost(new_sample)
+	var hires_cost := _hires_cost(hires) + new_sample_cost
 	if not _economy.can_afford(career, hires_cost):
 		return _economy.insufficient_funds(hires_cost)
 
 	_pay_hires(career, hires, clean_title)
+	if not new_sample.equals(song.sample):
+		_pay_sample(career, new_sample, clean_title)
+	song.sample = new_sample
 	song.production_cost += hires_cost
 	song.title = clean_title
 	song.cover_file = cover_file
@@ -133,6 +148,11 @@ func improvement_limit(song: SongData, attribute_id: String) -> int:
 	return _quality.attribute_limit(song.attribute_bases.get(attribute_id, 0))
 
 
+func sample_cost(sample: SongSample) -> int:
+	var definition := _balance.samples.find_sample(sample.sample_id)
+	return definition.cost if definition != null else 0
+
+
 ## Quanto custariam os colaboradores novos em relação à música, sem alterar nada.
 func hiring_cost(credits: SongCredits, song: SongData = null) -> int:
 	var previous := song.credits if song != null else SongCredits.new()
@@ -141,7 +161,7 @@ func hiring_cost(credits: SongCredits, song: SongData = null) -> int:
 
 ## Nota que a música teria com estes colaboradores, sem alterar nada.
 ## Sem uma música existente, a prévia desconsidera a variação sorteada na produção.
-func preview_quality(credits: SongCredits, song: SongData = null) -> Preview:
+func preview_quality(credits: SongCredits, song: SongData = null, sample: SongSample = null) -> Preview:
 	var preview := Preview.new()
 	var solo := _quality.solo_score(0.0)
 	if song == null:
@@ -160,7 +180,8 @@ func preview_quality(credits: SongCredits, song: SongData = null) -> Preview:
 			preview.attribute_values[SongData.ATTRIBUTE_PRODUCTION] = mini(_quality.production_score(credits, song.production_roll) + song.attribute_points.get(SongData.ATTRIBUTE_PRODUCTION, 0), 100)
 		if credits.feat_ids != song.credits.feat_ids:
 			preview.feat_value = _quality.feats_score(credits)
-	preview.quality = _quality.overall(preview.attribute_values, preview.feat_value)
+	var preview_sample := sample if sample != null else (song.sample if song != null else SongSample.new())
+	preview.quality = _with_sample(_quality.overall(preview.attribute_values, preview.feat_value), preview_sample)
 	return preview
 
 
@@ -177,7 +198,38 @@ func _update_quality(song: SongData) -> void:
 	var values := {}
 	for attribute in _balance.song_quality.attributes:
 		values[attribute.id] = song.attribute_value(attribute.id)
-	song.quality = _quality.overall(values, song.feat_score)
+	song.quality = _with_sample(_quality.overall(values, song.feat_score), song.sample)
+
+
+func _with_sample(quality: int, sample: SongSample) -> int:
+	var definition := _balance.samples.find_sample(sample.sample_id)
+	return clampi(quality + definition.quality_impact, 0, 100) if definition != null else quality
+
+
+## Devolve a mensagem de erro, ou um texto vazio se o sample for válido.
+## O sample próprio exige que o jogador escolha a música: nunca há seleção automática.
+func _validate_sample(career: CareerData, sample: SongSample, own_song_id: String) -> String:
+	if sample.is_empty():
+		return ""
+	var definition := _balance.samples.find_sample(sample.sample_id)
+	if definition == null:
+		return "Sample inválido."
+	if not definition.is_own():
+		return "" if sample.song_id.is_empty() else "Este sample não usa uma música própria."
+	if sample.song_id.is_empty():
+		return "Selecione qual música própria será sampleada."
+	if career.find_song(sample.song_id) == null:
+		return "A música selecionada para o sample não existe."
+	if sample.song_id == own_song_id:
+		return "Uma música não pode samplear a si mesma."
+	return ""
+
+
+func _pay_sample(career: CareerData, sample: SongSample, song_title: String) -> void:
+	var definition := _balance.samples.find_sample(sample.sample_id)
+	if definition != null and definition.cost > 0:
+		var description := "Sample %s: %s" % [definition.display_name, song_title]
+		_economy.spend(career, definition.cost, description, FinanceEntry.CATEGORY_SAMPLE)
 
 
 func _new_hires(credits: SongCredits, previous: SongCredits) -> Array[Hire]:

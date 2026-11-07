@@ -3,6 +3,10 @@ extends RefCounted
 ## Estado completo de uma carreira: é a única fonte de dados e o que vai para o save.
 
 var artist_name: String = ""
+## Foto do perfil público, gerenciada pelo CoverSystem.
+var artist_cover: String = ""
+## Texto próprio do perfil. Vazio usa a descrição automática, que muda com a carreira.
+var artist_bio: String = ""
 var money: int = 0
 var fame: int = 0
 var reputation: int = 0
@@ -13,6 +17,9 @@ var albums: Array[AlbumData] = []
 var releases: Array[ReleaseData] = []
 var scheduled_releases: Array[ScheduledRelease] = []
 var marketing_campaigns: Array[MarketingCampaign] = []
+var song_performances: Array[SongPerformance] = []
+var platform_stats: Dictionary[String, ArtistPlatformStats] = {}
+var performance_snapshots: Array[PerformanceSnapshot] = []
 var finance_history: Array[FinanceEntry] = []
 var week_reports: Array[WeekReport] = []
 var next_id: int = 1
@@ -66,11 +73,27 @@ func find_active_schedule(content_id: String) -> ScheduledRelease:
 	return null
 
 
-func find_campaign(song_id: String) -> MarketingCampaign:
+func find_campaign(content_id: String) -> MarketingCampaign:
 	for campaign in marketing_campaigns:
-		if campaign.song_id == song_id:
+		if campaign.content_id == content_id:
 			return campaign
 	return null
+
+
+func find_performance(song_id: String) -> SongPerformance:
+	for performance in song_performances:
+		if performance.song_id == song_id:
+			return performance
+	return null
+
+
+## Perfil do artista em uma plataforma, criado na primeira vez em que é usado.
+func platform_stats_for(platform_id: String) -> ArtistPlatformStats:
+	if not platform_stats.has(platform_id):
+		var stats := ArtistPlatformStats.new()
+		stats.platform_id = platform_id
+		platform_stats[platform_id] = stats
+	return platform_stats[platform_id]
 
 
 func find_album_of_song(song_id: String) -> AlbumData:
@@ -104,6 +127,8 @@ func last_report() -> WeekReport:
 func to_dict() -> Dictionary:
 	return {
 		"artist_name": artist_name,
+		"artist_cover": artist_cover,
+		"artist_bio": artist_bio,
 		"money": money,
 		"fame": fame,
 		"reputation": reputation,
@@ -115,6 +140,9 @@ func to_dict() -> Dictionary:
 		"releases": releases.map(func(item: ReleaseData) -> Dictionary: return item.to_dict()),
 		"scheduled_releases": scheduled_releases.map(func(item: ScheduledRelease) -> Dictionary: return item.to_dict()),
 		"marketing_campaigns": marketing_campaigns.map(func(item: MarketingCampaign) -> Dictionary: return item.to_dict()),
+		"song_performances": song_performances.map(func(item: SongPerformance) -> Dictionary: return item.to_dict()),
+		"platform_stats": platform_stats.values().map(func(item: ArtistPlatformStats) -> Dictionary: return item.to_dict()),
+		"performance_snapshots": performance_snapshots.map(func(item: PerformanceSnapshot) -> Dictionary: return item.to_dict()),
 		"finance_history": finance_history.map(func(item: FinanceEntry) -> Dictionary: return item.to_dict()),
 		"week_reports": week_reports.map(func(item: WeekReport) -> Dictionary: return item.to_dict()),
 	}
@@ -123,6 +151,8 @@ func to_dict() -> Dictionary:
 static func from_dict(data: Dictionary) -> CareerData:
 	var career := CareerData.new()
 	career.artist_name = data.get("artist_name", "")
+	career.artist_cover = data.get("artist_cover", "")
+	career.artist_bio = data.get("artist_bio", "")
 	career.money = int(data.get("money", 0))
 	career.fame = int(data.get("fame", 0))
 	career.reputation = int(data.get("reputation", 0))
@@ -139,6 +169,13 @@ static func from_dict(data: Dictionary) -> CareerData:
 		career.scheduled_releases.append(ScheduledRelease.from_dict(item))
 	for item: Dictionary in data.get("marketing_campaigns", []):
 		career.marketing_campaigns.append(MarketingCampaign.from_dict(item))
+	for item: Dictionary in data.get("song_performances", []):
+		career.song_performances.append(SongPerformance.from_dict(item))
+	for item: Dictionary in data.get("platform_stats", []):
+		var stats := ArtistPlatformStats.from_dict(item)
+		career.platform_stats[stats.platform_id] = stats
+	for item: Dictionary in data.get("performance_snapshots", []):
+		career.performance_snapshots.append(PerformanceSnapshot.from_dict(item))
 	for item: Dictionary in data.get("finance_history", []):
 		career.finance_history.append(FinanceEntry.from_dict(item))
 	for item: Dictionary in data.get("week_reports", []):

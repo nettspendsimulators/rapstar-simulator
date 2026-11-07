@@ -8,6 +8,7 @@ const ATTRIBUTE_BEAT := "beat"
 const ATTRIBUTE_PRODUCTION := "production"
 
 var credits := SongCredits.new()
+var sample := SongSample.new()
 ## Nota inicial de cada atributo, por id.
 var attribute_bases: Dictionary[String, int] = {}
 ## Pontos que as melhorias somaram a cada atributo, por id.
@@ -29,6 +30,7 @@ func attribute_value(attribute_id: String) -> int:
 func to_dict() -> Dictionary:
 	var data := super()
 	data["credits"] = credits.to_dict()
+	data["sample"] = sample.to_dict()
 	data["attribute_bases"] = attribute_bases
 	data["attribute_points"] = attribute_points
 	data["feat_score"] = feat_score
@@ -41,6 +43,7 @@ static func from_dict(data: Dictionary) -> SongData:
 	var song := SongData.new()
 	song._load_common(data)
 	song.credits = SongCredits.from_dict(data.get("credits", {}))
+	song.sample = SongSample.from_dict(data.get("sample", {}))
 	song.attribute_bases = _int_values(data.get("attribute_bases", {}))
 	song.attribute_points = _int_values(data.get("attribute_points", {}))
 	song.feat_score = int(data.get("feat_score", 0))

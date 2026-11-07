@@ -369,7 +369,7 @@ func _test_track_released_by_project() -> void:
 	_check(game.release_content(album.id).ok, "projeto sai com faixa em campanha")
 	_check(track.is_released() and game.career.find_campaign(track.id).is_completed(), "campanha da faixa termina junto")
 	_check(game.career.find_active_schedule(track.id) == null, "single agendado cancelado")
-	_check(not game.add_marketing_action(album.id, "teaser").ok, "projeto não recebe marketing de música")
+	_check(game.career.find_campaign(album.id) == null, "projeto só tem campanha própria")
 	game.free()
 
 

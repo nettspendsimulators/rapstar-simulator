@@ -6,6 +6,7 @@ func _ready() -> void:
 	%ProjectsTable.item_selected.connect(_on_selection_changed)
 	%NewButton.pressed.connect(navigate.bind(Screen.PROJECT_EDITOR))
 	%EditButton.pressed.connect(_on_edit_pressed)
+	%MarketingButton.pressed.connect(_on_marketing_pressed)
 	%BackButton.pressed.connect(navigate.bind(Screen.HUB))
 	super()
 
@@ -20,7 +21,7 @@ func refresh() -> void:
 			GameManager.releases.content_type_label(album),
 			_songs_text(album),
 			album.quality if not album.song_ids.is_empty() else "—",
-			album.status_label(),
+			album.display_status(),
 			Fmt.number(album.release_week) if album.is_released() else "—",
 		], album.id, album.cover_file)
 	_on_selection_changed()
@@ -42,6 +43,7 @@ func _selected_album() -> AlbumData:
 func _on_selection_changed() -> void:
 	var album := _selected_album()
 	%EditButton.disabled = album == null or album.is_released()
+	%MarketingButton.disabled = album == null
 	%DetailCover.show_cover(album.cover_file if album != null else "")
 	%DetailLabel.text = _detail_text(album) if album != null else "Selecione um projeto para ver a tracklist."
 
@@ -57,6 +59,12 @@ func _detail_text(album: AlbumData) -> String:
 		var song := GameManager.career.find_song(album.song_ids[index])
 		lines.append("%d. %s (%d)" % [index + 1, song.title, song.quality])
 	return "\n".join(lines)
+
+
+func _on_marketing_pressed() -> void:
+	var album := _selected_album()
+	if album != null:
+		navigate(Screen.MARKETING, {"content_id": album.id, "back": Screen.ALBUMS})
 
 
 func _on_edit_pressed() -> void:

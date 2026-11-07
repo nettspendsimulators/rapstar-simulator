@@ -116,7 +116,7 @@ func _test_releases_and_week() -> void:
 	_check(report.week == 3 and entry.streams > 0, "gera streams")
 	_check(game.career.money == money_before + report.total_money(), "dinheiro do relatório")
 	_check(game.career.fame == fame_before + report.total_fame(), "fama do relatório")
-	_check(entry.money == roundi(entry.streams * 0.01), "dinheiro baseado em streams")
+	_check(entry.money > 0 and entry.money < entry.streams, "dinheiro vem das plataformas")
 	_check(game.career.find_release(song.id).total_streams == entry.streams, "acumulado do lançamento")
 	_check(game.career.last_report() == report, "relatório registrado")
 
@@ -151,7 +151,7 @@ func _test_album_tracks() -> void:
 	_check(game.career.releases.size() == 2, "só single e álbum geram lançamento")
 	var report: WeekReport = game.next_week()
 	_check(report.entries.size() == 2, "single e álbum no relatório")
-	_check(report.entries[1].sales > 0 and report.entries[1].streams == 0, "álbum gera vendas")
+	_check(report.entries[1].sales > 0 and report.entries[1].streams > 0, "projeto gera vendas e streams")
 	game.free()
 
 

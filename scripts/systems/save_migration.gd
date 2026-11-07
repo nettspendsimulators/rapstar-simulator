@@ -11,6 +11,62 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v3(payload["career"], balance)
 	if version < 4:
 		_migrate_to_v4(payload["career"])
+	if version < 5:
+		_migrate_to_v5(payload["career"], balance)
+
+
+## v5: plataformas. Músicas já lançadas entram nas plataformas com a curva antiga, e os streams
+## já acumulados são distribuídos entre elas. Faixas de projetos lançados passam a tocar.
+## Campanhas agora podem ser de projetos, então passam a guardar o id do conteúdo.
+static func _migrate_to_v5(career: Dictionary, balance: GameBalance) -> void:
+	for campaign: Dictionary in career.get("marketing_campaigns", []):
+		campaign["content_id"] = campaign.get("song_id", "")
+	var rules := balance.streaming
+	var midpoint := (balance.song_performance.units_min + balance.song_performance.units_max) / 2
+	var performances: Array[Dictionary] = []
+	var with_own_release := {}
+	for release: Dictionary in career.get("releases", []):
+		if release.get("content_type", "") == ReleaseData.TYPE_SONG:
+			with_own_release[release.get("content_id", "")] = true
+	var stats := {}
+	for platform in rules.platforms:
+		stats[platform.id] = {"platform_id": platform.id, "total_plays": 0, "followers": 0, "revenue": 0}
+	for release: Dictionary in career.get("releases", []):
+		var content_id: String = release.get("content_id", "")
+		if release.get("content_type", "") == ReleaseData.TYPE_SONG:
+			var plays := int(release.get("total_streams", 0))
+			var platform_plays := {}
+			for platform in rules.platforms:
+				if platform.kind == PlatformDefinition.KIND_STREAMING:
+					var share := roundi(plays * platform.audience_share)
+					platform_plays[platform.id] = share
+					stats[platform.id]["total_plays"] += share
+					stats[platform.id]["followers"] += roundi(share * platform.followers_per_play)
+					stats[platform.id]["revenue"] += roundi(share * platform.money_per_play)
+			performances.append(_legacy_performance(content_id, content_id, midpoint, rules, plays, platform_plays, int(release.get("total_money", 0))))
+		else:
+			stats["digital_store"]["total_plays"] += int(release.get("total_sales", 0))
+			stats["digital_store"]["revenue"] += int(release.get("total_money", 0))
+			for album: Dictionary in career.get("albums", []):
+				if album.get("id", "") != content_id:
+					continue
+				for song_id: String in album.get("song_ids", []):
+					if not with_own_release.has(song_id):
+						performances.append(_legacy_performance(song_id, content_id, midpoint, rules, 0, {}, 0))
+	career["song_performances"] = performances
+	career["platform_stats"] = stats.values()
+
+
+static func _legacy_performance(song_id: String, release_id: String, base_units: int, rules: StreamingRules, plays: int, platform_plays: Dictionary, revenue: int) -> Dictionary:
+	return {
+		"song_id": song_id,
+		"release_id": release_id,
+		"trajectory_id": rules.legacy_trajectory_id,
+		"base_units": base_units,
+		"total_plays": plays,
+		"platform_plays": platform_plays,
+		"revenue": revenue,
+	}
 
 
 ## v4: campanhas de marketing. Lançamentos antigos ficam sem bônus de campanha.

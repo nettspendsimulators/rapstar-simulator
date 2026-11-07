@@ -8,7 +8,7 @@ script = ExtResource("1_picker")
 
 [node name="Preview" type="TextureRect" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 140)
+custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 script = ExtResource("2_preview")
 

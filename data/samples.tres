@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="SampleCatalog" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/sample_catalog.gd" id="1_catalog"]
+[ext_resource type="Script" path="res://scripts/definitions/sample_definition.gd" id="2_sample"]
+
+[sub_resource type="Resource" id="iconic_a"]
+script = ExtResource("2_sample")
+id = "iconic_funk_break"
+display_name = "Break de funk de 1970"
+type = "iconic"
+type_label = "Icônico"
+rarity = 40
+recognition = 95
+quality_impact = 3
+interest_impact = 25
+attention = 70
+cost = 25000
+
+[sub_resource type="Resource" id="iconic_b"]
+script = ExtResource("2_sample")
+id = "iconic_soul_hook"
+display_name = "Refrão de soul de 1968"
+type = "iconic"
+type_label = "Icônico"
+rarity = 55
+recognition = 90
+quality_impact = 4
+interest_impact = 20
+attention = 60
+cost = 40000
+
+[sub_resource type="Resource" id="recognizable_a"]
+script = ExtResource("2_sample")
+id = "recognizable_disco_strings"
+display_name = "Cordas de disco de 1978"
+type = "recognizable"
+type_label = "Reconhecível"
+rarity = 30
+recognition = 60
+quality_impact = 2
+interest_impact = 10
+attention = 30
+cost = 5000
+
+[sub_resource type="Resource" id="recognizable_b"]
+script = ExtResource("2_sample")
+id = "recognizable_jazz_piano"
+display_name = "Piano de jazz de 1962"
+type = "recognizable"
+type_label = "Reconhecível"
+rarity = 35
+recognition = 50
+quality_impact = 3
+interest_impact = 8
+attention = 25
+cost = 3000
+
+[sub_resource type="Resource" id="obscure_a"]
+script = ExtResource("2_sample")
+id = "obscure_library_loop"
+display_name = "Loop de disco de biblioteca"
+type = "obscure"
+type_label = "Obscuro"
+rarity = 80
+recognition = 5
+quality_impact = 3
+interest_impact = 2
+attention = 5
+cost = 200
+
+[sub_resource type="Resource" id="obscure_b"]
+script = ExtResource("2_sample")
+id = "obscure_vinyl_crackle"
+display_name = "Vinil raro de garimpo"
+type = "obscure"
+type_label = "Obscuro"
+rarity = 90
+recognition = 2
+quality_impact = 4
+interest_impact = 3
+attention = 10
+cost = 500
+
+[sub_resource type="Resource" id="own_song"]
+script = ExtResource("2_sample")
+id = "own_song"
+display_name = "Sample próprio"
+type = "own"
+type_label = "Próprio"
+quality_impact = 1
+interest_impact = 5
+attention = 15
+
+[resource]
+script = ExtResource("1_catalog")
+samples = Array[ExtResource("2_sample")]([SubResource("iconic_a"), SubResource("iconic_b"), SubResource("recognizable_a"), SubResource("recognizable_b"), SubResource("obscure_a"), SubResource("obscure_b"), SubResource("own_song")])

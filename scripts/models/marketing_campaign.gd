@@ -1,6 +1,6 @@
 class_name MarketingCampaign
 extends RefCounted
-## Campanha de uma música. Ações ficam planejadas até o agendamento, que as paga e inicia.
+## Campanha de uma música ou projeto. Ações ficam planejadas até o agendamento, que as paga e inicia.
 
 const STATUS_PLANNING := "planning"
 const STATUS_ACTIVE := "active"
@@ -28,11 +28,13 @@ class Action:
 		return action
 
 
-var song_id: String = ""
+var content_id: String = ""
 var status: String = STATUS_PLANNING
 var actions: Array[Action] = []
 ## Expectativa acumulada até a semana atual.
 var hype: int = 0
+## Expectativa perdida com um vazamento.
+var leak_penalty: int = 0
 var result: MarketingResult
 
 
@@ -72,7 +74,8 @@ func to_dict() -> Dictionary:
 	for action in actions:
 		action_dicts.append(action.to_dict())
 	return {
-		"song_id": song_id,
+		"content_id": content_id,
+		"leak_penalty": leak_penalty,
 		"status": status,
 		"actions": action_dicts,
 		"hype": hype,
@@ -82,7 +85,8 @@ func to_dict() -> Dictionary:
 
 static func from_dict(data: Dictionary) -> MarketingCampaign:
 	var campaign := MarketingCampaign.new()
-	campaign.song_id = data.get("song_id", "")
+	campaign.content_id = data.get("content_id", "")
+	campaign.leak_penalty = int(data.get("leak_penalty", 0))
 	campaign.status = data.get("status", STATUS_PLANNING)
 	campaign.hype = int(data.get("hype", 0))
 	for item: Dictionary in data.get("actions", []):

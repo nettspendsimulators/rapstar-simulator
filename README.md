@@ -29,6 +29,8 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Produtor, beatmaker ou feat, e seus atributos | `data/collaborators.tres` |
 | Custo de um colaborador | `cost` em `data/collaborators.tres` |
 | Ação ou resultado de marketing, e os parâmetros da expectativa | `data/marketing.tres` |
+| Plataforma, trajetória de sucesso, descoberta e vazamentos | `data/streaming.tres` |
+| Sample | `data/samples.tres` |
 | Pesos da nota, custo e limite das melhorias | `song_quality` em `data/game_balance.tres` |
 | Formato de projeto | Nova entrada em `album_formats` em `data/game_balance.tres` |
 | Atributo de música (gênero, duração...) | `SongData`: campo, `to_dict` e `from_dict` |
@@ -62,6 +64,10 @@ godot --headless --path . --script res://tests/test_song_attributes.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_marketing.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_streaming.gd
 ```
 
 ## Regras do sistema musical
@@ -111,7 +117,30 @@ para lançar ou agendar.
 - Se uma faixa com single agendado sair antes em um projeto, o single é cancelado e reembolsado.
 - O formato de um projeto agendado só muda depois de cancelar o agendamento.
 
-**Marketing (singles):** a campanha é montada na tela de Marketing da música.
+**Plataformas:** Spotify, Apple Music, Deezer, SoundCloud, YouTube, Loja digital e Rádio.
+
+- Ao sair oficialmente, cada música entra nas plataformas. Em um projeto, cada faixa recebe 30% das
+  reproduções de um single, ajustado pelo formato, e o projeto continua vendendo como antes.
+- Cada música recebe um público fixo e uma trajetória (hit imediato, fracasso, explosão viral...)
+  sorteada uma vez. Qualidade, expectativa, fama e sample pesam no sorteio.
+- As reproduções semanais vêm do público, da qualidade, da fama, da trajetória, dos seguidores, do
+  momento do lançamento, do marketing e da descoberta, com variação de 10%.
+- Cada plataforma valoriza um atributo e paga um valor próprio. A Rádio exige fama 50 ou uma ação de
+  Rádio na campanha.
+- Reproduções viram ouvintes e seguidores, e cada 500 seguidores novos dão 1 de fama.
+- A fama ganha não considera a fama atual, e o bônus de fama tem teto, para o crescimento não
+  disparar.
+
+**Vazamentos:** a cada semana, um lançamento agendado tem 2% de chance de vazar, mais até 3% conforme
+a expectativa. O vazamento não gera receita nem entra nas plataformas, reduz a expectativa da
+campanha e traz alguma atenção. O lançamento oficial continua valendo.
+
+**Samples:** icônicos, reconhecíveis, obscuros ou próprios. Mudam a nota, o interesse do público, a
+chance de chamar atenção e podem ter custo. O sample próprio exige escolher qual música será usada.
+
+**Marketing (singles, EPs, álbuns e mixtapes):** a campanha é montada na tela de Marketing, aberta
+pela navegação principal, pela música ou pelo projeto. Ela amplia alcance, público e potencial, mas
+não devolve o dinheiro: o retorno depende do desempenho do lançamento.
 
 - Ações ficam planejadas até o agendamento, que paga lançamento e marketing juntos.
 - Com a música já agendada, uma ação nova é paga na hora e começa com menos tempo que as outras.
@@ -122,8 +151,8 @@ para lançar ou agendar.
   agendamento, e ações pagas não saem da campanha.
 - No lançamento, um sorteio define o resultado: abaixo do esperado, normal, muito bom ou oportunidade
   inesperada. Ele gera alcance, expectativa, pré-saves, novos fãs, exposição, popularidade e potencial.
-- Do resultado, só o potencial afeta o jogo por enquanto: multiplica os streams em até 1,5x na
-  primeira semana, e o bônus cai 30% por semana. Os demais dados ficam guardados para sistemas futuros.
+- O potencial multiplica as reproduções em até 1,5x na primeira semana, e o bônus cai 30% por semana.
+  A exposição ajuda a descoberta, e os novos fãs viram seguidores.
 
 **Reputação:** muda só ao lançar. Qualidade acima de 50 aumenta, abaixo de 50 diminui.
 

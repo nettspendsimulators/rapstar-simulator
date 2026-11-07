@@ -17,15 +17,19 @@ func refresh() -> void:
 	]
 	%SongsTable.clear_rows()
 	for song in career.songs:
-		var release := career.find_release(song.id)
 		var album := career.find_album_of_song(song.id)
 		%SongsTable.add_row([
 			song.title,
 			song.quality,
-			song.status_label(),
+			song.display_status(),
 			album.title if album != null else "—",
-			Fmt.number(release.total_streams) if release != null else "—",
+			_plays_text(song),
 		], song.id, song.cover_file)
+
+
+func _plays_text(song: SongData) -> String:
+	var performance := GameManager.career.find_performance(song.id)
+	return Fmt.number(performance.total_plays) if performance != null else "—"
 
 
 ## Adiado porque esta tela é trocada enquanto a tabela ainda trata o clique.

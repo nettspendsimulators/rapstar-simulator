@@ -62,6 +62,30 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_picker")
 
+[node name="SampleRow" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+
+[node name="SampleTitle" type="Label" parent="Column/SampleRow"]
+layout_mode = 2
+text = "Sample:"
+
+[node name="SampleOption" type="OptionButton" parent="Column/SampleRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="OwnSongOption" type="OptionButton" parent="Column/SampleRow"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="SampleInfo" type="Label" parent="Column/SampleRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+clip_text = true
+
 [node name="PreviewLabel" type="Label" parent="Column"]
 unique_name_in_owner = true
 layout_mode = 2

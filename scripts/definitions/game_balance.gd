@@ -25,6 +25,12 @@ extends Resource
 @export_group("Marketing")
 @export var marketing: MarketingRules
 
+@export_group("Streaming")
+@export var streaming: StreamingRules
+
+@export_group("Samples")
+@export var samples: SampleCatalog
+
 @export_group("Capas")
 ## As capas são recortadas em quadrado e salvas neste tamanho, em pixels.
 @export var cover_size: int = 512

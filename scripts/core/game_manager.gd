@@ -20,8 +20,9 @@ var work := WorkSystem.new(economy)
 var music := MusicSystem.new(balance, economy, song_quality, rng)
 var albums := AlbumSystem.new(balance, economy)
 var marketing := MarketingSystem.new(balance, economy, rng)
-var releases := ReleaseSystem.new(balance, economy, time, performance, marketing)
-var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing)
+var streaming := StreamingSystem.new(balance, economy, performance, time, marketing, rng)
+var releases := ReleaseSystem.new(balance, economy, time, performance, marketing, streaming, rng)
+var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming)
 
 
 func _init() -> void:
@@ -68,12 +69,12 @@ func work_job(job_id: StringName) -> ActionResult:
 	return ActionResult.success(job.get_report_text(), report)
 
 
-func create_song(title: String, credits: SongCredits = null, cover_file: String = "") -> ActionResult:
-	return _notify_if_ok(music.create_song(career, title, credits, cover_file))
+func create_song(title: String, credits: SongCredits = null, cover_file: String = "", sample: SongSample = null) -> ActionResult:
+	return _notify_if_ok(music.create_song(career, title, credits, cover_file, sample))
 
 
-func edit_song(song_id: String, title: String, credits: SongCredits, cover_file: String) -> ActionResult:
-	return _notify_if_ok(music.edit_song(career, song_id, title, credits, cover_file))
+func edit_song(song_id: String, title: String, credits: SongCredits, cover_file: String, sample: SongSample = null) -> ActionResult:
+	return _notify_if_ok(music.edit_song(career, song_id, title, credits, cover_file, sample))
 
 
 func improve_song(content_id: String, attribute_id: String) -> ActionResult:
@@ -104,12 +105,22 @@ func cancel_schedule(content_id: String) -> ActionResult:
 	return _notify_if_ok(releases.cancel_schedule(career, content_id))
 
 
-func add_marketing_action(song_id: String, action_id: String) -> ActionResult:
-	return _notify_if_ok(marketing.add_action(career, song_id, action_id))
+func add_marketing_action(content_id: String, action_id: String) -> ActionResult:
+	return _notify_if_ok(marketing.add_action(career, content_id, action_id))
 
 
-func remove_marketing_action(song_id: String, action_id: String) -> ActionResult:
-	return _notify_if_ok(marketing.remove_action(career, song_id, action_id))
+func remove_marketing_action(content_id: String, action_id: String) -> ActionResult:
+	return _notify_if_ok(marketing.remove_action(career, content_id, action_id))
+
+
+func set_artist_cover(cover_file: String) -> void:
+	career.artist_cover = cover_file
+	career_changed.emit()
+
+
+func set_artist_bio(bio: String) -> void:
+	career.artist_bio = bio.strip_edges()
+	career_changed.emit()
 
 
 func _notify_if_ok(result: ActionResult) -> ActionResult:

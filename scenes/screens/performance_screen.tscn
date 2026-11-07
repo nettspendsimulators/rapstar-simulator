@@ -1,0 +1,106 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/performance_screen.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
+[ext_resource type="Script" path="res://scripts/ui/components/line_chart.gd" id="3_chart"]
+
+[node name="PerformanceScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Column"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Desempenho"
+
+[node name="Tabs" type="TabContainer" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Resumo" type="VBoxContainer" parent="Column/Tabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TotalsLabel" type="Label" parent="Column/Tabs/Resumo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+autowrap_mode = 3
+
+[node name="RecordsLabel" type="Label" parent="Column/Tabs/Resumo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="RecentLabel" type="Label" parent="Column/Tabs/Resumo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Charts" type="HBoxContainer" parent="Column/Tabs/Resumo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlaysChart" type="Control" parent="Column/Tabs/Resumo/Charts"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_chart")
+
+[node name="FollowersChart" type="Control" parent="Column/Tabs/Resumo/Charts"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_chart")
+
+[node name="Músicas" type="VBoxContainer" parent="Column/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="SongsTable" type="Tree" parent="Column/Tabs/Músicas"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="Plataformas" type="VBoxContainer" parent="Column/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="PlatformsTable" type="Tree" parent="Column/Tabs/Plataformas"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="Histórico" type="VBoxContainer" parent="Column/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="HistoryTable" type="Tree" parent="Column/Tabs/Histórico"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="BackButton" type="Button" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Voltar"

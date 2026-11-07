@@ -7,14 +7,18 @@ var _economy: EconomySystem
 var _time: TimeSystem
 var _performance: PerformanceSystem
 var _marketing: MarketingSystem
+var _streaming: StreamingSystem
+var _rng: RandomNumberGenerator
 
 
-func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem, marketing: MarketingSystem) -> void:
+func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem, marketing: MarketingSystem, streaming: StreamingSystem, rng: RandomNumberGenerator) -> void:
 	_balance = balance
 	_economy = economy
 	_time = time
 	_performance = performance
 	_marketing = marketing
+	_streaming = streaming
+	_rng = rng
 
 
 ## Conteúdo que pode ser lançado ou agendado agora.
@@ -101,6 +105,31 @@ func cancel_schedule(career: CareerData, content_id: String) -> ActionResult:
 	return ActionResult.success("Agendamento de \"%s\" cancelado. %s devolvidos." % [title, Fmt.money(entry.paid_cost)], entry)
 
 
+## Etapa da semana: um lançamento agendado pode vazar antes da data oficial. O vazamento não é
+## um lançamento: não gera receita e não impede que o conteúdo saia oficialmente depois.
+func process_leaks(career: CareerData, report: WeekReport) -> void:
+	var rules := _balance.streaming
+	for entry in career.scheduled_releases:
+		if not entry.is_active() or entry.scheduled_week <= career.current_week:
+			continue
+		var content := career.find_content(entry.content_id)
+		if content.is_leaked():
+			continue
+		var campaign := career.find_campaign(content.id)
+		var hype := campaign.hype if campaign != null else 0
+		if _rng.randf() >= rules.leak_chance_per_week + hype / 100.0 * rules.leak_hype_chance:
+			continue
+		content.leak_week = career.current_week
+		content.leak_attention = _rng.randi_range(rules.leak_attention_min, rules.leak_attention_max)
+		_marketing.apply_leak(career, content.id, rules.leak_hype_penalty)
+		_streaming.add_followers(career, roundi(content.leak_attention * rules.leak_followers_rate))
+		var line := WeekReportEntry.new()
+		line.title = "Vazamento: %s" % content.title
+		line.cover_file = content.cover_file
+		line.note = "Vazou antes do lançamento oficial, sem gerar receita. %s pessoas ouviram, e parte da expectativa se perdeu." % Fmt.number(content.leak_attention)
+		report.entries.append(line)
+
+
 ## Etapa da semana: publica o que estava marcado para a semana atual ou antes dela.
 ## Roda depois de process_week, para o lançamento render a partir da semana seguinte,
 ## como acontece em um lançamento imediato.
@@ -125,32 +154,44 @@ func process_week(career: CareerData, report: WeekReport) -> void:
 		var is_album := release_entry.content_type == ReleaseData.TYPE_ALBUM
 		var rules := _balance.album_performance if is_album else _balance.song_performance
 		var age_weeks := maxi(_time.weeks_since(career, release_entry.release_week) - 1, 0)
-		var units_multiplier := _marketing.units_multiplier(release_entry, age_weeks)
-		var fame_multiplier := 1.0
-		if is_album:
-			var album_format := _balance.find_album_format(content.format_id)
-			units_multiplier = album_format.units_multiplier
-			fame_multiplier = album_format.fame_multiplier
-		var result := _performance.calculate_week(rules, content.quality, age_weeks, career.fame, units_multiplier, fame_multiplier)
-
 		var entry := WeekReportEntry.new()
 		entry.title = content.title
 		entry.cover_file = content.cover_file
-		entry.money = result.money
-		entry.fame = result.fame
 		if is_album:
-			entry.sales = result.units
-			release_entry.total_sales += result.units
-			var description := "Vendas de %s: %s" % [content_type_label(content), content.title]
-			_economy.earn(career, result.money, description, FinanceEntry.CATEGORY_SALES)
-		else:
-			entry.streams = result.units
-			release_entry.total_streams += result.units
-			_economy.earn(career, result.money, "Streams: %s" % content.title, FinanceEntry.CATEGORY_STREAMS)
-		_economy.add_fame(career, result.fame)
-		release_entry.total_money += result.money
-		release_entry.total_fame += result.fame
+			_process_project_sales(career, release_entry, content, rules, age_weeks, entry)
+
+		var stream_result := _streaming.process_release(career, release_entry, content)
+		entry.streams = stream_result.plays
+		entry.note = stream_result.note
+		release_entry.total_streams += stream_result.plays
+		if stream_result.money > 0:
+			_economy.earn(career, stream_result.money, "Streams: %s" % content.title, FinanceEntry.CATEGORY_STREAMS)
+		if stream_result.sales_money > 0:
+			_economy.earn(career, stream_result.sales_money, "Vendas digitais: %s" % content.title, FinanceEntry.CATEGORY_SALES)
+		entry.sales += stream_result.sales
+		release_entry.total_sales += stream_result.sales
+		entry.money += stream_result.money + stream_result.sales_money
+		entry.fame += stream_result.fame
+		_economy.add_fame(career, stream_result.fame)
+		release_entry.total_money += stream_result.money + stream_result.sales_money
+		release_entry.total_fame += stream_result.fame
 		report.entries.append(entry)
+
+
+func _process_project_sales(career: CareerData, release_entry: ReleaseData, content: AlbumData, rules: PerformanceRules, age_weeks: int, entry: WeekReportEntry) -> void:
+	var album_format := _balance.find_album_format(content.format_id)
+	var units_multiplier := album_format.units_multiplier * _marketing.units_multiplier(release_entry, age_weeks)
+	var result := _performance.calculate_week(rules, content.quality, age_weeks, career.fame, units_multiplier, album_format.fame_multiplier)
+	entry.sales = result.units
+	entry.money = result.money
+	entry.fame = result.fame
+	release_entry.total_sales += result.units
+	release_entry.total_money += result.money
+	release_entry.total_fame += result.fame
+	var description := "Vendas de %s: %s" % [content_type_label(content), content.title]
+	_economy.earn(career, result.money, description, FinanceEntry.CATEGORY_SALES)
+	_economy.add_fame(career, result.fame)
+	_streaming.record_store_sales(career, result.units, result.money)
 
 
 ## Devolve a mensagem de erro, ou um texto vazio se o conteúdo puder ser lançado ou agendado.
@@ -184,9 +225,9 @@ func _publish(career: CareerData, content: ReleasableContent, report: WeekReport
 	release_entry.content_type = ReleaseData.TYPE_ALBUM if content is AlbumData else ReleaseData.TYPE_SONG
 	release_entry.content_id = content.id
 	release_entry.release_week = career.current_week
-	if content is SongData:
-		release_entry.initial_potential = _marketing.finish_campaign(career, content, report)
+	release_entry.initial_potential = _marketing.finish_campaign(career, content, report)
 	career.releases.append(release_entry)
+	_streaming.start_release(career, content)
 
 	var multiplier := 1.0
 	if content is AlbumData:

@@ -1,12 +1,12 @@
 extends Screen
-## Marketing de uma música: monta a campanha e agenda o lançamento com ela.
-## context precisa ter song_id.
+## Marketing de uma música ou projeto: monta a campanha e agenda o lançamento com ela.
+## context precisa ter content_id. context["back"] define a tela de volta.
 
-var _song: SongData
+var _content: ReleasableContent
 
 
 func _ready() -> void:
-	_song = GameManager.career.find_song(context.get("song_id", ""))
+	_content = GameManager.career.find_content(context.get("content_id", ""))
 	%ActionsTable.set_headers(["Ação", "Custo", "Alcance", "Duração", "Hype", "Retorno", "Requisitos", "Situação"])
 	%ActionsTable.set_column_expand_ratio(7, 2)
 	%ActionsTable.set_column_expand_ratio(6, 2)
@@ -16,14 +16,14 @@ func _ready() -> void:
 	%WeekInput.value_changed.connect(func(_value: float) -> void: _update_numbers())
 	%ScheduleButton.pressed.connect(_on_schedule_pressed)
 	%CancelButton.pressed.connect(_on_cancel_pressed)
-	%BackButton.pressed.connect(func() -> void: navigate(Screen.SONG_DETAIL, {"song_id": _song.id}))
+	%BackButton.pressed.connect(func() -> void: navigate(context.get("back", Screen.MARKETING_HUB), {"song_id": _content.id}))
 	_setup_week_input()
 	super()
 
 
 func refresh() -> void:
-	%Title.text = _song.title
-	%SongLabel.text = _song_text()
+	%Title.text = _content.title
+	%SongLabel.text = _content_text()
 	_fill_actions()
 	_update_schedule_controls()
 	_update_numbers()
@@ -32,31 +32,37 @@ func refresh() -> void:
 
 func _setup_week_input() -> void:
 	var career := GameManager.career
-	var schedule := career.find_active_schedule(_song.id)
+	var schedule := career.find_active_schedule(_content.id)
 	%WeekInput.min_value = career.current_week + 1
 	%WeekInput.max_value = career.current_week + GameManager.balance.max_schedule_weeks_ahead
 	%WeekInput.value = schedule.scheduled_week if schedule != null else career.current_week + 2
 
 
-func _song_text() -> String:
+func _content_text() -> String:
 	var career := GameManager.career
-	var feats := CollaboratorCatalog.names(GameManager.balance.collaborators.feats, _song.credits.feat_ids)
 	var parts := PackedStringArray([
 		"Artista: %s" % career.artist_name,
-		"Feats: %s" % ("—" if feats.is_empty() else ", ".join(feats)),
-		"Qualidade: %d" % _song.quality,
-		"Status: %s" % _song.status_label(),
-		"Tipo: Single",
+		"Feats: %s" % _feats_text(),
+		"Qualidade: %d" % _content.quality,
+		"Status: %s" % _content.display_status(),
+		"Tipo: %s" % GameManager.releases.content_type_label(_content),
 		"Lançamento: %s" % _release_text(),
 	])
 	return "  |  ".join(parts)
 
 
+func _feats_text() -> String:
+	if not _content is SongData:
+		return "—"
+	var feats := CollaboratorCatalog.names(GameManager.balance.collaborators.feats, _content.credits.feat_ids)
+	return "—" if feats.is_empty() else ", ".join(feats)
+
+
 func _release_text() -> String:
 	var career := GameManager.career
-	if _song.is_released():
-		return "semana %s" % Fmt.number(_song.release_week)
-	var schedule := career.find_active_schedule(_song.id)
+	if _content.is_released():
+		return "semana %s" % Fmt.number(_content.release_week)
+	var schedule := career.find_active_schedule(_content.id)
 	if schedule != null:
 		return "semana %s (%s)" % [Fmt.number(schedule.scheduled_week), schedule.status_label()]
 	return "não agendado"
@@ -81,7 +87,7 @@ func _fill_actions() -> void:
 
 
 func _action_state(action: MarketingActionDefinition) -> String:
-	var campaign := GameManager.career.find_campaign(_song.id)
+	var campaign := GameManager.career.find_campaign(_content.id)
 	var in_campaign := campaign.find_action(action.id) if campaign != null else null
 	if in_campaign != null:
 		return "Paga" if in_campaign.is_paid() else "Planejada"
@@ -90,9 +96,9 @@ func _action_state(action: MarketingActionDefinition) -> String:
 
 func _update_numbers() -> void:
 	var career := GameManager.career
-	var campaign := career.find_campaign(_song.id)
+	var campaign := career.find_campaign(_content.id)
 	var invested := campaign.invested() if campaign != null else 0
-	var planned := GameManager.marketing.unpaid_cost(career, _song.id)
+	var planned := GameManager.marketing.unpaid_cost(career, _content.id)
 	%BudgetLabel.text = "Orçamento disponível: %s  |  Investimento atual: %s  |  Planejado: %s  |  Valor restante: %s" % [
 		Fmt.money(career.money),
 		Fmt.money(invested),
@@ -102,7 +108,7 @@ func _update_numbers() -> void:
 	if campaign != null and campaign.result != null:
 		%ForecastLabel.text = _result_text(campaign.result)
 		return
-	var forecast := GameManager.marketing.forecast(career, _song.id, _weeks_until_release())
+	var forecast := GameManager.marketing.forecast(career, _content.id, _weeks_until_release())
 	var campaign_status := campaign.status_label() if campaign != null else "Sem campanha"
 	%ForecastLabel.text = "Campanha: %s  |  Previsão no lançamento: alcance %s, expectativa %d  |  Expectativa atual: %d" % [
 		campaign_status,
@@ -131,17 +137,17 @@ func _weeks_until_release() -> int:
 
 
 func _update_schedule_controls() -> void:
-	var is_scheduled := GameManager.career.find_active_schedule(_song.id) != null
-	%ScheduleRow.visible = not _song.is_released()
+	var is_scheduled := GameManager.career.find_active_schedule(_content.id) != null
+	%ScheduleRow.visible = not _content.is_released()
 	%CancelButton.visible = is_scheduled
 
 
 func _update_schedule_text(planned: int) -> void:
 	var career := GameManager.career
-	if career.find_active_schedule(_song.id) != null:
+	if career.find_active_schedule(_content.id) != null:
 		%ScheduleButton.text = "Remarcar lançamento"
 		return
-	var release_cost := GameManager.releases.release_cost(_song)
+	var release_cost := GameManager.releases.release_cost(_content)
 	%ScheduleButton.text = "Agendar lançamento (%s)" % Fmt.money(planned + release_cost)
 
 
@@ -150,31 +156,31 @@ func _update_action_buttons() -> void:
 	var definition: MarketingActionDefinition = null
 	if action_id != null:
 		definition = GameManager.balance.marketing.find_action(action_id)
-	var campaign := GameManager.career.find_campaign(_song.id)
+	var campaign := GameManager.career.find_campaign(_content.id)
 	var in_campaign := campaign.find_action(action_id) if campaign != null and action_id != null else null
 	%AddButton.text = "Adicionar (%s)" % Fmt.money(definition.cost) if definition != null else "Adicionar"
-	%AddButton.disabled = definition == null or in_campaign != null or _song.is_released()
-	%RemoveButton.disabled = in_campaign == null or in_campaign.is_paid() or _song.is_released()
+	%AddButton.disabled = definition == null or in_campaign != null or _content.is_released()
+	%RemoveButton.disabled = in_campaign == null or in_campaign.is_paid() or _content.is_released()
 
 
 func _on_add_pressed() -> void:
-	%MessageLabel.text = GameManager.add_marketing_action(_song.id, %ActionsTable.selected_value()).message
+	%MessageLabel.text = GameManager.add_marketing_action(_content.id, %ActionsTable.selected_value()).message
 
 
 func _on_remove_pressed() -> void:
-	%MessageLabel.text = GameManager.remove_marketing_action(_song.id, %ActionsTable.selected_value()).message
+	%MessageLabel.text = GameManager.remove_marketing_action(_content.id, %ActionsTable.selected_value()).message
 
 
 func _on_schedule_pressed() -> void:
 	var week := int(%WeekInput.value)
 	var result: ActionResult
-	if GameManager.career.find_active_schedule(_song.id) != null:
-		result = GameManager.reschedule_release(_song.id, week)
+	if GameManager.career.find_active_schedule(_content.id) != null:
+		result = GameManager.reschedule_release(_content.id, week)
 	else:
-		result = GameManager.schedule_release(_song.id, week)
+		result = GameManager.schedule_release(_content.id, week)
 	%MessageLabel.text = result.message
 
 
 func _on_cancel_pressed() -> void:
-	var result := GameManager.cancel_schedule(_song.id)
+	var result := GameManager.cancel_schedule(_content.id)
 	%MessageLabel.text = "%s O marketing já pago não é devolvido e vale para o próximo agendamento." % result.message
