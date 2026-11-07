@@ -1,0 +1,92 @@
+[gd_resource type="Resource" script_class="GameBalance" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/game_balance.gd" id="1_balance"]
+[ext_resource type="Script" path="res://scripts/definitions/job_definition.gd" id="2_job"]
+[ext_resource type="Script" path="res://scripts/definitions/album_format_definition.gd" id="3_format"]
+[ext_resource type="Script" path="res://scripts/definitions/performance_rules.gd" id="4_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/song_quality_rules.gd" id="5_quality"]
+[ext_resource type="Resource" path="res://data/collaborators.tres" id="6_collaborators"]
+
+[sub_resource type="Resource" id="job_delivery"]
+script = ExtResource("2_job")
+id = &"delivery"
+display_name = "Entregador"
+pay = 150
+
+[sub_resource type="Resource" id="job_waiter"]
+script = ExtResource("2_job")
+id = &"waiter"
+display_name = "Garçom"
+pay = 250
+
+[sub_resource type="Resource" id="job_heavy"]
+script = ExtResource("2_job")
+id = &"heavy_labor"
+display_name = "Trabalho pesado"
+pay = 400
+report_text = "Você fez um trabalho pesado."
+finance_text = "Trabalho pesado"
+
+[sub_resource type="Resource" id="format_ep"]
+script = ExtResource("3_format")
+id = &"ep"
+display_name = "EP"
+description = "Curto e direto: custa menos que um álbum, mas vende menos."
+min_songs = 3
+max_songs = 6
+base_cost = 100
+cost_per_song = 20
+release_cost = 75
+units_multiplier = 0.6
+fame_multiplier = 0.8
+
+[sub_resource type="Resource" id="format_album"]
+script = ExtResource("3_format")
+id = &"album"
+display_name = "Álbum"
+description = "O formato principal: é o maior investimento e o que mais vende."
+min_songs = 7
+max_songs = 20
+base_cost = 200
+cost_per_song = 25
+release_cost = 150
+
+[sub_resource type="Resource" id="format_mixtape"]
+script = ExtResource("3_format")
+id = &"mixtape"
+display_name = "Mixtape"
+description = "Flexível e menos formal: barata e boa para gerar fama, mas vende pouco e pesa menos na reputação."
+min_songs = 3
+max_songs = 20
+base_cost = 50
+cost_per_song = 10
+release_cost = 40
+units_multiplier = 0.4
+fame_multiplier = 1.2
+reputation_multiplier = 0.5
+
+[sub_resource type="Resource" id="song_rules"]
+script = ExtResource("4_rules")
+units_min = 1000
+units_max = 10000
+money_per_unit = 0.01
+units_per_fame = 1500
+
+[sub_resource type="Resource" id="album_rules"]
+script = ExtResource("4_rules")
+units_min = 100
+units_max = 1000
+money_per_unit = 0.3
+units_per_fame = 100
+
+[sub_resource type="Resource" id="quality_rules"]
+script = ExtResource("5_quality")
+
+[resource]
+script = ExtResource("1_balance")
+jobs = Array[ExtResource("2_job")]([SubResource("job_delivery"), SubResource("job_waiter"), SubResource("job_heavy")])
+song_quality = SubResource("quality_rules")
+collaborators = ExtResource("6_collaborators")
+album_formats = Array[ExtResource("3_format")]([SubResource("format_ep"), SubResource("format_album"), SubResource("format_mixtape")])
+song_performance = SubResource("song_rules")
+album_performance = SubResource("album_rules")

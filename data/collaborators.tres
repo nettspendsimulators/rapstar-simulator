@@ -1,0 +1,430 @@
+[gd_resource type="Resource" script_class="CollaboratorCatalog" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/collaborator_catalog.gd" id="1_catalog"]
+[ext_resource type="Script" path="res://scripts/definitions/collaborator_definition.gd" id="2_person"]
+
+[sub_resource type="Resource" id="producer_metro_boomin"]
+script = ExtResource("2_person")
+id = &"metro_boomin"
+display_name = "Metro Boomin"
+skill = 95
+consistency = 90
+
+[sub_resource type="Resource" id="producer_kanye_west"]
+script = ExtResource("2_person")
+id = &"kanye_west"
+display_name = "Kanye West"
+skill = 97
+consistency = 70
+
+[sub_resource type="Resource" id="producer_pharrell_williams"]
+script = ExtResource("2_person")
+id = &"pharrell_williams"
+display_name = "Pharrell Williams"
+skill = 94
+consistency = 82
+
+[sub_resource type="Resource" id="producer_dr_dre"]
+script = ExtResource("2_person")
+id = &"dr_dre"
+display_name = "Dr. Dre"
+skill = 98
+consistency = 92
+
+[sub_resource type="Resource" id="producer_the_alchemist"]
+script = ExtResource("2_person")
+id = &"the_alchemist"
+display_name = "The Alchemist"
+skill = 92
+consistency = 88
+
+[sub_resource type="Resource" id="producer_madlib"]
+script = ExtResource("2_person")
+id = &"madlib"
+display_name = "Madlib"
+skill = 91
+consistency = 65
+
+[sub_resource type="Resource" id="producer_mike_dean"]
+script = ExtResource("2_person")
+id = &"mike_dean"
+display_name = "Mike Dean"
+skill = 93
+consistency = 88
+
+[sub_resource type="Resource" id="producer_hit_boy"]
+script = ExtResource("2_person")
+id = &"hit_boy"
+display_name = "Hit-Boy"
+skill = 89
+consistency = 80
+
+[sub_resource type="Resource" id="producer_southside"]
+script = ExtResource("2_person")
+id = &"southside"
+display_name = "Southside"
+skill = 85
+consistency = 78
+
+[sub_resource type="Resource" id="producer_tay_keith"]
+script = ExtResource("2_person")
+id = &"tay_keith"
+display_name = "Tay Keith"
+skill = 84
+consistency = 76
+
+[sub_resource type="Resource" id="producer_pi_erre_bourne"]
+script = ExtResource("2_person")
+id = &"pi_erre_bourne"
+display_name = "Pi'erre Bourne"
+skill = 83
+consistency = 68
+
+[sub_resource type="Resource" id="producer_kenny_beats"]
+script = ExtResource("2_person")
+id = &"kenny_beats"
+display_name = "Kenny Beats"
+skill = 84
+consistency = 82
+
+[sub_resource type="Resource" id="producer_wheezy"]
+script = ExtResource("2_person")
+id = &"wheezy"
+display_name = "Wheezy"
+skill = 83
+consistency = 78
+
+[sub_resource type="Resource" id="producer_murda_beatz"]
+script = ExtResource("2_person")
+id = &"murda_beatz"
+display_name = "Murda Beatz"
+skill = 82
+consistency = 76
+
+[sub_resource type="Resource" id="producer_cardo"]
+script = ExtResource("2_person")
+id = &"cardo"
+display_name = "Cardo"
+skill = 81
+consistency = 78
+
+[sub_resource type="Resource" id="producer_dj_premier"]
+script = ExtResource("2_person")
+id = &"dj_premier"
+display_name = "DJ Premier"
+skill = 95
+consistency = 90
+
+[sub_resource type="Resource" id="producer_clams_casino"]
+script = ExtResource("2_person")
+id = &"clams_casino"
+display_name = "Clams Casino"
+skill = 82
+consistency = 66
+
+[sub_resource type="Resource" id="producer_9th_wonder"]
+script = ExtResource("2_person")
+id = &"9th_wonder"
+display_name = "9th Wonder"
+skill = 86
+consistency = 85
+
+[sub_resource type="Resource" id="producer_conductor_williams"]
+script = ExtResource("2_person")
+id = &"conductor_williams"
+display_name = "Conductor Williams"
+skill = 84
+consistency = 78
+
+[sub_resource type="Resource" id="producer_apollo_brown"]
+script = ExtResource("2_person")
+id = &"apollo_brown"
+display_name = "Apollo Brown"
+skill = 83
+consistency = 84
+
+[sub_resource type="Resource" id="beatmaker_j_dilla"]
+script = ExtResource("2_person")
+id = &"j_dilla"
+display_name = "J Dilla"
+skill = 98
+consistency = 72
+
+[sub_resource type="Resource" id="beatmaker_nujabes"]
+script = ExtResource("2_person")
+id = &"nujabes"
+display_name = "Nujabes"
+skill = 95
+consistency = 82
+
+[sub_resource type="Resource" id="beatmaker_metro_boomin"]
+script = ExtResource("2_person")
+id = &"metro_boomin"
+display_name = "Metro Boomin"
+skill = 95
+consistency = 90
+
+[sub_resource type="Resource" id="beatmaker_madlib"]
+script = ExtResource("2_person")
+id = &"madlib"
+display_name = "Madlib"
+skill = 94
+consistency = 66
+
+[sub_resource type="Resource" id="beatmaker_the_alchemist"]
+script = ExtResource("2_person")
+id = &"the_alchemist"
+display_name = "The Alchemist"
+skill = 93
+consistency = 88
+
+[sub_resource type="Resource" id="beatmaker_dj_premier"]
+script = ExtResource("2_person")
+id = &"dj_premier"
+display_name = "DJ Premier"
+skill = 96
+consistency = 90
+
+[sub_resource type="Resource" id="beatmaker_rza"]
+script = ExtResource("2_person")
+id = &"rza"
+display_name = "RZA"
+skill = 92
+consistency = 68
+
+[sub_resource type="Resource" id="beatmaker_pete_rock"]
+script = ExtResource("2_person")
+id = &"pete_rock"
+display_name = "Pete Rock"
+skill = 91
+consistency = 85
+
+[sub_resource type="Resource" id="beatmaker_9th_wonder"]
+script = ExtResource("2_person")
+id = &"9th_wonder"
+display_name = "9th Wonder"
+skill = 87
+consistency = 85
+
+[sub_resource type="Resource" id="beatmaker_knxwledge"]
+script = ExtResource("2_person")
+id = &"knxwledge"
+display_name = "Knxwledge"
+skill = 84
+consistency = 62
+
+[sub_resource type="Resource" id="beatmaker_kenny_beats"]
+script = ExtResource("2_person")
+id = &"kenny_beats"
+display_name = "Kenny Beats"
+skill = 83
+consistency = 82
+
+[sub_resource type="Resource" id="beatmaker_pi_erre_bourne"]
+script = ExtResource("2_person")
+id = &"pi_erre_bourne"
+display_name = "Pi'erre Bourne"
+skill = 85
+consistency = 68
+
+[sub_resource type="Resource" id="beatmaker_cardo"]
+script = ExtResource("2_person")
+id = &"cardo"
+display_name = "Cardo"
+skill = 81
+consistency = 78
+
+[sub_resource type="Resource" id="beatmaker_southside"]
+script = ExtResource("2_person")
+id = &"southside"
+display_name = "Southside"
+skill = 85
+consistency = 78
+
+[sub_resource type="Resource" id="beatmaker_tay_keith"]
+script = ExtResource("2_person")
+id = &"tay_keith"
+display_name = "Tay Keith"
+skill = 84
+consistency = 76
+
+[sub_resource type="Resource" id="beatmaker_clams_casino"]
+script = ExtResource("2_person")
+id = &"clams_casino"
+display_name = "Clams Casino"
+skill = 84
+consistency = 66
+
+[sub_resource type="Resource" id="beatmaker_wheezy"]
+script = ExtResource("2_person")
+id = &"wheezy"
+display_name = "Wheezy"
+skill = 83
+consistency = 78
+
+[sub_resource type="Resource" id="beatmaker_conductor_williams"]
+script = ExtResource("2_person")
+id = &"conductor_williams"
+display_name = "Conductor Williams"
+skill = 85
+consistency = 78
+
+[sub_resource type="Resource" id="beatmaker_wondagurl"]
+script = ExtResource("2_person")
+id = &"wondagurl"
+display_name = "Wondagurl"
+skill = 84
+consistency = 80
+
+[sub_resource type="Resource" id="beatmaker_bangladesh"]
+script = ExtResource("2_person")
+id = &"bangladesh"
+display_name = "Bangladesh"
+skill = 82
+consistency = 64
+
+[sub_resource type="Resource" id="feat_drake"]
+script = ExtResource("2_person")
+id = &"drake"
+display_name = "Drake"
+skill = 92
+consistency = 88
+
+[sub_resource type="Resource" id="feat_kendrick_lamar"]
+script = ExtResource("2_person")
+id = &"kendrick_lamar"
+display_name = "Kendrick Lamar"
+skill = 98
+consistency = 92
+
+[sub_resource type="Resource" id="feat_j_cole"]
+script = ExtResource("2_person")
+id = &"j_cole"
+display_name = "J. Cole"
+skill = 92
+consistency = 88
+
+[sub_resource type="Resource" id="feat_travis_scott"]
+script = ExtResource("2_person")
+id = &"travis_scott"
+display_name = "Travis Scott"
+skill = 90
+consistency = 80
+
+[sub_resource type="Resource" id="feat_future"]
+script = ExtResource("2_person")
+id = &"future"
+display_name = "Future"
+skill = 86
+consistency = 76
+
+[sub_resource type="Resource" id="feat_lil_wayne"]
+script = ExtResource("2_person")
+id = &"lil_wayne"
+display_name = "Lil Wayne"
+skill = 88
+consistency = 62
+
+[sub_resource type="Resource" id="feat_nicki_minaj"]
+script = ExtResource("2_person")
+id = &"nicki_minaj"
+display_name = "Nicki Minaj"
+skill = 88
+consistency = 76
+
+[sub_resource type="Resource" id="feat_sza"]
+script = ExtResource("2_person")
+id = &"sza"
+display_name = "SZA"
+skill = 91
+consistency = 82
+
+[sub_resource type="Resource" id="feat_doja_cat"]
+script = ExtResource("2_person")
+id = &"doja_cat"
+display_name = "Doja Cat"
+skill = 87
+consistency = 74
+
+[sub_resource type="Resource" id="feat_tyler_the_creator"]
+script = ExtResource("2_person")
+id = &"tyler_the_creator"
+display_name = "Tyler, The Creator"
+skill = 92
+consistency = 84
+
+[sub_resource type="Resource" id="feat_playboi_carti"]
+script = ExtResource("2_person")
+id = &"playboi_carti"
+display_name = "Playboi Carti"
+skill = 82
+consistency = 58
+
+[sub_resource type="Resource" id="feat_21_savage"]
+script = ExtResource("2_person")
+id = &"21_savage"
+display_name = "21 Savage"
+skill = 85
+consistency = 82
+
+[sub_resource type="Resource" id="feat_a_ap_rocky"]
+script = ExtResource("2_person")
+id = &"a_ap_rocky"
+display_name = "A$AP Rocky"
+skill = 85
+consistency = 74
+
+[sub_resource type="Resource" id="feat_jid"]
+script = ExtResource("2_person")
+id = &"jid"
+display_name = "JID"
+skill = 89
+consistency = 88
+
+[sub_resource type="Resource" id="feat_baby_keem"]
+script = ExtResource("2_person")
+id = &"baby_keem"
+display_name = "Baby Keem"
+skill = 83
+consistency = 70
+
+[sub_resource type="Resource" id="feat_don_toliver"]
+script = ExtResource("2_person")
+id = &"don_toliver"
+display_name = "Don Toliver"
+skill = 82
+consistency = 78
+
+[sub_resource type="Resource" id="feat_megan_thee_stallion"]
+script = ExtResource("2_person")
+id = &"megan_thee_stallion"
+display_name = "Megan Thee Stallion"
+skill = 83
+consistency = 76
+
+[sub_resource type="Resource" id="feat_nas"]
+script = ExtResource("2_person")
+id = &"nas"
+display_name = "Nas"
+skill = 95
+consistency = 86
+
+[sub_resource type="Resource" id="feat_eminem"]
+script = ExtResource("2_person")
+id = &"eminem"
+display_name = "Eminem"
+skill = 94
+consistency = 84
+
+[sub_resource type="Resource" id="feat_lil_uzi_vert"]
+script = ExtResource("2_person")
+id = &"lil_uzi_vert"
+display_name = "Lil Uzi Vert"
+skill = 83
+consistency = 62
+
+[resource]
+script = ExtResource("1_catalog")
+producers = Array[ExtResource("2_person")]([SubResource("producer_metro_boomin"), SubResource("producer_kanye_west"), SubResource("producer_pharrell_williams"), SubResource("producer_dr_dre"), SubResource("producer_the_alchemist"), SubResource("producer_madlib"), SubResource("producer_mike_dean"), SubResource("producer_hit_boy"), SubResource("producer_southside"), SubResource("producer_tay_keith"), SubResource("producer_pi_erre_bourne"), SubResource("producer_kenny_beats"), SubResource("producer_wheezy"), SubResource("producer_murda_beatz"), SubResource("producer_cardo"), SubResource("producer_dj_premier"), SubResource("producer_clams_casino"), SubResource("producer_9th_wonder"), SubResource("producer_conductor_williams"), SubResource("producer_apollo_brown")])
+beatmakers = Array[ExtResource("2_person")]([SubResource("beatmaker_j_dilla"), SubResource("beatmaker_nujabes"), SubResource("beatmaker_metro_boomin"), SubResource("beatmaker_madlib"), SubResource("beatmaker_the_alchemist"), SubResource("beatmaker_dj_premier"), SubResource("beatmaker_rza"), SubResource("beatmaker_pete_rock"), SubResource("beatmaker_9th_wonder"), SubResource("beatmaker_knxwledge"), SubResource("beatmaker_kenny_beats"), SubResource("beatmaker_pi_erre_bourne"), SubResource("beatmaker_cardo"), SubResource("beatmaker_southside"), SubResource("beatmaker_tay_keith"), SubResource("beatmaker_clams_casino"), SubResource("beatmaker_wheezy"), SubResource("beatmaker_conductor_williams"), SubResource("beatmaker_wondagurl"), SubResource("beatmaker_bangladesh")])
+feats = Array[ExtResource("2_person")]([SubResource("feat_drake"), SubResource("feat_kendrick_lamar"), SubResource("feat_j_cole"), SubResource("feat_travis_scott"), SubResource("feat_future"), SubResource("feat_lil_wayne"), SubResource("feat_nicki_minaj"), SubResource("feat_sza"), SubResource("feat_doja_cat"), SubResource("feat_tyler_the_creator"), SubResource("feat_playboi_carti"), SubResource("feat_21_savage"), SubResource("feat_a_ap_rocky"), SubResource("feat_jid"), SubResource("feat_baby_keem"), SubResource("feat_don_toliver"), SubResource("feat_megan_thee_stallion"), SubResource("feat_nas"), SubResource("feat_eminem"), SubResource("feat_lil_uzi_vert")])

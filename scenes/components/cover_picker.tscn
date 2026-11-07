@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/components/cover_picker.gd" id="1_picker"]
+[ext_resource type="Script" path="res://scripts/ui/components/cover_preview.gd" id="2_preview"]
+
+[node name="CoverPicker" type="VBoxContainer"]
+script = ExtResource("1_picker")
+
+[node name="Preview" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+script = ExtResource("2_preview")
+
+[node name="FileButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Escolher imagem"
+
+[node name="PasteRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PasteButton" type="Button" parent="PasteRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Copie uma imagem (também do navegador) e aperte Ctrl+V nesta tela."
+text = "Colar (Ctrl+V)"
+
+[node name="RemoveButton" type="Button" parent="PasteRow"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Remover"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Escolher capa"
+size = Vector2i(800, 500)
+ok_button_text = "Abrir"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png, *.jpg, *.jpeg, *.webp, *.bmp ; Imagens")
+use_native_dialog = true

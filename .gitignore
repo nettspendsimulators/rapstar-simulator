@@ -1,0 +1,11 @@
+.godot/
+build/
+*.exe
+*.pck
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Godot Android build template
+/android/

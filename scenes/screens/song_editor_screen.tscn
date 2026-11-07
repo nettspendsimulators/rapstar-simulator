@@ -1,0 +1,86 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/song_editor_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/components/cover_picker.tscn" id="2_cover"]
+[ext_resource type="Script" path="res://scripts/ui/components/collaborator_picker.gd" id="3_picker"]
+
+[node name="SongEditorScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Nova música"
+
+[node name="Body" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Form" type="PanelContainer" parent="Column/Body"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="FormColumn" type="VBoxContainer" parent="Column/Body/Form"]
+layout_mode = 2
+
+[node name="TitleEdit" type="LineEdit" parent="Column/Body/Form/FormColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Nome da música"
+max_length = 60
+
+[node name="CoverPicker" parent="Column/Body/Form/FormColumn" instance=ExtResource("2_cover")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProducerPicker" type="VBoxContainer" parent="Column/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_picker")
+
+[node name="BeatmakerPicker" type="VBoxContainer" parent="Column/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_picker")
+
+[node name="FeatPicker" type="VBoxContainer" parent="Column/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_picker")
+
+[node name="PreviewLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MessageLabel"
+
+[node name="ButtonRow" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar"
+
+[node name="ConfirmButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PrimaryButton"

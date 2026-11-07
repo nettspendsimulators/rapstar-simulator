@@ -1,0 +1,123 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/project_editor_screen.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
+[ext_resource type="PackedScene" path="res://scenes/components/cover_picker.tscn" id="3_cover"]
+
+[node name="ProjectEditorScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Novo projeto"
+
+[node name="FormatInfo" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Body" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Form" type="PanelContainer" parent="Column/Body"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="FormColumn" type="VBoxContainer" parent="Column/Body/Form"]
+layout_mode = 2
+
+[node name="TitleEdit" type="LineEdit" parent="Column/Body/Form/FormColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Nome do projeto"
+max_length = 60
+
+[node name="FormatOption" type="OptionButton" parent="Column/Body/Form/FormColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CoverPicker" parent="Column/Body/Form/FormColumn" instance=ExtResource("3_cover")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AvailableColumn" type="VBoxContainer" parent="Column/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AvailableTable" type="Tree" parent="Column/Body/AvailableColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="AddButton" type="Button" parent="Column/Body/AvailableColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Adicionar à tracklist"
+
+[node name="TracksColumn" type="VBoxContainer" parent="Column/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TracksTable" type="Tree" parent="Column/Body/TracksColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="TrackButtons" type="HBoxContainer" parent="Column/Body/TracksColumn"]
+layout_mode = 2
+
+[node name="UpButton" type="Button" parent="Column/Body/TracksColumn/TrackButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Subir"
+
+[node name="DownButton" type="Button" parent="Column/Body/TracksColumn/TrackButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Descer"
+
+[node name="RemoveButton" type="Button" parent="Column/Body/TracksColumn/TrackButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remover"
+
+[node name="SummaryLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MessageLabel"
+
+[node name="ButtonRow" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar"
+
+[node name="ConfirmButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PrimaryButton"

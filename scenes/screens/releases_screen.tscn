@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/releases_screen.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
+
+[node name="ReleasesScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Column"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Lançamentos"
+
+[node name="MoneyLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Tabs" type="TabContainer" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Prontos" type="VBoxContainer" parent="Column/Tabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PendingTable" type="Tree" parent="Column/Tabs/Prontos"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="PendingActions" type="HBoxContainer" parent="Column/Tabs/Prontos"]
+layout_mode = 2
+
+[node name="ReleaseButton" type="Button" parent="Column/Tabs/Prontos/PendingActions"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PrimaryButton"
+text = "Lançar agora"
+
+[node name="ScheduleWeekLabel" type="Label" parent="Column/Tabs/Prontos/PendingActions"]
+layout_mode = 2
+text = "Semana:"
+
+[node name="ScheduleWeek" type="SpinBox" parent="Column/Tabs/Prontos/PendingActions"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ScheduleButton" type="Button" parent="Column/Tabs/Prontos/PendingActions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Agendar"
+
+[node name="Agenda" type="VBoxContainer" parent="Column/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScheduleTable" type="Tree" parent="Column/Tabs/Agenda"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="ScheduleActions" type="HBoxContainer" parent="Column/Tabs/Agenda"]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="Column/Tabs/Agenda/ScheduleActions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancelar agendamento"
+
+[node name="AgendaSpacer" type="Control" parent="Column/Tabs/Agenda/ScheduleActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RescheduleWeekLabel" type="Label" parent="Column/Tabs/Agenda/ScheduleActions"]
+layout_mode = 2
+text = "Nova semana:"
+
+[node name="RescheduleWeek" type="SpinBox" parent="Column/Tabs/Agenda/ScheduleActions"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RescheduleButton" type="Button" parent="Column/Tabs/Agenda/ScheduleActions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remarcar"
+
+[node name="Já lançados" type="VBoxContainer" parent="Column/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ReleasedTable" type="Tree" parent="Column/Tabs/Já lançados"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="MessageLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MessageLabel"
+
+[node name="BackButton" type="Button" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Voltar"

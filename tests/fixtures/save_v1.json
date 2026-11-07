@@ -1,0 +1,283 @@
+{
+	"career": {
+		"albums": [
+			{
+				"format_id": "album",
+				"id": "album_8",
+				"production_cost": 275,
+				"quality": 63,
+				"release_week": 2,
+				"song_ids": [
+					"song_1",
+					"song_2",
+					"song_3"
+				],
+				"status": "released",
+				"title": "Disco Lançado"
+			},
+			{
+				"format_id": "album",
+				"id": "album_9",
+				"production_cost": 275,
+				"quality": 63,
+				"release_week": -1,
+				"song_ids": [
+					"song_4",
+					"song_5",
+					"song_6"
+				],
+				"status": "unreleased",
+				"title": "Disco Inédito"
+			}
+		],
+		"artist_name": "MC Antigo",
+		"current_week": 4,
+		"fame": 15,
+		"finance_history": [
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 1",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 2",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 3",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 4",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 5",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 6",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa antiga 7",
+				"week": 1
+			},
+			{
+				"amount": 250,
+				"category": "work",
+				"description": "Trabalho como Garçom",
+				"week": 2
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Lançamento: Faixa antiga 7",
+				"week": 2
+			},
+			{
+				"amount": -275,
+				"category": "production",
+				"description": "Produção de álbum: Disco Lançado",
+				"week": 2
+			},
+			{
+				"amount": -275,
+				"category": "production",
+				"description": "Produção de álbum: Disco Inédito",
+				"week": 2
+			},
+			{
+				"amount": -150,
+				"category": "release",
+				"description": "Lançamento: Disco Lançado",
+				"week": 2
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Solta inédita",
+				"week": 2
+			},
+			{
+				"amount": 36,
+				"category": "streams",
+				"description": "Streams: Faixa antiga 7",
+				"week": 3
+			},
+			{
+				"amount": 166,
+				"category": "sales",
+				"description": "Vendas de álbum: Disco Lançado",
+				"week": 3
+			},
+			{
+				"amount": 69,
+				"category": "streams",
+				"description": "Streams: Faixa antiga 7",
+				"week": 4
+			},
+			{
+				"amount": 146,
+				"category": "sales",
+				"description": "Vendas de álbum: Disco Lançado",
+				"week": 4
+			}
+		],
+		"money": 4117,
+		"next_id": 11,
+		"releases": [
+			{
+				"content_id": "song_7",
+				"content_type": "song",
+				"release_week": 2,
+				"total_fame": 6,
+				"total_money": 105,
+				"total_sales": 0,
+				"total_streams": 10427
+			},
+			{
+				"content_id": "album_8",
+				"content_type": "album",
+				"release_week": 2,
+				"total_fame": 9,
+				"total_money": 312,
+				"total_sales": 1037,
+				"total_streams": 0
+			}
+		],
+		"reputation": 2,
+		"songs": [
+			{
+				"id": "song_1",
+				"production_cost": 100,
+				"quality": 70,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa antiga 1"
+			},
+			{
+				"id": "song_2",
+				"production_cost": 100,
+				"quality": 73,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa antiga 2"
+			},
+			{
+				"id": "song_3",
+				"production_cost": 100,
+				"quality": 46,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa antiga 3"
+			},
+			{
+				"id": "song_4",
+				"production_cost": 100,
+				"quality": 58,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa antiga 4"
+			},
+			{
+				"id": "song_5",
+				"production_cost": 100,
+				"quality": 74,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa antiga 5"
+			},
+			{
+				"id": "song_6",
+				"production_cost": 100,
+				"quality": 58,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa antiga 6"
+			},
+			{
+				"id": "song_7",
+				"production_cost": 100,
+				"quality": 62,
+				"release_week": 2,
+				"status": "released",
+				"title": "Faixa antiga 7"
+			},
+			{
+				"id": "song_10",
+				"production_cost": 100,
+				"quality": 64,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Solta inédita"
+			}
+		],
+		"week_reports": [
+			{
+				"entries": [
+					{
+						"fame": 0,
+						"money": 250,
+						"sales": 0,
+						"streams": 0,
+						"title": "Você trabalhou como Garçom."
+					}
+				],
+				"week": 2
+			},
+			{
+				"entries": [
+					{
+						"fame": 2,
+						"money": 36,
+						"sales": 0,
+						"streams": 3561,
+						"title": "Faixa antiga 7"
+					},
+					{
+						"fame": 5,
+						"money": 166,
+						"sales": 552,
+						"streams": 0,
+						"title": "Disco Lançado"
+					}
+				],
+				"week": 3
+			},
+			{
+				"entries": [
+					{
+						"fame": 4,
+						"money": 69,
+						"sales": 0,
+						"streams": 6866,
+						"title": "Faixa antiga 7"
+					},
+					{
+						"fame": 4,
+						"money": 146,
+						"sales": 485,
+						"streams": 0,
+						"title": "Disco Lançado"
+					}
+				],
+				"week": 4
+			}
+		]
+	},
+	"version": 1
+}

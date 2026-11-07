@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/career_screen.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
+
+[node name="CareerScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Column"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Carreira"
+
+[node name="SummaryPanel" type="PanelContainer" parent="Column"]
+layout_mode = 2
+
+[node name="Summary" type="VBoxContainer" parent="Column/SummaryPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ArtistLabel" type="Label" parent="Column/SummaryPanel/Summary"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+
+[node name="StatsLabel" type="Label" parent="Column/SummaryPanel/Summary"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CatalogLabel" type="Label" parent="Column/SummaryPanel/Summary"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TotalsLabel" type="Label" parent="Column/SummaryPanel/Summary"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FinanceHeader" type="Label" parent="Column"]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "Histórico financeiro"
+
+[node name="FinanceTable" type="Tree" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_table")
+
+[node name="BackButton" type="Button" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Voltar"
