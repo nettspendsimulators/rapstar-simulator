@@ -104,28 +104,29 @@ func _test_independent_attributes() -> void:
 	game.free()
 
 
+## Melhorias custam só energia: nenhum dinheiro sai, mesmo com o jogador sem dinheiro.
 func _test_attribute_costs() -> void:
 	var game := _make_game(1000)
 	var rules: SongQualityRules = game.balance.song_quality
-	var seen_costs := {}
 	for attribute in rules.attributes:
-		seen_costs["%d/%d" % [attribute.energy_cost, attribute.money_cost]] = true
 		var song: SongData = game.create_song("Custo %s" % attribute.id).value
 		game.career.energy = 100
 		game.career.money = 1000
+		var history_size: int = game.career.finance_history.size()
 		_check(game.improve_song(song.id, attribute.id).ok, "melhora %s" % attribute.id)
 		_check(game.career.energy == 100 - attribute.energy_cost, "energia de %s" % attribute.id)
-		_check(game.career.money == 1000 - attribute.money_cost, "dinheiro de %s" % attribute.id)
-		var entry: FinanceEntry = game.career.finance_history.back()
-		_check(entry.amount == -attribute.money_cost and entry.category == FinanceEntry.CATEGORY_IMPROVEMENT, "histórico de %s" % attribute.id)
-	_check(seen_costs.size() == 4, "cada atributo tem custo próprio")
+		_check(game.career.money == 1000, "%s não gasta dinheiro" % attribute.id)
+		_check(game.career.finance_history.size() == history_size, "%s não entra no histórico financeiro" % attribute.id)
+		_check(attribute.energy_cost > 0, "%s custa energia" % attribute.id)
 
 	var broke: SongData = game.create_song("Sem dinheiro").value
 	game.career.energy = 100
 	game.career.money = 0
+	_check(game.improve_song(broke.id, "beat").ok, "sem dinheiro ainda melhora")
+	_check(game.career.money == 0, "dinheiro continua zero")
+	game.career.energy = 0
 	var points_before: int = broke.attribute_points.get("beat", 0)
-	_check(not game.improve_song(broke.id, "beat").ok, "sem dinheiro não melhora")
-	_check(game.career.energy == 100, "recusa não gasta energia")
+	_check(not game.improve_song(broke.id, "beat").ok, "sem energia não melhora")
 	_check(broke.attribute_points.get("beat", 0) == points_before, "recusa não melhora")
 	game.free()
 

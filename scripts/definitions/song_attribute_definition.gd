@@ -6,5 +6,5 @@ extends Resource
 @export var display_name: String
 ## Peso do atributo na nota geral da música.
 @export var weight: float = 0.25
+## Melhorias custam só energia.
 @export var energy_cost: int = 20
-@export var money_cost: int = 50

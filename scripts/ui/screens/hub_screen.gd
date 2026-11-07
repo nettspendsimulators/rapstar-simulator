@@ -11,6 +11,7 @@ func _ready() -> void:
 	%PlatformsButton.pressed.connect(navigate.bind(Screen.PLATFORMS))
 	%ProfileButton.pressed.connect(navigate.bind(Screen.ARTIST_PROFILE))
 	%PerformanceButton.pressed.connect(navigate.bind(Screen.PERFORMANCE))
+	%VideosButton.pressed.connect(navigate.bind(Screen.VIDEOS))
 	%NextWeekButton.pressed.connect(_on_next_week_pressed)
 	%SaveButton.pressed.connect(_on_save_pressed)
 	%LoadButton.pressed.connect(%LoadConfirm.popup_centered)

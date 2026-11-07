@@ -20,6 +20,7 @@ var marketing_campaigns: Array[MarketingCampaign] = []
 var song_performances: Array[SongPerformance] = []
 var platform_stats: Dictionary[String, ArtistPlatformStats] = {}
 var performance_snapshots: Array[PerformanceSnapshot] = []
+var music_videos: Array[MusicVideo] = []
 var finance_history: Array[FinanceEntry] = []
 var week_reports: Array[WeekReport] = []
 var next_id: int = 1
@@ -77,6 +78,20 @@ func find_campaign(content_id: String) -> MarketingCampaign:
 	for campaign in marketing_campaigns:
 		if campaign.content_id == content_id:
 			return campaign
+	return null
+
+
+func find_video(video_id: String) -> MusicVideo:
+	for video in music_videos:
+		if video.id == video_id:
+			return video
+	return null
+
+
+func find_video_for_song(song_id: String) -> MusicVideo:
+	for video in music_videos:
+		if video.song_id == song_id:
+			return video
 	return null
 
 
@@ -143,6 +158,7 @@ func to_dict() -> Dictionary:
 		"song_performances": song_performances.map(func(item: SongPerformance) -> Dictionary: return item.to_dict()),
 		"platform_stats": platform_stats.values().map(func(item: ArtistPlatformStats) -> Dictionary: return item.to_dict()),
 		"performance_snapshots": performance_snapshots.map(func(item: PerformanceSnapshot) -> Dictionary: return item.to_dict()),
+		"music_videos": music_videos.map(func(item: MusicVideo) -> Dictionary: return item.to_dict()),
 		"finance_history": finance_history.map(func(item: FinanceEntry) -> Dictionary: return item.to_dict()),
 		"week_reports": week_reports.map(func(item: WeekReport) -> Dictionary: return item.to_dict()),
 	}
@@ -176,6 +192,8 @@ static func from_dict(data: Dictionary) -> CareerData:
 		career.platform_stats[stats.platform_id] = stats
 	for item: Dictionary in data.get("performance_snapshots", []):
 		career.performance_snapshots.append(PerformanceSnapshot.from_dict(item))
+	for item: Dictionary in data.get("music_videos", []):
+		career.music_videos.append(MusicVideo.from_dict(item))
 	for item: Dictionary in data.get("finance_history", []):
 		career.finance_history.append(FinanceEntry.from_dict(item))
 	for item: Dictionary in data.get("week_reports", []):

@@ -125,13 +125,8 @@ func improve_song(career: CareerData, content_id: String, attribute_id: String) 
 		return ActionResult.failure("%s já atingiu o limite de melhorias." % attribute.display_name)
 	if not _economy.can_spend_energy(career, attribute.energy_cost):
 		return ActionResult.failure("Energia insuficiente: melhorar %s custa %d." % [attribute.display_name, attribute.energy_cost])
-	if not _economy.can_afford(career, attribute.money_cost):
-		return _economy.insufficient_funds(attribute.money_cost)
 
 	_economy.spend_energy(career, attribute.energy_cost)
-	if attribute.money_cost > 0:
-		var description := "Melhoria de %s: %s" % [attribute.display_name, song.title]
-		_economy.spend(career, attribute.money_cost, description, FinanceEntry.CATEGORY_IMPROVEMENT)
 	var gain := mini(_rng.randi_range(rules.improvement_gain_min, rules.improvement_gain_max), room)
 	song.attribute_points[attribute_id] = song.attribute_points.get(attribute_id, 0) + gain
 	_update_quality(song)

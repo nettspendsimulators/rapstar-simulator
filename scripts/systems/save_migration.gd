@@ -13,6 +13,20 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v4(payload["career"])
 	if version < 5:
 		_migrate_to_v5(payload["career"], balance)
+	if version < 6:
+		_migrate_to_v6(payload["career"], balance)
+
+
+## v6: videoclipes viram um sistema próprio, então a antiga ação "Videoclipe" sai das campanhas.
+## O que já foi pago continua no histórico financeiro; só a ação deixa de existir.
+static func _migrate_to_v6(career: Dictionary, balance: GameBalance) -> void:
+	career["music_videos"] = []
+	for campaign: Dictionary in career.get("marketing_campaigns", []):
+		var kept: Array = []
+		for action: Dictionary in campaign.get("actions", []):
+			if balance.marketing.find_action(action.get("action_id", "")) != null:
+				kept.append(action)
+		campaign["actions"] = kept
 
 
 ## v5: plataformas. Músicas já lançadas entram nas plataformas com a curva antiga, e os streams

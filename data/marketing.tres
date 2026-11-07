@@ -87,18 +87,6 @@ duration_weeks = 4
 hype_impact = 18.0
 required_fame = 50
 
-[sub_resource type="Resource" id="action_video"]
-script = ExtResource("2_action")
-id = "video"
-display_name = "Videoclipe"
-cost = 20000
-reach = 150000
-duration_weeks = 4
-hype_impact = 25.0
-return_potential = 1.4
-required_fame = 100
-required_reputation = 5
-
 [sub_resource type="Resource" id="outcome_below"]
 script = ExtResource("3_outcome")
 id = "below"
@@ -128,5 +116,5 @@ multiplier = 1.8
 
 [resource]
 script = ExtResource("1_rules")
-actions = Array[ExtResource("2_action")]([SubResource("action_social"), SubResource("action_teaser"), SubResource("action_pre_save"), SubResource("action_influencers"), SubResource("action_interviews"), SubResource("action_radio"), SubResource("action_playlists"), SubResource("action_paid_ads"), SubResource("action_video")])
+actions = Array[ExtResource("2_action")]([SubResource("action_social"), SubResource("action_teaser"), SubResource("action_pre_save"), SubResource("action_influencers"), SubResource("action_interviews"), SubResource("action_radio"), SubResource("action_playlists"), SubResource("action_paid_ads")])
 outcomes = Array[ExtResource("3_outcome")]([SubResource("outcome_below"), SubResource("outcome_normal"), SubResource("outcome_great"), SubResource("outcome_opportunity")])

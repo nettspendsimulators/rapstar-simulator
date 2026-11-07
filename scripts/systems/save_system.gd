@@ -3,7 +3,7 @@ extends RefCounted
 ## Grava em user:// (res:// é somente leitura no .exe exportado).
 
 ## Aumente ao mudar o formato e adicione a conversão em SaveMigration.
-const SAVE_VERSION := 5
+const SAVE_VERSION := 6
 const DEFAULT_SLOT := "career"
 
 var save_dir: String = "user://saves"

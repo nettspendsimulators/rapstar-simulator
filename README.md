@@ -31,6 +31,7 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Ação ou resultado de marketing, e os parâmetros da expectativa | `data/marketing.tres` |
 | Plataforma, trajetória de sucesso, descoberta e vazamentos | `data/streaming.tres` |
 | Sample | `data/samples.tres` |
+| Opção de produção de videoclipe, prazo, risco e desempenho | `data/videos.tres` |
 | Pesos da nota, custo e limite das melhorias | `song_quality` em `data/game_balance.tres` |
 | Formato de projeto | Nova entrada em `album_formats` em `data/game_balance.tres` |
 | Atributo de música (gênero, duração...) | `SongData`: campo, `to_dict` e `from_dict` |
@@ -70,6 +71,10 @@ godot --headless --path . --script res://tests/test_marketing.gd
 godot --headless --path . --script res://tests/test_streaming.gd
 ```
 
+```bash
+godot --headless --path . --script res://tests/test_videos.gd
+```
+
 ## Regras do sistema musical
 
 **Nota da música (0 a 100):** Beat (30%), Produção (25%), Vocal (20%), Letra (15%) e participações
@@ -78,16 +83,10 @@ extra. Sem colaboradores, cada uma vale 50, e Vocal e Letra partem de 50. Times 
 variam mais para cima ou para baixo. Essa variação é sorteada uma vez na criação, então editar não
 sorteia a nota de novo.
 
-**Melhorias:** cada atributo evolui sozinho, com botão e custo próprios, e soma de 2 a 4 pontos, até
-15 pontos acima da nota base dele, sem passar de 100. A energia volta por completo a cada semana.
-Editar e melhorar só valem antes do lançamento.
-
-| Atributo | Energia | Dinheiro |
-| --- | --- | --- |
-| Vocal | 20 | $50 |
-| Letra | 15 | $25 |
-| Beat | 20 | $75 |
-| Produção | 25 | $100 |
+**Melhorias:** cada atributo evolui sozinho e custa só energia: Vocal 20, Letra 15, Beat 20 e
+Produção 25. Cada melhoria soma de 2 a 4 pontos, até 15 pontos acima da nota base do atributo, sem
+passar de 100. A energia volta por completo a cada semana. Editar e melhorar só valem antes do
+lançamento.
 
 **Colaboradores:** cada produtor, beatmaker e feat tem um custo, pago ao entrar na música e mostrado
 antes de confirmar. Ao editar, só quem é novo na música é pago. Remover não dá reembolso, e
@@ -137,6 +136,28 @@ campanha e traz alguma atenção. O lançamento oficial continua valendo.
 
 **Samples:** icônicos, reconhecíveis, obscuros ou próprios. Mudam a nota, o interesse do público, a
 chance de chamar atenção e podem ter custo. O sample próprio exige escolher qual música será usada.
+
+**Videoclipes:** qualquer música pode ganhar um, inclusive as já lançadas.
+
+- **Montagem:** conceito, escala, locações, direção, equipe, figurantes, dançarinos, figurino,
+  cenário, direção visual, participação do artista, edição, efeitos e complexidade.
+- **Orçamento e prazo:** a escala multiplica o custo das demais escolhas, e locações extras,
+  cenários, efeitos e edição aumentam o prazo. A complexidade multiplica o prazo.
+- **Notas e risco:** as escolhas definem técnica, visual, criatividade, identidade, coerência,
+  apelo comercial, descoberta, potencial viral e risco.
+- **Coerência:** depende de as escolhas combinarem com o conceito, e de o conceito valorizar o
+  atributo forte da música.
+- **Problemas de produção:** o risco pode atrasar a produção e prejudicar a parte técnica. Escolhas
+  muito acima da escala e equipes pequenas para produções complexas aumentam o risco.
+- **Lançamento:** automático, junto com a música (ou assim que ficar pronto, se a música já saiu),
+  ou em uma data própria. Um videoclipe nunca sai antes da música. A capa é grátis e pode mudar.
+- **Desempenho:** metade da nota vem da música e metade do videoclipe, então música fraca não vira
+  sucesso só com videoclipe caro.
+- **YouTube:** as visualizações entram nele com o valor que ele paga por visualização, viram
+  inscritos e dão um bônus de reproduções para a música. O marketing da música ou do projeto amplia
+  o início.
+- **Vazamento:** tem chance semanal de 3% antes do lançamento oficial. As visualizações vazadas
+  ficam separadas e não geram receita. O vazamento pode prejudicar a estreia ou virar burburinho.
 
 **Marketing (singles, EPs, álbuns e mixtapes):** a campanha é montada na tela de Marketing, aberta
 pela navegação principal, pela música ou pelo projeto. Ela amplia alcance, público e potencial, mas

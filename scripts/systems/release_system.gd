@@ -8,16 +8,18 @@ var _time: TimeSystem
 var _performance: PerformanceSystem
 var _marketing: MarketingSystem
 var _streaming: StreamingSystem
+var _videos: VideoSystem
 var _rng: RandomNumberGenerator
 
 
-func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem, marketing: MarketingSystem, streaming: StreamingSystem, rng: RandomNumberGenerator) -> void:
+func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem, marketing: MarketingSystem, streaming: StreamingSystem, videos: VideoSystem, rng: RandomNumberGenerator) -> void:
 	_balance = balance
 	_economy = economy
 	_time = time
 	_performance = performance
 	_marketing = marketing
 	_streaming = streaming
+	_videos = videos
 	_rng = rng
 
 
@@ -228,6 +230,7 @@ func _publish(career: CareerData, content: ReleasableContent, report: WeekReport
 	release_entry.initial_potential = _marketing.finish_campaign(career, content, report)
 	career.releases.append(release_entry)
 	_streaming.start_release(career, content)
+	_videos.on_content_released(career, content, report)
 
 	var multiplier := 1.0
 	if content is AlbumData:

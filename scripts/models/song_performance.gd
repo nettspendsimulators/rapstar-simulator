@@ -12,6 +12,8 @@ var base_units: int = 0
 ## Semana após o lançamento em que a música tem seu surto. -1 quando não há.
 var surge_week: int = -1
 var launch_factor: float = 1.0
+## Bônus de reproduções que o videoclipe dá à música, calculado a cada semana.
+var video_boost: float = 1.0
 var recommendation_weeks_left: int = 0
 var recommendations: int = 0
 var total_plays: int = 0
@@ -31,6 +33,7 @@ func to_dict() -> Dictionary:
 		"base_units": base_units,
 		"surge_week": surge_week,
 		"launch_factor": launch_factor,
+		"video_boost": video_boost,
 		"recommendation_weeks_left": recommendation_weeks_left,
 		"recommendations": recommendations,
 		"total_plays": total_plays,
@@ -50,6 +53,7 @@ static func from_dict(data: Dictionary) -> SongPerformance:
 	performance.base_units = int(data.get("base_units", 0))
 	performance.surge_week = int(data.get("surge_week", -1))
 	performance.launch_factor = float(data.get("launch_factor", 1.0))
+	performance.video_boost = float(data.get("video_boost", 1.0))
 	performance.recommendation_weeks_left = int(data.get("recommendation_weeks_left", 0))
 	performance.recommendations = int(data.get("recommendations", 0))
 	performance.total_plays = int(data.get("total_plays", 0))

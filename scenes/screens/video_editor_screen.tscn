@@ -1,0 +1,117 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/screens/video_editor_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/components/cover_picker.tscn" id="2_cover"]
+
+[node name="VideoEditorScreen" type="MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Column" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Novo videoclipe"
+
+[node name="InfoLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+clip_text = true
+
+[node name="Body" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Side" type="PanelContainer" parent="Column/Body"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="SideColumn" type="VBoxContainer" parent="Column/Body/Side"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SongOption" type="OptionButton" parent="Column/Body/Side/SideColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+clip_text = true
+
+[node name="CoverPicker" parent="Column/Body/Side/SideColumn" instance=ExtResource("2_cover")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ChoicesScroll" type="ScrollContainer" parent="Column/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="ChoicesGrid" type="GridContainer" parent="Column/Body/ChoicesScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="SummaryLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 3
+
+[node name="ScoresLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+
+[node name="MessageLabel" type="Label" parent="Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MessageLabel"
+
+[node name="ButtonRow" type="HBoxContainer" parent="Column"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar"
+
+[node name="ReleaseLabel" type="Label" parent="Column/ButtonRow"]
+layout_mode = 2
+text = "Lançamento:"
+
+[node name="ModeOption" type="OptionButton" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+clip_text = true
+
+[node name="WeekLabel" type="Label" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Semana:"
+
+[node name="WeekInput" type="SpinBox" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="Column/ButtonRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PrimaryButton"
+text = "Produzir"

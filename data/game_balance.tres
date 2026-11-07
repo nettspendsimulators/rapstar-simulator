@@ -10,6 +10,7 @@
 [ext_resource type="Resource" path="res://data/marketing.tres" id="8_marketing"]
 [ext_resource type="Resource" path="res://data/streaming.tres" id="9_streaming"]
 [ext_resource type="Resource" path="res://data/samples.tres" id="10_samples"]
+[ext_resource type="Resource" path="res://data/videos.tres" id="11_videos"]
 
 [sub_resource type="Resource" id="job_delivery"]
 script = ExtResource("2_job")
@@ -89,7 +90,6 @@ id = "vocal"
 display_name = "Vocal"
 weight = 0.2
 energy_cost = 20
-money_cost = 50
 
 [sub_resource type="Resource" id="attribute_lyrics"]
 script = ExtResource("7_attribute")
@@ -97,7 +97,6 @@ id = "lyrics"
 display_name = "Letra"
 weight = 0.15
 energy_cost = 15
-money_cost = 25
 
 [sub_resource type="Resource" id="attribute_beat"]
 script = ExtResource("7_attribute")
@@ -105,7 +104,6 @@ id = "beat"
 display_name = "Beat"
 weight = 0.3
 energy_cost = 20
-money_cost = 75
 
 [sub_resource type="Resource" id="attribute_production"]
 script = ExtResource("7_attribute")
@@ -113,7 +111,6 @@ id = "production"
 display_name = "Produção"
 weight = 0.25
 energy_cost = 25
-money_cost = 100
 
 [sub_resource type="Resource" id="quality_rules"]
 script = ExtResource("5_quality")
@@ -127,6 +124,7 @@ collaborators = ExtResource("6_collaborators")
 marketing = ExtResource("8_marketing")
 streaming = ExtResource("9_streaming")
 samples = ExtResource("10_samples")
+videos = ExtResource("11_videos")
 album_formats = Array[ExtResource("3_format")]([SubResource("format_ep"), SubResource("format_album"), SubResource("format_mixtape")])
 song_performance = SubResource("song_rules")
 album_performance = SubResource("album_rules")

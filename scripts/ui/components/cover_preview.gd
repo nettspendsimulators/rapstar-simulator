@@ -20,6 +20,9 @@ func _draw() -> void:
 	if texture != null:
 		return
 	draw_rect(Rect2(Vector2.ZERO, size), PLACEHOLDER_COLOR)
+	# Em miniaturas o texto não caberia.
+	if size.x < 80.0:
+		return
 	var font := get_theme_default_font()
 	var font_size := get_theme_default_font_size()
 	var baseline := Vector2(0, (size.y + font_size) / 2.0)

@@ -21,8 +21,9 @@ var music := MusicSystem.new(balance, economy, song_quality, rng)
 var albums := AlbumSystem.new(balance, economy)
 var marketing := MarketingSystem.new(balance, economy, rng)
 var streaming := StreamingSystem.new(balance, economy, performance, time, marketing, rng)
-var releases := ReleaseSystem.new(balance, economy, time, performance, marketing, streaming, rng)
-var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming)
+var videos := VideoSystem.new(balance, economy, performance, streaming, marketing, time, rng)
+var releases := ReleaseSystem.new(balance, economy, time, performance, marketing, streaming, videos, rng)
+var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming, videos)
 
 
 func _init() -> void:
@@ -111,6 +112,14 @@ func add_marketing_action(content_id: String, action_id: String) -> ActionResult
 
 func remove_marketing_action(content_id: String, action_id: String) -> ActionResult:
 	return _notify_if_ok(marketing.remove_action(career, content_id, action_id))
+
+
+func create_video(song_id: String, choices: Dictionary, cover_file: String, release_mode: String, scheduled_week: int) -> ActionResult:
+	return _notify_if_ok(videos.create_video(career, song_id, choices, cover_file, release_mode, scheduled_week))
+
+
+func update_video(video_id: String, cover_file: String, release_mode: String, scheduled_week: int) -> ActionResult:
+	return _notify_if_ok(videos.update_video(career, video_id, cover_file, release_mode, scheduled_week))
 
 
 func set_artist_cover(cover_file: String) -> void:

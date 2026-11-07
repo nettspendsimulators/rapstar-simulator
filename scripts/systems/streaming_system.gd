@@ -44,7 +44,9 @@ func start_release(career: CareerData, content: ReleasableContent) -> void:
 		performance.release_id = content.id
 		performance.base_units = _performance.roll_base_units(_balance.song_performance)
 		performance.launch_factor = launch * _sample_launch_factor(career, song)
-		var trajectory := _roll_trajectory(career, song, hype + content.leak_attention_score())
+		var definition := _balance.samples.find_sample(song.sample.sample_id)
+		var attention := definition.attention / 100.0 if definition != null else 0.0
+		var trajectory := roll_trajectory(career, song.quality, hype + content.leak_attention_score(), attention)
 		performance.trajectory_id = trajectory.id
 		performance.spotlight_platform = _pick_spotlight(trajectory, song)
 		if trajectory.surge_boost > 0.0:
@@ -73,6 +75,14 @@ func process_release(career: CareerData, release_entry: ReleaseData, content: Re
 	var plays_before_fame := result.plays / _performance.fame_factor(rules, career.fame)
 	result.fame = floori(plays_before_fame / rules.units_per_fame * fame_multiplier)
 	return result
+
+
+## Registra reproduções calculadas por outro sistema, como as visualizações de videoclipes.
+func record_platform_plays(career: CareerData, platform_id: String, plays: int, money: int) -> void:
+	var stats := career.platform_stats_for(platform_id)
+	stats.week_plays += plays
+	stats.total_plays += plays
+	stats.revenue += money
 
 
 ## Registra na Loja digital uma venda calculada por outro sistema.
@@ -298,7 +308,7 @@ func _process_song(career: CareerData, performance: SongPerformance, release_ent
 
 	var units := _performance.stream_units(
 		_balance.song_performance, performance.base_units, song.quality, career.fame,
-		curve * audience * launch * discovery * multiplier, rules.weekly_noise
+		curve * audience * launch * discovery * multiplier * performance.video_boost, rules.weekly_noise
 	)
 	var week_plays := 0
 	var money := 0.0
@@ -421,13 +431,12 @@ func _sample_launch_factor(career: CareerData, song: SongData) -> float:
 	return 1.0 + interest / 100.0 * _rules().sample_interest_weight
 
 
-func _roll_trajectory(career: CareerData, song: SongData, hype: int) -> TrajectoryDefinition:
+## Sorteia a trajetória de uma música ou de um videoclipe. attention_level vai de 0 a 1.
+func roll_trajectory(career: CareerData, quality: int, hype: int, attention_level: float) -> TrajectoryDefinition:
 	var rules := _rules()
 	var fame_level := minf(float(career.fame) / rules.trajectory_fame_reference, 1.0)
-	var quality_level := (song.quality - 50.0) / 50.0
+	var quality_level := (quality - 50.0) / 50.0
 	var hype_level := minf(hype / 100.0, 1.0)
-	var definition := _balance.samples.find_sample(song.sample.sample_id)
-	var attention_level := definition.attention / 100.0 if definition != null else 0.0
 	var weights: Array[float] = []
 	var total := 0.0
 	for trajectory in rules.trajectories:

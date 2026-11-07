@@ -12,6 +12,7 @@ func _ready() -> void:
 	_build_attribute_rows()
 	%EditButton.pressed.connect(func() -> void: navigate(Screen.SONG_EDITOR, {"song_id": _song.id}))
 	%MarketingButton.pressed.connect(func() -> void: navigate(Screen.MARKETING, {"content_id": _song.id, "back": Screen.SONG_DETAIL}))
+	%VideoButton.pressed.connect(_on_video_pressed)
 	%BackButton.pressed.connect(navigate.bind(Screen.SONGS))
 	super()
 
@@ -35,7 +36,7 @@ func _build_attribute_rows() -> void:
 		%AttributesGrid.add_child(value_label)
 
 		var cost_label := Label.new()
-		cost_label.text = "%d energia + %s" % [attribute.energy_cost, Fmt.money(attribute.money_cost)]
+		cost_label.text = "%d de energia" % attribute.energy_cost
 		%AttributesGrid.add_child(cost_label)
 
 		var button := Button.new()
@@ -111,6 +112,14 @@ func _sample_text() -> String:
 	if definition.is_own():
 		return "%s (\"%s\")" % [definition.display_name, GameManager.career.find_song(_song.sample.song_id).title]
 	return definition.display_name
+
+
+func _on_video_pressed() -> void:
+	var video := GameManager.career.find_video_for_song(_song.id)
+	var next_context := {"song_id": _song.id, "back": Screen.SONG_DETAIL}
+	if video != null:
+		next_context["video_id"] = video.id
+	navigate(Screen.VIDEO_EDITOR, next_context)
 
 
 func _names_text(names: PackedStringArray) -> String:

@@ -1,0 +1,832 @@
+[gd_resource type="Resource" script_class="VideoRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/video_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/video_category_definition.gd" id="2_category"]
+[ext_resource type="Script" path="res://scripts/definitions/video_option_definition.gd" id="3_option"]
+
+[sub_resource type="Resource" id="opt_concept_performance"]
+script = ExtResource("3_option")
+id = "concept_performance"
+display_name = "Performance"
+commercial = 10
+song_attribute = "vocal"
+fits = PackedStringArray("dancers_amateur", "dancers_pro", "dancers_big", "dancers_choreo", "presence_full", "presence_protagonist", "loc_studio", "loc_club", "visual_neon", "visual_light_pro")
+clashes = PackedStringArray("presence_small")
+
+[sub_resource type="Resource" id="opt_concept_narrative"]
+script = ExtResource("3_option")
+id = "concept_narrative"
+display_name = "Narrativo"
+creativity = 10
+identity = 5
+song_attribute = "lyrics"
+fits = PackedStringArray("presence_story", "editing_cinematic", "set_produced", "dir_pro", "dir_experienced", "dir_renowned", "complexity_complex")
+clashes = PackedStringArray("presence_full", "complexity_simple")
+
+[sub_resource type="Resource" id="opt_concept_cinematic"]
+script = ExtResource("3_option")
+id = "concept_cinematic"
+display_name = "Cinematográfico"
+visual = 10
+song_attribute = "production"
+fits = PackedStringArray("visual_cinematic", "editing_cinematic", "dir_experienced", "dir_renowned", "loc_special", "loc_mansion", "set_elaborate")
+clashes = PackedStringArray("crew_basic", "visual_simple", "scale_home")
+
+[sub_resource type="Resource" id="opt_concept_party"]
+script = ExtResource("3_option")
+id = "concept_party"
+display_name = "Festa"
+commercial = 10
+viral = 5
+song_attribute = "beat"
+fits = PackedStringArray("loc_party", "loc_club", "extras_many", "extras_huge", "dancers_pro", "dancers_big", "visual_neon")
+clashes = PackedStringArray("extras_none")
+
+[sub_resource type="Resource" id="opt_concept_street"]
+script = ExtResource("3_option")
+id = "concept_street"
+display_name = "Rua"
+identity = 10
+discovery = 5
+song_attribute = "beat"
+fits = PackedStringArray("loc_street", "loc_own", "extras_few", "extras_medium", "wardrobe_own", "wardrobe_stylist", "visual_simple")
+clashes = PackedStringArray("wardrobe_luxury", "set_big", "loc_mansion")
+
+[sub_resource type="Resource" id="opt_concept_lifestyle"]
+script = ExtResource("3_option")
+id = "concept_lifestyle"
+display_name = "Lifestyle"
+identity = 5
+commercial = 5
+song_attribute = "vocal"
+fits = PackedStringArray("loc_house", "loc_hotel", "wardrobe_stylist", "presence_protagonist")
+clashes = PackedStringArray("fx_cgi_advanced")
+
+[sub_resource type="Resource" id="opt_concept_luxury"]
+script = ExtResource("3_option")
+id = "concept_luxury"
+display_name = "Luxuoso"
+visual = 5
+commercial = 10
+song_attribute = "production"
+fits = PackedStringArray("loc_mansion", "loc_hotel", "wardrobe_luxury", "extras_many", "visual_elaborate")
+clashes = PackedStringArray("loc_street", "wardrobe_own", "scale_home")
+
+[sub_resource type="Resource" id="opt_concept_underground"]
+script = ExtResource("3_option")
+id = "concept_underground"
+display_name = "Underground"
+identity = 15
+discovery = 10
+song_attribute = "beat"
+fits = PackedStringArray("loc_street", "loc_own", "crew_basic", "editing_basic", "visual_experimental")
+clashes = PackedStringArray("wardrobe_luxury", "loc_mansion", "fx_cgi", "fx_cgi_advanced")
+
+[sub_resource type="Resource" id="opt_concept_experimental"]
+script = ExtResource("3_option")
+id = "concept_experimental"
+display_name = "Experimental"
+creativity = 20
+viral = 5
+risk = 5
+song_attribute = "production"
+fits = PackedStringArray("visual_experimental", "fx_vfx", "fx_cgi", "editing_complex")
+clashes = PackedStringArray("visual_simple")
+
+[sub_resource type="Resource" id="opt_concept_minimal"]
+script = ExtResource("3_option")
+id = "concept_minimal"
+display_name = "Minimalista"
+identity = 10
+song_attribute = "vocal"
+fits = PackedStringArray("loc_studio", "set_existing", "visual_simple", "extras_none", "presence_full")
+clashes = PackedStringArray("extras_huge", "fx_cgi_advanced", "set_big")
+
+[sub_resource type="Resource" id="opt_concept_artistic"]
+script = ExtResource("3_option")
+id = "concept_artistic"
+display_name = "Artístico"
+creativity = 15
+identity = 10
+song_attribute = "lyrics"
+fits = PackedStringArray("visual_experimental", "wardrobe_custom", "set_elaborate", "editing_complex")
+clashes = PackedStringArray("extras_huge")
+
+[sub_resource type="Resource" id="opt_concept_comedy"]
+script = ExtResource("3_option")
+id = "concept_comedy"
+display_name = "Comédia"
+commercial = 5
+viral = 15
+song_attribute = "lyrics"
+fits = PackedStringArray("presence_story", "presence_guests", "loc_house", "extras_medium")
+clashes = PackedStringArray("visual_cinematic")
+
+[sub_resource type="Resource" id="cat_concept"]
+script = ExtResource("2_category")
+id = "concept"
+label = "Conceito"
+options = Array[ExtResource("3_option")]([SubResource("opt_concept_performance"), SubResource("opt_concept_narrative"), SubResource("opt_concept_cinematic"), SubResource("opt_concept_party"), SubResource("opt_concept_street"), SubResource("opt_concept_lifestyle"), SubResource("opt_concept_luxury"), SubResource("opt_concept_underground"), SubResource("opt_concept_experimental"), SubResource("opt_concept_minimal"), SubResource("opt_concept_artistic"), SubResource("opt_concept_comedy")])
+
+[sub_resource type="Resource" id="opt_scale_home"]
+script = ExtResource("3_option")
+id = "scale_home"
+display_name = "Caseiro"
+technical = -10
+cost_multiplier = 0.5
+
+[sub_resource type="Resource" id="opt_scale_indie"]
+script = ExtResource("3_option")
+id = "scale_indie"
+display_name = "Independente"
+tier = 1
+cost = 3000
+weeks = 1
+cost_multiplier = 1.0
+
+[sub_resource type="Resource" id="opt_scale_pro"]
+script = ExtResource("3_option")
+id = "scale_pro"
+display_name = "Profissional"
+tier = 2
+cost = 15000
+weeks = 2
+technical = 15
+cost_multiplier = 1.5
+
+[sub_resource type="Resource" id="opt_scale_big"]
+script = ExtResource("3_option")
+id = "scale_big"
+display_name = "Grande produção"
+tier = 3
+cost = 60000
+weeks = 3
+technical = 25
+visual = 10
+cost_multiplier = 2.5
+
+[sub_resource type="Resource" id="opt_scale_super"]
+script = ExtResource("3_option")
+id = "scale_super"
+display_name = "Superprodução"
+tier = 4
+cost = 200000
+weeks = 5
+technical = 35
+visual = 20
+risk = 5
+cost_multiplier = 4.0
+
+[sub_resource type="Resource" id="cat_scale"]
+script = ExtResource("2_category")
+id = "scale"
+label = "Escala"
+options = Array[ExtResource("3_option")]([SubResource("opt_scale_home"), SubResource("opt_scale_indie"), SubResource("opt_scale_pro"), SubResource("opt_scale_big"), SubResource("opt_scale_super")])
+
+[sub_resource type="Resource" id="opt_loc_own"]
+script = ExtResource("3_option")
+id = "loc_own"
+display_name = "Local próprio"
+visual = 2
+
+[sub_resource type="Resource" id="opt_loc_street"]
+script = ExtResource("3_option")
+id = "loc_street"
+display_name = "Rua ou local público"
+cost = 500
+visual = 4
+discovery = 3
+risk = 3
+
+[sub_resource type="Resource" id="opt_loc_house"]
+script = ExtResource("3_option")
+id = "loc_house"
+display_name = "Casa ou apartamento"
+cost = 1500
+visual = 3
+
+[sub_resource type="Resource" id="opt_loc_studio"]
+script = ExtResource("3_option")
+id = "loc_studio"
+display_name = "Estúdio"
+tier = 1
+cost = 3000
+technical = 5
+visual = 3
+
+[sub_resource type="Resource" id="opt_loc_club"]
+script = ExtResource("3_option")
+id = "loc_club"
+display_name = "Boate"
+tier = 2
+cost = 6000
+weeks = 1
+visual = 6
+commercial = 3
+
+[sub_resource type="Resource" id="opt_loc_party"]
+script = ExtResource("3_option")
+id = "loc_party"
+display_name = "Festa"
+tier = 2
+cost = 8000
+weeks = 1
+visual = 6
+viral = 3
+
+[sub_resource type="Resource" id="opt_loc_hotel"]
+script = ExtResource("3_option")
+id = "loc_hotel"
+display_name = "Hotel"
+tier = 3
+cost = 15000
+weeks = 1
+visual = 8
+commercial = 4
+
+[sub_resource type="Resource" id="opt_loc_mansion"]
+script = ExtResource("3_option")
+id = "loc_mansion"
+display_name = "Mansão"
+tier = 3
+cost = 40000
+weeks = 1
+visual = 10
+commercial = 6
+
+[sub_resource type="Resource" id="opt_loc_special"]
+script = ExtResource("3_option")
+id = "loc_special"
+display_name = "Local especial"
+tier = 4
+cost = 80000
+weeks = 2
+visual = 14
+creativity = 5
+risk = 5
+
+[sub_resource type="Resource" id="cat_locations"]
+script = ExtResource("2_category")
+id = "locations"
+label = "Locações"
+multiple = true
+max_choices = 4
+options = Array[ExtResource("3_option")]([SubResource("opt_loc_own"), SubResource("opt_loc_street"), SubResource("opt_loc_house"), SubResource("opt_loc_studio"), SubResource("opt_loc_club"), SubResource("opt_loc_party"), SubResource("opt_loc_hotel"), SubResource("opt_loc_mansion"), SubResource("opt_loc_special")])
+
+[sub_resource type="Resource" id="opt_dir_friend"]
+script = ExtResource("3_option")
+id = "dir_friend"
+display_name = "Artista ou amigo"
+creativity = 5
+risk = 5
+
+[sub_resource type="Resource" id="opt_dir_beginner"]
+script = ExtResource("3_option")
+id = "dir_beginner"
+display_name = "Diretor iniciante"
+tier = 1
+cost = 4000
+technical = 5
+visual = 5
+creativity = 5
+
+[sub_resource type="Resource" id="opt_dir_pro"]
+script = ExtResource("3_option")
+id = "dir_pro"
+display_name = "Diretor profissional"
+tier = 2
+cost = 15000
+technical = 12
+visual = 12
+creativity = 10
+identity = 5
+
+[sub_resource type="Resource" id="opt_dir_experienced"]
+script = ExtResource("3_option")
+id = "dir_experienced"
+display_name = "Diretor experiente"
+tier = 3
+cost = 45000
+technical = 18
+visual = 18
+creativity = 15
+identity = 8
+
+[sub_resource type="Resource" id="opt_dir_renowned"]
+script = ExtResource("3_option")
+id = "dir_renowned"
+display_name = "Diretor renomado"
+tier = 4
+cost = 120000
+technical = 22
+visual = 25
+creativity = 22
+identity = 12
+commercial = 5
+discovery = 5
+
+[sub_resource type="Resource" id="cat_direction"]
+script = ExtResource("2_category")
+id = "direction"
+label = "Direção"
+options = Array[ExtResource("3_option")]([SubResource("opt_dir_friend"), SubResource("opt_dir_beginner"), SubResource("opt_dir_pro"), SubResource("opt_dir_experienced"), SubResource("opt_dir_renowned")])
+
+[sub_resource type="Resource" id="opt_crew_basic"]
+script = ExtResource("3_option")
+id = "crew_basic"
+display_name = "Equipe básica"
+weeks = 1
+risk = 10
+crew_capacity = 1
+
+[sub_resource type="Resource" id="opt_crew_indie"]
+script = ExtResource("3_option")
+id = "crew_indie"
+display_name = "Equipe independente"
+tier = 1
+cost = 5000
+technical = 5
+risk = 5
+crew_capacity = 2
+
+[sub_resource type="Resource" id="opt_crew_pro"]
+script = ExtResource("3_option")
+id = "crew_pro"
+display_name = "Equipe profissional"
+tier = 2
+cost = 20000
+technical = 12
+crew_capacity = 3
+
+[sub_resource type="Resource" id="opt_crew_large"]
+script = ExtResource("3_option")
+id = "crew_large"
+display_name = "Grande equipe"
+tier = 3
+cost = 60000
+weeks = -1
+technical = 18
+risk = -5
+crew_capacity = 4
+
+[sub_resource type="Resource" id="cat_crew"]
+script = ExtResource("2_category")
+id = "crew"
+label = "Equipe"
+options = Array[ExtResource("3_option")]([SubResource("opt_crew_basic"), SubResource("opt_crew_indie"), SubResource("opt_crew_pro"), SubResource("opt_crew_large")])
+
+[sub_resource type="Resource" id="opt_extras_none"]
+script = ExtResource("3_option")
+id = "extras_none"
+display_name = "Nenhum"
+
+[sub_resource type="Resource" id="opt_extras_few"]
+script = ExtResource("3_option")
+id = "extras_few"
+display_name = "Poucos"
+cost = 1500
+visual = 2
+
+[sub_resource type="Resource" id="opt_extras_medium"]
+script = ExtResource("3_option")
+id = "extras_medium"
+display_name = "Médios"
+tier = 1
+cost = 5000
+visual = 5
+commercial = 3
+
+[sub_resource type="Resource" id="opt_extras_many"]
+script = ExtResource("3_option")
+id = "extras_many"
+display_name = "Muitos"
+tier = 2
+cost = 15000
+visual = 8
+commercial = 5
+viral = 3
+risk = 3
+
+[sub_resource type="Resource" id="opt_extras_huge"]
+script = ExtResource("3_option")
+id = "extras_huge"
+display_name = "Grande quantidade"
+tier = 3
+cost = 40000
+visual = 12
+commercial = 8
+viral = 5
+risk = 6
+
+[sub_resource type="Resource" id="cat_extras"]
+script = ExtResource("2_category")
+id = "extras"
+label = "Figurantes"
+options = Array[ExtResource("3_option")]([SubResource("opt_extras_none"), SubResource("opt_extras_few"), SubResource("opt_extras_medium"), SubResource("opt_extras_many"), SubResource("opt_extras_huge")])
+
+[sub_resource type="Resource" id="opt_dancers_none"]
+script = ExtResource("3_option")
+id = "dancers_none"
+display_name = "Sem dançarinos"
+
+[sub_resource type="Resource" id="opt_dancers_amateur"]
+script = ExtResource("3_option")
+id = "dancers_amateur"
+display_name = "Dançarinos amadores"
+cost = 2000
+visual = 3
+viral = 2
+risk = 3
+
+[sub_resource type="Resource" id="opt_dancers_pro"]
+script = ExtResource("3_option")
+id = "dancers_pro"
+display_name = "Grupo profissional"
+tier = 2
+cost = 10000
+visual = 6
+commercial = 5
+viral = 4
+
+[sub_resource type="Resource" id="opt_dancers_big"]
+script = ExtResource("3_option")
+id = "dancers_big"
+display_name = "Grande grupo profissional"
+tier = 3
+cost = 30000
+visual = 9
+commercial = 8
+viral = 6
+
+[sub_resource type="Resource" id="opt_dancers_choreo"]
+script = ExtResource("3_option")
+id = "dancers_choreo"
+display_name = "Coreógrafo profissional"
+tier = 2
+cost = 20000
+creativity = 8
+commercial = 6
+viral = 6
+
+[sub_resource type="Resource" id="cat_dancers"]
+script = ExtResource("2_category")
+id = "dancers"
+label = "Dançarinos"
+options = Array[ExtResource("3_option")]([SubResource("opt_dancers_none"), SubResource("opt_dancers_amateur"), SubResource("opt_dancers_pro"), SubResource("opt_dancers_big"), SubResource("opt_dancers_choreo")])
+
+[sub_resource type="Resource" id="opt_wardrobe_own"]
+script = ExtResource("3_option")
+id = "wardrobe_own"
+display_name = "Roupa própria"
+identity = 2
+
+[sub_resource type="Resource" id="opt_wardrobe_common"]
+script = ExtResource("3_option")
+id = "wardrobe_common"
+display_name = "Compra comum"
+cost = 1000
+visual = 2
+
+[sub_resource type="Resource" id="opt_wardrobe_stylist"]
+script = ExtResource("3_option")
+id = "wardrobe_stylist"
+display_name = "Stylist"
+tier = 1
+cost = 2500
+visual = 5
+identity = 6
+
+[sub_resource type="Resource" id="opt_wardrobe_custom"]
+script = ExtResource("3_option")
+id = "wardrobe_custom"
+display_name = "Figurino personalizado"
+tier = 2
+cost = 10000
+visual = 5
+creativity = 6
+identity = 10
+
+[sub_resource type="Resource" id="opt_wardrobe_luxury"]
+script = ExtResource("3_option")
+id = "wardrobe_luxury"
+display_name = "Figurino de luxo"
+tier = 3
+cost = 30000
+visual = 8
+identity = 4
+commercial = 8
+
+[sub_resource type="Resource" id="cat_wardrobe"]
+script = ExtResource("2_category")
+id = "wardrobe"
+label = "Figurino"
+options = Array[ExtResource("3_option")]([SubResource("opt_wardrobe_own"), SubResource("opt_wardrobe_common"), SubResource("opt_wardrobe_stylist"), SubResource("opt_wardrobe_custom"), SubResource("opt_wardrobe_luxury")])
+
+[sub_resource type="Resource" id="opt_set_existing"]
+script = ExtResource("3_option")
+id = "set_existing"
+display_name = "Local existente"
+
+[sub_resource type="Resource" id="opt_set_simple"]
+script = ExtResource("3_option")
+id = "set_simple"
+display_name = "Decoração simples"
+cost = 2000
+visual = 3
+
+[sub_resource type="Resource" id="opt_set_produced"]
+script = ExtResource("3_option")
+id = "set_produced"
+display_name = "Cenário produzido"
+tier = 2
+cost = 10000
+weeks = 1
+visual = 7
+creativity = 4
+
+[sub_resource type="Resource" id="opt_set_elaborate"]
+script = ExtResource("3_option")
+id = "set_elaborate"
+display_name = "Cenário elaborado"
+tier = 3
+cost = 35000
+weeks = 2
+visual = 11
+creativity = 6
+
+[sub_resource type="Resource" id="opt_set_big"]
+script = ExtResource("3_option")
+id = "set_big"
+display_name = "Grande cenário"
+tier = 4
+cost = 100000
+weeks = 3
+visual = 16
+creativity = 8
+risk = 5
+
+[sub_resource type="Resource" id="cat_set"]
+script = ExtResource("2_category")
+id = "set"
+label = "Cenário"
+options = Array[ExtResource("3_option")]([SubResource("opt_set_existing"), SubResource("opt_set_simple"), SubResource("opt_set_produced"), SubResource("opt_set_elaborate"), SubResource("opt_set_big")])
+
+[sub_resource type="Resource" id="opt_visual_simple"]
+script = ExtResource("3_option")
+id = "visual_simple"
+display_name = "Visual simples"
+
+[sub_resource type="Resource" id="opt_visual_light_pro"]
+script = ExtResource("3_option")
+id = "visual_light_pro"
+display_name = "Iluminação profissional"
+tier = 1
+cost = 3000
+technical = 4
+visual = 6
+
+[sub_resource type="Resource" id="opt_visual_light_complex"]
+script = ExtResource("3_option")
+id = "visual_light_complex"
+display_name = "Iluminação complexa"
+tier = 2
+cost = 10000
+weeks = 1
+technical = 6
+visual = 10
+
+[sub_resource type="Resource" id="opt_visual_neon"]
+script = ExtResource("3_option")
+id = "visual_neon"
+display_name = "Neon"
+tier = 1
+cost = 5000
+visual = 8
+identity = 6
+viral = 3
+
+[sub_resource type="Resource" id="opt_visual_cinematic"]
+script = ExtResource("3_option")
+id = "visual_cinematic"
+display_name = "Cinematográfico"
+tier = 2
+cost = 15000
+weeks = 1
+technical = 6
+visual = 12
+
+[sub_resource type="Resource" id="opt_visual_experimental"]
+script = ExtResource("3_option")
+id = "visual_experimental"
+display_name = "Experimental"
+tier = 1
+cost = 8000
+creativity = 12
+identity = 6
+risk = 4
+
+[sub_resource type="Resource" id="opt_visual_elaborate"]
+script = ExtResource("3_option")
+id = "visual_elaborate"
+display_name = "Visual elaborado"
+tier = 3
+cost = 30000
+weeks = 1
+visual = 15
+creativity = 6
+
+[sub_resource type="Resource" id="cat_visual"]
+script = ExtResource("2_category")
+id = "visual"
+label = "Direção visual"
+options = Array[ExtResource("3_option")]([SubResource("opt_visual_simple"), SubResource("opt_visual_light_pro"), SubResource("opt_visual_light_complex"), SubResource("opt_visual_neon"), SubResource("opt_visual_cinematic"), SubResource("opt_visual_experimental"), SubResource("opt_visual_elaborate")])
+
+[sub_resource type="Resource" id="opt_presence_small"]
+script = ExtResource("3_option")
+id = "presence_small"
+display_name = "Aparição pequena"
+identity = -5
+commercial = -5
+
+[sub_resource type="Resource" id="opt_presence_balanced"]
+script = ExtResource("3_option")
+id = "presence_balanced"
+display_name = "Participação equilibrada"
+
+[sub_resource type="Resource" id="opt_presence_protagonist"]
+script = ExtResource("3_option")
+id = "presence_protagonist"
+display_name = "Artista como protagonista"
+identity = 8
+commercial = 5
+
+[sub_resource type="Resource" id="opt_presence_full"]
+script = ExtResource("3_option")
+id = "presence_full"
+display_name = "Performance completa"
+commercial = 8
+
+[sub_resource type="Resource" id="opt_presence_story"]
+script = ExtResource("3_option")
+id = "presence_story"
+display_name = "Narrativa com o artista"
+creativity = 5
+identity = 5
+
+[sub_resource type="Resource" id="opt_presence_guests"]
+script = ExtResource("3_option")
+id = "presence_guests"
+display_name = "Artista + convidados"
+tier = 1
+cost = 5000
+commercial = 8
+discovery = 6
+
+[sub_resource type="Resource" id="cat_presence"]
+script = ExtResource("2_category")
+id = "presence"
+label = "Participação do artista"
+options = Array[ExtResource("3_option")]([SubResource("opt_presence_small"), SubResource("opt_presence_balanced"), SubResource("opt_presence_protagonist"), SubResource("opt_presence_full"), SubResource("opt_presence_story"), SubResource("opt_presence_guests")])
+
+[sub_resource type="Resource" id="opt_editing_basic"]
+script = ExtResource("3_option")
+id = "editing_basic"
+display_name = "Edição básica"
+
+[sub_resource type="Resource" id="opt_editing_pro"]
+script = ExtResource("3_option")
+id = "editing_pro"
+display_name = "Edição profissional"
+tier = 1
+cost = 3000
+weeks = 1
+technical = 6
+visual = 4
+
+[sub_resource type="Resource" id="opt_editing_cinematic"]
+script = ExtResource("3_option")
+id = "editing_cinematic"
+display_name = "Edição cinematográfica"
+tier = 2
+cost = 12000
+weeks = 1
+technical = 10
+visual = 8
+creativity = 4
+
+[sub_resource type="Resource" id="opt_editing_complex"]
+script = ExtResource("3_option")
+id = "editing_complex"
+display_name = "Edição complexa"
+tier = 3
+cost = 30000
+weeks = 2
+technical = 12
+visual = 10
+creativity = 8
+risk = 3
+
+[sub_resource type="Resource" id="cat_editing"]
+script = ExtResource("2_category")
+id = "editing"
+label = "Edição"
+options = Array[ExtResource("3_option")]([SubResource("opt_editing_basic"), SubResource("opt_editing_pro"), SubResource("opt_editing_cinematic"), SubResource("opt_editing_complex")])
+
+[sub_resource type="Resource" id="opt_fx_none"]
+script = ExtResource("3_option")
+id = "fx_none"
+display_name = "Nenhum"
+
+[sub_resource type="Resource" id="opt_fx_simple"]
+script = ExtResource("3_option")
+id = "fx_simple"
+display_name = "Efeitos simples"
+cost = 1500
+visual = 3
+
+[sub_resource type="Resource" id="opt_fx_vfx"]
+script = ExtResource("3_option")
+id = "fx_vfx"
+display_name = "VFX profissional"
+tier = 2
+cost = 15000
+weeks = 1
+visual = 8
+creativity = 4
+risk = 3
+
+[sub_resource type="Resource" id="opt_fx_cgi"]
+script = ExtResource("3_option")
+id = "fx_cgi"
+display_name = "CGI"
+tier = 3
+cost = 50000
+weeks = 2
+visual = 12
+creativity = 6
+risk = 6
+
+[sub_resource type="Resource" id="opt_fx_cgi_advanced"]
+script = ExtResource("3_option")
+id = "fx_cgi_advanced"
+display_name = "CGI avançado"
+tier = 4
+cost = 150000
+weeks = 3
+visual = 16
+creativity = 8
+risk = 10
+
+[sub_resource type="Resource" id="cat_effects"]
+script = ExtResource("2_category")
+id = "effects"
+label = "Efeitos visuais"
+options = Array[ExtResource("3_option")]([SubResource("opt_fx_none"), SubResource("opt_fx_simple"), SubResource("opt_fx_vfx"), SubResource("opt_fx_cgi"), SubResource("opt_fx_cgi_advanced")])
+
+[sub_resource type="Resource" id="opt_complexity_simple"]
+script = ExtResource("3_option")
+id = "complexity_simple"
+display_name = "Simples"
+visual = -5
+time_multiplier = 1.0
+
+[sub_resource type="Resource" id="opt_complexity_moderate"]
+script = ExtResource("3_option")
+id = "complexity_moderate"
+display_name = "Moderada"
+tier = 1
+cost = 1000
+risk = 3
+time_multiplier = 1.2
+
+[sub_resource type="Resource" id="opt_complexity_complex"]
+script = ExtResource("3_option")
+id = "complexity_complex"
+display_name = "Complexa"
+tier = 2
+cost = 5000
+visual = 6
+creativity = 4
+risk = 8
+time_multiplier = 1.5
+
+[sub_resource type="Resource" id="opt_complexity_very"]
+script = ExtResource("3_option")
+id = "complexity_very"
+display_name = "Muito complexa"
+tier = 3
+cost = 15000
+visual = 10
+creativity = 8
+risk = 15
+time_multiplier = 2.0
+
+[sub_resource type="Resource" id="cat_complexity"]
+script = ExtResource("2_category")
+id = "complexity"
+label = "Complexidade"
+options = Array[ExtResource("3_option")]([SubResource("opt_complexity_simple"), SubResource("opt_complexity_moderate"), SubResource("opt_complexity_complex"), SubResource("opt_complexity_very")])
+
+[resource]
+script = ExtResource("1_rules")
+categories = Array[ExtResource("2_category")]([SubResource("cat_concept"), SubResource("cat_scale"), SubResource("cat_locations"), SubResource("cat_direction"), SubResource("cat_crew"), SubResource("cat_extras"), SubResource("cat_dancers"), SubResource("cat_wardrobe"), SubResource("cat_set"), SubResource("cat_visual"), SubResource("cat_presence"), SubResource("cat_editing"), SubResource("cat_effects"), SubResource("cat_complexity")])

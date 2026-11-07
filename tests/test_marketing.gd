@@ -5,7 +5,7 @@ extends SceneTree
 const GameManagerScript := preload("res://scripts/core/game_manager.gd")
 const TEST_SAVE_DIR := "user://test_saves_marketing"
 const V3_FIXTURE := "res://tests/fixtures/save_v3.json"
-const EXPECTED_ACTIONS: Array[String] = ["Redes sociais", "Teaser", "Publicidade paga", "Influenciadores", "Rádio", "Playlists", "Entrevistas", "Videoclipe", "Pré-save"]
+const EXPECTED_ACTIONS: Array[String] = ["Redes sociais", "Teaser", "Publicidade paga", "Influenciadores", "Rádio", "Playlists", "Entrevistas", "Pré-save"]
 const STARTER_ACTIONS: Array[String] = ["social", "teaser", "pre_save"]
 
 var _failures := 0
@@ -69,7 +69,8 @@ func _test_catalog() -> void:
 	var names: Array = rules.actions.map(func(item: MarketingActionDefinition) -> String: return item.display_name)
 	for expected in EXPECTED_ACTIONS:
 		_check(expected in names, "ação %s existe" % expected)
-	_check(rules.actions.size() == 9, "nove ações")
+	_check(rules.actions.size() == 8, "oito ações")
+	_check(rules.find_action("video") == null and not "Videoclipe" in names, "videoclipe fora do marketing")
 	for action in rules.actions:
 		_check(action.cost > 0 and action.reach > 0 and action.duration_weeks > 0, "%s tem custo, alcance e duração" % action.id)
 		_check(action.hype_impact > 0.0 and action.return_potential > 0.0, "%s tem hype e retorno" % action.id)
@@ -109,7 +110,7 @@ func _test_requirements_and_progression() -> void:
 	var song := _song(game)
 	for action_id in STARTER_ACTIONS:
 		_check(game.add_marketing_action(song.id, action_id).ok, "iniciante acessa %s" % action_id)
-	_check(not game.add_marketing_action(song.id, "video").ok, "iniciante não acessa videoclipe")
+	_check(not game.add_marketing_action(song.id, "paid_ads").ok, "iniciante não acessa publicidade paga")
 	_check(not game.add_marketing_action(song.id, "radio").ok, "iniciante não acessa rádio")
 	game.career.fame = 20
 	_check(game.add_marketing_action(song.id, "radio").ok, "fama libera rádio")
@@ -117,11 +118,12 @@ func _test_requirements_and_progression() -> void:
 	_check(not game.add_marketing_action(song.id, "interviews").ok, "entrevistas exigem reputação")
 	game.career.reputation = 5
 	_check(game.add_marketing_action(song.id, "interviews").ok, "reputação libera entrevistas")
-	_check(game.add_marketing_action(song.id, "video").ok, "artista grande acessa videoclipe")
+	_check(game.add_marketing_action(song.id, "paid_ads").ok, "artista grande acessa publicidade paga")
+	_check(not game.add_marketing_action(song.id, "video").ok, "videoclipe não é ação de marketing")
 	var rules: MarketingRules = game.balance.marketing
 	var starter := rules.find_action("teaser")
-	var big := rules.find_action("video")
-	_check(big.cost > starter.cost * 10 and big.reach > starter.reach * 10, "ações grandes custam e alcançam mais")
+	var big := rules.find_action("paid_ads")
+	_check(big.cost >= starter.cost * 10 and big.reach > starter.reach * 10, "ações grandes custam e alcançam mais")
 	game.free()
 
 
