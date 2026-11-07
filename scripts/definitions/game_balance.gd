@@ -34,6 +34,9 @@ extends Resource
 @export_group("Videoclipes")
 @export var videos: VideoRules
 
+@export_group("Ao vivo")
+@export var live: LiveRules
+
 @export_group("Capas")
 ## As capas são recortadas em quadrado e salvas neste tamanho, em pixels.
 @export var cover_size: int = 512

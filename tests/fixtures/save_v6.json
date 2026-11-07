@@ -1,0 +1,1013 @@
+{
+	"career": {
+		"albums": [
+			{
+				"cover_file": "",
+				"format_id": "ep",
+				"id": "album_6",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 160,
+				"quality": 51,
+				"release_week": 4,
+				"song_ids": [
+					"song_3",
+					"song_4",
+					"song_5"
+				],
+				"status": "released",
+				"title": "EP"
+			}
+		],
+		"artist_bio": "",
+		"artist_cover": "",
+		"artist_name": "MC Seis",
+		"current_week": 7,
+		"energy": 70,
+		"fame": 342,
+		"finance_history": [
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Hit com clipe",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Lançamento: Hit com clipe",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 1",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 2",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 3",
+				"week": 1
+			},
+			{
+				"amount": -160,
+				"category": "production",
+				"description": "Produção de EP: EP",
+				"week": 1
+			},
+			{
+				"amount": -75,
+				"category": "release",
+				"description": "Agendamento: EP",
+				"week": 1
+			},
+			{
+				"amount": -500,
+				"category": "marketing",
+				"description": "Marketing (Teaser): EP",
+				"week": 1
+			},
+			{
+				"amount": 113,
+				"category": "streams",
+				"description": "Streams: Hit com clipe",
+				"week": 2
+			},
+			{
+				"amount": 31,
+				"category": "sales",
+				"description": "Vendas digitais: Hit com clipe",
+				"week": 2
+			},
+			{
+				"amount": 104,
+				"category": "streams",
+				"description": "Streams: Hit com clipe",
+				"week": 3
+			},
+			{
+				"amount": 28,
+				"category": "sales",
+				"description": "Vendas digitais: Hit com clipe",
+				"week": 3
+			},
+			{
+				"amount": 17,
+				"category": "streams",
+				"description": "YouTube (videoclipe): Hit com clipe",
+				"week": 3
+			},
+			{
+				"amount": 104,
+				"category": "streams",
+				"description": "Streams: Hit com clipe",
+				"week": 4
+			},
+			{
+				"amount": 28,
+				"category": "sales",
+				"description": "Vendas digitais: Hit com clipe",
+				"week": 4
+			},
+			{
+				"amount": 19,
+				"category": "streams",
+				"description": "YouTube (videoclipe): Hit com clipe",
+				"week": 4
+			},
+			{
+				"amount": 93,
+				"category": "streams",
+				"description": "Streams: Hit com clipe",
+				"week": 5
+			},
+			{
+				"amount": 25,
+				"category": "sales",
+				"description": "Vendas digitais: Hit com clipe",
+				"week": 5
+			},
+			{
+				"amount": 438,
+				"category": "sales",
+				"description": "Vendas de EP: EP",
+				"week": 5
+			},
+			{
+				"amount": 95,
+				"category": "streams",
+				"description": "Streams: EP",
+				"week": 5
+			},
+			{
+				"amount": 19,
+				"category": "streams",
+				"description": "YouTube (videoclipe): Hit com clipe",
+				"week": 5
+			},
+			{
+				"amount": 93,
+				"category": "streams",
+				"description": "Streams: Hit com clipe",
+				"week": 6
+			},
+			{
+				"amount": 25,
+				"category": "sales",
+				"description": "Vendas digitais: Hit com clipe",
+				"week": 6
+			},
+			{
+				"amount": 110,
+				"category": "sales",
+				"description": "Vendas de EP: EP",
+				"week": 6
+			},
+			{
+				"amount": 103,
+				"category": "streams",
+				"description": "Streams: EP",
+				"week": 6
+			},
+			{
+				"amount": 21,
+				"category": "streams",
+				"description": "YouTube (videoclipe): Hit com clipe",
+				"week": 6
+			},
+			{
+				"amount": 92,
+				"category": "streams",
+				"description": "Streams: Hit com clipe",
+				"week": 7
+			},
+			{
+				"amount": 25,
+				"category": "sales",
+				"description": "Vendas digitais: Hit com clipe",
+				"week": 7
+			},
+			{
+				"amount": 357,
+				"category": "sales",
+				"description": "Vendas de EP: EP",
+				"week": 7
+			},
+			{
+				"amount": 106,
+				"category": "streams",
+				"description": "Streams: EP",
+				"week": 7
+			},
+			{
+				"amount": 20,
+				"category": "streams",
+				"description": "YouTube (videoclipe): Hit com clipe",
+				"week": 7
+			}
+		],
+		"marketing_campaigns": [
+			{
+				"actions": [
+					{
+						"action_id": "teaser",
+						"paid_cost": 500,
+						"weeks_active": 3
+					}
+				],
+				"content_id": "album_6",
+				"hype": 18,
+				"leak_penalty": 0,
+				"result": {
+					"expectation": 25,
+					"exposure": 60,
+					"initial_potential": 1.06375,
+					"new_fans": 52,
+					"outcome_id": "great",
+					"outcome_label": "Funcionou muito bem",
+					"popularity": 0,
+					"pre_saves": 0,
+					"reach": 10195
+				},
+				"status": "completed"
+			}
+		],
+		"money": 500881,
+		"music_videos": [
+			{
+				"base_units": 2572,
+				"choices": {
+					"complexity": [
+						"complexity_simple"
+					],
+					"concept": [
+						"concept_performance"
+					],
+					"crew": [
+						"crew_basic"
+					],
+					"dancers": [
+						"dancers_none"
+					],
+					"direction": [
+						"dir_friend"
+					],
+					"editing": [
+						"editing_basic"
+					],
+					"effects": [
+						"fx_none"
+					],
+					"extras": [
+						"extras_none"
+					],
+					"locations": [
+						"loc_own"
+					],
+					"presence": [
+						"presence_small"
+					],
+					"scale": [
+						"scale_home"
+					],
+					"set": [
+						"set_existing"
+					],
+					"visual": [
+						"visual_simple"
+					],
+					"wardrobe": [
+						"wardrobe_own"
+					]
+				},
+				"coherence": 40,
+				"commercial": 25,
+				"cost": 0,
+				"cover_file": "",
+				"creativity": 25,
+				"discovery": 20,
+				"id": "video_2",
+				"identity": 17,
+				"leak_effect": 1.0,
+				"leak_views": 0,
+				"leak_week": -1,
+				"leak_weekly_views": 0,
+				"likes": 960,
+				"peak_week_views": 6969,
+				"problem_checked": true,
+				"problem_note": "",
+				"production_weeks": 1,
+				"ready_week": 2,
+				"release_mode": "with_song",
+				"release_week": 2,
+				"revenue": 96,
+				"risk": 20,
+				"scheduled_week": -1,
+				"score": 23,
+				"song_id": "song_1",
+				"start_week": 1,
+				"status": "released",
+				"surge_week": -1,
+				"technical": 10,
+				"total_views": 32013,
+				"trajectory_id": "steady",
+				"viral": 20,
+				"visual": 17,
+				"weekly_views": [
+					5738,
+					6337,
+					6356,
+					6969,
+					6613
+				]
+			}
+		],
+		"next_id": 7,
+		"performance_snapshots": [
+			{
+				"followers": 223,
+				"listeners": 2124,
+				"plays": 15334,
+				"revenue": 144,
+				"week": 2
+			},
+			{
+				"followers": 484,
+				"listeners": 4066,
+				"plays": 19780,
+				"revenue": 149,
+				"week": 3
+			},
+			{
+				"followers": 753,
+				"listeners": 6021,
+				"plays": 20457,
+				"revenue": 151,
+				"week": 4
+			},
+			{
+				"followers": 1223,
+				"listeners": 9864,
+				"plays": 29318,
+				"revenue": 670,
+				"week": 5
+			},
+			{
+				"followers": 1665,
+				"listeners": 11763,
+				"plays": 30938,
+				"revenue": 352,
+				"week": 6
+			},
+			{
+				"followers": 2105,
+				"listeners": 13877,
+				"plays": 30711,
+				"revenue": 600,
+				"week": 7
+			}
+		],
+		"platform_stats": [
+			{
+				"followers": 825,
+				"listeners": 9363,
+				"peak_listeners": 9363,
+				"platform_id": "spotify",
+				"recent_plays": [
+					4293,
+					8713,
+					9056,
+					9149
+				],
+				"revenue": 403,
+				"total_plays": 40142,
+				"week_plays": 0
+			},
+			{
+				"followers": 262,
+				"listeners": 3231,
+				"peak_listeners": 3231,
+				"platform_id": "apple_music",
+				"recent_plays": [
+					1892,
+					3522,
+					3743,
+					3765
+				],
+				"revenue": 251,
+				"total_plays": 16859,
+				"week_plays": 0
+			},
+			{
+				"followers": 106,
+				"listeners": 1283,
+				"peak_listeners": 1283,
+				"platform_id": "deezer",
+				"recent_plays": [
+					776,
+					1390,
+					1477,
+					1489
+				],
+				"revenue": 79,
+				"total_plays": 6745,
+				"week_plays": 0
+			},
+			{
+				"followers": 190,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "soundcloud",
+				"recent_plays": [
+					717,
+					1274,
+					1350,
+					1358
+				],
+				"revenue": 26,
+				"total_plays": 6191,
+				"week_plays": 0
+			},
+			{
+				"followers": 722,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "youtube",
+				"recent_plays": [
+					12107,
+					13325,
+					14171,
+					13802
+				],
+				"revenue": 214,
+				"total_plays": 71147,
+				"week_plays": 0
+			},
+			{
+				"followers": 0,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "radio",
+				"recent_plays": [
+					672,
+					1094,
+					1141,
+					1148
+				],
+				"revenue": 27,
+				"total_plays": 5454,
+				"week_plays": 0
+			},
+			{
+				"followers": 0,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "digital_store",
+				"recent_plays": [
+					28,
+					1484,
+					390,
+					1214
+				],
+				"revenue": 1067,
+				"total_plays": 3175,
+				"week_plays": 0
+			}
+		],
+		"releases": [
+			{
+				"content_id": "song_1",
+				"content_type": "song",
+				"initial_potential": 1.0,
+				"release_week": 1,
+				"total_fame": 19,
+				"total_money": 761,
+				"total_sales": 162,
+				"total_streams": 81317
+			},
+			{
+				"content_id": "album_6",
+				"content_type": "album",
+				"initial_potential": 1.06375,
+				"release_week": 4,
+				"total_fame": 19,
+				"total_money": 1209,
+				"total_sales": 3013,
+				"total_streams": 33208
+			}
+		],
+		"reputation": 0,
+		"scheduled_releases": [
+			{
+				"content_id": "album_6",
+				"paid_cost": 75,
+				"scheduled_week": 4,
+				"status": "released"
+			}
+		],
+		"song_performances": [
+			{
+				"base_units": 4287,
+				"launch_factor": 1.1,
+				"peak_week_plays": 15334,
+				"platform_plays": {
+					"apple_music": 10897,
+					"deezer": 4466,
+					"radio": 3872,
+					"soundcloud": 4129,
+					"spotify": 24722,
+					"youtube": 33231
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "song_1",
+				"revenue": 599,
+				"song_id": "song_1",
+				"spotlight_platform": "youtube",
+				"surge_week": -1,
+				"total_plays": 81317,
+				"trajectory_id": "platform_focus",
+				"video_boost": 1.10555466879489,
+				"weekly_plays": [
+					15334,
+					14042,
+					14120,
+					12621,
+					12670,
+					12530
+				]
+			},
+			{
+				"base_units": 9439,
+				"launch_factor": 1.0,
+				"peak_week_plays": 7273,
+				"platform_plays": {
+					"apple_music": 4175,
+					"deezer": 1541,
+					"radio": 996,
+					"soundcloud": 1438,
+					"spotify": 8671,
+					"youtube": 4095
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "album_6",
+				"revenue": 190,
+				"song_id": "song_3",
+				"spotlight_platform": "",
+				"surge_week": -1,
+				"total_plays": 20916,
+				"trajectory_id": "steady",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					6718,
+					7273,
+					6925
+				]
+			},
+			{
+				"base_units": 4781,
+				"launch_factor": 1.0,
+				"peak_week_plays": 2886,
+				"platform_plays": {
+					"apple_music": 1258,
+					"deezer": 527,
+					"radio": 323,
+					"soundcloud": 440,
+					"spotify": 2968,
+					"youtube": 1273
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "album_6",
+				"revenue": 62,
+				"song_id": "song_4",
+				"spotlight_platform": "",
+				"surge_week": -1,
+				"total_plays": 6789,
+				"trajectory_id": "slow_growth",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					1594,
+					2309,
+					2886
+				]
+			},
+			{
+				"base_units": 2545,
+				"launch_factor": 1.0,
+				"peak_week_plays": 2029,
+				"platform_plays": {
+					"apple_music": 529,
+					"deezer": 211,
+					"radio": 263,
+					"soundcloud": 184,
+					"spotify": 3781,
+					"youtube": 535
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "album_6",
+				"revenue": 52,
+				"song_id": "song_5",
+				"spotlight_platform": "spotify",
+				"surge_week": -1,
+				"total_plays": 5503,
+				"trajectory_id": "platform_focus",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					2029,
+					1717,
+					1757
+				]
+			}
+		],
+		"songs": [
+			{
+				"attribute_bases": {
+					"beat": 52,
+					"lyrics": 47,
+					"production": 45,
+					"vocal": 44
+				},
+				"attribute_points": {},
+				"beat_roll": 0.26017427444458,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_1",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": -0.653041899204254,
+				"quality": 48,
+				"release_week": 1,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Hit com clipe"
+			},
+			{
+				"attribute_bases": {
+					"beat": 51,
+					"lyrics": 44,
+					"production": 44,
+					"vocal": 54
+				},
+				"attribute_points": {},
+				"beat_roll": 0.0689980983734131,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_3",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": -0.861427783966064,
+				"quality": 49,
+				"release_week": 4,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Faixa 1"
+			},
+			{
+				"attribute_bases": {
+					"beat": 50,
+					"lyrics": 55,
+					"production": 55,
+					"vocal": 49
+				},
+				"attribute_points": {},
+				"beat_roll": 0.00127816200256348,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_4",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": 0.705384373664856,
+				"quality": 52,
+				"release_week": 4,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Faixa 2"
+			},
+			{
+				"attribute_bases": {
+					"beat": 50,
+					"lyrics": 49,
+					"production": 57,
+					"vocal": 50
+				},
+				"attribute_points": {},
+				"beat_roll": -0.0283434391021729,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_5",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": 0.979701042175293,
+				"quality": 52,
+				"release_week": 4,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Faixa 3"
+			}
+		],
+		"week_reports": [
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 4,
+						"money": 144,
+						"note": "",
+						"sales": 31,
+						"streams": 15334,
+						"title": "Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Expectativa em 14.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Campanha: EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Produção concluída. Nota do videoclipe: 23.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Videoclipe: Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Disponível no YouTube.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Videoclipe lançado: Hit com clipe"
+					}
+				],
+				"week": 2
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 132,
+						"note": "",
+						"sales": 28,
+						"streams": 14042,
+						"title": "Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 17,
+						"note": "",
+						"sales": 0,
+						"streams": 5738,
+						"title": "Videoclipe: Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Expectativa em 19.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Campanha: EP"
+					}
+				],
+				"week": 3
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 132,
+						"note": "",
+						"sales": 28,
+						"streams": 14120,
+						"title": "Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 19,
+						"note": "",
+						"sales": 0,
+						"streams": 6337,
+						"title": "Videoclipe: Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 1,
+						"money": 0,
+						"note": "753 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Expectativa em 18.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Campanha: EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "Funcionou muito bem. Alcance 10.195, expectativa 25, 0 pré-saves, 52 novos fãs.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Resultado da campanha: EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "EP lançado como agendado. Reputação +0.",
+						"sales": 0,
+						"streams": 0,
+						"title": "EP"
+					}
+				],
+				"week": 4
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 118,
+						"note": "",
+						"sales": 25,
+						"streams": 12621,
+						"title": "Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 9,
+						"money": 533,
+						"note": "",
+						"sales": 1459,
+						"streams": 10341,
+						"title": "EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 19,
+						"note": "",
+						"sales": 0,
+						"streams": 6356,
+						"title": "Videoclipe: Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 1,
+						"money": 0,
+						"note": "1.223 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					}
+				],
+				"week": 5
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 118,
+						"note": "",
+						"sales": 25,
+						"streams": 12670,
+						"title": "Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 213,
+						"note": "",
+						"sales": 365,
+						"streams": 11299,
+						"title": "EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 21,
+						"note": "",
+						"sales": 0,
+						"streams": 6969,
+						"title": "Videoclipe: Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 1,
+						"money": 0,
+						"note": "1.665 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					}
+				],
+				"week": 6
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 117,
+						"note": "",
+						"sales": 25,
+						"streams": 12530,
+						"title": "Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 7,
+						"money": 463,
+						"note": "",
+						"sales": 1189,
+						"streams": 11568,
+						"title": "EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 20,
+						"note": "",
+						"sales": 0,
+						"streams": 6613,
+						"title": "Videoclipe: Hit com clipe"
+					},
+					{
+						"cover_file": "",
+						"fame": 1,
+						"money": 0,
+						"note": "2.105 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					}
+				],
+				"week": 7
+			}
+		]
+	},
+	"version": 6
+}

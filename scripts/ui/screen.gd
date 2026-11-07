@@ -24,6 +24,11 @@ const PROJECT_EDITOR := &"project_editor"
 const RELEASES := &"releases"
 const CAREER := &"career"
 const WEEK_REPORT := &"week_report"
+const LIVE := &"live"
+const SHOW_EDITOR := &"show_editor"
+const TOUR_EDITOR := &"tour_editor"
+const FESTIVAL := &"festival"
+const SHOW_REPORT := &"show_report"
 
 ## Dados passados pela tela anterior, como o id do item a editar. Disponível em _ready.
 var context: Dictionary = {}

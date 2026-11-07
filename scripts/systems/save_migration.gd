@@ -15,6 +15,14 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v5(payload["career"], balance)
 	if version < 6:
 		_migrate_to_v6(payload["career"], balance)
+	if version < 7:
+		_migrate_to_v7(payload["career"])
+
+
+## v7: carreira ao vivo. Começa vazia; os festivais criam suas edições na primeira semana.
+static func _migrate_to_v7(career: Dictionary) -> void:
+	for key in ["live_shows", "live_tours", "merch_items", "festival_editions"]:
+		career[key] = []
 
 
 ## v6: videoclipes viram um sistema próprio, então a antiga ação "Videoclipe" sai das campanhas.

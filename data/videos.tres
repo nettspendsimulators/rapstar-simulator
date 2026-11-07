@@ -10,8 +10,8 @@ id = "concept_performance"
 display_name = "Performance"
 commercial = 10
 song_attribute = "vocal"
-fits = PackedStringArray("dancers_amateur", "dancers_pro", "dancers_big", "dancers_choreo", "presence_full", "presence_protagonist", "loc_studio", "loc_club", "visual_neon", "visual_light_pro")
-clashes = PackedStringArray("presence_small")
+fits = Array[String](["dancers_amateur", "dancers_pro", "dancers_big", "dancers_choreo", "presence_full", "presence_protagonist", "loc_studio", "loc_club", "visual_neon", "visual_light_pro"])
+clashes = Array[String](["presence_small"])
 
 [sub_resource type="Resource" id="opt_concept_narrative"]
 script = ExtResource("3_option")
@@ -20,8 +20,8 @@ display_name = "Narrativo"
 creativity = 10
 identity = 5
 song_attribute = "lyrics"
-fits = PackedStringArray("presence_story", "editing_cinematic", "set_produced", "dir_pro", "dir_experienced", "dir_renowned", "complexity_complex")
-clashes = PackedStringArray("presence_full", "complexity_simple")
+fits = Array[String](["presence_story", "editing_cinematic", "set_produced", "dir_pro", "dir_experienced", "dir_renowned", "complexity_complex"])
+clashes = Array[String](["presence_full", "complexity_simple"])
 
 [sub_resource type="Resource" id="opt_concept_cinematic"]
 script = ExtResource("3_option")
@@ -29,8 +29,8 @@ id = "concept_cinematic"
 display_name = "Cinematográfico"
 visual = 10
 song_attribute = "production"
-fits = PackedStringArray("visual_cinematic", "editing_cinematic", "dir_experienced", "dir_renowned", "loc_special", "loc_mansion", "set_elaborate")
-clashes = PackedStringArray("crew_basic", "visual_simple", "scale_home")
+fits = Array[String](["visual_cinematic", "editing_cinematic", "dir_experienced", "dir_renowned", "loc_special", "loc_mansion", "set_elaborate"])
+clashes = Array[String](["crew_basic", "visual_simple", "scale_home"])
 
 [sub_resource type="Resource" id="opt_concept_party"]
 script = ExtResource("3_option")
@@ -39,8 +39,8 @@ display_name = "Festa"
 commercial = 10
 viral = 5
 song_attribute = "beat"
-fits = PackedStringArray("loc_party", "loc_club", "extras_many", "extras_huge", "dancers_pro", "dancers_big", "visual_neon")
-clashes = PackedStringArray("extras_none")
+fits = Array[String](["loc_party", "loc_club", "extras_many", "extras_huge", "dancers_pro", "dancers_big", "visual_neon"])
+clashes = Array[String](["extras_none"])
 
 [sub_resource type="Resource" id="opt_concept_street"]
 script = ExtResource("3_option")
@@ -49,8 +49,8 @@ display_name = "Rua"
 identity = 10
 discovery = 5
 song_attribute = "beat"
-fits = PackedStringArray("loc_street", "loc_own", "extras_few", "extras_medium", "wardrobe_own", "wardrobe_stylist", "visual_simple")
-clashes = PackedStringArray("wardrobe_luxury", "set_big", "loc_mansion")
+fits = Array[String](["loc_street", "loc_own", "extras_few", "extras_medium", "wardrobe_own", "wardrobe_stylist", "visual_simple"])
+clashes = Array[String](["wardrobe_luxury", "set_big", "loc_mansion"])
 
 [sub_resource type="Resource" id="opt_concept_lifestyle"]
 script = ExtResource("3_option")
@@ -59,8 +59,8 @@ display_name = "Lifestyle"
 identity = 5
 commercial = 5
 song_attribute = "vocal"
-fits = PackedStringArray("loc_house", "loc_hotel", "wardrobe_stylist", "presence_protagonist")
-clashes = PackedStringArray("fx_cgi_advanced")
+fits = Array[String](["loc_house", "loc_hotel", "wardrobe_stylist", "presence_protagonist"])
+clashes = Array[String](["fx_cgi_advanced"])
 
 [sub_resource type="Resource" id="opt_concept_luxury"]
 script = ExtResource("3_option")
@@ -69,8 +69,8 @@ display_name = "Luxuoso"
 visual = 5
 commercial = 10
 song_attribute = "production"
-fits = PackedStringArray("loc_mansion", "loc_hotel", "wardrobe_luxury", "extras_many", "visual_elaborate")
-clashes = PackedStringArray("loc_street", "wardrobe_own", "scale_home")
+fits = Array[String](["loc_mansion", "loc_hotel", "wardrobe_luxury", "extras_many", "visual_elaborate"])
+clashes = Array[String](["loc_street", "wardrobe_own", "scale_home"])
 
 [sub_resource type="Resource" id="opt_concept_underground"]
 script = ExtResource("3_option")
@@ -79,8 +79,8 @@ display_name = "Underground"
 identity = 15
 discovery = 10
 song_attribute = "beat"
-fits = PackedStringArray("loc_street", "loc_own", "crew_basic", "editing_basic", "visual_experimental")
-clashes = PackedStringArray("wardrobe_luxury", "loc_mansion", "fx_cgi", "fx_cgi_advanced")
+fits = Array[String](["loc_street", "loc_own", "crew_basic", "editing_basic", "visual_experimental"])
+clashes = Array[String](["wardrobe_luxury", "loc_mansion", "fx_cgi", "fx_cgi_advanced"])
 
 [sub_resource type="Resource" id="opt_concept_experimental"]
 script = ExtResource("3_option")
@@ -90,8 +90,8 @@ creativity = 20
 viral = 5
 risk = 5
 song_attribute = "production"
-fits = PackedStringArray("visual_experimental", "fx_vfx", "fx_cgi", "editing_complex")
-clashes = PackedStringArray("visual_simple")
+fits = Array[String](["visual_experimental", "fx_vfx", "fx_cgi", "editing_complex"])
+clashes = Array[String](["visual_simple"])
 
 [sub_resource type="Resource" id="opt_concept_minimal"]
 script = ExtResource("3_option")
@@ -99,8 +99,8 @@ id = "concept_minimal"
 display_name = "Minimalista"
 identity = 10
 song_attribute = "vocal"
-fits = PackedStringArray("loc_studio", "set_existing", "visual_simple", "extras_none", "presence_full")
-clashes = PackedStringArray("extras_huge", "fx_cgi_advanced", "set_big")
+fits = Array[String](["loc_studio", "set_existing", "visual_simple", "extras_none", "presence_full"])
+clashes = Array[String](["extras_huge", "fx_cgi_advanced", "set_big"])
 
 [sub_resource type="Resource" id="opt_concept_artistic"]
 script = ExtResource("3_option")
@@ -109,8 +109,8 @@ display_name = "Artístico"
 creativity = 15
 identity = 10
 song_attribute = "lyrics"
-fits = PackedStringArray("visual_experimental", "wardrobe_custom", "set_elaborate", "editing_complex")
-clashes = PackedStringArray("extras_huge")
+fits = Array[String](["visual_experimental", "wardrobe_custom", "set_elaborate", "editing_complex"])
+clashes = Array[String](["extras_huge"])
 
 [sub_resource type="Resource" id="opt_concept_comedy"]
 script = ExtResource("3_option")
@@ -119,8 +119,8 @@ display_name = "Comédia"
 commercial = 5
 viral = 15
 song_attribute = "lyrics"
-fits = PackedStringArray("presence_story", "presence_guests", "loc_house", "extras_medium")
-clashes = PackedStringArray("visual_cinematic")
+fits = Array[String](["presence_story", "presence_guests", "loc_house", "extras_medium"])
+clashes = Array[String](["visual_cinematic"])
 
 [sub_resource type="Resource" id="cat_concept"]
 script = ExtResource("2_category")

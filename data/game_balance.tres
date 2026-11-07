@@ -11,6 +11,7 @@
 [ext_resource type="Resource" path="res://data/streaming.tres" id="9_streaming"]
 [ext_resource type="Resource" path="res://data/samples.tres" id="10_samples"]
 [ext_resource type="Resource" path="res://data/videos.tres" id="11_videos"]
+[ext_resource type="Resource" path="res://data/live.tres" id="12_live"]
 
 [sub_resource type="Resource" id="job_delivery"]
 script = ExtResource("2_job")
@@ -125,6 +126,7 @@ marketing = ExtResource("8_marketing")
 streaming = ExtResource("9_streaming")
 samples = ExtResource("10_samples")
 videos = ExtResource("11_videos")
+live = ExtResource("12_live")
 album_formats = Array[ExtResource("3_format")]([SubResource("format_ep"), SubResource("format_album"), SubResource("format_mixtape")])
 song_performance = SubResource("song_rules")
 album_performance = SubResource("album_rules")

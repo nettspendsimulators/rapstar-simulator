@@ -32,6 +32,7 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Plataforma, trajetória de sucesso, descoberta e vazamentos | `data/streaming.tres` |
 | Sample | `data/samples.tres` |
 | Opção de produção de videoclipe, prazo, risco e desempenho | `data/videos.tres` |
+| Cidade, local, produção, equipe, merch, festival, patrocinador, tipo de turnê e regras ao vivo | `data/live.tres` |
 | Pesos da nota, custo e limite das melhorias | `song_quality` em `data/game_balance.tres` |
 | Formato de projeto | Nova entrada em `album_formats` em `data/game_balance.tres` |
 | Atributo de música (gênero, duração...) | `SongData`: campo, `to_dict` e `from_dict` |
@@ -47,7 +48,7 @@ Ficam em `%APPDATA%\Rapstar\saves\` (e não em `res://`, que é somente leitura 
 - `career.json`: o save, em JSON legível.
 - `covers/`: as capas, recortadas em quadrado e convertidas para WEBP. O save guarda só o nome
   do arquivo, que vem do conteúdo da imagem. Capas que deixam de ser usadas continuam na pasta.
-- `career.json.v1.bak`, `career.json.v2.bak`: cópia do save original, criada ao migrar de uma versão antiga.
+- `career.json.v1.bak`, `career.json.v2.bak`...: cópia do save original, criada ao migrar de uma versão antiga.
 
 ## Testes
 
@@ -73,6 +74,10 @@ godot --headless --path . --script res://tests/test_streaming.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_videos.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_live.gd
 ```
 
 ## Regras do sistema musical
@@ -175,11 +180,37 @@ não devolve o dinheiro: o retorno depende do desempenho do lançamento.
 - O potencial multiplica as reproduções em até 1,5x na primeira semana, e o bônus cai 30% por semana.
   A exposição ajuda a descoberta, e os novos fãs viram seguidores.
 
-**Reputação:** muda só ao lançar. Qualidade acima de 50 aumenta, abaixo de 50 diminui.
+**Reputação:** muda ao lançar (qualidade acima de 50 aumenta, abaixo de 50 diminui) e nos shows
+(show muito bom aumenta, show ruim ou compromisso contratado cancelado diminui).
+
+**Ao vivo (shows, turnês, festivais e merch):** fica na área "Ao vivo" da navegação principal.
+
+- O calendário é por dia (7 por semana). Dois compromissos não podem cair no mesmo dia, e cidades
+  distantes exigem dias de viagem entre as datas.
+- O público vem da fama, dos seguidores das plataformas, do mercado e da cena da cidade, do preço,
+  da divulgação, da produção e dos convidados. Lotação nunca é garantida. Fora do país, o alcance
+  cresce com a fama.
+- Despesas do artista são pagas ao confirmar o show ou a turnê. No dia, entram cachê ou bilheteria
+  e merch. Shows independentes pagam local e segurança; nos contratados, o contratante paga o local e
+  pode pagar transporte e hospedagem. Shows contratados e festivais têm comissão do agente.
+- Modelos: cachê fixo, porcentagem da bilheteria, cachê + porcentagem e garantia mínima contra
+  porcentagem. O co-headliner fica com parte da receita.
+- Turnês: datas em planejamento até a confirmação, com previsão de custos, avisos e conflitos. A
+  ordem das cidades muda transporte, hospedagem e desgaste; dias de descanso reduzem o desgaste, que
+  baixa a qualidade. Pausar cancela as datas que passarem durante a pausa; cancelar devolve parte das
+  despesas das datas futuras. Patrocínios são fechados no planejamento.
+- Merch: fabricado e pago antes, com desconto por volume. Só vende com estoque, nos shows (o local
+  fica com uma parte) e na loja oficial. Produtos exclusivos de turnê ou show só vendem neles.
+- Festivais: uma edição por ano, com lineup próprio formado pelo catálogo de artistas. A posição
+  (de Abertura a Headliner) depende da fama em relação ao prestígio do festival, e define cachê,
+  público e impacto. Convites chegam em Ofertas; inscrições são respondidas na semana seguinte.
+- Cada show gera um relatório (público, ingressos, receitas, despesas, resultado, fãs, fama e
+  repercussão), e a turnê concluída gera um relatório consolidado.
 
 **Desempenho:** cai 10% por semana, até o piso de 10%.
 
 **Saves antigos:** todo o progresso é mantido, e cada música mantém a nota geral. Colaboradores já
 presentes não são cobrados. Na v1, álbuns não lançados com 3 a 6 músicas viram EP, e os já lançados
 não mudam. Na v2, Beat, Produção e participações são mantidos sempre que possível, e Vocal e Letra
-recebem o valor que completa a mesma nota.
+recebem o valor que completa a mesma nota. Saves até a v6 começam a carreira ao vivo vazia, e as
+edições dos festivais são criadas ao carregar.

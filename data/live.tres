@@ -1,0 +1,1077 @@
+[gd_resource type="Resource" script_class="LiveRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/live/live_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/live/city_definition.gd" id="2_city"]
+[ext_resource type="Script" path="res://scripts/definitions/live/venue_category_definition.gd" id="3_venue"]
+[ext_resource type="Script" path="res://scripts/definitions/live/production_level_definition.gd" id="4_production"]
+[ext_resource type="Script" path="res://scripts/definitions/live/production_addon_definition.gd" id="5_addon"]
+[ext_resource type="Script" path="res://scripts/definitions/live/crew_role_definition.gd" id="6_crew"]
+[ext_resource type="Script" path="res://scripts/definitions/live/merch_product_definition.gd" id="7_merch"]
+[ext_resource type="Script" path="res://scripts/definitions/live/festival_definition.gd" id="8_festival"]
+[ext_resource type="Script" path="res://scripts/definitions/live/sponsor_definition.gd" id="9_sponsor"]
+[ext_resource type="Script" path="res://scripts/definitions/live/tour_type_definition.gd" id="10_tour_type"]
+
+[sub_resource type="Resource" id="city_sao_paulo"]
+script = ExtResource("2_city")
+id = "sao_paulo"
+display_name = "São Paulo"
+country = "Brasil"
+region = "Sudeste"
+continent = "América do Sul"
+latitude = -23.55
+longitude = -46.63
+market = 1.0
+rap_scene = 1.2
+
+[sub_resource type="Resource" id="city_rio"]
+script = ExtResource("2_city")
+id = "rio"
+display_name = "Rio de Janeiro"
+country = "Brasil"
+region = "Sudeste"
+continent = "América do Sul"
+latitude = -22.91
+longitude = -43.2
+market = 0.9
+rap_scene = 1.1
+
+[sub_resource type="Resource" id="city_belo_horizonte"]
+script = ExtResource("2_city")
+id = "belo_horizonte"
+display_name = "Belo Horizonte"
+country = "Brasil"
+region = "Sudeste"
+continent = "América do Sul"
+latitude = -19.92
+longitude = -43.94
+market = 0.6
+rap_scene = 1.0
+
+[sub_resource type="Resource" id="city_curitiba"]
+script = ExtResource("2_city")
+id = "curitiba"
+display_name = "Curitiba"
+country = "Brasil"
+region = "Sul"
+continent = "América do Sul"
+latitude = -25.43
+longitude = -49.27
+market = 0.5
+rap_scene = 0.9
+
+[sub_resource type="Resource" id="city_porto_alegre"]
+script = ExtResource("2_city")
+id = "porto_alegre"
+display_name = "Porto Alegre"
+country = "Brasil"
+region = "Sul"
+continent = "América do Sul"
+latitude = -30.03
+longitude = -51.23
+market = 0.5
+rap_scene = 0.9
+
+[sub_resource type="Resource" id="city_brasilia"]
+script = ExtResource("2_city")
+id = "brasilia"
+display_name = "Brasília"
+country = "Brasil"
+region = "Centro-Oeste"
+continent = "América do Sul"
+latitude = -15.79
+longitude = -47.88
+market = 0.5
+rap_scene = 1.0
+
+[sub_resource type="Resource" id="city_salvador"]
+script = ExtResource("2_city")
+id = "salvador"
+display_name = "Salvador"
+country = "Brasil"
+region = "Nordeste"
+continent = "América do Sul"
+latitude = -12.97
+longitude = -38.5
+market = 0.55
+rap_scene = 1.0
+
+[sub_resource type="Resource" id="city_recife"]
+script = ExtResource("2_city")
+id = "recife"
+display_name = "Recife"
+country = "Brasil"
+region = "Nordeste"
+continent = "América do Sul"
+latitude = -8.05
+longitude = -34.88
+market = 0.55
+rap_scene = 1.1
+
+[sub_resource type="Resource" id="city_fortaleza"]
+script = ExtResource("2_city")
+id = "fortaleza"
+display_name = "Fortaleza"
+country = "Brasil"
+region = "Nordeste"
+continent = "América do Sul"
+latitude = -3.72
+longitude = -38.54
+market = 0.5
+rap_scene = 1.0
+
+[sub_resource type="Resource" id="city_manaus"]
+script = ExtResource("2_city")
+id = "manaus"
+display_name = "Manaus"
+country = "Brasil"
+region = "Norte"
+continent = "América do Sul"
+latitude = -3.12
+longitude = -60.02
+market = 0.35
+rap_scene = 0.8
+
+[sub_resource type="Resource" id="city_lisboa"]
+script = ExtResource("2_city")
+id = "lisboa"
+display_name = "Lisboa"
+country = "Portugal"
+region = "Europa"
+continent = "Europa"
+latitude = 38.72
+longitude = -9.14
+market = 0.4
+rap_scene = 0.9
+
+[sub_resource type="Resource" id="city_buenos_aires"]
+script = ExtResource("2_city")
+id = "buenos_aires"
+display_name = "Buenos Aires"
+country = "Argentina"
+region = "América do Sul"
+continent = "América do Sul"
+latitude = -34.6
+longitude = -58.38
+market = 0.6
+rap_scene = 0.8
+
+[sub_resource type="Resource" id="city_santiago"]
+script = ExtResource("2_city")
+id = "santiago"
+display_name = "Santiago"
+country = "Chile"
+region = "América do Sul"
+continent = "América do Sul"
+latitude = -33.45
+longitude = -70.67
+market = 0.4
+rap_scene = 0.8
+
+[sub_resource type="Resource" id="city_cdmx"]
+script = ExtResource("2_city")
+id = "cdmx"
+display_name = "Cidade do México"
+country = "México"
+region = "América do Norte"
+continent = "América do Norte"
+latitude = 19.43
+longitude = -99.13
+market = 0.7
+rap_scene = 1.0
+
+[sub_resource type="Resource" id="city_miami"]
+script = ExtResource("2_city")
+id = "miami"
+display_name = "Miami"
+country = "Estados Unidos"
+region = "América do Norte"
+continent = "América do Norte"
+latitude = 25.76
+longitude = -80.19
+market = 0.6
+rap_scene = 1.3
+
+[sub_resource type="Resource" id="city_atlanta"]
+script = ExtResource("2_city")
+id = "atlanta"
+display_name = "Atlanta"
+country = "Estados Unidos"
+region = "América do Norte"
+continent = "América do Norte"
+latitude = 33.75
+longitude = -84.39
+market = 0.7
+rap_scene = 1.5
+
+[sub_resource type="Resource" id="city_nova_york"]
+script = ExtResource("2_city")
+id = "nova_york"
+display_name = "Nova York"
+country = "Estados Unidos"
+region = "América do Norte"
+continent = "América do Norte"
+latitude = 40.71
+longitude = -74.0
+market = 1.0
+rap_scene = 1.4
+
+[sub_resource type="Resource" id="city_los_angeles"]
+script = ExtResource("2_city")
+id = "los_angeles"
+display_name = "Los Angeles"
+country = "Estados Unidos"
+region = "América do Norte"
+continent = "América do Norte"
+latitude = 34.05
+longitude = -118.24
+market = 1.0
+rap_scene = 1.4
+
+[sub_resource type="Resource" id="city_indio"]
+script = ExtResource("2_city")
+id = "indio"
+display_name = "Indio"
+country = "Estados Unidos"
+region = "América do Norte"
+continent = "América do Norte"
+latitude = 33.72
+longitude = -116.22
+market = 0.1
+rap_scene = 0.9
+
+[sub_resource type="Resource" id="city_londres"]
+script = ExtResource("2_city")
+id = "londres"
+display_name = "Londres"
+country = "Reino Unido"
+region = "Europa"
+continent = "Europa"
+latitude = 51.51
+longitude = -0.13
+market = 0.9
+rap_scene = 1.1
+
+[sub_resource type="Resource" id="city_pilton"]
+script = ExtResource("2_city")
+id = "pilton"
+display_name = "Pilton"
+country = "Reino Unido"
+region = "Europa"
+continent = "Europa"
+latitude = 51.16
+longitude = -2.59
+market = 0.05
+rap_scene = 0.7
+
+[sub_resource type="Resource" id="city_paris"]
+script = ExtResource("2_city")
+id = "paris"
+display_name = "Paris"
+country = "França"
+region = "Europa"
+continent = "Europa"
+latitude = 48.86
+longitude = 2.35
+market = 0.8
+rap_scene = 1.1
+
+[sub_resource type="Resource" id="city_berlim"]
+script = ExtResource("2_city")
+id = "berlim"
+display_name = "Berlim"
+country = "Alemanha"
+region = "Europa"
+continent = "Europa"
+latitude = 52.52
+longitude = 13.4
+market = 0.6
+rap_scene = 0.9
+
+[sub_resource type="Resource" id="city_barcelona"]
+script = ExtResource("2_city")
+id = "barcelona"
+display_name = "Barcelona"
+country = "Espanha"
+region = "Europa"
+continent = "Europa"
+latitude = 41.39
+longitude = 2.17
+market = 0.6
+rap_scene = 0.9
+
+[sub_resource type="Resource" id="city_toquio"]
+script = ExtResource("2_city")
+id = "toquio"
+display_name = "Tóquio"
+country = "Japão"
+region = "Ásia"
+continent = "Ásia"
+latitude = 35.68
+longitude = 139.69
+market = 0.7
+rap_scene = 0.8
+
+[sub_resource type="Resource" id="venue_bar"]
+script = ExtResource("3_venue")
+id = "bar"
+display_name = "Bar / pequeno espaço"
+min_capacity = 50
+max_capacity = 200
+rent = 150
+recommended_fame = 0
+base_ticket_price = 10.0
+has_vip = false
+venue_names = Array[String](["Bar do Centro", "Boteco da Rima", "Bar da Esquina"])
+
+[sub_resource type="Resource" id="venue_underground"]
+script = ExtResource("3_venue")
+id = "underground"
+display_name = "Casa underground"
+min_capacity = 200
+max_capacity = 500
+rent = 600
+recommended_fame = 30
+base_ticket_price = 12.0
+has_vip = false
+venue_names = Array[String](["Porão", "Subsolo", "Galpão Underground"])
+
+[sub_resource type="Resource" id="venue_club"]
+script = ExtResource("3_venue")
+id = "club"
+display_name = "Clube / boate"
+min_capacity = 500
+max_capacity = 1500
+rent = 2500
+recommended_fame = 120
+base_ticket_price = 18.0
+has_vip = true
+venue_names = Array[String](["Club Noturno", "Boate Central", "Club 808"])
+
+[sub_resource type="Resource" id="venue_hall"]
+script = ExtResource("3_venue")
+id = "hall"
+display_name = "Casa de shows"
+min_capacity = 1500
+max_capacity = 3000
+rent = 7000
+recommended_fame = 350
+base_ticket_price = 25.0
+has_vip = true
+venue_names = Array[String](["Casa de Shows Central", "Audio Hall", "Espaço Palco"])
+
+[sub_resource type="Resource" id="venue_theater"]
+script = ExtResource("3_venue")
+id = "theater"
+display_name = "Teatro / grande casa"
+min_capacity = 3000
+max_capacity = 6500
+rent = 18000
+recommended_fame = 800
+base_ticket_price = 35.0
+has_vip = true
+venue_names = Array[String](["Teatro Municipal", "Grande Casa", "Teatro Metropolitano"])
+
+[sub_resource type="Resource" id="venue_arena"]
+script = ExtResource("3_venue")
+id = "arena"
+display_name = "Arena"
+min_capacity = 6500
+max_capacity = 20000
+rent = 60000
+recommended_fame = 2000
+base_ticket_price = 50.0
+has_vip = true
+venue_names = Array[String](["Arena", "Ginásio Arena", "Arena Multiuso"])
+
+[sub_resource type="Resource" id="venue_big_arena"]
+script = ExtResource("3_venue")
+id = "big_arena"
+display_name = "Grande arena / anfiteatro"
+min_capacity = 20000
+max_capacity = 40000
+rent = 150000
+recommended_fame = 5000
+base_ticket_price = 65.0
+has_vip = true
+venue_names = Array[String](["Anfiteatro", "Grande Arena", "Arena Nacional"])
+
+[sub_resource type="Resource" id="venue_stadium"]
+script = ExtResource("3_venue")
+id = "stadium"
+display_name = "Estádio"
+min_capacity = 40000
+max_capacity = 80000
+rent = 400000
+recommended_fame = 10000
+base_ticket_price = 80.0
+has_vip = true
+venue_names = Array[String](["Estádio", "Estádio Olímpico", "Estádio Central"])
+
+[sub_resource type="Resource" id="production_basic"]
+script = ExtResource("4_production")
+id = "basic"
+display_name = "Básica"
+cost = 0
+quality = 0
+tier = 0
+
+[sub_resource type="Resource" id="production_independent"]
+script = ExtResource("4_production")
+id = "independent"
+display_name = "Independente"
+cost = 500
+quality = 8
+tier = 1
+
+[sub_resource type="Resource" id="production_professional"]
+script = ExtResource("4_production")
+id = "professional"
+display_name = "Profissional"
+cost = 4000
+quality = 18
+tier = 2
+
+[sub_resource type="Resource" id="production_big"]
+script = ExtResource("4_production")
+id = "big"
+display_name = "Grande produção"
+cost = 25000
+quality = 30
+tier = 3
+
+[sub_resource type="Resource" id="production_super"]
+script = ExtResource("4_production")
+id = "super"
+display_name = "Superprodução"
+cost = 120000
+quality = 42
+tier = 4
+
+[sub_resource type="Resource" id="addon_stage"]
+script = ExtResource("5_addon")
+id = "stage"
+display_name = "Palco personalizado"
+cost = 2000
+quality = 4
+
+[sub_resource type="Resource" id="addon_lighting"]
+script = ExtResource("5_addon")
+id = "lighting"
+display_name = "Iluminação"
+cost = 1500
+quality = 4
+
+[sub_resource type="Resource" id="addon_screens"]
+script = ExtResource("5_addon")
+id = "screens"
+display_name = "Telões"
+cost = 4000
+quality = 5
+
+[sub_resource type="Resource" id="addon_effects"]
+script = ExtResource("5_addon")
+id = "effects"
+display_name = "Efeitos especiais"
+cost = 6000
+quality = 6
+
+[sub_resource type="Resource" id="addon_equipment"]
+script = ExtResource("5_addon")
+id = "equipment"
+display_name = "Equipamentos extras"
+cost = 1000
+quality = 3
+
+[sub_resource type="Resource" id="addon_scenography"]
+script = ExtResource("5_addon")
+id = "scenography"
+display_name = "Cenografia"
+cost = 3000
+quality = 4
+
+[sub_resource type="Resource" id="addon_choreography"]
+script = ExtResource("5_addon")
+id = "choreography"
+display_name = "Coreografias"
+cost = 2500
+quality = 4
+
+[sub_resource type="Resource" id="addon_live_band"]
+script = ExtResource("5_addon")
+id = "live_band"
+display_name = "Estrutura musical ao vivo"
+cost = 5000
+quality = 6
+
+[sub_resource type="Resource" id="crew_tour_manager"]
+script = ExtResource("6_crew")
+id = "tour_manager"
+display_name = "Tour manager"
+base_cost = 300
+people = 1
+quality = 0
+organization = 6
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_dj"]
+script = ExtResource("6_crew")
+id = "dj"
+display_name = "DJ"
+base_cost = 200
+people = 1
+quality = 3
+organization = 0
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_musicians"]
+script = ExtResource("6_crew")
+id = "musicians"
+display_name = "Músicos"
+base_cost = 500
+people = 2
+quality = 4
+organization = 0
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_dancers"]
+script = ExtResource("6_crew")
+id = "dancers"
+display_name = "Dançarinos"
+base_cost = 400
+people = 2
+quality = 3
+organization = 0
+merch_bonus = 0.0
+buzz = 2
+
+[sub_resource type="Resource" id="crew_sound_engineer"]
+script = ExtResource("6_crew")
+id = "sound_engineer"
+display_name = "Engenheiro de som"
+base_cost = 300
+people = 1
+quality = 4
+organization = 1
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_lighting_tech"]
+script = ExtResource("6_crew")
+id = "lighting_tech"
+display_name = "Técnico de iluminação"
+base_cost = 250
+people = 1
+quality = 3
+organization = 0
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_roadies"]
+script = ExtResource("6_crew")
+id = "roadies"
+display_name = "Roadies"
+base_cost = 200
+people = 2
+quality = 0
+organization = 4
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_security"]
+script = ExtResource("6_crew")
+id = "security"
+display_name = "Segurança"
+base_cost = 300
+people = 2
+quality = 0
+organization = 4
+merch_bonus = 0.0
+buzz = 0
+
+[sub_resource type="Resource" id="crew_photographer"]
+script = ExtResource("6_crew")
+id = "photographer"
+display_name = "Fotógrafo"
+base_cost = 150
+people = 1
+quality = 0
+organization = 0
+merch_bonus = 0.0
+buzz = 4
+
+[sub_resource type="Resource" id="crew_videomaker"]
+script = ExtResource("6_crew")
+id = "videomaker"
+display_name = "Videomaker"
+base_cost = 250
+people = 1
+quality = 0
+organization = 0
+merch_bonus = 0.0
+buzz = 5
+
+[sub_resource type="Resource" id="crew_merch_team"]
+script = ExtResource("6_crew")
+id = "merch_team"
+display_name = "Equipe de merchandising"
+base_cost = 150
+people = 1
+quality = 0
+organization = 1
+merch_bonus = 0.25
+buzz = 0
+
+[sub_resource type="Resource" id="merch_tshirt"]
+script = ExtResource("7_merch")
+id = "tshirt"
+display_name = "Camiseta"
+category = "Roupas"
+unit_cost = 8
+suggested_price = 30
+appeal = 1.0
+
+[sub_resource type="Resource" id="merch_hoodie"]
+script = ExtResource("7_merch")
+id = "hoodie"
+display_name = "Moletom"
+category = "Roupas"
+unit_cost = 20
+suggested_price = 70
+appeal = 0.7
+
+[sub_resource type="Resource" id="merch_cap"]
+script = ExtResource("7_merch")
+id = "cap"
+display_name = "Boné"
+category = "Acessórios"
+unit_cost = 6
+suggested_price = 25
+appeal = 0.8
+
+[sub_resource type="Resource" id="merch_beanie"]
+script = ExtResource("7_merch")
+id = "beanie"
+display_name = "Gorro"
+category = "Acessórios"
+unit_cost = 5
+suggested_price = 20
+appeal = 0.6
+
+[sub_resource type="Resource" id="merch_poster"]
+script = ExtResource("7_merch")
+id = "poster"
+display_name = "Pôster"
+category = "Arte"
+unit_cost = 2
+suggested_price = 10
+appeal = 0.9
+
+[sub_resource type="Resource" id="merch_cd"]
+script = ExtResource("7_merch")
+id = "cd"
+display_name = "CD"
+category = "Mídia física"
+unit_cost = 3
+suggested_price = 15
+appeal = 0.5
+
+[sub_resource type="Resource" id="merch_vinyl"]
+script = ExtResource("7_merch")
+id = "vinyl"
+display_name = "Vinil"
+category = "Mídia física"
+unit_cost = 12
+suggested_price = 40
+appeal = 0.4
+
+[sub_resource type="Resource" id="merch_cassette"]
+script = ExtResource("7_merch")
+id = "cassette"
+display_name = "Fita cassete"
+category = "Mídia física"
+unit_cost = 4
+suggested_price = 18
+appeal = 0.3
+
+[sub_resource type="Resource" id="merch_collectible"]
+script = ExtResource("7_merch")
+id = "collectible"
+display_name = "Colecionável"
+category = "Colecionáveis"
+unit_cost = 10
+suggested_price = 50
+appeal = 0.3
+
+[sub_resource type="Resource" id="merch_special"]
+script = ExtResource("7_merch")
+id = "special"
+display_name = "Produto especial"
+category = "Especiais"
+unit_cost = 30
+suggested_price = 120
+appeal = 0.2
+
+[sub_resource type="Resource" id="festival_rock_in_rio"]
+script = ExtResource("8_festival")
+id = "rock_in_rio"
+display_name = "Rock in Rio"
+country = "Brasil"
+city_id = "rio"
+genres = "Rock, pop e rap"
+rap_affinity = 0.5
+prestige = 95
+capacity = 100000
+stages = Array[String](["Palco Mundo", "Palco Sunset", "Espaço Favela"])
+week_of_year = 37
+days = 3
+merch_allowed = true
+min_fame = 800
+headliner_fee = 300000
+fee_model = "fixed"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_lollapalooza_br"]
+script = ExtResource("8_festival")
+id = "lollapalooza_br"
+display_name = "Lollapalooza Brasil"
+country = "Brasil"
+city_id = "sao_paulo"
+genres = "Pop, rock, eletrônica e rap"
+rap_affinity = 0.6
+prestige = 88
+capacity = 90000
+stages = Array[String](["Palco Principal", "Palco Alternativo", "Palco Eletrônico"])
+week_of_year = 13
+days = 3
+merch_allowed = true
+min_fame = 600
+headliner_fee = 200000
+fee_model = "fixed"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_rolling_loud"]
+script = ExtResource("8_festival")
+id = "rolling_loud"
+display_name = "Rolling Loud"
+country = "Estados Unidos"
+city_id = "miami"
+genres = "Rap e trap"
+rap_affinity = 1.0
+prestige = 90
+capacity = 80000
+stages = Array[String](["Main Stage", "Stage 2", "Stage 3"])
+week_of_year = 30
+days = 3
+merch_allowed = true
+min_fame = 1500
+headliner_fee = 250000
+fee_model = "variable"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_coachella"]
+script = ExtResource("8_festival")
+id = "coachella"
+display_name = "Coachella"
+country = "Estados Unidos"
+city_id = "indio"
+genres = "Pop, indie, eletrônica e rap"
+rap_affinity = 0.5
+prestige = 98
+capacity = 125000
+stages = Array[String](["Coachella Stage", "Outdoor Theatre", "Sahara", "Mojave"])
+week_of_year = 15
+days = 3
+merch_allowed = true
+min_fame = 2500
+headliner_fee = 450000
+fee_model = "fixed"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_glastonbury"]
+script = ExtResource("8_festival")
+id = "glastonbury"
+display_name = "Glastonbury"
+country = "Reino Unido"
+city_id = "pilton"
+genres = "Rock, pop, alternativo e rap"
+rap_affinity = 0.4
+prestige = 97
+capacity = 200000
+stages = Array[String](["Pyramid Stage", "Other Stage", "West Holts"])
+week_of_year = 26
+days = 3
+merch_allowed = true
+min_fame = 2500
+headliner_fee = 400000
+fee_model = "fixed"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_primavera_sound"]
+script = ExtResource("8_festival")
+id = "primavera_sound"
+display_name = "Primavera Sound"
+country = "Espanha"
+city_id = "barcelona"
+genres = "Indie, alternativo e rap"
+rap_affinity = 0.45
+prestige = 85
+capacity = 60000
+stages = Array[String](["Palco Principal", "Palco Mar", "Palco Bosque"])
+week_of_year = 22
+days = 3
+merch_allowed = true
+min_fame = 1500
+headliner_fee = 150000
+fee_model = "fixed"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_quebrada_fest"]
+script = ExtResource("8_festival")
+id = "quebrada_fest"
+display_name = "Festival da Quebrada"
+country = "Brasil"
+city_id = "sao_paulo"
+genres = "Rap underground"
+rap_affinity = 1.0
+prestige = 15
+capacity = 3000
+stages = Array[String](["Palco Quebrada"])
+week_of_year = 20
+days = 1
+merch_allowed = true
+min_fame = 0
+headliner_fee = 1500
+fee_model = "covered"
+covers_expenses = true
+
+[sub_resource type="Resource" id="festival_batalha_fest"]
+script = ExtResource("8_festival")
+id = "batalha_fest"
+display_name = "Batalha Fest"
+country = "Brasil"
+city_id = "belo_horizonte"
+genres = "Rap e batalhas de rima"
+rap_affinity = 1.0
+prestige = 20
+capacity = 5000
+stages = Array[String](["Palco Batalha"])
+week_of_year = 33
+days = 1
+merch_allowed = true
+min_fame = 20
+headliner_fee = 2500
+fee_model = "fixed"
+covers_expenses = false
+
+[sub_resource type="Resource" id="festival_rimas_nordeste"]
+script = ExtResource("8_festival")
+id = "rimas_nordeste"
+display_name = "Rimas do Nordeste"
+country = "Brasil"
+city_id = "recife"
+genres = "Rap, trap e brega funk"
+rap_affinity = 0.9
+prestige = 25
+capacity = 8000
+stages = Array[String](["Palco Mangue", "Palco Rua"])
+week_of_year = 44
+days = 2
+merch_allowed = true
+min_fame = 50
+headliner_fee = 4000
+fee_model = "variable"
+covers_expenses = false
+
+[sub_resource type="Resource" id="festival_sul_rimas"]
+script = ExtResource("8_festival")
+id = "sul_rimas"
+display_name = "Sul em Rimas"
+country = "Brasil"
+city_id = "porto_alegre"
+genres = "Rap e hip-hop"
+rap_affinity = 1.0
+prestige = 30
+capacity = 10000
+stages = Array[String](["Palco Principal", "Palco Cypher"])
+week_of_year = 48
+days = 2
+merch_allowed = true
+min_fame = 100
+headliner_fee = 6000
+fee_model = "fixed"
+covers_expenses = false
+
+[sub_resource type="Resource" id="festival_rap_capital"]
+script = ExtResource("8_festival")
+id = "rap_capital"
+display_name = "Rap na Capital"
+country = "Brasil"
+city_id = "brasilia"
+genres = "Rap e trap"
+rap_affinity = 1.0
+prestige = 40
+capacity = 15000
+stages = Array[String](["Palco Planalto", "Palco Cerrado"])
+week_of_year = 8
+days = 2
+merch_allowed = true
+min_fame = 250
+headliner_fee = 15000
+fee_model = "fixed"
+covers_expenses = true
+
+[sub_resource type="Resource" id="sponsor_volt"]
+script = ExtResource("9_sponsor")
+id = "volt"
+display_name = "Volt Energético"
+category = "Bebida energética"
+min_fame = 100
+base_value = 2500
+benefit = "cash"
+benefit_value = 1.0
+obligations = "Logotipo no palco e menção durante os shows."
+
+[sub_resource type="Resource" id="sponsor_street_wave"]
+script = ExtResource("9_sponsor")
+id = "street_wave"
+display_name = "Street Wave Calçados"
+category = "Moda urbana"
+min_fame = 300
+base_value = 6000
+benefit = "cash"
+benefit_value = 1.0
+obligations = "Usar os produtos da marca nos shows e publicações promocionais."
+
+[sub_resource type="Resource" id="sponsor_nimbus"]
+script = ExtResource("9_sponsor")
+id = "nimbus"
+display_name = "Nimbus Telecom"
+category = "Telefonia"
+min_fame = 500
+base_value = 10000
+benefit = "promotion"
+benefit_value = 0.15
+obligations = "Exposição da marca em todo o material da turnê."
+
+[sub_resource type="Resource" id="sponsor_rota"]
+script = ExtResource("9_sponsor")
+id = "rota"
+display_name = "Rota Viagens"
+category = "Viagens"
+min_fame = 200
+base_value = 0
+benefit = "transport"
+benefit_value = 0.4
+obligations = "Publicações promocionais sobre as viagens da turnê."
+
+[sub_resource type="Resource" id="sponsor_pouso"]
+script = ExtResource("9_sponsor")
+id = "pouso"
+display_name = "Rede Pouso Hotéis"
+category = "Hotelaria"
+min_fame = 200
+base_value = 0
+benefit = "lodging"
+benefit_value = 0.4
+obligations = "Menção aos hotéis parceiros nas redes."
+
+[sub_resource type="Resource" id="sponsor_sommax"]
+script = ExtResource("9_sponsor")
+id = "sommax"
+display_name = "SomMax Equipamentos"
+category = "Equipamentos"
+min_fame = 400
+base_value = 0
+benefit = "equipment"
+benefit_value = 0.3
+obligations = "Logotipo nos equipamentos e telões."
+
+[sub_resource type="Resource" id="sponsor_prisma"]
+script = ExtResource("9_sponsor")
+id = "prisma"
+display_name = "Banco Prisma"
+category = "Banco"
+min_fame = 2000
+base_value = 40000
+benefit = "cash"
+benefit_value = 1.0
+obligations = "Exclusividade de marca financeira e logotipos em todo o material."
+
+[sub_resource type="Resource" id="tour_type_mini"]
+script = ExtResource("10_tour_type")
+id = "mini"
+display_name = "Mini Tour"
+description = "Poucas datas, perto de casa."
+sponsor_multiplier = 0.6
+fame_multiplier = 0.8
+
+[sub_resource type="Resource" id="tour_type_regional"]
+script = ExtResource("10_tour_type")
+id = "regional"
+display_name = "Regional Tour"
+description = "Cidades de uma mesma região."
+sponsor_multiplier = 0.8
+fame_multiplier = 1.0
+
+[sub_resource type="Resource" id="tour_type_national"]
+script = ExtResource("10_tour_type")
+id = "national"
+display_name = "National Tour"
+description = "Várias regiões do país."
+sponsor_multiplier = 1.0
+fame_multiplier = 1.1
+
+[sub_resource type="Resource" id="tour_type_international"]
+script = ExtResource("10_tour_type")
+id = "international"
+display_name = "International Tour"
+description = "Shows fora do país."
+sponsor_multiplier = 1.5
+fame_multiplier = 1.3
+
+[sub_resource type="Resource" id="tour_type_album"]
+script = ExtResource("10_tour_type")
+id = "album"
+display_name = "Album Tour"
+description = "Promove um projeto lançado."
+sponsor_multiplier = 1.2
+fame_multiplier = 1.2
+
+[sub_resource type="Resource" id="tour_type_promo"]
+script = ExtResource("10_tour_type")
+id = "promo"
+display_name = "Promo Tour"
+description = "Divulgação, com foco em alcance."
+sponsor_multiplier = 0.9
+fame_multiplier = 1.1
+
+[sub_resource type="Resource" id="tour_type_festival"]
+script = ExtResource("10_tour_type")
+id = "festival"
+display_name = "Festival Tour"
+description = "Datas em festivais."
+sponsor_multiplier = 1.1
+fame_multiplier = 1.2
+
+[sub_resource type="Resource" id="tour_type_world"]
+script = ExtResource("10_tour_type")
+id = "world"
+display_name = "World Tour"
+description = "Shows em vários continentes."
+sponsor_multiplier = 2.0
+fame_multiplier = 1.5
+
+[resource]
+script = ExtResource("1_rules")
+cities = Array[ExtResource("2_city")]([SubResource("city_sao_paulo"), SubResource("city_rio"), SubResource("city_belo_horizonte"), SubResource("city_curitiba"), SubResource("city_porto_alegre"), SubResource("city_brasilia"), SubResource("city_salvador"), SubResource("city_recife"), SubResource("city_fortaleza"), SubResource("city_manaus"), SubResource("city_lisboa"), SubResource("city_buenos_aires"), SubResource("city_santiago"), SubResource("city_cdmx"), SubResource("city_miami"), SubResource("city_atlanta"), SubResource("city_nova_york"), SubResource("city_los_angeles"), SubResource("city_indio"), SubResource("city_londres"), SubResource("city_pilton"), SubResource("city_paris"), SubResource("city_berlim"), SubResource("city_barcelona"), SubResource("city_toquio")])
+venues = Array[ExtResource("3_venue")]([SubResource("venue_bar"), SubResource("venue_underground"), SubResource("venue_club"), SubResource("venue_hall"), SubResource("venue_theater"), SubResource("venue_arena"), SubResource("venue_big_arena"), SubResource("venue_stadium")])
+production_levels = Array[ExtResource("4_production")]([SubResource("production_basic"), SubResource("production_independent"), SubResource("production_professional"), SubResource("production_big"), SubResource("production_super")])
+addons = Array[ExtResource("5_addon")]([SubResource("addon_stage"), SubResource("addon_lighting"), SubResource("addon_screens"), SubResource("addon_effects"), SubResource("addon_equipment"), SubResource("addon_scenography"), SubResource("addon_choreography"), SubResource("addon_live_band")])
+crew_roles = Array[ExtResource("6_crew")]([SubResource("crew_tour_manager"), SubResource("crew_dj"), SubResource("crew_musicians"), SubResource("crew_dancers"), SubResource("crew_sound_engineer"), SubResource("crew_lighting_tech"), SubResource("crew_roadies"), SubResource("crew_security"), SubResource("crew_photographer"), SubResource("crew_videomaker"), SubResource("crew_merch_team")])
+merch_products = Array[ExtResource("7_merch")]([SubResource("merch_tshirt"), SubResource("merch_hoodie"), SubResource("merch_cap"), SubResource("merch_beanie"), SubResource("merch_poster"), SubResource("merch_cd"), SubResource("merch_vinyl"), SubResource("merch_cassette"), SubResource("merch_collectible"), SubResource("merch_special")])
+festivals = Array[ExtResource("8_festival")]([SubResource("festival_rock_in_rio"), SubResource("festival_lollapalooza_br"), SubResource("festival_rolling_loud"), SubResource("festival_coachella"), SubResource("festival_glastonbury"), SubResource("festival_primavera_sound"), SubResource("festival_quebrada_fest"), SubResource("festival_batalha_fest"), SubResource("festival_rimas_nordeste"), SubResource("festival_sul_rimas"), SubResource("festival_rap_capital")])
+sponsors = Array[ExtResource("9_sponsor")]([SubResource("sponsor_volt"), SubResource("sponsor_street_wave"), SubResource("sponsor_nimbus"), SubResource("sponsor_rota"), SubResource("sponsor_pouso"), SubResource("sponsor_sommax"), SubResource("sponsor_prisma")])
+tour_types = Array[ExtResource("10_tour_type")]([SubResource("tour_type_mini"), SubResource("tour_type_regional"), SubResource("tour_type_national"), SubResource("tour_type_international"), SubResource("tour_type_album"), SubResource("tour_type_promo"), SubResource("tour_type_festival"), SubResource("tour_type_world")])

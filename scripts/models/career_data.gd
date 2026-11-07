@@ -21,6 +21,10 @@ var song_performances: Array[SongPerformance] = []
 var platform_stats: Dictionary[String, ArtistPlatformStats] = {}
 var performance_snapshots: Array[PerformanceSnapshot] = []
 var music_videos: Array[MusicVideo] = []
+var live_shows: Array[LiveShow] = []
+var live_tours: Array[LiveTour] = []
+var merch_items: Array[MerchItem] = []
+var festival_editions: Array[FestivalEdition] = []
 var finance_history: Array[FinanceEntry] = []
 var week_reports: Array[WeekReport] = []
 var next_id: int = 1
@@ -78,6 +82,41 @@ func find_campaign(content_id: String) -> MarketingCampaign:
 	for campaign in marketing_campaigns:
 		if campaign.content_id == content_id:
 			return campaign
+	return null
+
+
+func find_live_show(show_id: String) -> LiveShow:
+	for show in live_shows:
+		if show.id == show_id:
+			return show
+	return null
+
+
+func find_tour(tour_id: String) -> LiveTour:
+	for tour in live_tours:
+		if tour.id == tour_id:
+			return tour
+	return null
+
+
+func find_merch(item_id: String) -> MerchItem:
+	for item in merch_items:
+		if item.id == item_id:
+			return item
+	return null
+
+
+func find_edition(edition_id: String) -> FestivalEdition:
+	for edition in festival_editions:
+		if edition.id == edition_id:
+			return edition
+	return null
+
+
+func find_edition_for(festival_id: String, year: int) -> FestivalEdition:
+	for edition in festival_editions:
+		if edition.festival_id == festival_id and edition.year == year:
+			return edition
 	return null
 
 
@@ -159,6 +198,10 @@ func to_dict() -> Dictionary:
 		"platform_stats": platform_stats.values().map(func(item: ArtistPlatformStats) -> Dictionary: return item.to_dict()),
 		"performance_snapshots": performance_snapshots.map(func(item: PerformanceSnapshot) -> Dictionary: return item.to_dict()),
 		"music_videos": music_videos.map(func(item: MusicVideo) -> Dictionary: return item.to_dict()),
+		"live_shows": live_shows.map(func(item: LiveShow) -> Dictionary: return item.to_dict()),
+		"live_tours": live_tours.map(func(item: LiveTour) -> Dictionary: return item.to_dict()),
+		"merch_items": merch_items.map(func(item: MerchItem) -> Dictionary: return item.to_dict()),
+		"festival_editions": festival_editions.map(func(item: FestivalEdition) -> Dictionary: return item.to_dict()),
 		"finance_history": finance_history.map(func(item: FinanceEntry) -> Dictionary: return item.to_dict()),
 		"week_reports": week_reports.map(func(item: WeekReport) -> Dictionary: return item.to_dict()),
 	}
@@ -194,6 +237,14 @@ static func from_dict(data: Dictionary) -> CareerData:
 		career.performance_snapshots.append(PerformanceSnapshot.from_dict(item))
 	for item: Dictionary in data.get("music_videos", []):
 		career.music_videos.append(MusicVideo.from_dict(item))
+	for item: Dictionary in data.get("live_shows", []):
+		career.live_shows.append(LiveShow.from_dict(item))
+	for item: Dictionary in data.get("live_tours", []):
+		career.live_tours.append(LiveTour.from_dict(item))
+	for item: Dictionary in data.get("merch_items", []):
+		career.merch_items.append(MerchItem.from_dict(item))
+	for item: Dictionary in data.get("festival_editions", []):
+		career.festival_editions.append(FestivalEdition.from_dict(item))
 	for item: Dictionary in data.get("finance_history", []):
 		career.finance_history.append(FinanceEntry.from_dict(item))
 	for item: Dictionary in data.get("week_reports", []):

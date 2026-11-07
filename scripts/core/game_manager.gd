@@ -23,7 +23,11 @@ var marketing := MarketingSystem.new(balance, economy, rng)
 var streaming := StreamingSystem.new(balance, economy, performance, time, marketing, rng)
 var videos := VideoSystem.new(balance, economy, performance, streaming, marketing, time, rng)
 var releases := ReleaseSystem.new(balance, economy, time, performance, marketing, streaming, videos, rng)
-var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming, videos)
+var merch := MerchSystem.new(balance, economy, rng)
+var live := LiveSystem.new(balance, economy, streaming, merch, rng)
+var tours := TourSystem.new(balance, economy, live, streaming, rng)
+var festivals := FestivalSystem.new(balance, live, rng)
+var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming, videos, live, tours, festivals)
 
 
 func _init() -> void:
@@ -35,6 +39,7 @@ func new_career(artist_name: String) -> ActionResult:
 	if clean_name.is_empty():
 		return ActionResult.failure("Escolha um nome artístico.")
 	career = CareerData.create(clean_name, balance)
+	festivals.ensure_editions(career)
 	career_changed.emit()
 	return ActionResult.success()
 
@@ -51,6 +56,7 @@ func load_game() -> ActionResult:
 	var result := saves.load_career()
 	if result.ok:
 		career = result.value
+		festivals.ensure_editions(career)
 		career_changed.emit()
 	return result
 
@@ -120,6 +126,74 @@ func create_video(song_id: String, choices: Dictionary, cover_file: String, rele
 
 func update_video(video_id: String, cover_file: String, release_mode: String, scheduled_week: int) -> ActionResult:
 	return _notify_if_ok(videos.update_video(career, video_id, cover_file, release_mode, scheduled_week))
+
+
+func schedule_show(show: LiveShow) -> ActionResult:
+	return _notify_if_ok(live.schedule_independent(career, show))
+
+
+func accept_offer(offer_id: String, choices: LiveShow) -> ActionResult:
+	return _notify_if_ok(live.accept_offer(career, offer_id, choices))
+
+
+func reject_offer(offer_id: String) -> ActionResult:
+	return _notify_if_ok(live.reject_offer(career, offer_id))
+
+
+func cancel_show(show_id: String) -> ActionResult:
+	return _notify_if_ok(live.cancel_show(career, show_id))
+
+
+func create_tour(tour_name: String, goal: String, project_id: String, types: Array[String], co_headliner_id: String) -> ActionResult:
+	return _notify_if_ok(tours.create_tour(career, tour_name, goal, project_id, types, co_headliner_id))
+
+
+func update_tour(tour_id: String, tour_name: String, goal: String, project_id: String, types: Array[String], co_headliner_id: String) -> ActionResult:
+	return _notify_if_ok(tours.update_tour(career, tour_id, tour_name, goal, project_id, types, co_headliner_id))
+
+
+func save_tour_date(tour_id: String, show: LiveShow) -> ActionResult:
+	return _notify_if_ok(tours.save_date(career, tour_id, show))
+
+
+func remove_tour_date(show_id: String) -> ActionResult:
+	return _notify_if_ok(tours.remove_date(career, show_id))
+
+
+func confirm_tour(tour_id: String) -> ActionResult:
+	return _notify_if_ok(tours.confirm(career, tour_id))
+
+
+func pause_tour(tour_id: String) -> ActionResult:
+	return _notify_if_ok(tours.pause(career, tour_id))
+
+
+func resume_tour(tour_id: String) -> ActionResult:
+	return _notify_if_ok(tours.resume(career, tour_id))
+
+
+func cancel_tour(tour_id: String) -> ActionResult:
+	return _notify_if_ok(tours.cancel(career, tour_id))
+
+
+func seek_sponsors(tour_id: String) -> ActionResult:
+	return _notify_if_ok(tours.seek_sponsors(career, tour_id))
+
+
+func accept_sponsor(tour_id: String, sponsor_id: String) -> ActionResult:
+	return _notify_if_ok(tours.accept_sponsor(career, tour_id, sponsor_id))
+
+
+func apply_to_festival(edition_id: String) -> ActionResult:
+	return _notify_if_ok(festivals.apply(career, edition_id))
+
+
+func manufacture_merch(product_id: String, quantity: int, price: int, exclusive_kind: String, exclusive_id: String, limited: bool) -> ActionResult:
+	return _notify_if_ok(merch.manufacture(career, product_id, quantity, price, exclusive_kind, exclusive_id, limited))
+
+
+func set_merch_price(item_id: String, price: int) -> ActionResult:
+	return _notify_if_ok(merch.set_price(career, item_id, price))
 
 
 func set_artist_cover(cover_file: String) -> void:

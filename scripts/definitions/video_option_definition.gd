@@ -32,6 +32,6 @@ extends Resource
 ## Atributo da música que este conceito valoriza.
 @export var song_attribute: String = ""
 ## Escolhas que combinam com este conceito.
-@export var fits: PackedStringArray = []
+@export var fits: Array[String] = []
 ## Escolhas que destoam deste conceito.
-@export var clashes: PackedStringArray = []
+@export var clashes: Array[String] = []

@@ -11,9 +11,12 @@ var _release: ReleaseSystem
 var _marketing: MarketingSystem
 var _streaming: StreamingSystem
 var _videos: VideoSystem
+var _live: LiveSystem
+var _tours: TourSystem
+var _festivals: FestivalSystem
 
 
-func _init(balance: GameBalance, time: TimeSystem, economy: EconomySystem, work: WorkSystem, release: ReleaseSystem, marketing: MarketingSystem, streaming: StreamingSystem, videos: VideoSystem) -> void:
+func _init(balance: GameBalance, time: TimeSystem, economy: EconomySystem, work: WorkSystem, release: ReleaseSystem, marketing: MarketingSystem, streaming: StreamingSystem, videos: VideoSystem, live: LiveSystem, tours: TourSystem, festivals: FestivalSystem) -> void:
 	_balance = balance
 	_time = time
 	_economy = economy
@@ -22,6 +25,9 @@ func _init(balance: GameBalance, time: TimeSystem, economy: EconomySystem, work:
 	_marketing = marketing
 	_streaming = streaming
 	_videos = videos
+	_live = live
+	_tours = tours
+	_festivals = festivals
 
 
 func process_week(career: CareerData, job: JobDefinition = null) -> WeekReport:
@@ -37,6 +43,9 @@ func process_week(career: CareerData, job: JobDefinition = null) -> WeekReport:
 	_release.process_leaks(career, report)
 	_release.publish_due(career, report)
 	_videos.process_schedule(career, report)
+	_live.process_week(career, report)
+	_tours.process_week(career, report)
+	_festivals.process_week(career, report)
 	_economy.restore_energy(career, _balance.energy_per_week, _balance.max_energy)
 	career.week_reports.append(report)
 	return report
