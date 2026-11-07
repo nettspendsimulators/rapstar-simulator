@@ -2,13 +2,6 @@ class_name SongQualitySystem
 extends RefCounted
 ## Cálculo da nota de uma música, isolado para ser refinado sem afetar o resto.
 
-class Result:
-	var beat: int = 0
-	var production: int = 0
-	var feats: int = 0
-	var base: int = 0
-
-
 var _rules: SongQualityRules
 var _catalog: CollaboratorCatalog
 
@@ -18,22 +11,35 @@ func _init(balance: GameBalance) -> void:
 	_catalog = balance.collaborators
 
 
-## beat_roll e production_roll vão de -1 a 1 e definem para que lado a variação do time pende.
-func calculate(credits: SongCredits, beat_roll: float, production_roll: float) -> Result:
-	var result := Result.new()
-	result.beat = _group_score(CollaboratorCatalog.resolve(_catalog.beatmakers, credits.beatmaker_ids), beat_roll)
-	result.production = _group_score(CollaboratorCatalog.resolve(_catalog.producers, credits.producer_ids), production_roll)
-	result.feats = _group_score(CollaboratorCatalog.resolve(_catalog.feats, credits.feat_ids), 0.0)
-	var total := result.beat * _rules.beat_weight \
-		+ result.production * _rules.production_weight \
-		+ result.feats * _rules.feats_weight
-	result.base = clampi(roundi(total), 0, 100)
-	return result
+## roll vai de -1 a 1 e define para que lado a variação do time pende.
+func beat_score(credits: SongCredits, roll: float) -> int:
+	return _group_score(CollaboratorCatalog.resolve(_catalog.beatmakers, credits.beatmaker_ids), roll)
 
 
-## Maior nota que a música pode alcançar com melhorias.
-func improvement_limit(base_quality: int) -> int:
-	return mini(base_quality + _rules.max_improvement_points, 100)
+func production_score(credits: SongCredits, roll: float) -> int:
+	return _group_score(CollaboratorCatalog.resolve(_catalog.producers, credits.producer_ids), roll)
+
+
+func feats_score(credits: SongCredits) -> int:
+	return _group_score(CollaboratorCatalog.resolve(_catalog.feats, credits.feat_ids), 0.0)
+
+
+## Nota de um atributo que depende só do próprio artista, como Vocal e Letra.
+func solo_score(roll: float) -> int:
+	return _group_score([], roll)
+
+
+## Nota geral: média dos atributos e das participações, pelos pesos configurados.
+func overall(attribute_values: Dictionary, feat_value: int) -> int:
+	var total: float = feat_value * _rules.feats_weight
+	for attribute in _rules.attributes:
+		total += attribute_values.get(attribute.id, 0) * attribute.weight
+	return clampi(roundi(total), 0, 100)
+
+
+## Maior nota que um atributo pode alcançar com melhorias.
+func attribute_limit(base_value: int) -> int:
+	return mini(base_value + _rules.max_improvement_points, 100)
 
 
 func _group_score(people: Array[CollaboratorDefinition], roll: float) -> int:

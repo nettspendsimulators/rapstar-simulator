@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/screens/songs_screen.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
-[ext_resource type="Script" path="res://scripts/ui/components/cover_preview.gd" id="3_cover"]
 
 [node name="SongsScreen" type="MarginContainer"]
 layout_mode = 1
@@ -25,40 +24,15 @@ text = "Minhas Músicas"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Body" type="HBoxContainer" parent="Column"]
+[node name="Hint" type="Label" parent="Column"]
+layout_mode = 2
+text = "Clique em uma música para abrir os detalhes e melhorar os atributos."
+
+[node name="SongsTable" type="Tree" parent="Column"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="SongsTable" type="Tree" parent="Column/Body"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
 script = ExtResource("2_table")
-
-[node name="Detail" type="PanelContainer" parent="Column/Body"]
-custom_minimum_size = Vector2(380, 0)
-layout_mode = 2
-
-[node name="DetailColumn" type="VBoxContainer" parent="Column/Body/Detail"]
-layout_mode = 2
-
-[node name="DetailCover" type="TextureRect" parent="Column/Body/Detail/DetailColumn"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 160)
-layout_mode = 2
-script = ExtResource("3_cover")
-
-[node name="DetailLabel" type="Label" parent="Column/Body/Detail/DetailColumn"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(340, 0)
-layout_mode = 2
-autowrap_mode = 3
-
-[node name="MessageLabel" type="Label" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"MessageLabel"
 
 [node name="ButtonRow" type="HBoxContainer" parent="Column"]
 layout_mode = 2
@@ -68,17 +42,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Voltar"
 
-[node name="EditButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Editar"
-
-[node name="ImproveButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="NewButton" type="Button" parent="Column/ButtonRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"PrimaryButton"
+text = "Nova música"

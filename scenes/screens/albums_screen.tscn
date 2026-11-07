@@ -25,6 +25,10 @@ text = "Meus Projetos"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Hint" type="Label" parent="Column"]
+layout_mode = 2
+text = "Um projeto pode ser Álbum, EP ou Mixtape. Crie agora, mesmo vazio, e adicione músicas ao longo da carreira."
+
 [node name="Body" type="HBoxContainer" parent="Column"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -78,4 +82,4 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"PrimaryButton"
-text = "Novo projeto"
+text = "Criar Projeto"

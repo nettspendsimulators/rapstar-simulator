@@ -4,8 +4,43 @@ extends RefCounted
 
 
 static func migrate(payload: Dictionary, balance: GameBalance) -> void:
-	if int(payload.get("version", 1)) < 2:
+	var version := int(payload.get("version", 1))
+	if version < 2:
 		_migrate_to_v2(payload["career"], balance)
+	if version < 3:
+		_migrate_to_v3(payload["career"], balance)
+
+
+## v3: Vocal, Letra, Beat e Produção independentes na música.
+## A nota geral de cada música fica exatamente como estava: Beat, Produção e feats
+## antigos são mantidos, e Vocal e Letra recebem o valor que completa a mesma nota.
+static func _migrate_to_v3(career: Dictionary, balance: GameBalance) -> void:
+	var rules := balance.song_quality
+	var vocal_weight := rules.find_attribute(SongData.ATTRIBUTE_VOCAL).weight
+	var lyrics_weight := rules.find_attribute(SongData.ATTRIBUTE_LYRICS).weight
+	var beat_weight := rules.find_attribute(SongData.ATTRIBUTE_BEAT).weight
+	var production_weight := rules.find_attribute(SongData.ATTRIBUTE_PRODUCTION).weight
+	for song: Dictionary in career.get("songs", []):
+		var quality := int(song.get("quality", 0))
+		var beat := int(song.get("beat_quality", -1))
+		var production := int(song.get("production_quality", -1))
+		var feats := int(song.get("feat_score", -1))
+		var known_total := beat * beat_weight + production * production_weight + feats * rules.feats_weight
+		var solo := (quality - known_total) / (vocal_weight + lyrics_weight)
+		# Músicas sem notas parciais, ou cuja nota não fecha com elas, usam a nota em tudo.
+		if beat < 0 or production < 0 or feats < 0 or solo < 0.0 or solo > 100.0:
+			beat = quality
+			production = quality
+			feats = quality
+			solo = quality
+		song["attribute_bases"] = {
+			SongData.ATTRIBUTE_VOCAL: roundi(solo),
+			SongData.ATTRIBUTE_LYRICS: roundi(solo),
+			SongData.ATTRIBUTE_BEAT: beat,
+			SongData.ATTRIBUTE_PRODUCTION: production,
+		}
+		song["attribute_points"] = {}
+		song["feat_score"] = feats
 
 
 ## v2: energia, créditos e nota base nas músicas, capas, agenda e formatos EP/Mixtape.

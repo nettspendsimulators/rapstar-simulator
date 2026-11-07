@@ -8,3 +8,5 @@ extends Resource
 @export_range(0, 100) var skill: int = 70
 ## Quanto menor, mais a nota do resultado pode variar para cima ou para baixo.
 @export_range(0, 100) var consistency: int = 70
+## Valor pago ao adicionar a pessoa a uma música.
+@export var cost: int = 0

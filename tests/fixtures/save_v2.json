@@ -1,0 +1,436 @@
+{
+	"career": {
+		"albums": [
+			{
+				"cover_file": "capa_c.webp",
+				"format_id": "ep",
+				"id": "album_8",
+				"production_cost": 160,
+				"quality": 50,
+				"release_week": -1,
+				"song_ids": [
+					"song_5",
+					"song_6",
+					"song_7"
+				],
+				"status": "unreleased",
+				"title": "EP agendado"
+			},
+			{
+				"cover_file": "",
+				"format_id": "mixtape",
+				"id": "album_12",
+				"production_cost": 80,
+				"quality": 49,
+				"release_week": -1,
+				"song_ids": [
+					"song_9",
+					"song_10",
+					"song_11"
+				],
+				"status": "unreleased",
+				"title": "Mixtape inédita"
+			}
+		],
+		"artist_name": "MC Dois",
+		"current_week": 3,
+		"energy": 40,
+		"fame": 8,
+		"finance_history": [
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Lançamento: Hit lançado",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Inédita top",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Inédita fraca",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Solo",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 1",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 2",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 3",
+				"week": 1
+			},
+			{
+				"amount": -160,
+				"category": "production",
+				"description": "Produção de EP: EP agendado",
+				"week": 1
+			},
+			{
+				"amount": -75,
+				"category": "release",
+				"description": "Agendamento: EP agendado",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Mix 1",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Mix 2",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Mix 3",
+				"week": 1
+			},
+			{
+				"amount": -80,
+				"category": "production",
+				"description": "Produção de Mixtape: Mixtape inédita",
+				"week": 1
+			},
+			{
+				"amount": 150,
+				"category": "work",
+				"description": "Trabalho como Entregador",
+				"week": 2
+			},
+			{
+				"amount": 119,
+				"category": "streams",
+				"description": "Streams: Hit lançado",
+				"week": 2
+			},
+			{
+				"amount": 25,
+				"category": "streams",
+				"description": "Streams: Hit lançado",
+				"week": 3
+			}
+		],
+		"money": 7929,
+		"next_id": 13,
+		"releases": [
+			{
+				"content_id": "song_1",
+				"content_type": "song",
+				"release_week": 1,
+				"total_fame": 8,
+				"total_money": 144,
+				"total_sales": 0,
+				"total_streams": 14409
+			}
+		],
+		"reputation": 5,
+		"scheduled_releases": [
+			{
+				"content_id": "album_8",
+				"paid_cost": 75,
+				"scheduled_week": 6,
+				"status": "scheduled"
+			}
+		],
+		"songs": [
+			{
+				"base_quality": 97,
+				"beat_quality": 96,
+				"beat_roll": -0.542914628982544,
+				"cover_file": "capa_a.webp",
+				"credits": {
+					"beatmakers": [
+						"j_dilla"
+					],
+					"feats": [
+						"nas"
+					],
+					"producers": [
+						"dr_dre"
+					]
+				},
+				"feat_score": 95,
+				"id": "song_1",
+				"improvement_points": 3,
+				"production_cost": 100,
+				"production_quality": 99,
+				"production_roll": 0.808577537536621,
+				"quality": 100,
+				"release_week": 1,
+				"status": "released",
+				"title": "Hit lançado"
+			},
+			{
+				"base_quality": 97,
+				"beat_quality": 96,
+				"beat_roll": -0.988295555114746,
+				"cover_file": "capa_b.webp",
+				"credits": {
+					"beatmakers": [
+						"j_dilla",
+						"dj_premier"
+					],
+					"feats": [
+						"kendrick_lamar"
+					],
+					"producers": [
+						"dr_dre",
+						"kanye_west"
+					]
+				},
+				"feat_score": 98,
+				"id": "song_2",
+				"improvement_points": 3,
+				"production_cost": 100,
+				"production_quality": 97,
+				"production_roll": -0.95162171125412,
+				"quality": 100,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Inédita top"
+			},
+			{
+				"base_quality": 75,
+				"beat_quality": 84,
+				"beat_roll": 0.372530579566956,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [
+						"bangladesh"
+					],
+					"feats": [],
+					"producers": [
+						"cardo"
+					]
+				},
+				"feat_score": 50,
+				"id": "song_3",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 79,
+				"production_roll": -0.539137721061707,
+				"quality": 75,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Inédita fraca"
+			},
+			{
+				"base_quality": 55,
+				"beat_quality": 55,
+				"beat_roll": 0.717671155929565,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_4",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 57,
+				"production_roll": 0.948097586631775,
+				"quality": 55,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Solo"
+			},
+			{
+				"base_quality": 48,
+				"beat_quality": 43,
+				"beat_roll": -0.882308900356293,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_5",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 53,
+				"production_roll": 0.400833964347839,
+				"quality": 48,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa 1"
+			},
+			{
+				"base_quality": 50,
+				"beat_quality": 49,
+				"beat_roll": -0.145805895328522,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_6",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 50,
+				"production_roll": -0.0415407419204712,
+				"quality": 50,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa 2"
+			},
+			{
+				"base_quality": 51,
+				"beat_quality": 50,
+				"beat_roll": -0.0492599010467529,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_7",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 52,
+				"production_roll": 0.27043080329895,
+				"quality": 51,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Faixa 3"
+			},
+			{
+				"base_quality": 50,
+				"beat_quality": 54,
+				"beat_roll": 0.549441337585449,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_9",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 44,
+				"production_roll": -0.780767202377319,
+				"quality": 50,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Mix 1"
+			},
+			{
+				"base_quality": 53,
+				"beat_quality": 56,
+				"beat_roll": 0.743958115577698,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_10",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 51,
+				"production_roll": 0.0747065544128418,
+				"quality": 53,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Mix 2"
+			},
+			{
+				"base_quality": 45,
+				"beat_quality": 45,
+				"beat_roll": -0.707406997680664,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_11",
+				"improvement_points": 0,
+				"production_cost": 100,
+				"production_quality": 43,
+				"production_roll": -0.905753791332245,
+				"quality": 45,
+				"release_week": -1,
+				"status": "unreleased",
+				"title": "Mix 3"
+			}
+		],
+		"week_reports": [
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 150,
+						"note": "",
+						"sales": 0,
+						"streams": 0,
+						"title": "Você trabalhou como Entregador."
+					},
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 7,
+						"money": 119,
+						"note": "",
+						"sales": 0,
+						"streams": 11922,
+						"title": "Hit lançado"
+					}
+				],
+				"week": 2
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "capa_a.webp",
+						"fame": 1,
+						"money": 25,
+						"note": "",
+						"sales": 0,
+						"streams": 2487,
+						"title": "Hit lançado"
+					}
+				],
+				"week": 3
+			}
+		]
+	},
+	"version": 2
+}

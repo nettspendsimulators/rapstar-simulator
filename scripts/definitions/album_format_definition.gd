@@ -23,9 +23,14 @@ func accepts_song_count(song_count: int) -> bool:
 	return song_count >= min_songs and song_count <= max_songs
 
 
+## Progresso até o mínimo para lançar, como "Álbum — 4/7 músicas".
+func progress_text(song_count: int) -> String:
+	return "%s — %d/%d músicas" % [display_name, song_count, min_songs]
+
+
 ## Texto mostrado ao jogador para explicar o formato, sempre coerente com os valores configurados.
 func summary() -> String:
-	return "%s: %d a %d músicas. %s\nProdução: %s + %s por música. Lançamento: %s. Vendas x%s, fama x%s, reputação x%s." % [
+	return "%s: lança com %d a %d músicas e pode ser criado vazio. %s\nProdução: %s + %s por música. Lançamento: %s. Vendas x%s, fama x%s, reputação x%s." % [
 		display_name,
 		min_songs,
 		max_songs,

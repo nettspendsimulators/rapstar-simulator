@@ -2,10 +2,11 @@ extends Screen
 
 
 func _ready() -> void:
-	%PendingTable.set_headers(["Nome", "Tipo", "Nota", "Custo de lançamento"])
+	%PendingTable.set_headers(["Nome", "Tipo", "Nota", "Custo de lançamento", "Situação"])
+	%PendingTable.set_column_expand_ratio(4, 2)
 	%ScheduleTable.set_headers(["Nome", "Tipo", "Semana programada", "Status"])
 	%ReleasedTable.set_headers(["Nome", "Tipo", "Semana", "Streams", "Vendas", "Dinheiro", "Fama"])
-	%PendingTable.item_selected.connect(%MessageLabel.set_text.bind(""))
+	%PendingTable.item_selected.connect(_on_pending_selected)
 	%ScheduleTable.item_selected.connect(%MessageLabel.set_text.bind(""))
 	%ReleaseButton.pressed.connect(_on_release_pressed)
 	%ScheduleButton.pressed.connect(_on_schedule_pressed)
@@ -41,7 +42,29 @@ func _fill_pending() -> void:
 			release_system.content_type_label(content),
 			content.quality,
 			Fmt.money(release_system.release_cost(content)),
+			_situation_text(content),
 		], content.id, content.cover_file)
+	_set_release_blocked(false)
+
+
+## Projetos mostram o progresso até o mínimo de músicas.
+func _situation_text(content: ReleasableContent) -> String:
+	if content is AlbumData:
+		var album_format := GameManager.balance.find_album_format(content.format_id)
+		return album_format.progress_text(content.song_ids.size())
+	return "Pronta"
+
+
+func _on_pending_selected() -> void:
+	var content := GameManager.career.find_content(%PendingTable.selected_value())
+	var error := GameManager.releases.release_error(GameManager.career, content)
+	_set_release_blocked(not error.is_empty())
+	%MessageLabel.text = error
+
+
+func _set_release_blocked(blocked: bool) -> void:
+	%ReleaseButton.disabled = blocked
+	%ScheduleButton.disabled = blocked
 
 
 ## Agendamentos ativos primeiro, do mais próximo ao mais distante; depois, o histórico recente.

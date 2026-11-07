@@ -7,6 +7,7 @@ const SCREENS := {
 	Screen.HUB: preload("res://scenes/screens/hub_screen.tscn"),
 	Screen.WORK: preload("res://scenes/screens/work_screen.tscn"),
 	Screen.SONGS: preload("res://scenes/screens/songs_screen.tscn"),
+	Screen.SONG_DETAIL: preload("res://scenes/screens/song_detail_screen.tscn"),
 	Screen.SONG_EDITOR: preload("res://scenes/screens/song_editor_screen.tscn"),
 	Screen.ALBUMS: preload("res://scenes/screens/albums_screen.tscn"),
 	Screen.PROJECT_EDITOR: preload("res://scenes/screens/project_editor_screen.tscn"),

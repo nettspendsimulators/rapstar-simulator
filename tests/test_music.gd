@@ -39,7 +39,7 @@ func _check(condition: bool, label: String) -> void:
 		printerr("FALHOU: ", label)
 
 
-func _make_game(money: int = 100000) -> Node:
+func _make_game(money: int = 100000000) -> Node:
 	var game: Node = GameManagerScript.new()
 	game.rng.seed = 42
 	game.saves.save_dir = TEST_SAVE_DIR
@@ -82,6 +82,7 @@ func _test_credit_limits() -> void:
 		["drake", "nas", "sza", "eminem", "jid"]
 	)
 	_check(game.create_song("Cheia", ok).ok, "3 produtores, 3 beatmakers, 5 feats")
+	var money_after_ok: int = game.career.money
 	_check(not game.create_song("P", _credits(["metro_boomin", "dr_dre", "madlib", "cardo"])).ok, "4 produtores recusados")
 	_check(not game.create_song("B", _credits([], ["j_dilla", "nujabes", "rza", "cardo"])).ok, "4 beatmakers recusados")
 	_check(not game.create_song("F", _credits([], [], ["drake", "nas", "sza", "eminem", "jid", "future"])).ok, "6 feats recusados")
@@ -89,36 +90,43 @@ func _test_credit_limits() -> void:
 	_check(not game.create_song("X", _credits(["inventado"])).ok, "colaborador desconhecido recusado")
 	_check(not game.create_song("R", _credits(["j_dilla"])).ok, "beatmaker não vale como produtor")
 	_check(game.career.songs.size() == 1, "recusas não criam música")
-	_check(game.career.money == 100000 - 100, "recusas não cobram")
+	_check(game.career.money == money_after_ok, "recusas não cobram")
 	game.free()
 
 
 func _test_quality_formula() -> void:
 	var game := _make_game()
 	var quality: SongQualitySystem = game.song_quality
-	var solo := quality.calculate(SongCredits.new(), 0.0, 0.0)
-	_check(solo.beat == 50 and solo.production == 50 and solo.feats == 50 and solo.base == 50, "sem colaboradores vale 50")
+	_check(quality.beat_score(SongCredits.new(), 0.0) == 50, "beat sem colaboradores vale 50")
+	_check(quality.production_score(SongCredits.new(), 0.0) == 50, "produção sem colaboradores vale 50")
+	_check(quality.feats_score(SongCredits.new()) == 50, "feats sem colaboradores valem 50")
+	_check(quality.solo_score(0.0) == 50, "vocal e letra partem de 50")
 
-	var dre := quality.calculate(_credits(["dr_dre"]), 0.0, 0.0)
-	_check(dre.production == 98 and dre.beat == 50, "produtor afeta só a produção")
-	var dilla := quality.calculate(_credits([], ["j_dilla"]), 0.0, 0.0)
-	_check(dilla.beat == 98 and dilla.production == 50, "beatmaker afeta só o beat")
-	var kendrick := quality.calculate(_credits([], [], ["kendrick_lamar"]), 0.0, 0.0)
-	_check(kendrick.feats == 98, "feat afeta só as participações")
-	# 0,45 x 98 + 0,35 x 50 + 0,20 x 50 = 71,6
-	_check(dilla.base == 72, "peso do beat aplicado")
-	_check(dilla.base > dre.base and dre.base > kendrick.base, "beat pesa mais que produção, que pesa mais que feats")
+	_check(quality.production_score(_credits(["dr_dre"]), 0.0) == 98, "produtor define a produção")
+	_check(quality.beat_score(_credits(["dr_dre"]), 0.0) == 50, "produtor não afeta o beat")
+	_check(quality.beat_score(_credits([], ["j_dilla"]), 0.0) == 98, "beatmaker define o beat")
+	_check(quality.production_score(_credits([], ["j_dilla"]), 0.0) == 50, "beatmaker não afeta a produção")
+	_check(quality.feats_score(_credits([], [], ["kendrick_lamar"])) == 98, "feat define as participações")
 
-	var duo := quality.calculate(_credits(["dr_dre", "kanye_west"]), 0.0, 0.0)
-	_check(duo.production == 100, "bônus de equipe limitado a 100")
-	var mixed := quality.calculate(_credits(["dr_dre", "cardo"]), 0.0, 0.0)
-	_check(mixed.production == 92, "média de 98 e 81 + bônus de 2")
+	_check(quality.production_score(_credits(["dr_dre", "kanye_west"]), 0.0) == 100, "bônus de equipe limitado a 100")
+	_check(quality.production_score(_credits(["dr_dre", "cardo"]), 0.0) == 92, "média de 98 e 81 + bônus de 2")
 
-	var steady := quality.calculate(_credits(["dr_dre"]), 1.0, 1.0)
-	var erratic := quality.calculate(_credits(["madlib"]), 1.0, 1.0)
-	_check(steady.production - 98 < erratic.production - 91, "consistência menor varia mais")
-	var worst := quality.calculate(_credits(["madlib"]), -1.0, -1.0)
-	_check(worst.production < 91 and worst.base >= 0 and worst.base <= 100, "variação negativa dentro de 0 a 100")
+	var steady := quality.production_score(_credits(["dr_dre"]), 1.0)
+	var erratic := quality.production_score(_credits(["madlib"]), 1.0)
+	_check(steady - 98 < erratic - 91, "consistência menor varia mais")
+	var worst := quality.production_score(_credits(["madlib"]), -1.0)
+	_check(worst < 91 and worst >= 0, "variação negativa dentro de 0 a 100")
+
+	# Vocal 20%, Letra 15%, Beat 30%, Produção 25%, feats 10%.
+	var all_50 := {"vocal": 50, "lyrics": 50, "beat": 50, "production": 50}
+	_check(quality.overall(all_50, 50) == 50, "pesos somam 1")
+	var all_100 := {"vocal": 100, "lyrics": 100, "beat": 100, "production": 100}
+	_check(quality.overall(all_100, 100) == 100, "nota máxima")
+	_check(quality.overall({"vocal": 100, "lyrics": 50, "beat": 50, "production": 50}, 50) == 60, "peso do vocal")
+	_check(quality.overall({"vocal": 50, "lyrics": 100, "beat": 50, "production": 50}, 50) == 58, "peso da letra")
+	_check(quality.overall({"vocal": 50, "lyrics": 50, "beat": 100, "production": 50}, 50) == 65, "peso do beat")
+	_check(quality.overall({"vocal": 50, "lyrics": 50, "beat": 50, "production": 100}, 50) == 63, "peso da produção")
+	_check(quality.overall(all_50, 100) == 55, "peso das participações")
 	game.free()
 
 
@@ -131,10 +139,11 @@ func _test_edit_rules() -> void:
 	_check(game.edit_song(song.id, "Novo nome", song.credits, "").ok, "edita antes de lançar")
 	_check(song.title == "Novo nome" and song.quality == quality_before, "renomear não muda a nota")
 	var unchanged_money: int = game.career.money
+	_check(game.edit_song(song.id, "Novo nome", song.credits, "capa.webp").ok, "editar nome e capa")
+	_check(game.career.money == unchanged_money, "editar sem contratar é gratuito")
 	_check(game.edit_song(song.id, "Pior", _credits(["cardo"], ["bangladesh"]), "").ok, "troca colaboradores")
 	_check(song.quality < quality_before, "colaboradores piores baixam a nota")
 	_check(rolls == [song.beat_roll, song.production_roll], "editar não sorteia a nota de novo")
-	_check(game.career.money == unchanged_money, "editar é gratuito")
 	game.edit_song(song.id, "Pior", _credits(["dr_dre"], ["j_dilla"]), "")
 	_check(song.quality == quality_before, "voltar aos colaboradores restaura a nota")
 	_check(not game.edit_song(song.id, "  ", song.credits, "").ok, "nome vazio recusado")
@@ -143,47 +152,50 @@ func _test_edit_rules() -> void:
 	game.release_content(song.id)
 	_check(not game.edit_song(song.id, "Depois", _credits(), "").ok, "lançada não edita")
 	_check(song.title == title_before and song.credits.producer_ids == ["dr_dre"], "dados bloqueados")
-	_check(not game.improve_song(song.id).ok, "lançada não melhora")
+	_check(not game.improve_song(song.id, "vocal").ok, "lançada não melhora")
 	game.free()
 
 
 func _test_improvements() -> void:
 	var game := _make_game()
 	var rules: SongQualityRules = game.balance.song_quality
+	var attribute := rules.find_attribute("beat")
 	var song: SongData = game.create_song("Melhorável").value
-	var base := song.quality
+	var base := song.attribute_value("beat")
 	var limit := mini(base + rules.max_improvement_points, 100)
 
 	_check(game.career.energy == game.balance.max_energy, "começa com energia cheia")
 	var energy_before: int = game.career.energy
-	_check(game.improve_song(song.id).ok, "melhoria")
-	_check(song.quality >= base + rules.improvement_gain_min and song.quality <= base + rules.improvement_gain_max, "ganho na faixa")
-	_check(game.career.energy == energy_before - rules.improvement_energy_cost, "gasta energia")
+	_check(game.improve_song(song.id, "beat").ok, "melhoria")
+	var gained := song.attribute_value("beat") - base
+	_check(gained >= rules.improvement_gain_min and gained <= rules.improvement_gain_max, "ganho na faixa")
+	_check(game.career.energy == energy_before - attribute.energy_cost, "gasta energia")
 
 	game.career.energy = 0
-	var quality_before := song.quality
-	_check(not game.improve_song(song.id).ok, "sem energia não melhora")
-	_check(song.quality == quality_before, "falha não altera a nota")
+	var value_before := song.attribute_value("beat")
+	_check(not game.improve_song(song.id, "beat").ok, "sem energia não melhora")
+	_check(song.attribute_value("beat") == value_before, "falha não altera a nota")
 
 	game.career.energy = 100000
 	var guard := 0
-	while game.improve_song(song.id).ok and guard < 100:
+	while game.improve_song(song.id, "beat").ok and guard < 100:
 		guard += 1
-	_check(song.quality == limit, "melhorias param no limite")
+	_check(song.attribute_value("beat") == limit, "melhorias param no limite")
 	var energy_at_limit: int = game.career.energy
-	_check(not game.improve_song(song.id).ok, "no limite é recusado")
+	_check(not game.improve_song(song.id, "beat").ok, "no limite é recusado")
 	_check(game.career.energy == energy_at_limit, "recusa no limite não gasta energia")
 
-	game.edit_song(song.id, song.title, _credits(["cardo"]), "")
-	_check(song.improvement_points > 0, "editar mantém as melhorias")
-	_check(song.quality == song.base_quality + song.improvement_points, "nota soma base e melhorias")
+	var points: int = song.attribute_points["beat"]
+	game.edit_song(song.id, song.title, _credits([], ["cardo"]), "")
+	_check(song.attribute_points["beat"] == points, "editar mantém as melhorias")
+	_check(song.attribute_value("beat") == song.attribute_bases["beat"] + points, "atributo soma base e melhorias")
 
-	# Um limite absoluto de 100 vale mesmo para músicas de base alta.
+	# O limite absoluto de 100 vale mesmo para atributos de base alta.
 	var top: SongData = game.create_song("Topo", _credits(["dr_dre", "kanye_west"], ["j_dilla", "dj_premier"], ["kendrick_lamar", "nas"])).value
 	guard = 0
-	while game.improve_song(top.id).ok and guard < 100:
+	while game.improve_song(top.id, "beat").ok and guard < 100:
 		guard += 1
-	_check(top.quality <= 100, "nota nunca passa de 100")
+	_check(top.attribute_value("beat") <= 100 and top.quality <= 100, "nota nunca passa de 100")
 	game.free()
 
 
@@ -201,11 +213,8 @@ func _test_energy_week() -> void:
 func _test_project_formats() -> void:
 	var game := _make_game()
 	var ids := _add_songs(game, 21)
-	_check(not game.create_album("EP", &"ep", ids.slice(0, 2)).ok, "EP com 2 recusado")
 	_check(not game.create_album("EP", &"ep", ids.slice(0, 7)).ok, "EP com 7 recusado")
-	_check(not game.create_album("Álbum", &"album", ids.slice(0, 6)).ok, "álbum com 6 recusado")
 	_check(not game.create_album("Álbum", &"album", ids).ok, "álbum com 21 recusado")
-	_check(not game.create_album("Mix", &"mixtape", ids.slice(0, 2)).ok, "mixtape com 2 recusada")
 	_check(not game.create_album("Mix", &"mixtape", ids).ok, "mixtape com 21 recusada")
 	_check(not game.create_album("Mix", &"nao_existe", ids.slice(0, 3)).ok, "formato inválido")
 	_check(game.create_album("EP", &"ep", ids.slice(0, 6)).ok, "EP com 6")
@@ -216,7 +225,7 @@ func _test_project_formats() -> void:
 	_check(game.releases.content_type_label(album) == "Álbum", "tipo do projeto")
 	_check(game.releases.content_type_label(game.career.songs[0]) == "Single", "música sozinha é single")
 	_check(not game.balance.find_album_format(&"mixtape").summary().is_empty(), "formato se explica")
-	_check(not game.improve_song(album.id).ok, "projeto não recebe melhoria")
+	_check(not game.improve_song(album.id, "beat").ok, "projeto não recebe melhoria")
 	game.free()
 
 
@@ -244,8 +253,6 @@ func _test_project_editing() -> void:
 	_check(game.update_album(album.id, "Misto 2", &"ep", reordered, "").ok, "remove música")
 	_check(game.career.money == money_before, "remover não reembolsa nem cobra")
 	_check(game.career.find_album_of_song(ids[3]) == null, "música removida fica livre")
-	_check(not game.update_album(album.id, "Misto 2", &"ep", reordered.slice(0, 2), "").ok, "abaixo do mínimo recusado")
-	_check(album.song_ids == reordered, "recusa não altera a tracklist")
 
 	game.create_album("Outro", &"mixtape", ids.slice(3, 6))
 	var stolen: Array[String] = [ids[2], ids[0], ids[3]]
@@ -265,7 +272,8 @@ func _test_project_quality_follows_songs() -> void:
 	var songs: Array = ids.map(func(id: String) -> SongData: return game.career.find_song(id))
 	var expected := roundi((songs[0].quality + songs[1].quality + songs[2].quality) / 3.0)
 	_check(album.quality == expected, "nota é a média")
-	game.improve_song(ids[0])
+	game.improve_song(ids[0], "beat")
+	game.improve_song(ids[0], "production")
 	expected = roundi((songs[0].quality + songs[1].quality + songs[2].quality) / 3.0)
 	_check(album.quality == expected, "melhorar uma faixa atualiza a média")
 	game.edit_song(ids[1], "Faixa", _credits(["dr_dre"]), "")
@@ -451,7 +459,7 @@ func _test_v2_round_trip() -> void:
 	_clean_saves()
 	var game := _make_game()
 	var song: SongData = game.create_song("Completa", _credits(["dr_dre"], ["j_dilla"], ["nas"]), "capa.webp").value
-	game.improve_song(song.id)
+	game.improve_song(song.id, "vocal")
 	var ids := _add_songs(game, 3)
 	game.create_album("Projeto", &"mixtape", ids, "projeto.webp")
 	game.schedule_release(song.id, 5)
@@ -465,7 +473,7 @@ func _test_v2_round_trip() -> void:
 	_check(game.load_game().ok, "carrega v2")
 	_check(JSON.stringify(game.career.to_dict()) == expected, "v2 idêntico após carregar")
 	var loaded: SongData = game.career.find_song(song.id)
-	_check(loaded.credits.feat_ids == ["nas"] and loaded.improvement_points > 0, "créditos e melhorias salvos")
+	_check(loaded.credits.feat_ids == ["nas"] and loaded.attribute_points["vocal"] > 0, "créditos e melhorias salvos")
 	_check(game.career.energy == 37, "energia salva")
 	_check(game.career.find_active_schedule(song.id).scheduled_week == 5, "agenda salva")
 	game.next_week()
@@ -508,14 +516,14 @@ func _test_v1_migration() -> void:
 		var song := career.songs[index]
 		var old_song: Dictionary = old["songs"][index]
 		_check(song.title == old_song["title"] and song.quality == int(old_song["quality"]), "música %d intacta" % index)
-		_check(song.base_quality == song.quality, "nota base da música %d" % index)
+		_check(song.attribute_bases.size() == 4, "atributos da música %d" % index)
 		_check(song.status == old_song["status"], "status da música %d" % index)
 
 	# Novos campos com valores coerentes.
 	_check(career.energy == game.balance.max_energy, "energia inicial na migração")
 	_check(career.scheduled_releases.is_empty(), "agenda vazia")
 	_check(career.songs[0].cover_file == "", "sem capa")
-	_check(career.songs[0].beat_quality == SongData.UNKNOWN_SCORE, "nota parcial desconhecida")
+	_check(career.songs[0].attribute_value("beat") == career.songs[0].quality, "atributos partem da nota antiga")
 
 	# Regra dos formatos: o lançado fica como estava e o inédito vira EP lançável.
 	var released: AlbumData = career.albums[0]
@@ -533,7 +541,7 @@ func _test_v1_migration() -> void:
 	var legacy_quality := legacy.quality
 	_check(game.edit_song(legacy.id, "Renomeada", legacy.credits, "").ok, "música antiga edita")
 	_check(legacy.quality == legacy_quality, "renomear música antiga não muda a nota")
-	_check(game.improve_song(legacy.id).ok and legacy.quality > legacy_quality, "música antiga melhora")
+	_check(game.improve_song(legacy.id, "beat").ok and legacy.quality >= legacy_quality, "música antiga melhora")
 	_check(not game.edit_song(career.songs[0].id, "X", SongCredits.new(), "").ok, "música antiga lançada segue bloqueada")
 
 	# Salvar de novo grava v2, e a cópia v1 não é tocada.

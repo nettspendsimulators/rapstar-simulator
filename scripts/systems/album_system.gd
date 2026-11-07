@@ -1,6 +1,7 @@
 class_name AlbumSystem
 extends RefCounted
-## Projetos coletivos: EP, álbum e mixtape.
+## Projetos coletivos: EP, álbum e mixtape. Um projeto pode ser criado vazio e crescer
+## ao longo da carreira. O mínimo de músicas só é exigido para lançar (ver ReleaseSystem).
 
 var _balance: GameBalance
 var _economy: EconomySystem
@@ -22,7 +23,7 @@ func available_songs(career: CareerData, album_id: String = "") -> Array[SongDat
 	return available
 
 
-func create_album(career: CareerData, title: String, format_id: StringName, song_ids: Array[String], cover_file: String = "") -> ActionResult:
+func create_album(career: CareerData, title: String, format_id: StringName, song_ids: Array[String] = [], cover_file: String = "") -> ActionResult:
 	var clean_title := title.strip_edges()
 	if clean_title.is_empty():
 		return ActionResult.failure("Dê um nome para o projeto.")
@@ -46,7 +47,7 @@ func create_album(career: CareerData, title: String, format_id: StringName, song
 	album.production_cost = cost
 	album.quality = career.average_quality(album.song_ids)
 	career.albums.append(album)
-	return ActionResult.success("\"%s\" criado. Nota: %d." % [album.title, album.quality], album)
+	return ActionResult.success("\"%s\" criado. %s." % [album.title, album_format.progress_text(song_ids.size())], album)
 
 
 ## Só cobra o que passar do custo de produção já pago. Remover músicas não gera reembolso.
@@ -62,8 +63,12 @@ func update_album(career: CareerData, album_id: String, title: String, format_id
 	var album_format := _balance.find_album_format(format_id)
 	if album_format == null:
 		return ActionResult.failure("Formato inválido.")
-	if album_format.id != StringName(album.format_id) and career.find_active_schedule(album.id) != null:
+	var is_scheduled := career.find_active_schedule(album.id) != null
+	if is_scheduled and album_format.id != StringName(album.format_id):
 		return ActionResult.failure("Cancele o agendamento antes de mudar o formato.")
+	# Um projeto agendado precisa continuar pronto para sair sozinho na semana marcada.
+	if is_scheduled and song_ids.size() < album_format.min_songs:
+		return ActionResult.failure("Projeto agendado precisa de pelo menos %d músicas. Cancele o agendamento para remover mais." % album_format.min_songs)
 	var tracklist_error := _validate_tracklist(career, album_format, song_ids, album.id)
 	if not tracklist_error.is_empty():
 		return ActionResult.failure(tracklist_error)
@@ -79,13 +84,13 @@ func update_album(career: CareerData, album_id: String, title: String, format_id
 	album.song_ids = song_ids.duplicate()
 	album.cover_file = cover_file
 	album.quality = career.average_quality(album.song_ids)
-	return ActionResult.success("\"%s\" atualizado. Nota: %d." % [album.title, album.quality], album)
+	return ActionResult.success("\"%s\" atualizado. %s." % [album.title, album_format.progress_text(song_ids.size())], album)
 
 
 ## Devolve a mensagem de erro, ou um texto vazio se a tracklist for válida.
 func _validate_tracklist(career: CareerData, album_format: AlbumFormatDefinition, song_ids: Array[String], album_id: String) -> String:
-	if not album_format.accepts_song_count(song_ids.size()):
-		return "%s precisa ter de %d a %d músicas." % [album_format.display_name, album_format.min_songs, album_format.max_songs]
+	if song_ids.size() > album_format.max_songs:
+		return "%s aceita no máximo %d músicas." % [album_format.display_name, album_format.max_songs]
 	var available := available_songs(career, album_id)
 	var seen: Array[String] = []
 	for song_id in song_ids:

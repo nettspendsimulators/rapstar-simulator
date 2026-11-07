@@ -1,6 +1,19 @@
 class_name MusicSystem
 extends RefCounted
 
+## Prévia da nota de uma música com determinados colaboradores.
+class Preview:
+	var attribute_values: Dictionary = {}
+	var feat_value: int = 0
+	var quality: int = 0
+
+
+## Um colaborador a ser pago, com a função dele naquela música.
+class Hire:
+	var person: CollaboratorDefinition
+	var role_label: String
+
+
 var _balance: GameBalance
 var _economy: EconomySystem
 var _quality: SongQualitySystem
@@ -22,24 +35,34 @@ func create_song(career: CareerData, title: String, credits: SongCredits = null,
 	var credits_error := _validate_credits(song_credits)
 	if not credits_error.is_empty():
 		return ActionResult.failure(credits_error)
-	var cost := _balance.song_production_cost
-	if not _economy.can_afford(career, cost):
-		return _economy.insufficient_funds(cost)
+	var production_cost := _balance.song_production_cost
+	var hires := _new_hires(song_credits, SongCredits.new())
+	var total_cost := production_cost + _hires_cost(hires)
+	if not _economy.can_afford(career, total_cost):
+		return _economy.insufficient_funds(total_cost)
 
-	_economy.spend(career, cost, "Produção de música: %s" % clean_title, FinanceEntry.CATEGORY_PRODUCTION)
+	_economy.spend(career, production_cost, "Produção de música: %s" % clean_title, FinanceEntry.CATEGORY_PRODUCTION)
+	_pay_hires(career, hires, clean_title)
 	var song := SongData.new()
 	song.id = career.new_id("song")
 	song.title = clean_title
 	song.cover_file = cover_file
-	song.production_cost = cost
+	song.production_cost = total_cost
 	song.beat_roll = _rng.randf_range(-1.0, 1.0)
 	song.production_roll = _rng.randf_range(-1.0, 1.0)
-	_apply_credits(song, song_credits)
+	song.attribute_bases[SongData.ATTRIBUTE_VOCAL] = _quality.solo_score(_rng.randf_range(-1.0, 1.0))
+	song.attribute_bases[SongData.ATTRIBUTE_LYRICS] = _quality.solo_score(_rng.randf_range(-1.0, 1.0))
+	song.attribute_bases[SongData.ATTRIBUTE_BEAT] = _quality.beat_score(song_credits, song.beat_roll)
+	song.attribute_bases[SongData.ATTRIBUTE_PRODUCTION] = _quality.production_score(song_credits, song.production_roll)
+	song.feat_score = _quality.feats_score(song_credits)
+	song.credits = song_credits
+	_update_quality(song)
 	career.songs.append(song)
 	return ActionResult.success("\"%s\" produzida. Nota: %d." % [song.title, song.quality], song)
 
 
-## A nota só é recalculada se os colaboradores mudarem. As melhorias já feitas são mantidas.
+## Só colaboradores novos são pagos, e remover alguém não gera reembolso.
+## A nota só muda nas partes cujos colaboradores mudaram. As melhorias são mantidas.
 func edit_song(career: CareerData, song_id: String, title: String, credits: SongCredits, cover_file: String) -> ActionResult:
 	var song := career.find_song(song_id)
 	if song == null:
@@ -52,16 +75,24 @@ func edit_song(career: CareerData, song_id: String, title: String, credits: Song
 	var credits_error := _validate_credits(credits)
 	if not credits_error.is_empty():
 		return ActionResult.failure(credits_error)
+	var hires := _new_hires(credits, song.credits)
+	var hires_cost := _hires_cost(hires)
+	if not _economy.can_afford(career, hires_cost):
+		return _economy.insufficient_funds(hires_cost)
 
+	_pay_hires(career, hires, clean_title)
+	song.production_cost += hires_cost
 	song.title = clean_title
 	song.cover_file = cover_file
-	if not song.credits.equals(credits):
-		_apply_credits(song, credits)
-		career.refresh_album_qualities()
+	_apply_credits_changes(song, credits)
+	_update_quality(song)
+	song.credits = credits
+	career.refresh_album_qualities()
 	return ActionResult.success("\"%s\" atualizada. Nota: %d." % [song.title, song.quality], song)
 
 
-func improve_song(career: CareerData, content_id: String) -> ActionResult:
+## Melhora um único atributo. Os demais não mudam.
+func improve_song(career: CareerData, content_id: String, attribute_id: String) -> ActionResult:
 	var content := career.find_content(content_id)
 	if content == null:
 		return ActionResult.failure("Música não encontrada.")
@@ -70,53 +101,115 @@ func improve_song(career: CareerData, content_id: String) -> ActionResult:
 	var song: SongData = content
 	if song.is_released():
 		return ActionResult.failure("\"%s\" já foi lançada e não pode mais ser melhorada." % song.title)
-	var room := improvement_room(song)
-	if room <= 0:
-		return ActionResult.failure("\"%s\" já atingiu o limite de melhorias." % song.title)
 	var rules := _balance.song_quality
-	if not _economy.can_spend_energy(career, rules.improvement_energy_cost):
-		return ActionResult.failure("Energia insuficiente: melhorar custa %d." % rules.improvement_energy_cost)
+	var attribute := rules.find_attribute(attribute_id)
+	if attribute == null:
+		return ActionResult.failure("Atributo inválido.")
+	var room := improvement_room(song, attribute_id)
+	if room <= 0:
+		return ActionResult.failure("%s já atingiu o limite de melhorias." % attribute.display_name)
+	if not _economy.can_spend_energy(career, attribute.energy_cost):
+		return ActionResult.failure("Energia insuficiente: melhorar %s custa %d." % [attribute.display_name, attribute.energy_cost])
+	if not _economy.can_afford(career, attribute.money_cost):
+		return _economy.insufficient_funds(attribute.money_cost)
 
-	_economy.spend_energy(career, rules.improvement_energy_cost)
+	_economy.spend_energy(career, attribute.energy_cost)
+	if attribute.money_cost > 0:
+		var description := "Melhoria de %s: %s" % [attribute.display_name, song.title]
+		_economy.spend(career, attribute.money_cost, description, FinanceEntry.CATEGORY_IMPROVEMENT)
 	var gain := mini(_rng.randi_range(rules.improvement_gain_min, rules.improvement_gain_max), room)
-	song.improvement_points += gain
+	song.attribute_points[attribute_id] = song.attribute_points.get(attribute_id, 0) + gain
 	_update_quality(song)
 	career.refresh_album_qualities()
-	return ActionResult.success("\"%s\" melhorou +%d. Nota: %d." % [song.title, gain, song.quality], song)
+	return ActionResult.success("%s de \"%s\" melhorou +%d. Nota geral: %d." % [attribute.display_name, song.title, gain, song.quality], song)
 
 
-## Quantos pontos a música ainda pode ganhar com melhorias.
-func improvement_room(song: SongData) -> int:
-	return maxi(_quality.improvement_limit(song.base_quality) - song.quality, 0)
+## Quantos pontos o atributo ainda pode ganhar com melhorias.
+func improvement_room(song: SongData, attribute_id: String) -> int:
+	return maxi(improvement_limit(song, attribute_id) - song.attribute_value(attribute_id), 0)
 
 
-func improvement_limit(song: SongData) -> int:
-	return _quality.improvement_limit(song.base_quality)
+func improvement_limit(song: SongData, attribute_id: String) -> int:
+	return _quality.attribute_limit(song.attribute_bases.get(attribute_id, 0))
+
+
+## Quanto custariam os colaboradores novos em relação à música, sem alterar nada.
+func hiring_cost(credits: SongCredits, song: SongData = null) -> int:
+	var previous := song.credits if song != null else SongCredits.new()
+	return _hires_cost(_new_hires(credits, previous))
 
 
 ## Nota que a música teria com estes colaboradores, sem alterar nada.
 ## Sem uma música existente, a prévia desconsidera a variação sorteada na produção.
-func preview_quality(credits: SongCredits, song: SongData = null) -> SongQualitySystem.Result:
-	var beat_roll := song.beat_roll if song != null else 0.0
-	var production_roll := song.production_roll if song != null else 0.0
-	var result := _quality.calculate(credits, beat_roll, production_roll)
-	if song != null and song.credits.equals(credits):
-		result.base = song.base_quality
-	return result
+func preview_quality(credits: SongCredits, song: SongData = null) -> Preview:
+	var preview := Preview.new()
+	var solo := _quality.solo_score(0.0)
+	if song == null:
+		preview.attribute_values[SongData.ATTRIBUTE_VOCAL] = solo
+		preview.attribute_values[SongData.ATTRIBUTE_LYRICS] = solo
+		preview.attribute_values[SongData.ATTRIBUTE_BEAT] = _quality.beat_score(credits, 0.0)
+		preview.attribute_values[SongData.ATTRIBUTE_PRODUCTION] = _quality.production_score(credits, 0.0)
+		preview.feat_value = _quality.feats_score(credits)
+	else:
+		for attribute in _balance.song_quality.attributes:
+			preview.attribute_values[attribute.id] = song.attribute_value(attribute.id)
+		preview.feat_value = song.feat_score
+		if credits.beatmaker_ids != song.credits.beatmaker_ids:
+			preview.attribute_values[SongData.ATTRIBUTE_BEAT] = mini(_quality.beat_score(credits, song.beat_roll) + song.attribute_points.get(SongData.ATTRIBUTE_BEAT, 0), 100)
+		if credits.producer_ids != song.credits.producer_ids:
+			preview.attribute_values[SongData.ATTRIBUTE_PRODUCTION] = mini(_quality.production_score(credits, song.production_roll) + song.attribute_points.get(SongData.ATTRIBUTE_PRODUCTION, 0), 100)
+		if credits.feat_ids != song.credits.feat_ids:
+			preview.feat_value = _quality.feats_score(credits)
+	preview.quality = _quality.overall(preview.attribute_values, preview.feat_value)
+	return preview
 
 
-func _apply_credits(song: SongData, credits: SongCredits) -> void:
-	var result := _quality.calculate(credits, song.beat_roll, song.production_roll)
-	song.credits = credits
-	song.beat_quality = result.beat
-	song.production_quality = result.production
-	song.feat_score = result.feats
-	song.base_quality = result.base
-	_update_quality(song)
+func _apply_credits_changes(song: SongData, credits: SongCredits) -> void:
+	if credits.beatmaker_ids != song.credits.beatmaker_ids:
+		song.attribute_bases[SongData.ATTRIBUTE_BEAT] = _quality.beat_score(credits, song.beat_roll)
+	if credits.producer_ids != song.credits.producer_ids:
+		song.attribute_bases[SongData.ATTRIBUTE_PRODUCTION] = _quality.production_score(credits, song.production_roll)
+	if credits.feat_ids != song.credits.feat_ids:
+		song.feat_score = _quality.feats_score(credits)
 
 
 func _update_quality(song: SongData) -> void:
-	song.quality = mini(song.base_quality + song.improvement_points, _quality.improvement_limit(song.base_quality))
+	var values := {}
+	for attribute in _balance.song_quality.attributes:
+		values[attribute.id] = song.attribute_value(attribute.id)
+	song.quality = _quality.overall(values, song.feat_score)
+
+
+func _new_hires(credits: SongCredits, previous: SongCredits) -> Array[Hire]:
+	var catalog := _balance.collaborators
+	var hires: Array[Hire] = []
+	_collect_hires(hires, "Produtor", catalog.producers, credits.producer_ids, previous.producer_ids)
+	_collect_hires(hires, "Beatmaker", catalog.beatmakers, credits.beatmaker_ids, previous.beatmaker_ids)
+	_collect_hires(hires, "Feat", catalog.feats, credits.feat_ids, previous.feat_ids)
+	return hires
+
+
+func _collect_hires(hires: Array[Hire], role_label: String, pool: Array[CollaboratorDefinition], ids: Array[String], previous_ids: Array[String]) -> void:
+	for person in CollaboratorCatalog.resolve(pool, ids):
+		if String(person.id) not in previous_ids:
+			var hire := Hire.new()
+			hire.person = person
+			hire.role_label = role_label
+			hires.append(hire)
+
+
+func _hires_cost(hires: Array[Hire]) -> int:
+	var total := 0
+	for hire in hires:
+		total += hire.person.cost
+	return total
+
+
+## Cada contratação vira uma linha própria no histórico financeiro.
+func _pay_hires(career: CareerData, hires: Array[Hire], song_title: String) -> void:
+	for hire in hires:
+		var description := "%s %s: %s" % [hire.role_label, hire.person.display_name, song_title]
+		_economy.spend(career, hire.person.cost, description, FinanceEntry.CATEGORY_COLLABORATOR)
 
 
 ## Devolve a mensagem de erro, ou um texto vazio se os créditos forem válidos.

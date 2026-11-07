@@ -75,11 +75,11 @@ func edit_song(song_id: String, title: String, credits: SongCredits, cover_file:
 	return _notify_if_ok(music.edit_song(career, song_id, title, credits, cover_file))
 
 
-func improve_song(content_id: String) -> ActionResult:
-	return _notify_if_ok(music.improve_song(career, content_id))
+func improve_song(content_id: String, attribute_id: String) -> ActionResult:
+	return _notify_if_ok(music.improve_song(career, content_id, attribute_id))
 
 
-func create_album(title: String, format_id: StringName, song_ids: Array[String], cover_file: String = "") -> ActionResult:
+func create_album(title: String, format_id: StringName, song_ids: Array[String] = [], cover_file: String = "") -> ActionResult:
 	return _notify_if_ok(albums.create_album(career, title, format_id, song_ids, cover_file))
 
 

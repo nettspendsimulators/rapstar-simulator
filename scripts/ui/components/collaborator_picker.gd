@@ -27,8 +27,9 @@ func setup(title: String, options: Array[CollaboratorDefinition], limit: int) ->
 
 	for person in options:
 		var check := CheckBox.new()
-		check.text = "%s (%d)" % [person.display_name, person.skill]
-		check.tooltip_text = "Talento %d, consistência %d" % [person.skill, person.consistency]
+		check.text = "%s (%d) %s" % [person.display_name, person.skill, Fmt.money(person.cost)]
+		check.tooltip_text = "Talento %d, consistência %d, custo %s" % [person.skill, person.consistency, Fmt.money(person.cost)]
+		check.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		check.toggled.connect(_on_toggled)
 		list.add_child(check)
 		_checks[String(person.id)] = check

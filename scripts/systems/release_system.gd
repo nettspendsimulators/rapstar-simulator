@@ -41,7 +41,7 @@ func content_type_label(content: ReleasableContent) -> String:
 
 func release(career: CareerData, content_id: String) -> ActionResult:
 	var content := career.find_content(content_id)
-	var error := _release_error(career, content)
+	var error := release_error(career, content)
 	if not error.is_empty():
 		return ActionResult.failure(error)
 	var cost := release_cost(content)
@@ -57,7 +57,7 @@ func release(career: CareerData, content_id: String) -> ActionResult:
 ## O custo do lançamento é pago ao agendar, para o lançamento nunca falhar na semana marcada.
 func schedule(career: CareerData, content_id: String, week: int) -> ActionResult:
 	var content := career.find_content(content_id)
-	var error := _release_error(career, content)
+	var error := release_error(career, content)
 	if error.is_empty():
 		error = _week_error(career, week)
 	if not error.is_empty():
@@ -149,7 +149,7 @@ func process_week(career: CareerData, report: WeekReport) -> void:
 
 
 ## Devolve a mensagem de erro, ou um texto vazio se o conteúdo puder ser lançado ou agendado.
-func _release_error(career: CareerData, content: ReleasableContent) -> String:
+func release_error(career: CareerData, content: ReleasableContent) -> String:
 	if content == null:
 		return "Conteúdo não encontrado."
 	if content.is_released():
@@ -159,7 +159,7 @@ func _release_error(career: CareerData, content: ReleasableContent) -> String:
 	if content is AlbumData:
 		var album_format := _balance.find_album_format(content.format_id)
 		if not album_format.accepts_song_count(content.song_ids.size()):
-			return "%s precisa ter de %d a %d músicas." % [album_format.display_name, album_format.min_songs, album_format.max_songs]
+			return "%s precisa ter de %d a %d músicas para ser lançado." % [album_format.display_name, album_format.min_songs, album_format.max_songs]
 	return ""
 
 

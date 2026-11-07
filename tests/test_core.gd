@@ -82,9 +82,7 @@ func _test_albums() -> void:
 	var game := _make_game()
 	for i in 4:
 		game.create_song("Faixa %d" % i)
-	var ids: Array[String] = [game.career.songs[0].id, game.career.songs[1].id]
-	_check(not game.create_album("Curto", &"ep", ids).ok, "mínimo de músicas")
-	ids.append(game.career.songs[2].id)
+	var ids: Array[String] = [game.career.songs[0].id, game.career.songs[1].id, game.career.songs[2].id]
 	var money_before: int = game.career.money
 	_check(game.create_album("Disco", &"ep", ids).ok, "álbum criado")
 	var album: AlbumData = game.career.albums[0]

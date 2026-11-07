@@ -9,6 +9,7 @@ id = &"metro_boomin"
 display_name = "Metro Boomin"
 skill = 95
 consistency = 90
+cost = 100000
 
 [sub_resource type="Resource" id="producer_kanye_west"]
 script = ExtResource("2_person")
@@ -16,6 +17,7 @@ id = &"kanye_west"
 display_name = "Kanye West"
 skill = 97
 consistency = 70
+cost = 150000
 
 [sub_resource type="Resource" id="producer_pharrell_williams"]
 script = ExtResource("2_person")
@@ -23,6 +25,7 @@ id = &"pharrell_williams"
 display_name = "Pharrell Williams"
 skill = 94
 consistency = 82
+cost = 150000
 
 [sub_resource type="Resource" id="producer_dr_dre"]
 script = ExtResource("2_person")
@@ -30,6 +33,7 @@ id = &"dr_dre"
 display_name = "Dr. Dre"
 skill = 98
 consistency = 92
+cost = 200000
 
 [sub_resource type="Resource" id="producer_the_alchemist"]
 script = ExtResource("2_person")
@@ -37,6 +41,7 @@ id = &"the_alchemist"
 display_name = "The Alchemist"
 skill = 92
 consistency = 88
+cost = 60000
 
 [sub_resource type="Resource" id="producer_madlib"]
 script = ExtResource("2_person")
@@ -44,6 +49,7 @@ id = &"madlib"
 display_name = "Madlib"
 skill = 91
 consistency = 65
+cost = 50000
 
 [sub_resource type="Resource" id="producer_mike_dean"]
 script = ExtResource("2_person")
@@ -51,6 +57,7 @@ id = &"mike_dean"
 display_name = "Mike Dean"
 skill = 93
 consistency = 88
+cost = 75000
 
 [sub_resource type="Resource" id="producer_hit_boy"]
 script = ExtResource("2_person")
@@ -58,6 +65,7 @@ id = &"hit_boy"
 display_name = "Hit-Boy"
 skill = 89
 consistency = 80
+cost = 60000
 
 [sub_resource type="Resource" id="producer_southside"]
 script = ExtResource("2_person")
@@ -65,6 +73,7 @@ id = &"southside"
 display_name = "Southside"
 skill = 85
 consistency = 78
+cost = 50000
 
 [sub_resource type="Resource" id="producer_tay_keith"]
 script = ExtResource("2_person")
@@ -72,6 +81,7 @@ id = &"tay_keith"
 display_name = "Tay Keith"
 skill = 84
 consistency = 76
+cost = 50000
 
 [sub_resource type="Resource" id="producer_pi_erre_bourne"]
 script = ExtResource("2_person")
@@ -79,6 +89,7 @@ id = &"pi_erre_bourne"
 display_name = "Pi'erre Bourne"
 skill = 83
 consistency = 68
+cost = 40000
 
 [sub_resource type="Resource" id="producer_kenny_beats"]
 script = ExtResource("2_person")
@@ -86,6 +97,7 @@ id = &"kenny_beats"
 display_name = "Kenny Beats"
 skill = 84
 consistency = 82
+cost = 40000
 
 [sub_resource type="Resource" id="producer_wheezy"]
 script = ExtResource("2_person")
@@ -93,6 +105,7 @@ id = &"wheezy"
 display_name = "Wheezy"
 skill = 83
 consistency = 78
+cost = 45000
 
 [sub_resource type="Resource" id="producer_murda_beatz"]
 script = ExtResource("2_person")
@@ -100,6 +113,7 @@ id = &"murda_beatz"
 display_name = "Murda Beatz"
 skill = 82
 consistency = 76
+cost = 50000
 
 [sub_resource type="Resource" id="producer_cardo"]
 script = ExtResource("2_person")
@@ -107,6 +121,7 @@ id = &"cardo"
 display_name = "Cardo"
 skill = 81
 consistency = 78
+cost = 40000
 
 [sub_resource type="Resource" id="producer_dj_premier"]
 script = ExtResource("2_person")
@@ -114,6 +129,7 @@ id = &"dj_premier"
 display_name = "DJ Premier"
 skill = 95
 consistency = 90
+cost = 75000
 
 [sub_resource type="Resource" id="producer_clams_casino"]
 script = ExtResource("2_person")
@@ -121,6 +137,7 @@ id = &"clams_casino"
 display_name = "Clams Casino"
 skill = 82
 consistency = 66
+cost = 40000
 
 [sub_resource type="Resource" id="producer_9th_wonder"]
 script = ExtResource("2_person")
@@ -128,6 +145,7 @@ id = &"9th_wonder"
 display_name = "9th Wonder"
 skill = 86
 consistency = 85
+cost = 40000
 
 [sub_resource type="Resource" id="producer_conductor_williams"]
 script = ExtResource("2_person")
@@ -135,6 +153,7 @@ id = &"conductor_williams"
 display_name = "Conductor Williams"
 skill = 84
 consistency = 78
+cost = 35000
 
 [sub_resource type="Resource" id="producer_apollo_brown"]
 script = ExtResource("2_person")
@@ -142,6 +161,7 @@ id = &"apollo_brown"
 display_name = "Apollo Brown"
 skill = 83
 consistency = 84
+cost = 35000
 
 [sub_resource type="Resource" id="beatmaker_j_dilla"]
 script = ExtResource("2_person")
@@ -149,6 +169,7 @@ id = &"j_dilla"
 display_name = "J Dilla"
 skill = 98
 consistency = 72
+cost = 50000
 
 [sub_resource type="Resource" id="beatmaker_nujabes"]
 script = ExtResource("2_person")
@@ -156,6 +177,7 @@ id = &"nujabes"
 display_name = "Nujabes"
 skill = 95
 consistency = 82
+cost = 50000
 
 [sub_resource type="Resource" id="beatmaker_metro_boomin"]
 script = ExtResource("2_person")
@@ -163,6 +185,7 @@ id = &"metro_boomin"
 display_name = "Metro Boomin"
 skill = 95
 consistency = 90
+cost = 60000
 
 [sub_resource type="Resource" id="beatmaker_madlib"]
 script = ExtResource("2_person")
@@ -170,6 +193,7 @@ id = &"madlib"
 display_name = "Madlib"
 skill = 94
 consistency = 66
+cost = 40000
 
 [sub_resource type="Resource" id="beatmaker_the_alchemist"]
 script = ExtResource("2_person")
@@ -177,6 +201,7 @@ id = &"the_alchemist"
 display_name = "The Alchemist"
 skill = 93
 consistency = 88
+cost = 45000
 
 [sub_resource type="Resource" id="beatmaker_dj_premier"]
 script = ExtResource("2_person")
@@ -184,6 +209,7 @@ id = &"dj_premier"
 display_name = "DJ Premier"
 skill = 96
 consistency = 90
+cost = 50000
 
 [sub_resource type="Resource" id="beatmaker_rza"]
 script = ExtResource("2_person")
@@ -191,6 +217,7 @@ id = &"rza"
 display_name = "RZA"
 skill = 92
 consistency = 68
+cost = 60000
 
 [sub_resource type="Resource" id="beatmaker_pete_rock"]
 script = ExtResource("2_person")
@@ -198,6 +225,7 @@ id = &"pete_rock"
 display_name = "Pete Rock"
 skill = 91
 consistency = 85
+cost = 45000
 
 [sub_resource type="Resource" id="beatmaker_9th_wonder"]
 script = ExtResource("2_person")
@@ -205,6 +233,7 @@ id = &"9th_wonder"
 display_name = "9th Wonder"
 skill = 87
 consistency = 85
+cost = 40000
 
 [sub_resource type="Resource" id="beatmaker_knxwledge"]
 script = ExtResource("2_person")
@@ -212,6 +241,7 @@ id = &"knxwledge"
 display_name = "Knxwledge"
 skill = 84
 consistency = 62
+cost = 30000
 
 [sub_resource type="Resource" id="beatmaker_kenny_beats"]
 script = ExtResource("2_person")
@@ -219,6 +249,7 @@ id = &"kenny_beats"
 display_name = "Kenny Beats"
 skill = 83
 consistency = 82
+cost = 35000
 
 [sub_resource type="Resource" id="beatmaker_pi_erre_bourne"]
 script = ExtResource("2_person")
@@ -226,6 +257,7 @@ id = &"pi_erre_bourne"
 display_name = "Pi'erre Bourne"
 skill = 85
 consistency = 68
+cost = 35000
 
 [sub_resource type="Resource" id="beatmaker_cardo"]
 script = ExtResource("2_person")
@@ -233,6 +265,7 @@ id = &"cardo"
 display_name = "Cardo"
 skill = 81
 consistency = 78
+cost = 35000
 
 [sub_resource type="Resource" id="beatmaker_southside"]
 script = ExtResource("2_person")
@@ -240,6 +273,7 @@ id = &"southside"
 display_name = "Southside"
 skill = 85
 consistency = 78
+cost = 40000
 
 [sub_resource type="Resource" id="beatmaker_tay_keith"]
 script = ExtResource("2_person")
@@ -247,6 +281,7 @@ id = &"tay_keith"
 display_name = "Tay Keith"
 skill = 84
 consistency = 76
+cost = 40000
 
 [sub_resource type="Resource" id="beatmaker_clams_casino"]
 script = ExtResource("2_person")
@@ -254,6 +289,7 @@ id = &"clams_casino"
 display_name = "Clams Casino"
 skill = 84
 consistency = 66
+cost = 30000
 
 [sub_resource type="Resource" id="beatmaker_wheezy"]
 script = ExtResource("2_person")
@@ -261,6 +297,7 @@ id = &"wheezy"
 display_name = "Wheezy"
 skill = 83
 consistency = 78
+cost = 35000
 
 [sub_resource type="Resource" id="beatmaker_conductor_williams"]
 script = ExtResource("2_person")
@@ -268,6 +305,7 @@ id = &"conductor_williams"
 display_name = "Conductor Williams"
 skill = 85
 consistency = 78
+cost = 30000
 
 [sub_resource type="Resource" id="beatmaker_wondagurl"]
 script = ExtResource("2_person")
@@ -275,6 +313,7 @@ id = &"wondagurl"
 display_name = "Wondagurl"
 skill = 84
 consistency = 80
+cost = 40000
 
 [sub_resource type="Resource" id="beatmaker_bangladesh"]
 script = ExtResource("2_person")
@@ -282,6 +321,7 @@ id = &"bangladesh"
 display_name = "Bangladesh"
 skill = 82
 consistency = 64
+cost = 35000
 
 [sub_resource type="Resource" id="feat_drake"]
 script = ExtResource("2_person")
@@ -289,6 +329,7 @@ id = &"drake"
 display_name = "Drake"
 skill = 92
 consistency = 88
+cost = 500000
 
 [sub_resource type="Resource" id="feat_kendrick_lamar"]
 script = ExtResource("2_person")
@@ -296,6 +337,7 @@ id = &"kendrick_lamar"
 display_name = "Kendrick Lamar"
 skill = 98
 consistency = 92
+cost = 400000
 
 [sub_resource type="Resource" id="feat_j_cole"]
 script = ExtResource("2_person")
@@ -303,6 +345,7 @@ id = &"j_cole"
 display_name = "J. Cole"
 skill = 92
 consistency = 88
+cost = 350000
 
 [sub_resource type="Resource" id="feat_travis_scott"]
 script = ExtResource("2_person")
@@ -310,6 +353,7 @@ id = &"travis_scott"
 display_name = "Travis Scott"
 skill = 90
 consistency = 80
+cost = 500000
 
 [sub_resource type="Resource" id="feat_future"]
 script = ExtResource("2_person")
@@ -317,6 +361,7 @@ id = &"future"
 display_name = "Future"
 skill = 86
 consistency = 76
+cost = 400000
 
 [sub_resource type="Resource" id="feat_lil_wayne"]
 script = ExtResource("2_person")
@@ -324,6 +369,7 @@ id = &"lil_wayne"
 display_name = "Lil Wayne"
 skill = 88
 consistency = 62
+cost = 300000
 
 [sub_resource type="Resource" id="feat_nicki_minaj"]
 script = ExtResource("2_person")
@@ -331,6 +377,7 @@ id = &"nicki_minaj"
 display_name = "Nicki Minaj"
 skill = 88
 consistency = 76
+cost = 350000
 
 [sub_resource type="Resource" id="feat_sza"]
 script = ExtResource("2_person")
@@ -338,6 +385,7 @@ id = &"sza"
 display_name = "SZA"
 skill = 91
 consistency = 82
+cost = 300000
 
 [sub_resource type="Resource" id="feat_doja_cat"]
 script = ExtResource("2_person")
@@ -345,6 +393,7 @@ id = &"doja_cat"
 display_name = "Doja Cat"
 skill = 87
 consistency = 74
+cost = 250000
 
 [sub_resource type="Resource" id="feat_tyler_the_creator"]
 script = ExtResource("2_person")
@@ -352,6 +401,7 @@ id = &"tyler_the_creator"
 display_name = "Tyler, The Creator"
 skill = 92
 consistency = 84
+cost = 250000
 
 [sub_resource type="Resource" id="feat_playboi_carti"]
 script = ExtResource("2_person")
@@ -359,6 +409,7 @@ id = &"playboi_carti"
 display_name = "Playboi Carti"
 skill = 82
 consistency = 58
+cost = 300000
 
 [sub_resource type="Resource" id="feat_21_savage"]
 script = ExtResource("2_person")
@@ -366,6 +417,7 @@ id = &"21_savage"
 display_name = "21 Savage"
 skill = 85
 consistency = 82
+cost = 250000
 
 [sub_resource type="Resource" id="feat_a_ap_rocky"]
 script = ExtResource("2_person")
@@ -373,6 +425,7 @@ id = &"a_ap_rocky"
 display_name = "A$AP Rocky"
 skill = 85
 consistency = 74
+cost = 250000
 
 [sub_resource type="Resource" id="feat_jid"]
 script = ExtResource("2_person")
@@ -380,6 +433,7 @@ id = &"jid"
 display_name = "JID"
 skill = 89
 consistency = 88
+cost = 100000
 
 [sub_resource type="Resource" id="feat_baby_keem"]
 script = ExtResource("2_person")
@@ -387,6 +441,7 @@ id = &"baby_keem"
 display_name = "Baby Keem"
 skill = 83
 consistency = 70
+cost = 150000
 
 [sub_resource type="Resource" id="feat_don_toliver"]
 script = ExtResource("2_person")
@@ -394,6 +449,7 @@ id = &"don_toliver"
 display_name = "Don Toliver"
 skill = 82
 consistency = 78
+cost = 200000
 
 [sub_resource type="Resource" id="feat_megan_thee_stallion"]
 script = ExtResource("2_person")
@@ -401,6 +457,7 @@ id = &"megan_thee_stallion"
 display_name = "Megan Thee Stallion"
 skill = 83
 consistency = 76
+cost = 250000
 
 [sub_resource type="Resource" id="feat_nas"]
 script = ExtResource("2_person")
@@ -408,6 +465,7 @@ id = &"nas"
 display_name = "Nas"
 skill = 95
 consistency = 86
+cost = 200000
 
 [sub_resource type="Resource" id="feat_eminem"]
 script = ExtResource("2_person")
@@ -415,6 +473,7 @@ id = &"eminem"
 display_name = "Eminem"
 skill = 94
 consistency = 84
+cost = 500000
 
 [sub_resource type="Resource" id="feat_lil_uzi_vert"]
 script = ExtResource("2_person")
@@ -422,6 +481,7 @@ id = &"lil_uzi_vert"
 display_name = "Lil Uzi Vert"
 skill = 83
 consistency = 62
+cost = 250000
 
 [resource]
 script = ExtResource("1_catalog")

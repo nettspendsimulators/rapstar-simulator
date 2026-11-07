@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/definitions/performance_rules.gd" id="4_rules"]
 [ext_resource type="Script" path="res://scripts/definitions/song_quality_rules.gd" id="5_quality"]
 [ext_resource type="Resource" path="res://data/collaborators.tres" id="6_collaborators"]
+[ext_resource type="Script" path="res://scripts/definitions/song_attribute_definition.gd" id="7_attribute"]
 
 [sub_resource type="Resource" id="job_delivery"]
 script = ExtResource("2_job")
@@ -79,8 +80,41 @@ units_max = 1000
 money_per_unit = 0.3
 units_per_fame = 100
 
+[sub_resource type="Resource" id="attribute_vocal"]
+script = ExtResource("7_attribute")
+id = "vocal"
+display_name = "Vocal"
+weight = 0.2
+energy_cost = 20
+money_cost = 50
+
+[sub_resource type="Resource" id="attribute_lyrics"]
+script = ExtResource("7_attribute")
+id = "lyrics"
+display_name = "Letra"
+weight = 0.15
+energy_cost = 15
+money_cost = 25
+
+[sub_resource type="Resource" id="attribute_beat"]
+script = ExtResource("7_attribute")
+id = "beat"
+display_name = "Beat"
+weight = 0.3
+energy_cost = 20
+money_cost = 75
+
+[sub_resource type="Resource" id="attribute_production"]
+script = ExtResource("7_attribute")
+id = "production"
+display_name = "Produção"
+weight = 0.25
+energy_cost = 25
+money_cost = 100
+
 [sub_resource type="Resource" id="quality_rules"]
 script = ExtResource("5_quality")
+attributes = Array[ExtResource("7_attribute")]([SubResource("attribute_vocal"), SubResource("attribute_lyrics"), SubResource("attribute_beat"), SubResource("attribute_production")])
 
 [resource]
 script = ExtResource("1_balance")

@@ -24,7 +24,7 @@ func _ready() -> void:
 		_track_ids = _album.song_ids.duplicate()
 		%ConfirmButton.text = "Salvar alterações"
 	else:
-		%ConfirmButton.text = "Criar projeto"
+		%ConfirmButton.text = "Criar Projeto"
 
 	%CoverPicker.message_requested.connect(%MessageLabel.set_text)
 	%FormatOption.item_selected.connect(func(_index: int) -> void: _update_summary())
@@ -75,11 +75,13 @@ func _update_summary() -> void:
 	var cost_text := "Custo: %s" % Fmt.money(cost)
 	if _album != null:
 		cost_text = "A pagar: %s" % Fmt.money(maxi(cost - _album.production_cost, 0))
-	%SummaryLabel.text = "%d música(s), de %d a %d  |  Nota do projeto: %d  |  %s" % [
-		count,
-		album_format.min_songs,
+	var release_text := "Lançamento liberado" if album_format.accepts_song_count(count) else "Lançamento bloqueado"
+	var quality_text := str(GameManager.career.average_quality(_track_ids)) if count > 0 else "—"
+	%SummaryLabel.text = "%s (máximo %d)  |  %s  |  Nota do projeto: %s  |  %s" % [
+		album_format.progress_text(count),
 		album_format.max_songs,
-		GameManager.career.average_quality(_track_ids),
+		release_text,
+		quality_text,
 		cost_text,
 	]
 
@@ -88,6 +90,10 @@ func _on_add_pressed() -> void:
 	var song_id: Variant = %AvailableTable.selected_value()
 	if song_id == null:
 		%MessageLabel.text = "Selecione uma música disponível."
+		return
+	var album_format := _selected_format()
+	if _track_ids.size() >= album_format.max_songs:
+		%MessageLabel.text = "%s aceita no máximo %d músicas." % [album_format.display_name, album_format.max_songs]
 		return
 	%MessageLabel.text = ""
 	_track_ids.append(song_id)

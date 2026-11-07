@@ -3,6 +3,8 @@ extends RefCounted
 
 const CATEGORY_WORK := "work"
 const CATEGORY_PRODUCTION := "production"
+const CATEGORY_COLLABORATOR := "collaborator"
+const CATEGORY_IMPROVEMENT := "improvement"
 const CATEGORY_RELEASE := "release"
 const CATEGORY_STREAMS := "streams"
 const CATEGORY_SALES := "sales"
