@@ -3,6 +3,15 @@ extends RefCounted
 ## Estado completo de uma carreira: é a única fonte de dados e o que vai para o save.
 
 var artist_name: String = ""
+## Identidade pessoal. O nome artístico é a identidade pública; o nome real só aparece no perfil.
+var real_name: String = ""
+## Idade no início da carreira. A idade atual cresce com o calendário (CharacterSystem.current_age).
+var age: int = 20
+var country: String = ""
+var city: String = ""
+var appearance := CharacterAppearance.new()
+## Configuração própria da carreira: atividades não gastam energia.
+var infinite_energy: bool = false
 ## Foto do perfil público, gerenciada pelo CoverSystem.
 var artist_cover: String = ""
 ## Texto próprio do perfil. Vazio usa a descrição automática, que muda com a carreira.
@@ -181,6 +190,12 @@ func last_report() -> WeekReport:
 func to_dict() -> Dictionary:
 	return {
 		"artist_name": artist_name,
+		"real_name": real_name,
+		"age": age,
+		"country": country,
+		"city": city,
+		"appearance": appearance.to_dict(),
+		"infinite_energy": infinite_energy,
 		"artist_cover": artist_cover,
 		"artist_bio": artist_bio,
 		"money": money,
@@ -210,6 +225,12 @@ func to_dict() -> Dictionary:
 static func from_dict(data: Dictionary) -> CareerData:
 	var career := CareerData.new()
 	career.artist_name = data.get("artist_name", "")
+	career.real_name = data.get("real_name", "")
+	career.age = int(data.get("age", 20))
+	career.country = data.get("country", "")
+	career.city = data.get("city", "")
+	career.appearance = CharacterAppearance.from_dict(data.get("appearance", {}))
+	career.infinite_energy = bool(data.get("infinite_energy", false))
 	career.artist_cover = data.get("artist_cover", "")
 	career.artist_bio = data.get("artist_bio", "")
 	career.money = int(data.get("money", 0))

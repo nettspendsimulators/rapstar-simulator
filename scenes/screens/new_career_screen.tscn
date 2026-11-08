@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/screens/new_career_screen.gd" id="1_script"]
 
-[node name="NewCareerScreen" type="CenterContainer"]
+[node name="NewCareerScreen" type="MarginContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,42 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
-
-[node name="Column" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(420, 0)
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Column"]
-layout_mode = 2
-theme_type_variation = &"TitleLabel"
-text = "Nova carreira"
-horizontal_alignment = 1
-
-[node name="NameLabel" type="Label" parent="Column"]
-layout_mode = 2
-text = "Nome artístico"
-
-[node name="NameEdit" type="LineEdit" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-placeholder_text = "Como o público vai te chamar?"
-max_length = 40
-
-[node name="StartButton" type="Button" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"PrimaryButton"
-text = "Começar carreira"
-
-[node name="BackButton" type="Button" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Voltar"
-
-[node name="MessageLabel" type="Label" parent="Column"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(420, 0)
-layout_mode = 2
-theme_type_variation = &"MessageLabel"
-horizontal_alignment = 1
-autowrap_mode = 3

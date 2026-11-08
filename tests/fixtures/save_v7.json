@@ -1,0 +1,7609 @@
+{
+	"career": {
+		"albums": [
+			{
+				"cover_file": "",
+				"format_id": "ep",
+				"id": "album_5",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 160,
+				"quality": 51,
+				"release_week": 4,
+				"song_ids": [
+					"song_2",
+					"song_3",
+					"song_4"
+				],
+				"status": "released",
+				"title": "EP"
+			}
+		],
+		"artist_bio": "",
+		"artist_cover": "",
+		"artist_name": "MC Sete",
+		"current_week": 5,
+		"energy": 60,
+		"fame": 983,
+		"festival_editions": [
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rock_in_rio",
+				"id": "rock_in_rio_1",
+				"lineup": [
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 40,
+						"name": "A$AP Rocky",
+						"position": "support",
+						"stage": "Palco Mundo",
+						"start": 840
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 50,
+						"name": "Lil Uzi Vert",
+						"position": "featured",
+						"stage": "Palco Mundo",
+						"start": 940
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Palco Mundo",
+						"start": 1040
+					},
+					{
+						"artist_id": "future",
+						"day": 1,
+						"minutes": 75,
+						"name": "Future",
+						"position": "co_headliner",
+						"stage": "Palco Mundo",
+						"start": 1140
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 1,
+						"minutes": 90,
+						"name": "J. Cole",
+						"position": "headliner",
+						"stage": "Palco Mundo",
+						"start": 1240
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 30,
+						"name": "Dr. Dre",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 855
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 955
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "Palco Sunset",
+						"start": 1055
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 50,
+						"name": "Tyler, The Creator",
+						"position": "featured",
+						"stage": "Palco Sunset",
+						"start": 1155
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Wayne",
+						"position": "sub_headliner",
+						"stage": "Palco Sunset",
+						"start": 1255
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 870
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 30,
+						"name": "Doja Cat",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 970
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 40,
+						"name": "Baby Keem",
+						"position": "support",
+						"stage": "Espaço Favela",
+						"start": 1070
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 50,
+						"name": "Megan Thee Stallion",
+						"position": "featured",
+						"stage": "Espaço Favela",
+						"start": 1170
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 1,
+						"minutes": 60,
+						"name": "Nicki Minaj",
+						"position": "sub_headliner",
+						"stage": "Espaço Favela",
+						"start": 1270
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 2,
+						"minutes": 40,
+						"name": "Kanye West",
+						"position": "support",
+						"stage": "Palco Mundo",
+						"start": 840
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pharrell Williams",
+						"position": "featured",
+						"stage": "Palco Mundo",
+						"start": 940
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 60,
+						"name": "Metro Boomin",
+						"position": "sub_headliner",
+						"stage": "Palco Mundo",
+						"start": 1040
+					},
+					{
+						"artist_id": "sza",
+						"day": 2,
+						"minutes": 75,
+						"name": "SZA",
+						"position": "co_headliner",
+						"stage": "Palco Mundo",
+						"start": 1140
+					},
+					{
+						"artist_id": "drake",
+						"day": 2,
+						"minutes": 90,
+						"name": "Drake",
+						"position": "headliner",
+						"stage": "Palco Mundo",
+						"start": 1240
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 30,
+						"name": "JID",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 855
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 30,
+						"name": "DJ Premier",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 955
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 40,
+						"name": "Mike Dean",
+						"position": "support",
+						"stage": "Palco Sunset",
+						"start": 1055
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 50,
+						"name": "Hit-Boy",
+						"position": "featured",
+						"stage": "Palco Sunset",
+						"start": 1155
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 60,
+						"name": "RZA",
+						"position": "sub_headliner",
+						"stage": "Palco Sunset",
+						"start": 1255
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 30,
+						"name": "The Alchemist",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 870
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 30,
+						"name": "Madlib",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 970
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 40,
+						"name": "Southside",
+						"position": "support",
+						"stage": "Espaço Favela",
+						"start": 1070
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 50,
+						"name": "Tay Keith",
+						"position": "featured",
+						"stage": "Espaço Favela",
+						"start": 1170
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 60,
+						"name": "Nujabes",
+						"position": "sub_headliner",
+						"stage": "Espaço Favela",
+						"start": 1270
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 3,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Mundo",
+						"start": 840
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 3,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Mundo",
+						"start": 940
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pete Rock",
+						"position": "sub_headliner",
+						"stage": "Palco Mundo",
+						"start": 1040
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 75,
+						"name": "Wheezy",
+						"position": "co_headliner",
+						"stage": "Palco Mundo",
+						"start": 1140
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 90,
+						"name": "Travis Scott",
+						"position": "headliner",
+						"stage": "Palco Mundo",
+						"start": 1240
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 855
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 955
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 40,
+						"name": "Cardo",
+						"position": "support",
+						"stage": "Palco Sunset",
+						"start": 1055
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 50,
+						"name": "Kenny Beats",
+						"position": "featured",
+						"stage": "Palco Sunset",
+						"start": 1155
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pi'erre Bourne",
+						"position": "sub_headliner",
+						"stage": "Palco Sunset",
+						"start": 1255
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wondagurl",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 870
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 30,
+						"name": "Conductor Williams",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 970
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 40,
+						"name": "Apollo Brown",
+						"position": "support",
+						"stage": "Espaço Favela",
+						"start": 1070
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 50,
+						"name": "Bangladesh",
+						"position": "featured",
+						"stage": "Espaço Favela",
+						"start": 1170
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 60,
+						"name": "Knxwledge",
+						"position": "sub_headliner",
+						"stage": "Espaço Favela",
+						"start": 1270
+					}
+				],
+				"week": 37,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rock_in_rio",
+				"id": "rock_in_rio_2",
+				"lineup": [
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 40,
+						"name": "Dr. Dre",
+						"position": "support",
+						"stage": "Palco Mundo",
+						"start": 840
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 50,
+						"name": "Lil Uzi Vert",
+						"position": "featured",
+						"stage": "Palco Mundo",
+						"start": 940
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 60,
+						"name": "SZA",
+						"position": "sub_headliner",
+						"stage": "Palco Mundo",
+						"start": 1040
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 75,
+						"name": "Lil Wayne",
+						"position": "co_headliner",
+						"stage": "Palco Mundo",
+						"start": 1140
+					},
+					{
+						"artist_id": "eminem",
+						"day": 1,
+						"minutes": 90,
+						"name": "Eminem",
+						"position": "headliner",
+						"stage": "Palco Mundo",
+						"start": 1240
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 855
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 955
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "Palco Sunset",
+						"start": 1055
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 50,
+						"name": "Megan Thee Stallion",
+						"position": "featured",
+						"stage": "Palco Sunset",
+						"start": 1155
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 1,
+						"minutes": 60,
+						"name": "Nicki Minaj",
+						"position": "sub_headliner",
+						"stage": "Palco Sunset",
+						"start": 1255
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 30,
+						"name": "Doja Cat",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 870
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 970
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 40,
+						"name": "Tyler, The Creator",
+						"position": "support",
+						"stage": "Espaço Favela",
+						"start": 1070
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Espaço Favela",
+						"start": 1170
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Espaço Favela",
+						"start": 1270
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 2,
+						"minutes": 40,
+						"name": "Kanye West",
+						"position": "support",
+						"stage": "Palco Mundo",
+						"start": 840
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pharrell Williams",
+						"position": "featured",
+						"stage": "Palco Mundo",
+						"start": 940
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 60,
+						"name": "Metro Boomin",
+						"position": "sub_headliner",
+						"stage": "Palco Mundo",
+						"start": 1040
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 2,
+						"minutes": 75,
+						"name": "J. Cole",
+						"position": "co_headliner",
+						"stage": "Palco Mundo",
+						"start": 1140
+					},
+					{
+						"artist_id": "drake",
+						"day": 2,
+						"minutes": 90,
+						"name": "Drake",
+						"position": "headliner",
+						"stage": "Palco Mundo",
+						"start": 1240
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 30,
+						"name": "JID",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 855
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 30,
+						"name": "DJ Premier",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 955
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 40,
+						"name": "Mike Dean",
+						"position": "support",
+						"stage": "Palco Sunset",
+						"start": 1055
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 50,
+						"name": "Hit-Boy",
+						"position": "featured",
+						"stage": "Palco Sunset",
+						"start": 1155
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 60,
+						"name": "RZA",
+						"position": "sub_headliner",
+						"stage": "Palco Sunset",
+						"start": 1255
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 30,
+						"name": "The Alchemist",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 870
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 30,
+						"name": "Madlib",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 970
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 40,
+						"name": "Southside",
+						"position": "support",
+						"stage": "Espaço Favela",
+						"start": 1070
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 50,
+						"name": "Tay Keith",
+						"position": "featured",
+						"stage": "Espaço Favela",
+						"start": 1170
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 60,
+						"name": "Nujabes",
+						"position": "sub_headliner",
+						"stage": "Espaço Favela",
+						"start": 1270
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 3,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Mundo",
+						"start": 840
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 3,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Mundo",
+						"start": 940
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pete Rock",
+						"position": "sub_headliner",
+						"stage": "Palco Mundo",
+						"start": 1040
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 75,
+						"name": "Wheezy",
+						"position": "co_headliner",
+						"stage": "Palco Mundo",
+						"start": 1140
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 3,
+						"minutes": 90,
+						"name": "Kendrick Lamar",
+						"position": "headliner",
+						"stage": "Palco Mundo",
+						"start": 1240
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 855
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Sunset",
+						"start": 955
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 40,
+						"name": "Cardo",
+						"position": "support",
+						"stage": "Palco Sunset",
+						"start": 1055
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 50,
+						"name": "Kenny Beats",
+						"position": "featured",
+						"stage": "Palco Sunset",
+						"start": 1155
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pi'erre Bourne",
+						"position": "sub_headliner",
+						"stage": "Palco Sunset",
+						"start": 1255
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wondagurl",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 870
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 30,
+						"name": "Conductor Williams",
+						"position": "opening",
+						"stage": "Espaço Favela",
+						"start": 970
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 40,
+						"name": "Apollo Brown",
+						"position": "support",
+						"stage": "Espaço Favela",
+						"start": 1070
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 50,
+						"name": "Bangladesh",
+						"position": "featured",
+						"stage": "Espaço Favela",
+						"start": 1170
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 60,
+						"name": "Knxwledge",
+						"position": "sub_headliner",
+						"stage": "Espaço Favela",
+						"start": 1270
+					}
+				],
+				"week": 89,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "lollapalooza_br",
+				"id": "lollapalooza_br_1",
+				"lineup": [
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 40,
+						"name": "Tyler, The Creator",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 50,
+						"name": "Lil Uzi Vert",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 60,
+						"name": "A$AP Rocky",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 75,
+						"name": "SZA",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "future",
+						"day": 1,
+						"minutes": 90,
+						"name": "Future",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 855
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 955
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 40,
+						"name": "Doja Cat",
+						"position": "support",
+						"stage": "Palco Alternativo",
+						"start": 1055
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 50,
+						"name": "21 Savage",
+						"position": "featured",
+						"stage": "Palco Alternativo",
+						"start": 1155
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 60,
+						"name": "Dr. Dre",
+						"position": "sub_headliner",
+						"stage": "Palco Alternativo",
+						"start": 1255
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 870
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 970
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 40,
+						"name": "Don Toliver",
+						"position": "support",
+						"stage": "Palco Eletrônico",
+						"start": 1070
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 50,
+						"name": "Metro Boomin",
+						"position": "featured",
+						"stage": "Palco Eletrônico",
+						"start": 1170
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Palco Eletrônico",
+						"start": 1270
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 40,
+						"name": "JID",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 50,
+						"name": "DJ Premier",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 60,
+						"name": "Mike Dean",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 2,
+						"minutes": 75,
+						"name": "Nicki Minaj",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 2,
+						"minutes": 90,
+						"name": "Kendrick Lamar",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 30,
+						"name": "Hit-Boy",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 855
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 955
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 40,
+						"name": "The Alchemist",
+						"position": "support",
+						"stage": "Palco Alternativo",
+						"start": 1055
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 50,
+						"name": "Madlib",
+						"position": "featured",
+						"stage": "Palco Alternativo",
+						"start": 1155
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 60,
+						"name": "Southside",
+						"position": "sub_headliner",
+						"stage": "Palco Alternativo",
+						"start": 1255
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 30,
+						"name": "Tay Keith",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 870
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 30,
+						"name": "Nujabes",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 970
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Eletrônico",
+						"start": 1070
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Eletrônico",
+						"start": 1170
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 60,
+						"name": "Pete Rock",
+						"position": "sub_headliner",
+						"stage": "Palco Eletrônico",
+						"start": 1270
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 50,
+						"name": "Clams Casino",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 3,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 75,
+						"name": "9th Wonder",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 3,
+						"minutes": 90,
+						"name": "Lil Wayne",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 855
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 955
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 40,
+						"name": "Pi'erre Bourne",
+						"position": "support",
+						"stage": "Palco Alternativo",
+						"start": 1055
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 50,
+						"name": "Wondagurl",
+						"position": "featured",
+						"stage": "Palco Alternativo",
+						"start": 1155
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 60,
+						"name": "Conductor Williams",
+						"position": "sub_headliner",
+						"stage": "Palco Alternativo",
+						"start": 1255
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 30,
+						"name": "Apollo Brown",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 870
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 30,
+						"name": "Bangladesh",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 970
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 40,
+						"name": "Knxwledge",
+						"position": "support",
+						"stage": "Palco Eletrônico",
+						"start": 1070
+					},
+					{
+						"artist_id": "drake",
+						"day": 3,
+						"minutes": 50,
+						"name": "Drake",
+						"position": "featured",
+						"stage": "Palco Eletrônico",
+						"start": 1170
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 60,
+						"name": "Travis Scott",
+						"position": "sub_headliner",
+						"stage": "Palco Eletrônico",
+						"start": 1270
+					}
+				],
+				"week": 13,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "lollapalooza_br",
+				"id": "lollapalooza_br_2",
+				"lineup": [
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 40,
+						"name": "Doja Cat",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 50,
+						"name": "Dr. Dre",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 75,
+						"name": "Lil Wayne",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "eminem",
+						"day": 1,
+						"minutes": 90,
+						"name": "Eminem",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 855
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 955
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 40,
+						"name": "Baby Keem",
+						"position": "support",
+						"stage": "Palco Alternativo",
+						"start": 1055
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Palco Alternativo",
+						"start": 1155
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Palco Alternativo",
+						"start": 1255
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 870
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 970
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 40,
+						"name": "Metro Boomin",
+						"position": "support",
+						"stage": "Palco Eletrônico",
+						"start": 1070
+					},
+					{
+						"artist_id": "jid",
+						"day": 1,
+						"minutes": 50,
+						"name": "JID",
+						"position": "featured",
+						"stage": "Palco Eletrônico",
+						"start": 1170
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 60,
+						"name": "21 Savage",
+						"position": "sub_headliner",
+						"stage": "Palco Eletrônico",
+						"start": 1270
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 40,
+						"name": "DJ Premier",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 2,
+						"minutes": 50,
+						"name": "Tyler, The Creator",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 60,
+						"name": "Mike Dean",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 2,
+						"minutes": 75,
+						"name": "Lil Uzi Vert",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 2,
+						"minutes": 90,
+						"name": "Kendrick Lamar",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 30,
+						"name": "Hit-Boy",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 855
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 955
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 40,
+						"name": "The Alchemist",
+						"position": "support",
+						"stage": "Palco Alternativo",
+						"start": 1055
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 50,
+						"name": "Madlib",
+						"position": "featured",
+						"stage": "Palco Alternativo",
+						"start": 1155
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 60,
+						"name": "Southside",
+						"position": "sub_headliner",
+						"stage": "Palco Alternativo",
+						"start": 1255
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 30,
+						"name": "Tay Keith",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 870
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 30,
+						"name": "Nujabes",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 970
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Eletrônico",
+						"start": 1070
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Eletrônico",
+						"start": 1170
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 60,
+						"name": "Pete Rock",
+						"position": "sub_headliner",
+						"stage": "Palco Eletrônico",
+						"start": 1270
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 50,
+						"name": "Clams Casino",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "sza",
+						"day": 3,
+						"minutes": 60,
+						"name": "SZA",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 3,
+						"minutes": 75,
+						"name": "Nicki Minaj",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "future",
+						"day": 3,
+						"minutes": 90,
+						"name": "Future",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 855
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Alternativo",
+						"start": 955
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 40,
+						"name": "Kenny Beats",
+						"position": "support",
+						"stage": "Palco Alternativo",
+						"start": 1055
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 50,
+						"name": "Pi'erre Bourne",
+						"position": "featured",
+						"stage": "Palco Alternativo",
+						"start": 1155
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 60,
+						"name": "Wondagurl",
+						"position": "sub_headliner",
+						"stage": "Palco Alternativo",
+						"start": 1255
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 30,
+						"name": "Conductor Williams",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 870
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 30,
+						"name": "Apollo Brown",
+						"position": "opening",
+						"stage": "Palco Eletrônico",
+						"start": 970
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 40,
+						"name": "Bangladesh",
+						"position": "support",
+						"stage": "Palco Eletrônico",
+						"start": 1070
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 50,
+						"name": "Knxwledge",
+						"position": "featured",
+						"stage": "Palco Eletrônico",
+						"start": 1170
+					},
+					{
+						"artist_id": "drake",
+						"day": 3,
+						"minutes": 60,
+						"name": "Drake",
+						"position": "sub_headliner",
+						"stage": "Palco Eletrônico",
+						"start": 1270
+					}
+				],
+				"week": 65,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rolling_loud",
+				"id": "rolling_loud_1",
+				"lineup": [
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "Main Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Main Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Main Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 1,
+						"minutes": 75,
+						"name": "J. Cole",
+						"position": "co_headliner",
+						"stage": "Main Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "eminem",
+						"day": 1,
+						"minutes": 90,
+						"name": "Eminem",
+						"position": "headliner",
+						"stage": "Main Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 855
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 30,
+						"name": "Dr. Dre",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 955
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 40,
+						"name": "Doja Cat",
+						"position": "support",
+						"stage": "Stage 2",
+						"start": 1055
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 50,
+						"name": "Megan Thee Stallion",
+						"position": "featured",
+						"stage": "Stage 2",
+						"start": 1155
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Uzi Vert",
+						"position": "sub_headliner",
+						"stage": "Stage 2",
+						"start": 1255
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 870
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 970
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 40,
+						"name": "Tyler, The Creator",
+						"position": "support",
+						"stage": "Stage 3",
+						"start": 1070
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 50,
+						"name": "Nas",
+						"position": "featured",
+						"stage": "Stage 3",
+						"start": 1170
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 60,
+						"name": "Pharrell Williams",
+						"position": "sub_headliner",
+						"stage": "Stage 3",
+						"start": 1270
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 40,
+						"name": "Metro Boomin",
+						"position": "support",
+						"stage": "Main Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 50,
+						"name": "JID",
+						"position": "featured",
+						"stage": "Main Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 60,
+						"name": "DJ Premier",
+						"position": "sub_headliner",
+						"stage": "Main Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 2,
+						"minutes": 75,
+						"name": "Lil Wayne",
+						"position": "co_headliner",
+						"stage": "Main Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 2,
+						"minutes": 90,
+						"name": "Kendrick Lamar",
+						"position": "headliner",
+						"stage": "Main Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 30,
+						"name": "Mike Dean",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 855
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 30,
+						"name": "Hit-Boy",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 955
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 40,
+						"name": "RZA",
+						"position": "support",
+						"stage": "Stage 2",
+						"start": 1055
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 50,
+						"name": "The Alchemist",
+						"position": "featured",
+						"stage": "Stage 2",
+						"start": 1155
+					},
+					{
+						"artist_id": "sza",
+						"day": 2,
+						"minutes": 60,
+						"name": "SZA",
+						"position": "sub_headliner",
+						"stage": "Stage 2",
+						"start": 1255
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 30,
+						"name": "Madlib",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 870
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 30,
+						"name": "Southside",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 970
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 40,
+						"name": "Tay Keith",
+						"position": "support",
+						"stage": "Stage 3",
+						"start": 1070
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 50,
+						"name": "Nujabes",
+						"position": "featured",
+						"stage": "Stage 3",
+						"start": 1170
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 60,
+						"name": "Murda Beatz",
+						"position": "sub_headliner",
+						"stage": "Stage 3",
+						"start": 1270
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 3,
+						"minutes": 40,
+						"name": "J Dilla",
+						"position": "support",
+						"stage": "Main Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Main Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 60,
+						"name": "Wheezy",
+						"position": "sub_headliner",
+						"stage": "Main Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "future",
+						"day": 3,
+						"minutes": 75,
+						"name": "Future",
+						"position": "co_headliner",
+						"stage": "Main Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 3,
+						"minutes": 90,
+						"name": "Nicki Minaj",
+						"position": "headliner",
+						"stage": "Main Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 855
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 955
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 40,
+						"name": "Cardo",
+						"position": "support",
+						"stage": "Stage 2",
+						"start": 1055
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 50,
+						"name": "Kenny Beats",
+						"position": "featured",
+						"stage": "Stage 2",
+						"start": 1155
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pi'erre Bourne",
+						"position": "sub_headliner",
+						"stage": "Stage 2",
+						"start": 1255
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wondagurl",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 870
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 30,
+						"name": "Conductor Williams",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 970
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 40,
+						"name": "Apollo Brown",
+						"position": "support",
+						"stage": "Stage 3",
+						"start": 1070
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 50,
+						"name": "Bangladesh",
+						"position": "featured",
+						"stage": "Stage 3",
+						"start": 1170
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 60,
+						"name": "Knxwledge",
+						"position": "sub_headliner",
+						"stage": "Stage 3",
+						"start": 1270
+					}
+				],
+				"week": 30,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rolling_loud",
+				"id": "rolling_loud_2",
+				"lineup": [
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "Main Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 50,
+						"name": "Lil Uzi Vert",
+						"position": "featured",
+						"stage": "Main Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Main Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 1,
+						"minutes": 75,
+						"name": "J. Cole",
+						"position": "co_headliner",
+						"stage": "Main Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "eminem",
+						"day": 1,
+						"minutes": 90,
+						"name": "Eminem",
+						"position": "headliner",
+						"stage": "Main Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 855
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 955
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 40,
+						"name": "Tyler, The Creator",
+						"position": "support",
+						"stage": "Stage 2",
+						"start": 1055
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 50,
+						"name": "Doja Cat",
+						"position": "featured",
+						"stage": "Stage 2",
+						"start": 1155
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Wayne",
+						"position": "sub_headliner",
+						"stage": "Stage 2",
+						"start": 1255
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 870
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 970
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 40,
+						"name": "Pharrell Williams",
+						"position": "support",
+						"stage": "Stage 3",
+						"start": 1070
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Stage 3",
+						"start": 1170
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 60,
+						"name": "Dr. Dre",
+						"position": "sub_headliner",
+						"stage": "Stage 3",
+						"start": 1270
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 40,
+						"name": "Metro Boomin",
+						"position": "support",
+						"stage": "Main Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 50,
+						"name": "JID",
+						"position": "featured",
+						"stage": "Main Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 2,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Main Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "sza",
+						"day": 2,
+						"minutes": 75,
+						"name": "SZA",
+						"position": "co_headliner",
+						"stage": "Main Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 2,
+						"minutes": 90,
+						"name": "Travis Scott",
+						"position": "headliner",
+						"stage": "Main Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 30,
+						"name": "DJ Premier",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 855
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 30,
+						"name": "Mike Dean",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 955
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 40,
+						"name": "Hit-Boy",
+						"position": "support",
+						"stage": "Stage 2",
+						"start": 1055
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 50,
+						"name": "RZA",
+						"position": "featured",
+						"stage": "Stage 2",
+						"start": 1155
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 60,
+						"name": "The Alchemist",
+						"position": "sub_headliner",
+						"stage": "Stage 2",
+						"start": 1255
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 30,
+						"name": "Madlib",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 870
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 30,
+						"name": "Southside",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 970
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 40,
+						"name": "Tay Keith",
+						"position": "support",
+						"stage": "Stage 3",
+						"start": 1070
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 50,
+						"name": "Nujabes",
+						"position": "featured",
+						"stage": "Stage 3",
+						"start": 1170
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 60,
+						"name": "Murda Beatz",
+						"position": "sub_headliner",
+						"stage": "Stage 3",
+						"start": 1270
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 3,
+						"minutes": 40,
+						"name": "J Dilla",
+						"position": "support",
+						"stage": "Main Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Main Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 60,
+						"name": "Wheezy",
+						"position": "sub_headliner",
+						"stage": "Main Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 3,
+						"minutes": 75,
+						"name": "Nicki Minaj",
+						"position": "co_headliner",
+						"stage": "Main Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "future",
+						"day": 3,
+						"minutes": 90,
+						"name": "Future",
+						"position": "headliner",
+						"stage": "Main Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 855
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Stage 2",
+						"start": 955
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 40,
+						"name": "Cardo",
+						"position": "support",
+						"stage": "Stage 2",
+						"start": 1055
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 50,
+						"name": "Kenny Beats",
+						"position": "featured",
+						"stage": "Stage 2",
+						"start": 1155
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pi'erre Bourne",
+						"position": "sub_headliner",
+						"stage": "Stage 2",
+						"start": 1255
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wondagurl",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 870
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 30,
+						"name": "Conductor Williams",
+						"position": "opening",
+						"stage": "Stage 3",
+						"start": 970
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 40,
+						"name": "Apollo Brown",
+						"position": "support",
+						"stage": "Stage 3",
+						"start": 1070
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 50,
+						"name": "Bangladesh",
+						"position": "featured",
+						"stage": "Stage 3",
+						"start": 1170
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 60,
+						"name": "Knxwledge",
+						"position": "sub_headliner",
+						"stage": "Stage 3",
+						"start": 1270
+					}
+				],
+				"week": 82,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "coachella",
+				"id": "coachella_1",
+				"lineup": [
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "Coachella Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Coachella Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Wayne",
+						"position": "sub_headliner",
+						"stage": "Coachella Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 1,
+						"minutes": 75,
+						"name": "J. Cole",
+						"position": "co_headliner",
+						"stage": "Coachella Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 1,
+						"minutes": 90,
+						"name": "Kendrick Lamar",
+						"position": "headliner",
+						"stage": "Coachella Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 855
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 30,
+						"name": "Tyler, The Creator",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 955
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 40,
+						"name": "Doja Cat",
+						"position": "support",
+						"stage": "Outdoor Theatre",
+						"start": 1055
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 50,
+						"name": "Dr. Dre",
+						"position": "featured",
+						"stage": "Outdoor Theatre",
+						"start": 1155
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 1,
+						"minutes": 60,
+						"name": "Nicki Minaj",
+						"position": "sub_headliner",
+						"stage": "Outdoor Theatre",
+						"start": 1255
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 870
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 970
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 40,
+						"name": "Lil Uzi Vert",
+						"position": "support",
+						"stage": "Sahara",
+						"start": 1070
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 50,
+						"name": "SZA",
+						"position": "featured",
+						"stage": "Sahara",
+						"start": 1170
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Sahara",
+						"start": 1270
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 885
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 985
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 40,
+						"name": "Metro Boomin",
+						"position": "support",
+						"stage": "Mojave",
+						"start": 1085
+					},
+					{
+						"artist_id": "jid",
+						"day": 1,
+						"minutes": 50,
+						"name": "JID",
+						"position": "featured",
+						"stage": "Mojave",
+						"start": 1185
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Mojave",
+						"start": 1285
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 40,
+						"name": "DJ Premier",
+						"position": "support",
+						"stage": "Coachella Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 50,
+						"name": "Mike Dean",
+						"position": "featured",
+						"stage": "Coachella Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 60,
+						"name": "Hit-Boy",
+						"position": "sub_headliner",
+						"stage": "Coachella Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "eminem",
+						"day": 2,
+						"minutes": 75,
+						"name": "Eminem",
+						"position": "co_headliner",
+						"stage": "Coachella Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 2,
+						"minutes": 90,
+						"name": "Travis Scott",
+						"position": "headliner",
+						"stage": "Coachella Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 855
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 30,
+						"name": "The Alchemist",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 955
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 40,
+						"name": "Madlib",
+						"position": "support",
+						"stage": "Outdoor Theatre",
+						"start": 1055
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 50,
+						"name": "Southside",
+						"position": "featured",
+						"stage": "Outdoor Theatre",
+						"start": 1155
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 60,
+						"name": "Tay Keith",
+						"position": "sub_headliner",
+						"stage": "Outdoor Theatre",
+						"start": 1255
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 30,
+						"name": "Nujabes",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 870
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 30,
+						"name": "Murda Beatz",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 970
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 40,
+						"name": "J Dilla",
+						"position": "support",
+						"stage": "Sahara",
+						"start": 1070
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Sahara",
+						"start": 1170
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 2,
+						"minutes": 60,
+						"name": "Wheezy",
+						"position": "sub_headliner",
+						"stage": "Sahara",
+						"start": 1270
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 2,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 885
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 2,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 985
+					},
+					{
+						"artist_id": "cardo",
+						"day": 2,
+						"minutes": 40,
+						"name": "Cardo",
+						"position": "support",
+						"stage": "Mojave",
+						"start": 1085
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 50,
+						"name": "Kenny Beats",
+						"position": "featured",
+						"stage": "Mojave",
+						"start": 1185
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 2,
+						"minutes": 60,
+						"name": "Pi'erre Bourne",
+						"position": "sub_headliner",
+						"stage": "Mojave",
+						"start": 1285
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 40,
+						"name": "Wondagurl",
+						"position": "support",
+						"stage": "Coachella Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 50,
+						"name": "Conductor Williams",
+						"position": "featured",
+						"stage": "Coachella Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 60,
+						"name": "Apollo Brown",
+						"position": "sub_headliner",
+						"stage": "Coachella Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 75,
+						"name": "Bangladesh",
+						"position": "co_headliner",
+						"stage": "Coachella Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "drake",
+						"day": 3,
+						"minutes": 90,
+						"name": "Drake",
+						"position": "headliner",
+						"stage": "Coachella Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 30,
+						"name": "Knxwledge",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 855
+					},
+					{
+						"artist_id": "future",
+						"day": 3,
+						"minutes": 30,
+						"name": "Future",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 955
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 40,
+						"name": "Atração a confirmar",
+						"position": "support",
+						"stage": "Outdoor Theatre",
+						"start": 1055
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 50,
+						"name": "Atração a confirmar",
+						"position": "featured",
+						"stage": "Outdoor Theatre",
+						"start": 1155
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 60,
+						"name": "Atração a confirmar",
+						"position": "sub_headliner",
+						"stage": "Outdoor Theatre",
+						"start": 1255
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 870
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 970
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 40,
+						"name": "Atração a confirmar",
+						"position": "support",
+						"stage": "Sahara",
+						"start": 1070
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 50,
+						"name": "Atração a confirmar",
+						"position": "featured",
+						"stage": "Sahara",
+						"start": 1170
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 60,
+						"name": "Atração a confirmar",
+						"position": "sub_headliner",
+						"stage": "Sahara",
+						"start": 1270
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 885
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 985
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 40,
+						"name": "Atração a confirmar",
+						"position": "support",
+						"stage": "Mojave",
+						"start": 1085
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 50,
+						"name": "Atração a confirmar",
+						"position": "featured",
+						"stage": "Mojave",
+						"start": 1185
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 60,
+						"name": "Atração a confirmar",
+						"position": "sub_headliner",
+						"stage": "Mojave",
+						"start": 1285
+					}
+				],
+				"week": 15,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "coachella",
+				"id": "coachella_2",
+				"lineup": [
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 40,
+						"name": "A$AP Rocky",
+						"position": "support",
+						"stage": "Coachella Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 50,
+						"name": "21 Savage",
+						"position": "featured",
+						"stage": "Coachella Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Wayne",
+						"position": "sub_headliner",
+						"stage": "Coachella Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 1,
+						"minutes": 75,
+						"name": "Kendrick Lamar",
+						"position": "co_headliner",
+						"stage": "Coachella Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "future",
+						"day": 1,
+						"minutes": 90,
+						"name": "Future",
+						"position": "headliner",
+						"stage": "Coachella Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 30,
+						"name": "Tyler, The Creator",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 855
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 955
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 40,
+						"name": "Lil Uzi Vert",
+						"position": "support",
+						"stage": "Outdoor Theatre",
+						"start": 1055
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 50,
+						"name": "Doja Cat",
+						"position": "featured",
+						"stage": "Outdoor Theatre",
+						"start": 1155
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 1,
+						"minutes": 60,
+						"name": "Nicki Minaj",
+						"position": "sub_headliner",
+						"stage": "Outdoor Theatre",
+						"start": 1255
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 30,
+						"name": "Dr. Dre",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 870
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 970
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 40,
+						"name": "Baby Keem",
+						"position": "support",
+						"stage": "Sahara",
+						"start": 1070
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 50,
+						"name": "Kanye West",
+						"position": "featured",
+						"stage": "Sahara",
+						"start": 1170
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 60,
+						"name": "SZA",
+						"position": "sub_headliner",
+						"stage": "Sahara",
+						"start": 1270
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 885
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 30,
+						"name": "Metro Boomin",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 985
+					},
+					{
+						"artist_id": "jid",
+						"day": 1,
+						"minutes": 40,
+						"name": "JID",
+						"position": "support",
+						"stage": "Mojave",
+						"start": 1085
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 1,
+						"minutes": 50,
+						"name": "DJ Premier",
+						"position": "featured",
+						"stage": "Mojave",
+						"start": 1185
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Mojave",
+						"start": 1285
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 40,
+						"name": "Mike Dean",
+						"position": "support",
+						"stage": "Coachella Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 2,
+						"minutes": 50,
+						"name": "Megan Thee Stallion",
+						"position": "featured",
+						"stage": "Coachella Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 2,
+						"minutes": 60,
+						"name": "J. Cole",
+						"position": "sub_headliner",
+						"stage": "Coachella Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 75,
+						"name": "Hit-Boy",
+						"position": "co_headliner",
+						"stage": "Coachella Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "drake",
+						"day": 2,
+						"minutes": 90,
+						"name": "Drake",
+						"position": "headliner",
+						"stage": "Coachella Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 855
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 30,
+						"name": "The Alchemist",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 955
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 40,
+						"name": "Madlib",
+						"position": "support",
+						"stage": "Outdoor Theatre",
+						"start": 1055
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 50,
+						"name": "Southside",
+						"position": "featured",
+						"stage": "Outdoor Theatre",
+						"start": 1155
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 60,
+						"name": "Tay Keith",
+						"position": "sub_headliner",
+						"stage": "Outdoor Theatre",
+						"start": 1255
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 30,
+						"name": "Nujabes",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 870
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 30,
+						"name": "Murda Beatz",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 970
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 40,
+						"name": "J Dilla",
+						"position": "support",
+						"stage": "Sahara",
+						"start": 1070
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Sahara",
+						"start": 1170
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 2,
+						"minutes": 60,
+						"name": "Wheezy",
+						"position": "sub_headliner",
+						"stage": "Sahara",
+						"start": 1270
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 2,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 885
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 2,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 985
+					},
+					{
+						"artist_id": "cardo",
+						"day": 2,
+						"minutes": 40,
+						"name": "Cardo",
+						"position": "support",
+						"stage": "Mojave",
+						"start": 1085
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 50,
+						"name": "Kenny Beats",
+						"position": "featured",
+						"stage": "Mojave",
+						"start": 1185
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 2,
+						"minutes": 60,
+						"name": "Pi'erre Bourne",
+						"position": "sub_headliner",
+						"stage": "Mojave",
+						"start": 1285
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 40,
+						"name": "Wondagurl",
+						"position": "support",
+						"stage": "Coachella Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 50,
+						"name": "Conductor Williams",
+						"position": "featured",
+						"stage": "Coachella Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 60,
+						"name": "Apollo Brown",
+						"position": "sub_headliner",
+						"stage": "Coachella Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 75,
+						"name": "Bangladesh",
+						"position": "co_headliner",
+						"stage": "Coachella Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 90,
+						"name": "Travis Scott",
+						"position": "headliner",
+						"stage": "Coachella Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 30,
+						"name": "Knxwledge",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 855
+					},
+					{
+						"artist_id": "eminem",
+						"day": 3,
+						"minutes": 30,
+						"name": "Eminem",
+						"position": "opening",
+						"stage": "Outdoor Theatre",
+						"start": 955
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 40,
+						"name": "Atração a confirmar",
+						"position": "support",
+						"stage": "Outdoor Theatre",
+						"start": 1055
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 50,
+						"name": "Atração a confirmar",
+						"position": "featured",
+						"stage": "Outdoor Theatre",
+						"start": 1155
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 60,
+						"name": "Atração a confirmar",
+						"position": "sub_headliner",
+						"stage": "Outdoor Theatre",
+						"start": 1255
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 870
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Sahara",
+						"start": 970
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 40,
+						"name": "Atração a confirmar",
+						"position": "support",
+						"stage": "Sahara",
+						"start": 1070
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 50,
+						"name": "Atração a confirmar",
+						"position": "featured",
+						"stage": "Sahara",
+						"start": 1170
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 60,
+						"name": "Atração a confirmar",
+						"position": "sub_headliner",
+						"stage": "Sahara",
+						"start": 1270
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 885
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 30,
+						"name": "Atração a confirmar",
+						"position": "opening",
+						"stage": "Mojave",
+						"start": 985
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 40,
+						"name": "Atração a confirmar",
+						"position": "support",
+						"stage": "Mojave",
+						"start": 1085
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 50,
+						"name": "Atração a confirmar",
+						"position": "featured",
+						"stage": "Mojave",
+						"start": 1185
+					},
+					{
+						"artist_id": "tba",
+						"day": 3,
+						"minutes": 60,
+						"name": "Atração a confirmar",
+						"position": "sub_headliner",
+						"stage": "Mojave",
+						"start": 1285
+					}
+				],
+				"week": 67,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "glastonbury",
+				"id": "glastonbury_1",
+				"lineup": [
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 40,
+						"name": "Doja Cat",
+						"position": "support",
+						"stage": "Pyramid Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 50,
+						"name": "Playboi Carti",
+						"position": "featured",
+						"stage": "Pyramid Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 1,
+						"minutes": 75,
+						"name": "Nicki Minaj",
+						"position": "co_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "eminem",
+						"day": 1,
+						"minutes": 90,
+						"name": "Eminem",
+						"position": "headliner",
+						"stage": "Pyramid Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 855
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 30,
+						"name": "Dr. Dre",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 955
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "Other Stage",
+						"start": 1055
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 50,
+						"name": "SZA",
+						"position": "featured",
+						"stage": "Other Stage",
+						"start": 1155
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 1,
+						"minutes": 60,
+						"name": "J. Cole",
+						"position": "sub_headliner",
+						"stage": "Other Stage",
+						"start": 1255
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 30,
+						"name": "Nas",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 870
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 30,
+						"name": "Tyler, The Creator",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 970
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 40,
+						"name": "Baby Keem",
+						"position": "support",
+						"stage": "West Holts",
+						"start": 1070
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 50,
+						"name": "Lil Uzi Vert",
+						"position": "featured",
+						"stage": "West Holts",
+						"start": 1170
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Wayne",
+						"position": "sub_headliner",
+						"stage": "West Holts",
+						"start": 1270
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 2,
+						"minutes": 40,
+						"name": "Kanye West",
+						"position": "support",
+						"stage": "Pyramid Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 2,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Pyramid Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 2,
+						"minutes": 60,
+						"name": "Pharrell Williams",
+						"position": "sub_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 75,
+						"name": "Metro Boomin",
+						"position": "co_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "drake",
+						"day": 2,
+						"minutes": 90,
+						"name": "Drake",
+						"position": "headliner",
+						"stage": "Pyramid Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 30,
+						"name": "JID",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 855
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 30,
+						"name": "DJ Premier",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 955
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 40,
+						"name": "Mike Dean",
+						"position": "support",
+						"stage": "Other Stage",
+						"start": 1055
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 50,
+						"name": "Hit-Boy",
+						"position": "featured",
+						"stage": "Other Stage",
+						"start": 1155
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 60,
+						"name": "RZA",
+						"position": "sub_headliner",
+						"stage": "Other Stage",
+						"start": 1255
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 30,
+						"name": "The Alchemist",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 870
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 30,
+						"name": "Madlib",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 970
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 40,
+						"name": "Southside",
+						"position": "support",
+						"stage": "West Holts",
+						"start": 1070
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 50,
+						"name": "Tay Keith",
+						"position": "featured",
+						"stage": "West Holts",
+						"start": 1170
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 60,
+						"name": "Nujabes",
+						"position": "sub_headliner",
+						"stage": "West Holts",
+						"start": 1270
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 3,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Pyramid Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 3,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Pyramid Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 60,
+						"name": "Pete Rock",
+						"position": "sub_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "future",
+						"day": 3,
+						"minutes": 75,
+						"name": "Future",
+						"position": "co_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 90,
+						"name": "Travis Scott",
+						"position": "headliner",
+						"stage": "Pyramid Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wheezy",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 855
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 955
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 40,
+						"name": "9th Wonder",
+						"position": "support",
+						"stage": "Other Stage",
+						"start": 1055
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 50,
+						"name": "Cardo",
+						"position": "featured",
+						"stage": "Other Stage",
+						"start": 1155
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 60,
+						"name": "Kenny Beats",
+						"position": "sub_headliner",
+						"stage": "Other Stage",
+						"start": 1255
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 30,
+						"name": "Pi'erre Bourne",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 870
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wondagurl",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 970
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 40,
+						"name": "Conductor Williams",
+						"position": "support",
+						"stage": "West Holts",
+						"start": 1070
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 50,
+						"name": "Apollo Brown",
+						"position": "featured",
+						"stage": "West Holts",
+						"start": 1170
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 60,
+						"name": "Bangladesh",
+						"position": "sub_headliner",
+						"stage": "West Holts",
+						"start": 1270
+					}
+				],
+				"week": 26,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "glastonbury",
+				"id": "glastonbury_2",
+				"lineup": [
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 40,
+						"name": "Tyler, The Creator",
+						"position": "support",
+						"stage": "Pyramid Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 50,
+						"name": "Playboi Carti",
+						"position": "featured",
+						"stage": "Pyramid Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 60,
+						"name": "SZA",
+						"position": "sub_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "eminem",
+						"day": 1,
+						"minutes": 75,
+						"name": "Eminem",
+						"position": "co_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "drake",
+						"day": 1,
+						"minutes": 90,
+						"name": "Drake",
+						"position": "headliner",
+						"stage": "Pyramid Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 30,
+						"name": "Don Toliver",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 855
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 30,
+						"name": "Doja Cat",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 955
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 40,
+						"name": "A$AP Rocky",
+						"position": "support",
+						"stage": "Other Stage",
+						"start": 1055
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 50,
+						"name": "Megan Thee Stallion",
+						"position": "featured",
+						"stage": "Other Stage",
+						"start": 1155
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Wayne",
+						"position": "sub_headliner",
+						"stage": "Other Stage",
+						"start": 1255
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 30,
+						"name": "Dr. Dre",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 870
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 970
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 40,
+						"name": "21 Savage",
+						"position": "support",
+						"stage": "West Holts",
+						"start": 1070
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 50,
+						"name": "Lil Uzi Vert",
+						"position": "featured",
+						"stage": "West Holts",
+						"start": 1170
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 1,
+						"minutes": 60,
+						"name": "J. Cole",
+						"position": "sub_headliner",
+						"stage": "West Holts",
+						"start": 1270
+					},
+					{
+						"artist_id": "nas",
+						"day": 2,
+						"minutes": 40,
+						"name": "Nas",
+						"position": "support",
+						"stage": "Pyramid Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 2,
+						"minutes": 50,
+						"name": "Kanye West",
+						"position": "featured",
+						"stage": "Pyramid Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 2,
+						"minutes": 60,
+						"name": "Nicki Minaj",
+						"position": "sub_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 2,
+						"minutes": 75,
+						"name": "Kendrick Lamar",
+						"position": "co_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "future",
+						"day": 2,
+						"minutes": 90,
+						"name": "Future",
+						"position": "headliner",
+						"stage": "Pyramid Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 2,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 855
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 30,
+						"name": "Metro Boomin",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 955
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 40,
+						"name": "JID",
+						"position": "support",
+						"stage": "Other Stage",
+						"start": 1055
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 50,
+						"name": "DJ Premier",
+						"position": "featured",
+						"stage": "Other Stage",
+						"start": 1155
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 60,
+						"name": "Mike Dean",
+						"position": "sub_headliner",
+						"stage": "Other Stage",
+						"start": 1255
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 30,
+						"name": "Hit-Boy",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 870
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 970
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 40,
+						"name": "The Alchemist",
+						"position": "support",
+						"stage": "West Holts",
+						"start": 1070
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 50,
+						"name": "Madlib",
+						"position": "featured",
+						"stage": "West Holts",
+						"start": 1170
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 60,
+						"name": "Southside",
+						"position": "sub_headliner",
+						"stage": "West Holts",
+						"start": 1270
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 3,
+						"minutes": 40,
+						"name": "Tay Keith",
+						"position": "support",
+						"stage": "Pyramid Stage",
+						"start": 840
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 3,
+						"minutes": 50,
+						"name": "Nujabes",
+						"position": "featured",
+						"stage": "Pyramid Stage",
+						"start": 940
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 3,
+						"minutes": 60,
+						"name": "Murda Beatz",
+						"position": "sub_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1040
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 3,
+						"minutes": 75,
+						"name": "J Dilla",
+						"position": "co_headliner",
+						"stage": "Pyramid Stage",
+						"start": 1140
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 90,
+						"name": "Travis Scott",
+						"position": "headliner",
+						"stage": "Pyramid Stage",
+						"start": 1240
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 30,
+						"name": "Pete Rock",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 855
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 30,
+						"name": "Wheezy",
+						"position": "opening",
+						"stage": "Other Stage",
+						"start": 955
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 40,
+						"name": "Clams Casino",
+						"position": "support",
+						"stage": "Other Stage",
+						"start": 1055
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 50,
+						"name": "9th Wonder",
+						"position": "featured",
+						"stage": "Other Stage",
+						"start": 1155
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 60,
+						"name": "Cardo",
+						"position": "sub_headliner",
+						"stage": "Other Stage",
+						"start": 1255
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 870
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 30,
+						"name": "Pi'erre Bourne",
+						"position": "opening",
+						"stage": "West Holts",
+						"start": 970
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 40,
+						"name": "Wondagurl",
+						"position": "support",
+						"stage": "West Holts",
+						"start": 1070
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 50,
+						"name": "Conductor Williams",
+						"position": "featured",
+						"stage": "West Holts",
+						"start": 1170
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 60,
+						"name": "Apollo Brown",
+						"position": "sub_headliner",
+						"stage": "West Holts",
+						"start": 1270
+					}
+				],
+				"week": 78,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "primavera_sound",
+				"id": "primavera_sound_1",
+				"lineup": [
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 40,
+						"name": "Don Toliver",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 50,
+						"name": "21 Savage",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 1,
+						"minutes": 60,
+						"name": "Playboi Carti",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 1,
+						"minutes": 75,
+						"name": "Nicki Minaj",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "future",
+						"day": 1,
+						"minutes": 90,
+						"name": "Future",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 30,
+						"name": "Baby Keem",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 855
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 955
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 40,
+						"name": "Dr. Dre",
+						"position": "support",
+						"stage": "Palco Mar",
+						"start": 1055
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 50,
+						"name": "Nas",
+						"position": "featured",
+						"stage": "Palco Mar",
+						"start": 1155
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 1,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Palco Mar",
+						"start": 1255
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 870
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 30,
+						"name": "Metro Boomin",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 970
+					},
+					{
+						"artist_id": "jid",
+						"day": 1,
+						"minutes": 40,
+						"name": "JID",
+						"position": "support",
+						"stage": "Palco Bosque",
+						"start": 1070
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 50,
+						"name": "Tyler, The Creator",
+						"position": "featured",
+						"stage": "Palco Bosque",
+						"start": 1170
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Uzi Vert",
+						"position": "sub_headliner",
+						"stage": "Palco Bosque",
+						"start": 1270
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 2,
+						"minutes": 40,
+						"name": "Doja Cat",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 50,
+						"name": "DJ Premier",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 60,
+						"name": "Mike Dean",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "lil_wayne",
+						"day": 2,
+						"minutes": 75,
+						"name": "Lil Wayne",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "sza",
+						"day": 2,
+						"minutes": 90,
+						"name": "SZA",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 30,
+						"name": "Hit-Boy",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 855
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 955
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 40,
+						"name": "The Alchemist",
+						"position": "support",
+						"stage": "Palco Mar",
+						"start": 1055
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 2,
+						"minutes": 50,
+						"name": "A$AP Rocky",
+						"position": "featured",
+						"stage": "Palco Mar",
+						"start": 1155
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 60,
+						"name": "Madlib",
+						"position": "sub_headliner",
+						"stage": "Palco Mar",
+						"start": 1255
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 30,
+						"name": "Southside",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 870
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 30,
+						"name": "Tay Keith",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 970
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 40,
+						"name": "Nujabes",
+						"position": "support",
+						"stage": "Palco Bosque",
+						"start": 1070
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 50,
+						"name": "Murda Beatz",
+						"position": "featured",
+						"stage": "Palco Bosque",
+						"start": 1170
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 60,
+						"name": "J Dilla",
+						"position": "sub_headliner",
+						"stage": "Palco Bosque",
+						"start": 1270
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 3,
+						"minutes": 40,
+						"name": "Pete Rock",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 3,
+						"minutes": 50,
+						"name": "Wheezy",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 60,
+						"name": "Clams Casino",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 75,
+						"name": "9th Wonder",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 3,
+						"minutes": 90,
+						"name": "J. Cole",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 855
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 955
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 40,
+						"name": "Pi'erre Bourne",
+						"position": "support",
+						"stage": "Palco Mar",
+						"start": 1055
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 50,
+						"name": "Wondagurl",
+						"position": "featured",
+						"stage": "Palco Mar",
+						"start": 1155
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 60,
+						"name": "Conductor Williams",
+						"position": "sub_headliner",
+						"stage": "Palco Mar",
+						"start": 1255
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 30,
+						"name": "Apollo Brown",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 870
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 30,
+						"name": "Bangladesh",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 970
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 40,
+						"name": "Knxwledge",
+						"position": "support",
+						"stage": "Palco Bosque",
+						"start": 1070
+					},
+					{
+						"artist_id": "drake",
+						"day": 3,
+						"minutes": 50,
+						"name": "Drake",
+						"position": "featured",
+						"stage": "Palco Bosque",
+						"start": 1170
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 60,
+						"name": "Travis Scott",
+						"position": "sub_headliner",
+						"stage": "Palco Bosque",
+						"start": 1270
+					}
+				],
+				"week": 22,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "primavera_sound",
+				"id": "primavera_sound_2",
+				"lineup": [
+					{
+						"artist_id": "don_toliver",
+						"day": 1,
+						"minutes": 40,
+						"name": "Don Toliver",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "doja_cat",
+						"day": 1,
+						"minutes": 50,
+						"name": "Doja Cat",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "lil_uzi_vert",
+						"day": 1,
+						"minutes": 60,
+						"name": "Lil Uzi Vert",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "sza",
+						"day": 1,
+						"minutes": 75,
+						"name": "SZA",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "kendrick_lamar",
+						"day": 1,
+						"minutes": 90,
+						"name": "Kendrick Lamar",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 30,
+						"name": "Pharrell Williams",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 855
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 30,
+						"name": "Kanye West",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 955
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 40,
+						"name": "Baby Keem",
+						"position": "support",
+						"stage": "Palco Mar",
+						"start": 1055
+					},
+					{
+						"artist_id": "tyler_the_creator",
+						"day": 1,
+						"minutes": 50,
+						"name": "Tyler, The Creator",
+						"position": "featured",
+						"stage": "Palco Mar",
+						"start": 1155
+					},
+					{
+						"artist_id": "a_ap_rocky",
+						"day": 1,
+						"minutes": 60,
+						"name": "A$AP Rocky",
+						"position": "sub_headliner",
+						"stage": "Palco Mar",
+						"start": 1255
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 30,
+						"name": "Metro Boomin",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 870
+					},
+					{
+						"artist_id": "jid",
+						"day": 1,
+						"minutes": 30,
+						"name": "JID",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 970
+					},
+					{
+						"artist_id": "dr_dre",
+						"day": 1,
+						"minutes": 40,
+						"name": "Dr. Dre",
+						"position": "support",
+						"stage": "Palco Bosque",
+						"start": 1070
+					},
+					{
+						"artist_id": "nas",
+						"day": 1,
+						"minutes": 50,
+						"name": "Nas",
+						"position": "featured",
+						"stage": "Palco Bosque",
+						"start": 1170
+					},
+					{
+						"artist_id": "21_savage",
+						"day": 1,
+						"minutes": 60,
+						"name": "21 Savage",
+						"position": "sub_headliner",
+						"stage": "Palco Bosque",
+						"start": 1270
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 40,
+						"name": "DJ Premier",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 50,
+						"name": "Mike Dean",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 60,
+						"name": "Hit-Boy",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "playboi_carti",
+						"day": 2,
+						"minutes": 75,
+						"name": "Playboi Carti",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "j_cole",
+						"day": 2,
+						"minutes": 90,
+						"name": "J. Cole",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 30,
+						"name": "RZA",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 855
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 30,
+						"name": "The Alchemist",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 955
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 40,
+						"name": "Madlib",
+						"position": "support",
+						"stage": "Palco Mar",
+						"start": 1055
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 50,
+						"name": "Southside",
+						"position": "featured",
+						"stage": "Palco Mar",
+						"start": 1155
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 60,
+						"name": "Tay Keith",
+						"position": "sub_headliner",
+						"stage": "Palco Mar",
+						"start": 1255
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 30,
+						"name": "Nujabes",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 870
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 30,
+						"name": "Murda Beatz",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 970
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 40,
+						"name": "J Dilla",
+						"position": "support",
+						"stage": "Palco Bosque",
+						"start": 1070
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Palco Bosque",
+						"start": 1170
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 2,
+						"minutes": 60,
+						"name": "Wheezy",
+						"position": "sub_headliner",
+						"stage": "Palco Bosque",
+						"start": 1270
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 3,
+						"minutes": 40,
+						"name": "Clams Casino",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 3,
+						"minutes": 50,
+						"name": "9th Wonder",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "megan_thee_stallion",
+						"day": 3,
+						"minutes": 60,
+						"name": "Megan Thee Stallion",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "cardo",
+						"day": 3,
+						"minutes": 75,
+						"name": "Cardo",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "nicki_minaj",
+						"day": 3,
+						"minutes": 90,
+						"name": "Nicki Minaj",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 3,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 855
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 3,
+						"minutes": 30,
+						"name": "Pi'erre Bourne",
+						"position": "opening",
+						"stage": "Palco Mar",
+						"start": 955
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 3,
+						"minutes": 40,
+						"name": "Wondagurl",
+						"position": "support",
+						"stage": "Palco Mar",
+						"start": 1055
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 3,
+						"minutes": 50,
+						"name": "Conductor Williams",
+						"position": "featured",
+						"stage": "Palco Mar",
+						"start": 1155
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 3,
+						"minutes": 60,
+						"name": "Apollo Brown",
+						"position": "sub_headliner",
+						"stage": "Palco Mar",
+						"start": 1255
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 3,
+						"minutes": 30,
+						"name": "Bangladesh",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 870
+					},
+					{
+						"artist_id": "knxwledge",
+						"day": 3,
+						"minutes": 30,
+						"name": "Knxwledge",
+						"position": "opening",
+						"stage": "Palco Bosque",
+						"start": 970
+					},
+					{
+						"artist_id": "drake",
+						"day": 3,
+						"minutes": 40,
+						"name": "Drake",
+						"position": "support",
+						"stage": "Palco Bosque",
+						"start": 1070
+					},
+					{
+						"artist_id": "travis_scott",
+						"day": 3,
+						"minutes": 50,
+						"name": "Travis Scott",
+						"position": "featured",
+						"stage": "Palco Bosque",
+						"start": 1170
+					},
+					{
+						"artist_id": "eminem",
+						"day": 3,
+						"minutes": 60,
+						"name": "Eminem",
+						"position": "sub_headliner",
+						"stage": "Palco Bosque",
+						"start": 1270
+					}
+				],
+				"week": 74,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "quebrada_fest",
+				"id": "quebrada_fest_1",
+				"lineup": [
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 1,
+						"minutes": 40,
+						"name": "Pi'erre Bourne",
+						"position": "support",
+						"stage": "Palco Quebrada",
+						"start": 840
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 1,
+						"minutes": 50,
+						"name": "9th Wonder",
+						"position": "featured",
+						"stage": "Palco Quebrada",
+						"start": 940
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 1,
+						"minutes": 60,
+						"name": "Murda Beatz",
+						"position": "sub_headliner",
+						"stage": "Palco Quebrada",
+						"start": 1040
+					},
+					{
+						"artist_id": "madlib",
+						"day": 1,
+						"minutes": 75,
+						"name": "Madlib",
+						"position": "co_headliner",
+						"stage": "Palco Quebrada",
+						"start": 1140
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 90,
+						"name": "The Alchemist",
+						"position": "headliner",
+						"stage": "Palco Quebrada",
+						"start": 1240
+					}
+				],
+				"week": 20,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "quebrada_fest",
+				"id": "quebrada_fest_2",
+				"lineup": [
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 1,
+						"minutes": 40,
+						"name": "Pi'erre Bourne",
+						"position": "support",
+						"stage": "Palco Quebrada",
+						"start": 840
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 50,
+						"name": "Wheezy",
+						"position": "featured",
+						"stage": "Palco Quebrada",
+						"start": 940
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 60,
+						"name": "Tay Keith",
+						"position": "sub_headliner",
+						"stage": "Palco Quebrada",
+						"start": 1040
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 75,
+						"name": "The Alchemist",
+						"position": "co_headliner",
+						"stage": "Palco Quebrada",
+						"start": 1140
+					},
+					{
+						"artist_id": "rza",
+						"day": 1,
+						"minutes": 90,
+						"name": "RZA",
+						"position": "headliner",
+						"stage": "Palco Quebrada",
+						"start": 1240
+					}
+				],
+				"week": 72,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "batalha_fest",
+				"id": "batalha_fest_1",
+				"lineup": [
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Batalha",
+						"start": 840
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 1,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Batalha",
+						"start": 940
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 60,
+						"name": "Tay Keith",
+						"position": "sub_headliner",
+						"stage": "Palco Batalha",
+						"start": 1040
+					},
+					{
+						"artist_id": "madlib",
+						"day": 1,
+						"minutes": 75,
+						"name": "Madlib",
+						"position": "co_headliner",
+						"stage": "Palco Batalha",
+						"start": 1140
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 1,
+						"minutes": 90,
+						"name": "DJ Premier",
+						"position": "headliner",
+						"stage": "Palco Batalha",
+						"start": 1240
+					}
+				],
+				"week": 33,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "batalha_fest",
+				"id": "batalha_fest_2",
+				"lineup": [
+					{
+						"artist_id": "kenny_beats",
+						"day": 1,
+						"minutes": 40,
+						"name": "Kenny Beats",
+						"position": "support",
+						"stage": "Palco Batalha",
+						"start": 840
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 50,
+						"name": "Wheezy",
+						"position": "featured",
+						"stage": "Palco Batalha",
+						"start": 940
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 1,
+						"minutes": 60,
+						"name": "Murda Beatz",
+						"position": "sub_headliner",
+						"stage": "Palco Batalha",
+						"start": 1040
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 75,
+						"name": "The Alchemist",
+						"position": "co_headliner",
+						"stage": "Palco Batalha",
+						"start": 1140
+					},
+					{
+						"artist_id": "rza",
+						"day": 1,
+						"minutes": 90,
+						"name": "RZA",
+						"position": "headliner",
+						"stage": "Palco Batalha",
+						"start": 1240
+					}
+				],
+				"week": 85,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rimas_nordeste",
+				"id": "rimas_nordeste_1",
+				"lineup": [
+					{
+						"artist_id": "pete_rock",
+						"day": 1,
+						"minutes": 40,
+						"name": "Pete Rock",
+						"position": "support",
+						"stage": "Palco Mangue",
+						"start": 840
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 1,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Mangue",
+						"start": 940
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 60,
+						"name": "Tay Keith",
+						"position": "sub_headliner",
+						"stage": "Palco Mangue",
+						"start": 1040
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 75,
+						"name": "The Alchemist",
+						"position": "co_headliner",
+						"stage": "Palco Mangue",
+						"start": 1140
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 1,
+						"minutes": 90,
+						"name": "Metro Boomin",
+						"position": "headliner",
+						"stage": "Palco Mangue",
+						"start": 1240
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 1,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 855
+					},
+					{
+						"artist_id": "cardo",
+						"day": 1,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 955
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Rua",
+						"start": 1055
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 1,
+						"minutes": 50,
+						"name": "Murda Beatz",
+						"position": "featured",
+						"stage": "Palco Rua",
+						"start": 1155
+					},
+					{
+						"artist_id": "madlib",
+						"day": 1,
+						"minutes": 60,
+						"name": "Madlib",
+						"position": "sub_headliner",
+						"stage": "Palco Rua",
+						"start": 1255
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 2,
+						"minutes": 40,
+						"name": "9th Wonder",
+						"position": "support",
+						"stage": "Palco Mangue",
+						"start": 840
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 50,
+						"name": "Nujabes",
+						"position": "featured",
+						"stage": "Palco Mangue",
+						"start": 940
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 60,
+						"name": "Southside",
+						"position": "sub_headliner",
+						"stage": "Palco Mangue",
+						"start": 1040
+					},
+					{
+						"artist_id": "rza",
+						"day": 2,
+						"minutes": 75,
+						"name": "RZA",
+						"position": "co_headliner",
+						"stage": "Palco Mangue",
+						"start": 1140
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 90,
+						"name": "JID",
+						"position": "headliner",
+						"stage": "Palco Mangue",
+						"start": 1240
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 855
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 2,
+						"minutes": 30,
+						"name": "Pi'erre Bourne",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 955
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 2,
+						"minutes": 40,
+						"name": "Wondagurl",
+						"position": "support",
+						"stage": "Palco Rua",
+						"start": 1055
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 2,
+						"minutes": 50,
+						"name": "Conductor Williams",
+						"position": "featured",
+						"stage": "Palco Rua",
+						"start": 1155
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 2,
+						"minutes": 60,
+						"name": "Apollo Brown",
+						"position": "sub_headliner",
+						"stage": "Palco Rua",
+						"start": 1255
+					}
+				],
+				"week": 44,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rimas_nordeste",
+				"id": "rimas_nordeste_2",
+				"lineup": [
+					{
+						"artist_id": "pete_rock",
+						"day": 1,
+						"minutes": 40,
+						"name": "Pete Rock",
+						"position": "support",
+						"stage": "Palco Mangue",
+						"start": 840
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 50,
+						"name": "Tay Keith",
+						"position": "featured",
+						"stage": "Palco Mangue",
+						"start": 940
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 1,
+						"minutes": 60,
+						"name": "Nujabes",
+						"position": "sub_headliner",
+						"stage": "Palco Mangue",
+						"start": 1040
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 75,
+						"name": "The Alchemist",
+						"position": "co_headliner",
+						"stage": "Palco Mangue",
+						"start": 1140
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 1,
+						"minutes": 90,
+						"name": "Mike Dean",
+						"position": "headliner",
+						"stage": "Palco Mangue",
+						"start": 1240
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 1,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 855
+					},
+					{
+						"artist_id": "cardo",
+						"day": 1,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 955
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Rua",
+						"start": 1055
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 1,
+						"minutes": 50,
+						"name": "Murda Beatz",
+						"position": "featured",
+						"stage": "Palco Rua",
+						"start": 1155
+					},
+					{
+						"artist_id": "southside",
+						"day": 1,
+						"minutes": 60,
+						"name": "Southside",
+						"position": "sub_headliner",
+						"stage": "Palco Rua",
+						"start": 1255
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 2,
+						"minutes": 40,
+						"name": "Clams Casino",
+						"position": "support",
+						"stage": "Palco Mangue",
+						"start": 840
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 50,
+						"name": "J Dilla",
+						"position": "featured",
+						"stage": "Palco Mangue",
+						"start": 940
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 60,
+						"name": "Kenny Beats",
+						"position": "sub_headliner",
+						"stage": "Palco Mangue",
+						"start": 1040
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 75,
+						"name": "Hit-Boy",
+						"position": "co_headliner",
+						"stage": "Palco Mangue",
+						"start": 1140
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 90,
+						"name": "JID",
+						"position": "headliner",
+						"stage": "Palco Mangue",
+						"start": 1240
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 2,
+						"minutes": 30,
+						"name": "Pi'erre Bourne",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 855
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 2,
+						"minutes": 30,
+						"name": "Wondagurl",
+						"position": "opening",
+						"stage": "Palco Rua",
+						"start": 955
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 2,
+						"minutes": 40,
+						"name": "Conductor Williams",
+						"position": "support",
+						"stage": "Palco Rua",
+						"start": 1055
+					},
+					{
+						"artist_id": "apollo_brown",
+						"day": 2,
+						"minutes": 50,
+						"name": "Apollo Brown",
+						"position": "featured",
+						"stage": "Palco Rua",
+						"start": 1155
+					},
+					{
+						"artist_id": "bangladesh",
+						"day": 2,
+						"minutes": 60,
+						"name": "Bangladesh",
+						"position": "sub_headliner",
+						"stage": "Palco Rua",
+						"start": 1255
+					}
+				],
+				"week": 96,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "sul_rimas",
+				"id": "sul_rimas_1",
+				"lineup": [
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 50,
+						"name": "Tay Keith",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "rza",
+						"day": 1,
+						"minutes": 60,
+						"name": "RZA",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 1,
+						"minutes": 75,
+						"name": "Mike Dean",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 90,
+						"name": "Kanye West",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 1,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 855
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 1,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 955
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 1,
+						"minutes": 40,
+						"name": "Pete Rock",
+						"position": "support",
+						"stage": "Palco Cypher",
+						"start": 1055
+					},
+					{
+						"artist_id": "southside",
+						"day": 1,
+						"minutes": 50,
+						"name": "Southside",
+						"position": "featured",
+						"stage": "Palco Cypher",
+						"start": 1155
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 1,
+						"minutes": 60,
+						"name": "Hit-Boy",
+						"position": "sub_headliner",
+						"stage": "Palco Cypher",
+						"start": 1255
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 50,
+						"name": "Nujabes",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 60,
+						"name": "J Dilla",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 75,
+						"name": "JID",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 2,
+						"minutes": 90,
+						"name": "DJ Premier",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "cardo",
+						"day": 2,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 855
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 955
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 2,
+						"minutes": 40,
+						"name": "Pi'erre Bourne",
+						"position": "support",
+						"stage": "Palco Cypher",
+						"start": 1055
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 2,
+						"minutes": 50,
+						"name": "Wondagurl",
+						"position": "featured",
+						"stage": "Palco Cypher",
+						"start": 1155
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 2,
+						"minutes": 60,
+						"name": "Conductor Williams",
+						"position": "sub_headliner",
+						"stage": "Palco Cypher",
+						"start": 1255
+					}
+				],
+				"week": 48,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "sul_rimas",
+				"id": "sul_rimas_2",
+				"lineup": [
+					{
+						"artist_id": "murda_beatz",
+						"day": 1,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 50,
+						"name": "Tay Keith",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "rza",
+						"day": 1,
+						"minutes": 60,
+						"name": "RZA",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 75,
+						"name": "The Alchemist",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "jid",
+						"day": 1,
+						"minutes": 90,
+						"name": "JID",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "cardo",
+						"day": 1,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 855
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 1,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 955
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 1,
+						"minutes": 40,
+						"name": "J Dilla",
+						"position": "support",
+						"stage": "Palco Cypher",
+						"start": 1055
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 1,
+						"minutes": 50,
+						"name": "Nujabes",
+						"position": "featured",
+						"stage": "Palco Cypher",
+						"start": 1155
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 1,
+						"minutes": 60,
+						"name": "Hit-Boy",
+						"position": "sub_headliner",
+						"stage": "Palco Cypher",
+						"start": 1255
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 2,
+						"minutes": 40,
+						"name": "Wheezy",
+						"position": "support",
+						"stage": "Palco Principal",
+						"start": 840
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Palco Principal",
+						"start": 940
+					},
+					{
+						"artist_id": "madlib",
+						"day": 2,
+						"minutes": 60,
+						"name": "Madlib",
+						"position": "sub_headliner",
+						"stage": "Palco Principal",
+						"start": 1040
+					},
+					{
+						"artist_id": "southside",
+						"day": 2,
+						"minutes": 75,
+						"name": "Southside",
+						"position": "co_headliner",
+						"stage": "Palco Principal",
+						"start": 1140
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 2,
+						"minutes": 90,
+						"name": "Pharrell Williams",
+						"position": "headliner",
+						"stage": "Palco Principal",
+						"start": 1240
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 2,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 855
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 30,
+						"name": "Kenny Beats",
+						"position": "opening",
+						"stage": "Palco Cypher",
+						"start": 955
+					},
+					{
+						"artist_id": "pi_erre_bourne",
+						"day": 2,
+						"minutes": 40,
+						"name": "Pi'erre Bourne",
+						"position": "support",
+						"stage": "Palco Cypher",
+						"start": 1055
+					},
+					{
+						"artist_id": "wondagurl",
+						"day": 2,
+						"minutes": 50,
+						"name": "Wondagurl",
+						"position": "featured",
+						"stage": "Palco Cypher",
+						"start": 1155
+					},
+					{
+						"artist_id": "conductor_williams",
+						"day": 2,
+						"minutes": 60,
+						"name": "Conductor Williams",
+						"position": "sub_headliner",
+						"stage": "Palco Cypher",
+						"start": 1255
+					}
+				],
+				"week": 100,
+				"year": 2
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rap_capital",
+				"id": "rap_capital_1",
+				"lineup": [
+					{
+						"artist_id": "southside",
+						"day": 1,
+						"minutes": 40,
+						"name": "Southside",
+						"position": "support",
+						"stage": "Palco Planalto",
+						"start": 840
+					},
+					{
+						"artist_id": "madlib",
+						"day": 1,
+						"minutes": 50,
+						"name": "Madlib",
+						"position": "featured",
+						"stage": "Palco Planalto",
+						"start": 940
+					},
+					{
+						"artist_id": "rza",
+						"day": 1,
+						"minutes": 60,
+						"name": "RZA",
+						"position": "sub_headliner",
+						"stage": "Palco Planalto",
+						"start": 1040
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 75,
+						"name": "Kanye West",
+						"position": "co_headliner",
+						"stage": "Palco Planalto",
+						"start": 1140
+					},
+					{
+						"artist_id": "pharrell_williams",
+						"day": 1,
+						"minutes": 90,
+						"name": "Pharrell Williams",
+						"position": "headliner",
+						"stage": "Palco Planalto",
+						"start": 1240
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 1,
+						"minutes": 30,
+						"name": "J Dilla",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 855
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 1,
+						"minutes": 30,
+						"name": "Murda Beatz",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 955
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 1,
+						"minutes": 40,
+						"name": "Tay Keith",
+						"position": "support",
+						"stage": "Palco Cerrado",
+						"start": 1055
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 1,
+						"minutes": 50,
+						"name": "The Alchemist",
+						"position": "featured",
+						"stage": "Palco Cerrado",
+						"start": 1155
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 1,
+						"minutes": 60,
+						"name": "DJ Premier",
+						"position": "sub_headliner",
+						"stage": "Palco Cerrado",
+						"start": 1255
+					},
+					{
+						"artist_id": "nujabes",
+						"day": 2,
+						"minutes": 40,
+						"name": "Nujabes",
+						"position": "support",
+						"stage": "Palco Planalto",
+						"start": 840
+					},
+					{
+						"artist_id": "pete_rock",
+						"day": 2,
+						"minutes": 50,
+						"name": "Pete Rock",
+						"position": "featured",
+						"stage": "Palco Planalto",
+						"start": 940
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 2,
+						"minutes": 60,
+						"name": "Mike Dean",
+						"position": "sub_headliner",
+						"stage": "Palco Planalto",
+						"start": 1040
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 75,
+						"name": "Hit-Boy",
+						"position": "co_headliner",
+						"stage": "Palco Planalto",
+						"start": 1140
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 2,
+						"minutes": 90,
+						"name": "Baby Keem",
+						"position": "headliner",
+						"stage": "Palco Planalto",
+						"start": 1240
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 2,
+						"minutes": 30,
+						"name": "Wheezy",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 855
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 2,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 955
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 2,
+						"minutes": 40,
+						"name": "9th Wonder",
+						"position": "support",
+						"stage": "Palco Cerrado",
+						"start": 1055
+					},
+					{
+						"artist_id": "cardo",
+						"day": 2,
+						"minutes": 50,
+						"name": "Cardo",
+						"position": "featured",
+						"stage": "Palco Cerrado",
+						"start": 1155
+					},
+					{
+						"artist_id": "kenny_beats",
+						"day": 2,
+						"minutes": 60,
+						"name": "Kenny Beats",
+						"position": "sub_headliner",
+						"stage": "Palco Cerrado",
+						"start": 1255
+					}
+				],
+				"week": 8,
+				"year": 1
+			},
+			{
+				"application_status": "",
+				"application_week": 0,
+				"festival_id": "rap_capital",
+				"id": "rap_capital_2",
+				"lineup": [
+					{
+						"artist_id": "nujabes",
+						"day": 1,
+						"minutes": 40,
+						"name": "Nujabes",
+						"position": "support",
+						"stage": "Palco Planalto",
+						"start": 840
+					},
+					{
+						"artist_id": "madlib",
+						"day": 1,
+						"minutes": 50,
+						"name": "Madlib",
+						"position": "featured",
+						"stage": "Palco Planalto",
+						"start": 940
+					},
+					{
+						"artist_id": "dj_premier",
+						"day": 1,
+						"minutes": 60,
+						"name": "DJ Premier",
+						"position": "sub_headliner",
+						"stage": "Palco Planalto",
+						"start": 1040
+					},
+					{
+						"artist_id": "kanye_west",
+						"day": 1,
+						"minutes": 75,
+						"name": "Kanye West",
+						"position": "co_headliner",
+						"stage": "Palco Planalto",
+						"start": 1140
+					},
+					{
+						"artist_id": "baby_keem",
+						"day": 1,
+						"minutes": 90,
+						"name": "Baby Keem",
+						"position": "headliner",
+						"stage": "Palco Planalto",
+						"start": 1240
+					},
+					{
+						"artist_id": "wheezy",
+						"day": 1,
+						"minutes": 30,
+						"name": "Wheezy",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 855
+					},
+					{
+						"artist_id": "clams_casino",
+						"day": 1,
+						"minutes": 30,
+						"name": "Clams Casino",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 955
+					},
+					{
+						"artist_id": "southside",
+						"day": 1,
+						"minutes": 40,
+						"name": "Southside",
+						"position": "support",
+						"stage": "Palco Cerrado",
+						"start": 1055
+					},
+					{
+						"artist_id": "rza",
+						"day": 1,
+						"minutes": 50,
+						"name": "RZA",
+						"position": "featured",
+						"stage": "Palco Cerrado",
+						"start": 1155
+					},
+					{
+						"artist_id": "mike_dean",
+						"day": 1,
+						"minutes": 60,
+						"name": "Mike Dean",
+						"position": "sub_headliner",
+						"stage": "Palco Cerrado",
+						"start": 1255
+					},
+					{
+						"artist_id": "murda_beatz",
+						"day": 2,
+						"minutes": 40,
+						"name": "Murda Beatz",
+						"position": "support",
+						"stage": "Palco Planalto",
+						"start": 840
+					},
+					{
+						"artist_id": "hit_boy",
+						"day": 2,
+						"minutes": 50,
+						"name": "Hit-Boy",
+						"position": "featured",
+						"stage": "Palco Planalto",
+						"start": 940
+					},
+					{
+						"artist_id": "jid",
+						"day": 2,
+						"minutes": 60,
+						"name": "JID",
+						"position": "sub_headliner",
+						"stage": "Palco Planalto",
+						"start": 1040
+					},
+					{
+						"artist_id": "metro_boomin",
+						"day": 2,
+						"minutes": 75,
+						"name": "Metro Boomin",
+						"position": "co_headliner",
+						"stage": "Palco Planalto",
+						"start": 1140
+					},
+					{
+						"artist_id": "nas",
+						"day": 2,
+						"minutes": 90,
+						"name": "Nas",
+						"position": "headliner",
+						"stage": "Palco Planalto",
+						"start": 1240
+					},
+					{
+						"artist_id": "9th_wonder",
+						"day": 2,
+						"minutes": 30,
+						"name": "9th Wonder",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 855
+					},
+					{
+						"artist_id": "cardo",
+						"day": 2,
+						"minutes": 30,
+						"name": "Cardo",
+						"position": "opening",
+						"stage": "Palco Cerrado",
+						"start": 955
+					},
+					{
+						"artist_id": "tay_keith",
+						"day": 2,
+						"minutes": 40,
+						"name": "Tay Keith",
+						"position": "support",
+						"stage": "Palco Cerrado",
+						"start": 1055
+					},
+					{
+						"artist_id": "the_alchemist",
+						"day": 2,
+						"minutes": 50,
+						"name": "The Alchemist",
+						"position": "featured",
+						"stage": "Palco Cerrado",
+						"start": 1155
+					},
+					{
+						"artist_id": "j_dilla",
+						"day": 2,
+						"minutes": 60,
+						"name": "J Dilla",
+						"position": "sub_headliner",
+						"stage": "Palco Cerrado",
+						"start": 1255
+					}
+				],
+				"week": 60,
+				"year": 2
+			}
+		],
+		"finance_history": [
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Hit ao vivo",
+				"week": 1
+			},
+			{
+				"amount": -50,
+				"category": "release",
+				"description": "Lançamento: Hit ao vivo",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 1",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 2",
+				"week": 1
+			},
+			{
+				"amount": -100,
+				"category": "production",
+				"description": "Produção de música: Faixa 3",
+				"week": 1
+			},
+			{
+				"amount": -160,
+				"category": "production",
+				"description": "Produção de EP: EP",
+				"week": 1
+			},
+			{
+				"amount": -75,
+				"category": "release",
+				"description": "Agendamento: EP",
+				"week": 1
+			},
+			{
+				"amount": -800,
+				"category": "merch",
+				"description": "Fabricação: 100 x Camiseta",
+				"week": 1
+			},
+			{
+				"amount": -3453,
+				"category": "live",
+				"description": "Despesas de show: Club Noturno — Rio de Janeiro (Semana 3, dia 5)",
+				"week": 1
+			},
+			{
+				"amount": -3251,
+				"category": "live",
+				"description": "Turnê Turnê Sete: Club 808 — Curitiba",
+				"week": 1
+			},
+			{
+				"amount": 1865,
+				"category": "streams",
+				"description": "Streams: Hit ao vivo",
+				"week": 2
+			},
+			{
+				"amount": 409,
+				"category": "sales",
+				"description": "Vendas digitais: Hit ao vivo",
+				"week": 2
+			},
+			{
+				"amount": 54,
+				"category": "merch",
+				"description": "Loja oficial",
+				"week": 2
+			},
+			{
+				"amount": 1499,
+				"category": "streams",
+				"description": "Streams: Hit ao vivo",
+				"week": 3
+			},
+			{
+				"amount": 329,
+				"category": "sales",
+				"description": "Vendas digitais: Hit ao vivo",
+				"week": 3
+			},
+			{
+				"amount": 1887,
+				"category": "merch",
+				"description": "Merch no show: Club Noturno — Rio de Janeiro",
+				"week": 3
+			},
+			{
+				"amount": 6520,
+				"category": "live",
+				"description": "Show: Club Noturno — Rio de Janeiro (Bilheteria líquida (você assume os riscos))",
+				"week": 3
+			},
+			{
+				"amount": 81,
+				"category": "merch",
+				"description": "Loja oficial",
+				"week": 3
+			},
+			{
+				"amount": 840,
+				"category": "streams",
+				"description": "Streams: Hit ao vivo",
+				"week": 4
+			},
+			{
+				"amount": 184,
+				"category": "sales",
+				"description": "Vendas digitais: Hit ao vivo",
+				"week": 4
+			},
+			{
+				"amount": 108,
+				"category": "merch",
+				"description": "Loja oficial",
+				"week": 4
+			},
+			{
+				"amount": 547,
+				"category": "streams",
+				"description": "Streams: Hit ao vivo",
+				"week": 5
+			},
+			{
+				"amount": 120,
+				"category": "sales",
+				"description": "Vendas digitais: Hit ao vivo",
+				"week": 5
+			},
+			{
+				"amount": 732,
+				"category": "sales",
+				"description": "Vendas de EP: EP",
+				"week": 5
+			},
+			{
+				"amount": 98,
+				"category": "streams",
+				"description": "Streams: EP",
+				"week": 5
+			},
+			{
+				"amount": 135,
+				"category": "merch",
+				"description": "Loja oficial",
+				"week": 5
+			}
+		],
+		"live_shows": [
+			{
+				"addons": [],
+				"capacity": 1400,
+				"city_id": "rio",
+				"covers_lodging": false,
+				"covers_travel": false,
+				"crew": {},
+				"day": 19,
+				"event_name": "",
+				"event_type": "",
+				"fee": 0,
+				"fee_model": "",
+				"festival_edition_id": "",
+				"guests": [],
+				"id": "show_7",
+				"kind": "independent",
+				"lineup_position": "",
+				"merch_enabled": true,
+				"model": "independent",
+				"offer_expires_week": 0,
+				"percentage": 0.0,
+				"production_id": "basic",
+				"promotion": 0,
+				"result": {
+					"artist_income": 6520,
+					"attendance": 767,
+					"buzz": 47,
+					"buzz_label": "Boa",
+					"capacity": 1400,
+					"co_share": 0,
+					"commission": 0,
+					"expenses": {
+						"addons": 0,
+						"crew": 0,
+						"food": 30,
+						"guests": 0,
+						"lodging": 80,
+						"production": 0,
+						"promotion": 0,
+						"rent": 2500,
+						"security": 700,
+						"travel": 143
+					},
+					"fame": 2,
+					"fatigue": 0,
+					"gross": 7670,
+					"income": 6520,
+					"merch_gross": 2220,
+					"merch_net": 1887,
+					"merch_units": 74,
+					"net_box": 6520,
+					"new_fans": 32,
+					"occupancy": 55,
+					"profit": 4954,
+					"quality": 42,
+					"reputation": 0,
+					"sold": 767,
+					"ticket_fees": 1151,
+					"total_expenses": 3453,
+					"vip_sold": 0,
+					"week": 3
+				},
+				"set_type": "full",
+				"stage_name": "",
+				"status": "done",
+				"ticket_price": 10.0,
+				"tour_id": "",
+				"upfront_paid": 3453,
+				"venue_id": "club",
+				"venue_name": "Club Noturno — Rio de Janeiro",
+				"vip_enabled": false,
+				"vip_price": 30.0
+			},
+			{
+				"addons": [],
+				"capacity": 1000,
+				"city_id": "curitiba",
+				"covers_lodging": false,
+				"covers_travel": false,
+				"crew": {},
+				"day": 61,
+				"event_name": "",
+				"event_type": "",
+				"fee": 0,
+				"fee_model": "",
+				"festival_edition_id": "",
+				"guests": [],
+				"id": "show_9",
+				"kind": "tour",
+				"lineup_position": "",
+				"merch_enabled": true,
+				"model": "independent",
+				"offer_expires_week": 0,
+				"percentage": 0.0,
+				"production_id": "basic",
+				"promotion": 0,
+				"result": {},
+				"set_type": "full",
+				"stage_name": "",
+				"status": "scheduled",
+				"ticket_price": 10.0,
+				"tour_id": "tour_8",
+				"upfront_paid": 3251,
+				"venue_id": "club",
+				"venue_name": "Club 808 — Curitiba",
+				"vip_enabled": false,
+				"vip_price": 30.0
+			},
+			{
+				"addons": [],
+				"capacity": 1400,
+				"city_id": "rio",
+				"covers_lodging": true,
+				"covers_travel": true,
+				"crew": {},
+				"day": 34,
+				"event_name": "Festa na boate em Rio de Janeiro",
+				"event_type": "Festa na boate",
+				"fee": 0,
+				"fee_model": "",
+				"festival_edition_id": "",
+				"guests": [],
+				"id": "offer_11",
+				"kind": "contracted",
+				"lineup_position": "",
+				"merch_enabled": true,
+				"model": "percentage",
+				"offer_expires_week": 5,
+				"percentage": 0.330534155666828,
+				"production_id": "basic",
+				"promotion": 0,
+				"result": {},
+				"set_type": "full",
+				"stage_name": "",
+				"status": "offer",
+				"ticket_price": 20.15325,
+				"tour_id": "",
+				"upfront_paid": 0,
+				"venue_id": "club",
+				"venue_name": "Club Noturno — Rio de Janeiro",
+				"vip_enabled": false,
+				"vip_price": 60.45975
+			},
+			{
+				"addons": [],
+				"capacity": 110,
+				"city_id": "lisboa",
+				"covers_lodging": true,
+				"covers_travel": true,
+				"crew": {},
+				"day": 67,
+				"event_name": "Noite de rap no bar em Lisboa",
+				"event_type": "Noite de rap no bar",
+				"fee": 0,
+				"fee_model": "",
+				"festival_edition_id": "",
+				"guests": [],
+				"id": "offer_12",
+				"kind": "contracted",
+				"lineup_position": "",
+				"merch_enabled": true,
+				"model": "percentage",
+				"offer_expires_week": 6,
+				"percentage": 0.347579848766327,
+				"production_id": "basic",
+				"promotion": 0,
+				"result": {},
+				"set_type": "full",
+				"stage_name": "",
+				"status": "offer",
+				"ticket_price": 11.2125,
+				"tour_id": "",
+				"upfront_paid": 0,
+				"venue_id": "bar",
+				"venue_name": "Bar da Esquina — Lisboa",
+				"vip_enabled": false,
+				"vip_price": 33.6375
+			},
+			{
+				"addons": [],
+				"capacity": 133,
+				"city_id": "recife",
+				"covers_lodging": false,
+				"covers_travel": false,
+				"crew": {},
+				"day": 62,
+				"event_name": "Apresentação privada em Recife",
+				"event_type": "Apresentação privada",
+				"fee": 711,
+				"fee_model": "",
+				"festival_edition_id": "",
+				"guests": [],
+				"id": "offer_13",
+				"kind": "contracted",
+				"lineup_position": "",
+				"merch_enabled": true,
+				"model": "fixed",
+				"offer_expires_week": 7,
+				"percentage": 0.0,
+				"production_id": "basic",
+				"promotion": 0,
+				"result": {},
+				"set_type": "full",
+				"stage_name": "",
+				"status": "offer",
+				"ticket_price": 11.22875,
+				"tour_id": "",
+				"upfront_paid": 0,
+				"venue_id": "bar",
+				"venue_name": "Bar do Centro — Recife",
+				"vip_enabled": false,
+				"vip_price": 33.68625
+			}
+		],
+		"live_tours": [
+			{
+				"co_headliner_id": "",
+				"fame_end": 0,
+				"fame_start": 900,
+				"followers_end": 0,
+				"followers_start": 0,
+				"goal": "",
+				"id": "tour_8",
+				"name": "Turnê Sete",
+				"project_id": "",
+				"sponsor_offers": [],
+				"sponsors": [],
+				"status": "confirmed",
+				"types": [
+					"national"
+				]
+			}
+		],
+		"marketing_campaigns": [],
+		"merch_items": [
+			{
+				"cost_total": 800,
+				"exclusive_id": "",
+				"exclusive_kind": "",
+				"id": "merch_6",
+				"limited": false,
+				"made": 100,
+				"price": 30,
+				"product_id": "tshirt",
+				"revenue": 2265,
+				"sold": 88,
+				"stock": 12
+			}
+		],
+		"money": 807219,
+		"music_videos": [],
+		"next_id": 14,
+		"performance_snapshots": [
+			{
+				"followers": 3350,
+				"listeners": 39349,
+				"plays": 204297,
+				"revenue": 2274,
+				"week": 2
+			},
+			{
+				"followers": 6045,
+				"listeners": 70990,
+				"plays": 164269,
+				"revenue": 1828,
+				"week": 3
+			},
+			{
+				"followers": 7585,
+				"listeners": 88715,
+				"plays": 92033,
+				"revenue": 1024,
+				"week": 4
+			},
+			{
+				"followers": 8748,
+				"listeners": 102434,
+				"plays": 70676,
+				"revenue": 1497,
+				"week": 5
+			}
+		],
+		"platform_stats": [
+			{
+				"followers": 4405,
+				"listeners": 65861,
+				"peak_listeners": 65861,
+				"platform_id": "spotify",
+				"recent_plays": [
+					84168,
+					67677,
+					37916,
+					29777
+				],
+				"revenue": 2195,
+				"total_plays": 219538,
+				"week_plays": 0
+			},
+			{
+				"followers": 1584,
+				"listeners": 26308,
+				"peak_listeners": 26308,
+				"platform_id": "apple_music",
+				"recent_plays": [
+					40552,
+					32606,
+					18268,
+					13805
+				],
+				"revenue": 1579,
+				"total_plays": 105231,
+				"week_plays": 0
+			},
+			{
+				"followers": 619,
+				"listeners": 10265,
+				"peak_listeners": 10265,
+				"platform_id": "deezer",
+				"recent_plays": [
+					15843,
+					12739,
+					7137,
+					5340
+				],
+				"revenue": 493,
+				"total_plays": 41059,
+				"week_plays": 0
+			},
+			{
+				"followers": 1098,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "soundcloud",
+				"recent_plays": [
+					14083,
+					11324,
+					6344,
+					4800
+				],
+				"revenue": 145,
+				"total_plays": 36551,
+				"week_plays": 0
+			},
+			{
+				"followers": 1042,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "youtube",
+				"recent_plays": [
+					39923,
+					32101,
+					17985,
+					13588
+				],
+				"revenue": 311,
+				"total_plays": 103597,
+				"week_plays": 0
+			},
+			{
+				"followers": 0,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "radio",
+				"recent_plays": [
+					9728,
+					7822,
+					4383,
+					3366
+				],
+				"revenue": 127,
+				"total_plays": 25299,
+				"week_plays": 0
+			},
+			{
+				"followers": 0,
+				"listeners": 0,
+				"peak_listeners": 0,
+				"platform_id": "digital_store",
+				"recent_plays": [
+					409,
+					329,
+					184,
+					2560
+				],
+				"revenue": 1774,
+				"total_plays": 3482,
+				"week_plays": 0
+			}
+		],
+		"releases": [
+			{
+				"content_id": "song_1",
+				"content_type": "song",
+				"initial_potential": 1.0,
+				"release_week": 1,
+				"total_fame": 59,
+				"total_money": 5793,
+				"total_sales": 1042,
+				"total_streams": 520566
+			},
+			{
+				"content_id": "album_5",
+				"content_type": "album",
+				"initial_potential": 1.0,
+				"release_week": 4,
+				"total_fame": 5,
+				"total_money": 830,
+				"total_sales": 2440,
+				"total_streams": 10709
+			}
+		],
+		"reputation": 0,
+		"scheduled_releases": [
+			{
+				"content_id": "album_5",
+				"paid_cost": 75,
+				"scheduled_week": 4,
+				"status": "released"
+			}
+		],
+		"song_performances": [
+			{
+				"base_units": 9572,
+				"launch_factor": 1.1,
+				"peak_week_plays": 204297,
+				"platform_plays": {
+					"apple_music": 103329,
+					"deezer": 40369,
+					"radio": 24789,
+					"soundcloud": 35885,
+					"spotify": 214467,
+					"youtube": 101727
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "song_1",
+				"revenue": 4751,
+				"song_id": "song_1",
+				"spotlight_platform": "",
+				"surge_week": -1,
+				"total_plays": 520566,
+				"trajectory_id": "debut_crash",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					204297,
+					164269,
+					92033,
+					59967
+				]
+			},
+			{
+				"base_units": 1423,
+				"launch_factor": 1.0,
+				"peak_week_plays": 2329,
+				"platform_plays": {
+					"apple_music": 250,
+					"deezer": 96,
+					"radio": 111,
+					"soundcloud": 79,
+					"spotify": 1549,
+					"youtube": 244
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "album_5",
+				"revenue": 22,
+				"song_id": "song_2",
+				"spotlight_platform": "spotify",
+				"surge_week": -1,
+				"total_plays": 2329,
+				"trajectory_id": "platform_focus",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					2329
+				]
+			},
+			{
+				"base_units": 2439,
+				"launch_factor": 1.0,
+				"peak_week_plays": 988,
+				"platform_plays": {
+					"apple_music": 186,
+					"deezer": 71,
+					"radio": 47,
+					"soundcloud": 70,
+					"spotify": 426,
+					"youtube": 188
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "album_5",
+				"revenue": 9,
+				"song_id": "song_3",
+				"spotlight_platform": "",
+				"surge_week": -1,
+				"total_plays": 988,
+				"trajectory_id": "flop",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					988
+				]
+			},
+			{
+				"base_units": 8837,
+				"launch_factor": 1.0,
+				"peak_week_plays": 7392,
+				"platform_plays": {
+					"apple_music": 1466,
+					"deezer": 523,
+					"radio": 352,
+					"soundcloud": 517,
+					"spotify": 3096,
+					"youtube": 1438
+				},
+				"recommendation_weeks_left": 0,
+				"recommendations": 0,
+				"release_id": "album_5",
+				"revenue": 67,
+				"song_id": "song_4",
+				"spotlight_platform": "",
+				"surge_week": -1,
+				"total_plays": 7392,
+				"trajectory_id": "slow_growth",
+				"video_boost": 1.0,
+				"weekly_plays": [
+					7392
+				]
+			}
+		],
+		"songs": [
+			{
+				"attribute_bases": {
+					"beat": 55,
+					"lyrics": 54,
+					"production": 47,
+					"vocal": 57
+				},
+				"attribute_points": {},
+				"beat_roll": 0.707440614700317,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_1",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": -0.339627921581268,
+				"quality": 53,
+				"release_week": 1,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Hit ao vivo"
+			},
+			{
+				"attribute_bases": {
+					"beat": 44,
+					"lyrics": 49,
+					"production": 44,
+					"vocal": 55
+				},
+				"attribute_points": {},
+				"beat_roll": -0.82073962688446,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_2",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": -0.796106576919556,
+				"quality": 48,
+				"release_week": 4,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Faixa 1"
+			},
+			{
+				"attribute_bases": {
+					"beat": 57,
+					"lyrics": 45,
+					"production": 52,
+					"vocal": 50
+				},
+				"attribute_points": {},
+				"beat_roll": 0.949654102325439,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_3",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": 0.316291332244873,
+				"quality": 52,
+				"release_week": 4,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Faixa 2"
+			},
+			{
+				"attribute_bases": {
+					"beat": 56,
+					"lyrics": 43,
+					"production": 49,
+					"vocal": 57
+				},
+				"attribute_points": {},
+				"beat_roll": 0.822276711463928,
+				"cover_file": "",
+				"credits": {
+					"beatmakers": [],
+					"feats": [],
+					"producers": []
+				},
+				"feat_score": 50,
+				"id": "song_4",
+				"leak_attention": 0,
+				"leak_week": -1,
+				"production_cost": 100,
+				"production_roll": -0.0745128393173218,
+				"quality": 52,
+				"release_week": 4,
+				"sample": {
+					"sample_id": "",
+					"song_id": ""
+				},
+				"status": "released",
+				"title": "Faixa 3"
+			}
+		],
+		"week_reports": [
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 24,
+						"money": 2274,
+						"note": "",
+						"sales": 409,
+						"streams": 204297,
+						"title": "Hit ao vivo"
+					},
+					{
+						"cover_file": "",
+						"fame": 6,
+						"money": 0,
+						"note": "3.350 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 54,
+						"note": "",
+						"sales": 2,
+						"streams": 0,
+						"title": "Loja oficial"
+					}
+				],
+				"week": 2
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 19,
+						"money": 1828,
+						"note": "",
+						"sales": 329,
+						"streams": 164269,
+						"title": "Hit ao vivo"
+					},
+					{
+						"cover_file": "",
+						"fame": 6,
+						"money": 0,
+						"note": "6.045 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					},
+					{
+						"cover_file": "",
+						"fame": 2,
+						"money": 8407,
+						"note": "Público 767 de 1.400 (55%), qualidade 42, repercussão Boa. Resultado: +$4.954.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Show: Club Noturno — Rio de Janeiro"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 81,
+						"note": "",
+						"sales": 3,
+						"streams": 0,
+						"title": "Loja oficial"
+					}
+				],
+				"week": 3
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 10,
+						"money": 1024,
+						"note": "",
+						"sales": 184,
+						"streams": 92033,
+						"title": "Hit ao vivo"
+					},
+					{
+						"cover_file": "",
+						"fame": 3,
+						"money": 0,
+						"note": "7.585 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 0,
+						"note": "EP lançado como agendado. Reputação +0.",
+						"sales": 0,
+						"streams": 0,
+						"title": "EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 108,
+						"note": "",
+						"sales": 4,
+						"streams": 0,
+						"title": "Loja oficial"
+					}
+				],
+				"week": 4
+			},
+			{
+				"entries": [
+					{
+						"cover_file": "",
+						"fame": 6,
+						"money": 667,
+						"note": "",
+						"sales": 120,
+						"streams": 59967,
+						"title": "Hit ao vivo"
+					},
+					{
+						"cover_file": "",
+						"fame": 5,
+						"money": 830,
+						"note": "",
+						"sales": 2440,
+						"streams": 10709,
+						"title": "EP"
+					},
+					{
+						"cover_file": "",
+						"fame": 2,
+						"money": 0,
+						"note": "8.748 seguidores no total.",
+						"sales": 0,
+						"streams": 0,
+						"title": "Crescimento nas plataformas"
+					},
+					{
+						"cover_file": "",
+						"fame": 0,
+						"money": 135,
+						"note": "",
+						"sales": 5,
+						"streams": 0,
+						"title": "Loja oficial"
+					}
+				],
+				"week": 5
+			}
+		]
+	},
+	"version": 7
+}

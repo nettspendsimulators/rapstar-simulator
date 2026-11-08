@@ -32,6 +32,7 @@ func _ready() -> void:
 	%CoverPicker.message_requested.connect(%MessageLabel.set_text)
 	%BioEdit.text = GameManager.career.artist_bio
 	%BioButton.pressed.connect(_on_bio_pressed)
+	%CustomizeButton.pressed.connect(navigate.bind(Screen.CHARACTER, {"back": Screen.ARTIST_PROFILE}))
 	%BackButton.pressed.connect(navigate.bind(Screen.HUB))
 	super()
 

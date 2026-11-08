@@ -1,0 +1,852 @@
+[gd_resource type="Resource" script_class="CharacterRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/character/character_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/character/character_option_definition.gd" id="2_option"]
+
+[sub_resource type="Resource" id="skin_1"]
+script = ExtResource("2_option")
+id = "skin_1"
+display_name = "Muito clara"
+category = "skin"
+color = Color(0.965, 0.863, 0.784, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_2"]
+script = ExtResource("2_option")
+id = "skin_2"
+display_name = "Clara"
+category = "skin"
+color = Color(0.918, 0.761, 0.635, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_3"]
+script = ExtResource("2_option")
+id = "skin_3"
+display_name = "Clara média"
+category = "skin"
+color = Color(0.851, 0.639, 0.486, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_4"]
+script = ExtResource("2_option")
+id = "skin_4"
+display_name = "Morena clara"
+category = "skin"
+color = Color(0.753, 0.518, 0.345, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_5"]
+script = ExtResource("2_option")
+id = "skin_5"
+display_name = "Morena"
+category = "skin"
+color = Color(0.612, 0.400, 0.251, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_6"]
+script = ExtResource("2_option")
+id = "skin_6"
+display_name = "Marrom"
+category = "skin"
+color = Color(0.478, 0.294, 0.173, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_7"]
+script = ExtResource("2_option")
+id = "skin_7"
+display_name = "Escura"
+category = "skin"
+color = Color(0.353, 0.208, 0.125, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="skin_8"]
+script = ExtResource("2_option")
+id = "skin_8"
+display_name = "Muito escura"
+category = "skin"
+color = Color(0.243, 0.141, 0.086, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_bald"]
+script = ExtResource("2_option")
+id = "hair_bald"
+display_name = "Careca"
+category = "hair"
+style = "bald"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_buzz"]
+script = ExtResource("2_option")
+id = "hair_buzz"
+display_name = "Raspado"
+category = "hair"
+style = "buzz"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_short"]
+script = ExtResource("2_option")
+id = "hair_short"
+display_name = "Curto"
+category = "hair"
+style = "short"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_waves"]
+script = ExtResource("2_option")
+id = "hair_waves"
+display_name = "Waves"
+category = "hair"
+style = "waves"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_curly"]
+script = ExtResource("2_option")
+id = "hair_curly"
+display_name = "Cacheado"
+category = "hair"
+style = "curly"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_afro"]
+script = ExtResource("2_option")
+id = "hair_afro"
+display_name = "Black power"
+category = "hair"
+style = "afro"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_twists"]
+script = ExtResource("2_option")
+id = "hair_twists"
+display_name = "Twists"
+category = "hair"
+style = "twists"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_dreads"]
+script = ExtResource("2_option")
+id = "hair_dreads"
+display_name = "Dreads"
+category = "hair"
+style = "dreads"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_braids"]
+script = ExtResource("2_option")
+id = "hair_braids"
+display_name = "Tranças"
+category = "hair"
+style = "braids"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_long"]
+script = ExtResource("2_option")
+id = "hair_long"
+display_name = "Longo"
+category = "hair"
+style = "long"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_mohawk"]
+script = ExtResource("2_option")
+id = "hair_mohawk"
+display_name = "Moicano"
+category = "hair"
+style = "mohawk"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_bun"]
+script = ExtResource("2_option")
+id = "hair_bun"
+display_name = "Coque"
+category = "hair"
+style = "bun"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_black"]
+script = ExtResource("2_option")
+id = "hc_black"
+display_name = "Preto"
+category = "hair_color"
+color = Color(0.086, 0.071, 0.063, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_dark_brown"]
+script = ExtResource("2_option")
+id = "hc_dark_brown"
+display_name = "Castanho escuro"
+category = "hair_color"
+color = Color(0.231, 0.149, 0.090, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_brown"]
+script = ExtResource("2_option")
+id = "hc_brown"
+display_name = "Castanho"
+category = "hair_color"
+color = Color(0.416, 0.267, 0.149, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_blond"]
+script = ExtResource("2_option")
+id = "hc_blond"
+display_name = "Loiro"
+category = "hair_color"
+color = Color(0.851, 0.706, 0.416, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_platinum"]
+script = ExtResource("2_option")
+id = "hc_platinum"
+display_name = "Platinado"
+category = "hair_color"
+color = Color(0.925, 0.902, 0.839, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_red"]
+script = ExtResource("2_option")
+id = "hc_red"
+display_name = "Ruivo"
+category = "hair_color"
+color = Color(0.659, 0.263, 0.165, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_gray"]
+script = ExtResource("2_option")
+id = "hc_gray"
+display_name = "Grisalho"
+category = "hair_color"
+color = Color(0.604, 0.604, 0.604, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_blue"]
+script = ExtResource("2_option")
+id = "hc_blue"
+display_name = "Azul"
+category = "hair_color"
+color = Color(0.184, 0.384, 0.847, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_pink"]
+script = ExtResource("2_option")
+id = "hc_pink"
+display_name = "Rosa"
+category = "hair_color"
+color = Color(0.894, 0.416, 0.659, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_green"]
+script = ExtResource("2_option")
+id = "hc_green"
+display_name = "Verde"
+category = "hair_color"
+color = Color(0.247, 0.682, 0.353, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hc_purple"]
+script = ExtResource("2_option")
+id = "hc_purple"
+display_name = "Roxo"
+category = "hair_color"
+color = Color(0.478, 0.247, 0.761, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_thin"]
+script = ExtResource("2_option")
+id = "brows_thin"
+display_name = "Finas"
+category = "brows"
+style = "thin"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_normal"]
+script = ExtResource("2_option")
+id = "brows_normal"
+display_name = "Médias"
+category = "brows"
+style = "normal"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_thick"]
+script = ExtResource("2_option")
+id = "brows_thick"
+display_name = "Grossas"
+category = "brows"
+style = "thick"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_arched"]
+script = ExtResource("2_option")
+id = "brows_arched"
+display_name = "Arqueadas"
+category = "brows"
+style = "arched"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_cut"]
+script = ExtResource("2_option")
+id = "brows_cut"
+display_name = "Com corte"
+category = "brows"
+style = "cut"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_dark"]
+script = ExtResource("2_option")
+id = "eyes_dark"
+display_name = "Pretos"
+category = "eye_color"
+color = Color(0.114, 0.075, 0.051, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_brown"]
+script = ExtResource("2_option")
+id = "eyes_brown"
+display_name = "Castanhos"
+category = "eye_color"
+color = Color(0.357, 0.227, 0.118, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_hazel"]
+script = ExtResource("2_option")
+id = "eyes_hazel"
+display_name = "Mel"
+category = "eye_color"
+color = Color(0.604, 0.416, 0.173, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_green"]
+script = ExtResource("2_option")
+id = "eyes_green"
+display_name = "Verdes"
+category = "eye_color"
+color = Color(0.247, 0.478, 0.227, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_blue"]
+script = ExtResource("2_option")
+id = "eyes_blue"
+display_name = "Azuis"
+category = "eye_color"
+color = Color(0.227, 0.447, 0.722, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_gray"]
+script = ExtResource("2_option")
+id = "eyes_gray"
+display_name = "Cinza"
+category = "eye_color"
+color = Color(0.490, 0.529, 0.565, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_none"]
+script = ExtResource("2_option")
+id = "beard_none"
+display_name = "Sem barba"
+category = "beard"
+style = "none"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_stubble"]
+script = ExtResource("2_option")
+id = "beard_stubble"
+display_name = "Por fazer"
+category = "beard"
+style = "stubble"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_mustache"]
+script = ExtResource("2_option")
+id = "beard_mustache"
+display_name = "Bigode"
+category = "beard"
+style = "mustache"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_goatee"]
+script = ExtResource("2_option")
+id = "beard_goatee"
+display_name = "Cavanhaque"
+category = "beard"
+style = "goatee"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_chinstrap"]
+script = ExtResource("2_option")
+id = "beard_chinstrap"
+display_name = "Contorno"
+category = "beard"
+style = "chinstrap"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_short"]
+script = ExtResource("2_option")
+id = "beard_short"
+display_name = "Curta"
+category = "beard"
+style = "short"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_full"]
+script = ExtResource("2_option")
+id = "beard_full"
+display_name = "Cheia"
+category = "beard"
+style = "full"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_long"]
+script = ExtResource("2_option")
+id = "beard_long"
+display_name = "Longa"
+category = "beard"
+style = "long"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="top_tee_white"]
+script = ExtResource("2_option")
+id = "top_tee_white"
+display_name = "Camiseta branca"
+category = "top"
+style = "tshirt"
+color = Color(0.945, 0.945, 0.945, 1)
+color2 = Color(0.839, 0.839, 0.839, 1)
+
+[sub_resource type="Resource" id="top_tee_black"]
+script = ExtResource("2_option")
+id = "top_tee_black"
+display_name = "Camiseta preta"
+category = "top"
+style = "tshirt"
+color = Color(0.122, 0.122, 0.133, 1)
+color2 = Color(0.227, 0.227, 0.243, 1)
+
+[sub_resource type="Resource" id="top_tee_red"]
+script = ExtResource("2_option")
+id = "top_tee_red"
+display_name = "Camiseta vermelha"
+category = "top"
+style = "tshirt"
+color = Color(0.753, 0.188, 0.169, 1)
+color2 = Color(0.561, 0.122, 0.110, 1)
+
+[sub_resource type="Resource" id="top_tee_gold"]
+script = ExtResource("2_option")
+id = "top_tee_gold"
+display_name = "Camiseta dourada"
+category = "top"
+style = "tshirt"
+color = Color(0.851, 0.651, 0.137, 1)
+color2 = Color(0.659, 0.490, 0.071, 1)
+
+[sub_resource type="Resource" id="top_tank_white"]
+script = ExtResource("2_option")
+id = "top_tank_white"
+display_name = "Regata branca"
+category = "top"
+style = "tank"
+color = Color(0.945, 0.945, 0.945, 1)
+color2 = Color(0.839, 0.839, 0.839, 1)
+
+[sub_resource type="Resource" id="top_tank_black"]
+script = ExtResource("2_option")
+id = "top_tank_black"
+display_name = "Regata preta"
+category = "top"
+style = "tank"
+color = Color(0.122, 0.122, 0.133, 1)
+color2 = Color(0.227, 0.227, 0.243, 1)
+
+[sub_resource type="Resource" id="top_shirt_white"]
+script = ExtResource("2_option")
+id = "top_shirt_white"
+display_name = "Camisa social branca"
+category = "top"
+style = "shirt"
+color = Color(0.957, 0.957, 0.957, 1)
+color2 = Color(0.812, 0.812, 0.812, 1)
+
+[sub_resource type="Resource" id="top_shirt_flannel"]
+script = ExtResource("2_option")
+id = "top_shirt_flannel"
+display_name = "Camisa xadrez"
+category = "top"
+style = "shirt"
+color = Color(0.639, 0.188, 0.184, 1)
+color2 = Color(0.165, 0.165, 0.165, 1)
+
+[sub_resource type="Resource" id="top_shirt_denim"]
+script = ExtResource("2_option")
+id = "top_shirt_denim"
+display_name = "Camisa jeans"
+category = "top"
+style = "shirt"
+color = Color(0.306, 0.435, 0.620, 1)
+color2 = Color(0.212, 0.314, 0.478, 1)
+
+[sub_resource type="Resource" id="top_hoodie_gray"]
+script = ExtResource("2_option")
+id = "top_hoodie_gray"
+display_name = "Moletom cinza"
+category = "top"
+style = "hoodie"
+color = Color(0.545, 0.553, 0.573, 1)
+color2 = Color(0.424, 0.431, 0.451, 1)
+
+[sub_resource type="Resource" id="top_hoodie_black"]
+script = ExtResource("2_option")
+id = "top_hoodie_black"
+display_name = "Moletom preto"
+category = "top"
+style = "hoodie"
+color = Color(0.137, 0.137, 0.153, 1)
+color2 = Color(0.227, 0.227, 0.251, 1)
+
+[sub_resource type="Resource" id="top_hoodie_purple"]
+script = ExtResource("2_option")
+id = "top_hoodie_purple"
+display_name = "Moletom roxo"
+category = "top"
+style = "hoodie"
+color = Color(0.420, 0.247, 0.659, 1)
+color2 = Color(0.310, 0.173, 0.502, 1)
+
+[sub_resource type="Resource" id="top_jersey_blue"]
+script = ExtResource("2_option")
+id = "top_jersey_blue"
+display_name = "Camisa de time azul"
+category = "top"
+style = "jersey"
+color = Color(0.141, 0.325, 0.710, 1)
+color2 = Color(0.945, 0.945, 0.945, 1)
+
+[sub_resource type="Resource" id="top_jersey_yellow"]
+script = ExtResource("2_option")
+id = "top_jersey_yellow"
+display_name = "Camisa de time amarela"
+category = "top"
+style = "jersey"
+color = Color(0.949, 0.765, 0.000, 1)
+color2 = Color(0.110, 0.478, 0.227, 1)
+
+[sub_resource type="Resource" id="jacket_none"]
+script = ExtResource("2_option")
+id = "jacket_none"
+display_name = "Sem jaqueta"
+category = "jacket"
+style = "none"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="jacket_bomber"]
+script = ExtResource("2_option")
+id = "jacket_bomber"
+display_name = "Bomber verde"
+category = "jacket"
+style = "bomber"
+color = Color(0.294, 0.353, 0.200, 1)
+color2 = Color(0.769, 0.416, 0.110, 1)
+
+[sub_resource type="Resource" id="jacket_denim"]
+script = ExtResource("2_option")
+id = "jacket_denim"
+display_name = "Jaqueta jeans"
+category = "jacket"
+style = "denim"
+color = Color(0.302, 0.431, 0.639, 1)
+color2 = Color(0.788, 0.635, 0.290, 1)
+
+[sub_resource type="Resource" id="jacket_leather"]
+script = ExtResource("2_option")
+id = "jacket_leather"
+display_name = "Jaqueta de couro"
+category = "jacket"
+style = "leather"
+color = Color(0.106, 0.102, 0.110, 1)
+color2 = Color(0.333, 0.333, 0.349, 1)
+
+[sub_resource type="Resource" id="jacket_puffer"]
+script = ExtResource("2_option")
+id = "jacket_puffer"
+display_name = "Puffer"
+category = "jacket"
+style = "puffer"
+color = Color(0.816, 0.290, 0.173, 1)
+color2 = Color(0.639, 0.216, 0.122, 1)
+
+[sub_resource type="Resource" id="jacket_varsity"]
+script = ExtResource("2_option")
+id = "jacket_varsity"
+display_name = "College"
+category = "jacket"
+style = "varsity"
+color = Color(0.478, 0.114, 0.165, 1)
+color2 = Color(0.941, 0.918, 0.847, 1)
+
+[sub_resource type="Resource" id="bottom_jeans_blue"]
+script = ExtResource("2_option")
+id = "bottom_jeans_blue"
+display_name = "Jeans azul"
+category = "bottom"
+style = "jeans"
+color = Color(0.239, 0.357, 0.549, 1)
+color2 = Color(0.173, 0.267, 0.439, 1)
+
+[sub_resource type="Resource" id="bottom_jeans_black"]
+script = ExtResource("2_option")
+id = "bottom_jeans_black"
+display_name = "Jeans preto"
+category = "bottom"
+style = "jeans"
+color = Color(0.149, 0.153, 0.169, 1)
+color2 = Color(0.227, 0.231, 0.251, 1)
+
+[sub_resource type="Resource" id="bottom_cargo_khaki"]
+script = ExtResource("2_option")
+id = "bottom_cargo_khaki"
+display_name = "Cargo cáqui"
+category = "bottom"
+style = "cargo"
+color = Color(0.549, 0.478, 0.322, 1)
+color2 = Color(0.431, 0.373, 0.243, 1)
+
+[sub_resource type="Resource" id="bottom_cargo_black"]
+script = ExtResource("2_option")
+id = "bottom_cargo_black"
+display_name = "Cargo preta"
+category = "bottom"
+style = "cargo"
+color = Color(0.169, 0.169, 0.180, 1)
+color2 = Color(0.267, 0.267, 0.282, 1)
+
+[sub_resource type="Resource" id="bottom_sweat_gray"]
+script = ExtResource("2_option")
+id = "bottom_sweat_gray"
+display_name = "Moletom cinza"
+category = "bottom"
+style = "sweatpants"
+color = Color(0.545, 0.553, 0.573, 1)
+color2 = Color(0.424, 0.431, 0.451, 1)
+
+[sub_resource type="Resource" id="bottom_shorts_black"]
+script = ExtResource("2_option")
+id = "bottom_shorts_black"
+display_name = "Bermuda preta"
+category = "bottom"
+style = "shorts"
+color = Color(0.149, 0.153, 0.169, 1)
+color2 = Color(0.227, 0.231, 0.251, 1)
+
+[sub_resource type="Resource" id="bottom_shorts_denim"]
+script = ExtResource("2_option")
+id = "bottom_shorts_denim"
+display_name = "Bermuda jeans"
+category = "bottom"
+style = "shorts"
+color = Color(0.337, 0.459, 0.651, 1)
+color2 = Color(0.247, 0.357, 0.533, 1)
+
+[sub_resource type="Resource" id="shoes_white"]
+script = ExtResource("2_option")
+id = "shoes_white"
+display_name = "Tênis branco"
+category = "shoes"
+style = "sneakers"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.816, 0.816, 0.816, 1)
+
+[sub_resource type="Resource" id="shoes_black"]
+script = ExtResource("2_option")
+id = "shoes_black"
+display_name = "Tênis preto"
+category = "shoes"
+style = "sneakers"
+color = Color(0.118, 0.118, 0.125, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="shoes_red"]
+script = ExtResource("2_option")
+id = "shoes_red"
+display_name = "Tênis vermelho"
+category = "shoes"
+style = "sneakers"
+color = Color(0.753, 0.188, 0.169, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="shoes_boots"]
+script = ExtResource("2_option")
+id = "shoes_boots"
+display_name = "Bota"
+category = "shoes"
+style = "boots"
+color = Color(0.420, 0.290, 0.165, 1)
+color2 = Color(0.227, 0.153, 0.090, 1)
+
+[sub_resource type="Resource" id="shoes_slides"]
+script = ExtResource("2_option")
+id = "shoes_slides"
+display_name = "Chinelo slide"
+category = "shoes"
+style = "slides"
+color = Color(0.118, 0.118, 0.125, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="head_none"]
+script = ExtResource("2_option")
+id = "head_none"
+display_name = "Nada"
+category = "headwear"
+style = "none"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="head_cap_black"]
+script = ExtResource("2_option")
+id = "head_cap_black"
+display_name = "Boné preto"
+category = "headwear"
+style = "cap"
+color = Color(0.118, 0.118, 0.125, 1)
+color2 = Color(0.851, 0.651, 0.137, 1)
+
+[sub_resource type="Resource" id="head_cap_red"]
+script = ExtResource("2_option")
+id = "head_cap_red"
+display_name = "Boné vermelho"
+category = "headwear"
+style = "cap"
+color = Color(0.753, 0.188, 0.169, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="head_cap_back"]
+script = ExtResource("2_option")
+id = "head_cap_back"
+display_name = "Boné para trás"
+category = "headwear"
+style = "cap_back"
+color = Color(0.141, 0.325, 0.710, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="head_beanie"]
+script = ExtResource("2_option")
+id = "head_beanie"
+display_name = "Gorro"
+category = "headwear"
+style = "beanie"
+color = Color(0.227, 0.227, 0.251, 1)
+color2 = Color(0.333, 0.333, 0.361, 1)
+
+[sub_resource type="Resource" id="head_bucket"]
+script = ExtResource("2_option")
+id = "head_bucket"
+display_name = "Bucket hat"
+category = "headwear"
+style = "bucket"
+color = Color(0.788, 0.706, 0.541, 1)
+color2 = Color(0.659, 0.584, 0.424, 1)
+
+[sub_resource type="Resource" id="head_durag"]
+script = ExtResource("2_option")
+id = "head_durag"
+display_name = "Durag"
+category = "headwear"
+style = "durag"
+color = Color(0.118, 0.118, 0.125, 1)
+color2 = Color(0.227, 0.227, 0.251, 1)
+
+[sub_resource type="Resource" id="acc_chain_gold"]
+script = ExtResource("2_option")
+id = "acc_chain_gold"
+display_name = "Corrente de ouro"
+category = "accessory"
+style = "chain"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(0.965, 0.843, 0.478, 1)
+
+[sub_resource type="Resource" id="acc_chain_silver"]
+script = ExtResource("2_option")
+id = "acc_chain_silver"
+display_name = "Corrente de prata"
+category = "accessory"
+style = "chain"
+color = Color(0.788, 0.800, 0.824, 1)
+color2 = Color(0.933, 0.941, 0.957, 1)
+
+[sub_resource type="Resource" id="acc_sunglasses"]
+script = ExtResource("2_option")
+id = "acc_sunglasses"
+display_name = "Óculos escuros"
+category = "accessory"
+style = "sunglasses"
+color = Color(0.078, 0.078, 0.086, 1)
+color2 = Color(0.227, 0.227, 0.251, 1)
+
+[sub_resource type="Resource" id="acc_glasses"]
+script = ExtResource("2_option")
+id = "acc_glasses"
+display_name = "Óculos de grau"
+category = "accessory"
+style = "glasses"
+color = Color(0.165, 0.165, 0.180, 1)
+color2 = Color(0.749, 0.878, 1.000, 1)
+
+[sub_resource type="Resource" id="acc_earrings"]
+script = ExtResource("2_option")
+id = "acc_earrings"
+display_name = "Brincos"
+category = "accessory"
+style = "earrings"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(0.965, 0.843, 0.478, 1)
+
+[sub_resource type="Resource" id="acc_watch"]
+script = ExtResource("2_option")
+id = "acc_watch"
+display_name = "Relógio"
+category = "accessory"
+style = "watch"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(0.118, 0.118, 0.125, 1)
+
+[resource]
+script = ExtResource("1_rules")
+options = Array[ExtResource("2_option")]([SubResource("skin_1"), SubResource("skin_2"), SubResource("skin_3"), SubResource("skin_4"), SubResource("skin_5"), SubResource("skin_6"), SubResource("skin_7"), SubResource("skin_8"), SubResource("hair_bald"), SubResource("hair_buzz"), SubResource("hair_short"), SubResource("hair_waves"), SubResource("hair_curly"), SubResource("hair_afro"), SubResource("hair_twists"), SubResource("hair_dreads"), SubResource("hair_braids"), SubResource("hair_long"), SubResource("hair_mohawk"), SubResource("hair_bun"), SubResource("hc_black"), SubResource("hc_dark_brown"), SubResource("hc_brown"), SubResource("hc_blond"), SubResource("hc_platinum"), SubResource("hc_red"), SubResource("hc_gray"), SubResource("hc_blue"), SubResource("hc_pink"), SubResource("hc_green"), SubResource("hc_purple"), SubResource("brows_thin"), SubResource("brows_normal"), SubResource("brows_thick"), SubResource("brows_arched"), SubResource("brows_cut"), SubResource("eyes_dark"), SubResource("eyes_brown"), SubResource("eyes_hazel"), SubResource("eyes_green"), SubResource("eyes_blue"), SubResource("eyes_gray"), SubResource("beard_none"), SubResource("beard_stubble"), SubResource("beard_mustache"), SubResource("beard_goatee"), SubResource("beard_chinstrap"), SubResource("beard_short"), SubResource("beard_full"), SubResource("beard_long"), SubResource("top_tee_white"), SubResource("top_tee_black"), SubResource("top_tee_red"), SubResource("top_tee_gold"), SubResource("top_tank_white"), SubResource("top_tank_black"), SubResource("top_shirt_white"), SubResource("top_shirt_flannel"), SubResource("top_shirt_denim"), SubResource("top_hoodie_gray"), SubResource("top_hoodie_black"), SubResource("top_hoodie_purple"), SubResource("top_jersey_blue"), SubResource("top_jersey_yellow"), SubResource("jacket_none"), SubResource("jacket_bomber"), SubResource("jacket_denim"), SubResource("jacket_leather"), SubResource("jacket_puffer"), SubResource("jacket_varsity"), SubResource("bottom_jeans_blue"), SubResource("bottom_jeans_black"), SubResource("bottom_cargo_khaki"), SubResource("bottom_cargo_black"), SubResource("bottom_sweat_gray"), SubResource("bottom_shorts_black"), SubResource("bottom_shorts_denim"), SubResource("shoes_white"), SubResource("shoes_black"), SubResource("shoes_red"), SubResource("shoes_boots"), SubResource("shoes_slides"), SubResource("head_none"), SubResource("head_cap_black"), SubResource("head_cap_red"), SubResource("head_cap_back"), SubResource("head_beanie"), SubResource("head_bucket"), SubResource("head_durag"), SubResource("acc_chain_gold"), SubResource("acc_chain_silver"), SubResource("acc_sunglasses"), SubResource("acc_glasses"), SubResource("acc_earrings"), SubResource("acc_watch")])
+defaults = {
+"skin": "skin_4",
+"hair": "hair_short",
+"hair_color": "hc_black",
+"brows": "brows_normal",
+"eye_color": "eyes_brown",
+"beard": "beard_none",
+"top": "top_tee_white",
+"jacket": "jacket_none",
+"bottom": "bottom_jeans_blue",
+"shoes": "shoes_white",
+"headwear": "head_none"
+}
+countries = Array[String](["Brasil", "Portugal", "Argentina", "Chile", "México", "Estados Unidos", "Canadá", "Reino Unido", "França", "Alemanha", "Espanha", "Itália", "Angola", "Moçambique", "Nigéria", "Japão", "Coreia do Sul", "Outro"])

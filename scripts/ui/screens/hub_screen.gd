@@ -13,6 +13,7 @@ func _ready() -> void:
 	%PerformanceButton.pressed.connect(navigate.bind(Screen.PERFORMANCE))
 	%VideosButton.pressed.connect(navigate.bind(Screen.VIDEOS))
 	%LiveButton.pressed.connect(navigate.bind(Screen.LIVE))
+	%CharacterButton.pressed.connect(navigate.bind(Screen.CHARACTER))
 	%NextWeekButton.pressed.connect(_on_next_week_pressed)
 	%SaveButton.pressed.connect(_on_save_pressed)
 	%LoadButton.pressed.connect(%LoadConfirm.popup_centered)
@@ -25,11 +26,13 @@ func _ready() -> void:
 func refresh() -> void:
 	var career := GameManager.career
 	%ArtistLabel.text = "Artista: %s" % career.artist_name
+	%IdentityLabel.text = "%d anos  •  %s" % [GameManager.characters.current_age(career), GameManager.characters.location_label(career.country, career.city)]
+	%HubCharacter.appearance = career.appearance
 	%WeekLabel.text = "Semana: %s" % Fmt.number(career.current_week)
 	%MoneyLabel.text = "Dinheiro: %s" % Fmt.money(career.money)
 	%FameLabel.text = "Fama: %s" % Fmt.number(career.fame)
 	%ReputationLabel.text = "Reputação: %s" % Fmt.number(career.reputation)
-	%EnergyLabel.text = "Energia: %d/%d" % [career.energy, GameManager.balance.max_energy]
+	%EnergyLabel.text = "Energia: infinita" if career.infinite_energy else "Energia: %d/%d" % [career.energy, GameManager.balance.max_energy]
 	%LoadButton.disabled = not GameManager.has_save()
 
 

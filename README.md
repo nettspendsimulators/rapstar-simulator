@@ -33,6 +33,7 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Sample | `data/samples.tres` |
 | Opção de produção de videoclipe, prazo, risco e desempenho | `data/videos.tres` |
 | Cidade, local, produção, equipe, merch, festival, patrocinador, tipo de turnê e regras ao vivo | `data/live.tres` |
+| Peça de aparência (pele, cabelo, barba, roupa, acessório...), países e idades | `data/character.tres` (estilo novo: uma função de desenho em `character_view.gd`) |
 | Pesos da nota, custo e limite das melhorias | `song_quality` em `data/game_balance.tres` |
 | Formato de projeto | Nova entrada em `album_formats` em `data/game_balance.tres` |
 | Atributo de música (gênero, duração...) | `SongData`: campo, `to_dict` e `from_dict` |
@@ -45,7 +46,8 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 
 Ficam em `%APPDATA%\Rapstar\saves\` (e não em `res://`, que é somente leitura no `.exe`):
 
-- `career.json`: o save, em JSON legível.
+- `career_<id>.json`: uma carreira por arquivo, em JSON legível. Cada carreira é independente.
+  O `career.json` das versões anteriores continua sendo uma carreira da lista.
 - `covers/`: as capas, recortadas em quadrado e convertidas para WEBP. O save guarda só o nome
   do arquivo, que vem do conteúdo da imagem. Capas que deixam de ser usadas continuam na pasta.
 - `career.json.v1.bak`, `career.json.v2.bak`...: cópia do save original, criada ao migrar de uma versão antiga.
@@ -78,6 +80,10 @@ godot --headless --path . --script res://tests/test_videos.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_live.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_character.gd
 ```
 
 ## Regras do sistema musical
@@ -183,6 +189,12 @@ não devolve o dinheiro: o retorno depende do desempenho do lançamento.
 **Reputação:** muda ao lançar (qualidade acima de 50 aumenta, abaixo de 50 diminui) e nos shows
 (show muito bom aumenta, show ruim ou compromisso contratado cancelado diminui).
 
+**Personagem e carreiras:** cada carreira tem nome artístico (identidade pública), nome real, idade
+(cresce um ano a cada 52 semanas), país, cidade, aparência e a opção de energia infinita. A aparência
+é montada por peças independentes de `data/character.tres` e desenhada em camadas pelo
+`CharacterView`, no hub, na lista de carreiras, na criação e em Personagem. Trocar a aparência só muda
+a aparência e grava no save da carreira. Com energia infinita, as atividades não gastam energia.
+
 **Ao vivo (shows, turnês, festivais e merch):** fica na área "Ao vivo" da navegação principal.
 
 - O calendário é por dia (7 por semana). Dois compromissos não podem cair no mesmo dia, e cidades
@@ -213,4 +225,5 @@ não devolve o dinheiro: o retorno depende do desempenho do lançamento.
 presentes não são cobrados. Na v1, álbuns não lançados com 3 a 6 músicas viram EP, e os já lançados
 não mudam. Na v2, Beat, Produção e participações são mantidos sempre que possível, e Vocal e Letra
 recebem o valor que completa a mesma nota. Saves até a v6 começam a carreira ao vivo vazia, e as
-edições dos festivais são criadas ao carregar.
+edições dos festivais são criadas ao carregar. Saves até a v7 recebem aparência padrão, 20 anos,
+país Brasil, nome real e cidade vazios e energia normal.

@@ -29,14 +29,16 @@ func add_reputation(career: CareerData, amount: int) -> void:
 	career.reputation += amount
 
 
+## Com energia infinita, a carreira sempre pode agir e a energia não diminui.
 func can_spend_energy(career: CareerData, amount: int) -> bool:
-	return career.energy >= amount
+	return career.infinite_energy or career.energy >= amount
 
 
 ## Quem chama deve verificar can_spend_energy antes.
 func spend_energy(career: CareerData, amount: int) -> void:
 	assert(can_spend_energy(career, amount))
-	career.energy -= amount
+	if not career.infinite_energy:
+		career.energy -= amount
 
 
 func restore_energy(career: CareerData, amount: int, max_energy: int) -> void:

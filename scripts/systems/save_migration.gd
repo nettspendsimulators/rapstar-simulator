@@ -17,6 +17,20 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v6(payload["career"], balance)
 	if version < 7:
 		_migrate_to_v7(payload["career"])
+	if version < 8:
+		_migrate_to_v8(payload["career"], balance)
+
+
+## v8: identidade, aparência e energia infinita. O nome artístico continua o mesmo; o resto
+## recebe os valores padrão, e todo o progresso é mantido.
+static func _migrate_to_v8(career: Dictionary, balance: GameBalance) -> void:
+	var rules := balance.character
+	career["real_name"] = ""
+	career["age"] = rules.default_age
+	career["country"] = rules.default_country
+	career["city"] = ""
+	career["appearance"] = {"choices": rules.defaults.duplicate(), "accessories": []}
+	career["infinite_energy"] = false
 
 
 ## v7: carreira ao vivo. Começa vazia; os festivais criam suas edições na primeira semana.

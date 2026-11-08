@@ -13,6 +13,7 @@ var rng := RandomNumberGenerator.new()
 var time := TimeSystem.new()
 var economy := EconomySystem.new()
 var saves := SaveSystem.new(balance)
+var characters := CharacterSystem.new(balance)
 var covers := CoverSystem.new(balance, saves)
 var performance := PerformanceSystem.new(balance, rng)
 var song_quality := SongQualitySystem.new(balance)
@@ -30,35 +31,94 @@ var festivals := FestivalSystem.new(balance, live, rng)
 var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming, videos, live, tours, festivals)
 
 
+## Slot (arquivo) da carreira aberta. Salvar e carregar usam sempre este slot.
+var current_slot: String = SaveSystem.DEFAULT_SLOT
+
+
 func _init() -> void:
 	rng.randomize()
 
 
+## Carreira com identidade e aparência padrão, ainda sem slot próprio.
 func new_career(artist_name: String) -> ActionResult:
 	var clean_name := artist_name.strip_edges()
 	if clean_name.is_empty():
 		return ActionResult.failure("Escolha um nome artístico.")
 	career = CareerData.create(clean_name, balance)
+	career.age = balance.character.default_age
+	career.country = balance.character.default_country
+	career.appearance = characters.default_appearance()
 	festivals.ensure_editions(career)
 	career_changed.emit()
 	return ActionResult.success()
 
 
+## Nova carreira independente: identidade, aparência e um slot próprio, salvo na hora.
+## identity: real_name, age, country, city.
+func create_career(artist_name: String, identity: Dictionary, appearance: CharacterAppearance) -> ActionResult:
+	var previous := career
+	var created := new_career(artist_name)
+	if not created.ok:
+		return created
+	var applied := characters.apply_identity(career, identity)
+	if not applied.ok:
+		career = previous
+		return applied
+	career.appearance = characters.sanitize(appearance)
+	current_slot = saves.new_slot_id()
+	var saved := saves.save_career(career, current_slot)
+	career_changed.emit()
+	return ActionResult.success("Carreira criada." if saved.ok else saved.message, career)
+
+
+## Há um save da carreira aberta.
 func has_save() -> bool:
-	return saves.has_save()
+	return saves.has_save(current_slot)
+
+
+func has_any_save() -> bool:
+	return not saves.list_slots().is_empty()
+
+
+func list_careers() -> Array[Dictionary]:
+	return saves.list_slots()
 
 
 func save_game() -> ActionResult:
-	return saves.save_career(career)
+	return saves.save_career(career, current_slot)
 
 
-func load_game() -> ActionResult:
-	var result := saves.load_career()
+## Sem slot, recarrega a carreira aberta. Com slot, abre aquela carreira.
+func load_game(slot: String = "") -> ActionResult:
+	var target := current_slot if slot.is_empty() else slot
+	var result := saves.load_career(target)
 	if result.ok:
+		current_slot = target
 		career = result.value
 		festivals.ensure_editions(career)
 		career_changed.emit()
 	return result
+
+
+func delete_career(slot: String) -> ActionResult:
+	return saves.delete_slot(slot)
+
+
+## Troca a aparência sem tocar no resto da carreira e grava no slot da carreira.
+func set_appearance(appearance: CharacterAppearance) -> ActionResult:
+	career.appearance = characters.sanitize(appearance)
+	var saved := save_game()
+	career_changed.emit()
+	return ActionResult.success("Aparência salva." if saved.ok else saved.message)
+
+
+func set_infinite_energy(enabled: bool) -> ActionResult:
+	career.infinite_energy = enabled
+	var saved := save_game()
+	career_changed.emit()
+	if not saved.ok:
+		return saved
+	return ActionResult.success("Energia infinita %s nesta carreira." % ("ativada" if enabled else "desativada"))
 
 
 func next_week() -> WeekReport:

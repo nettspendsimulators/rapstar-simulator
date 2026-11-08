@@ -23,6 +23,8 @@ const SCREENS := {
 	Screen.CAREER: preload("res://scenes/screens/career_screen.tscn"),
 	Screen.WEEK_REPORT: preload("res://scenes/screens/week_report_screen.tscn"),
 	Screen.LIVE: preload("res://scenes/screens/live_screen.tscn"),
+	Screen.CHARACTER: preload("res://scenes/screens/character_screen.tscn"),
+	Screen.CAREERS: preload("res://scenes/screens/careers_screen.tscn"),
 	Screen.SHOW_EDITOR: preload("res://scenes/screens/show_editor_screen.tscn"),
 	Screen.TOUR_EDITOR: preload("res://scenes/screens/tour_editor_screen.tscn"),
 	Screen.FESTIVAL: preload("res://scenes/screens/festival_screen.tscn"),
