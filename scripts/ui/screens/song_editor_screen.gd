@@ -1,8 +1,18 @@
 extends Screen
 ## Cria uma música nova ou edita uma não lançada (quando context tem song_id).
+## Layout: à esquerda a identidade da faixa (nome, capa, diss, sample); no centro a equipe, uma
+## função por aba; embaixo, a barra de resumo com a nota estimada, os atributos e o custo, ao
+## lado do botão de produzir. Assim o jogador vê o efeito de cada escolha antes de pagar.
+
+const TEAM := [["producers", "Produtores", "ProducerPicker"], ["beatmakers", "Beatmakers", "BeatmakerPicker"], ["feats", "Feats", "FeatPicker"]]
 
 var _song: SongData
 var _diss := OptionButton.new()
+var _team_tabs: Dictionary[String, Button] = {}
+var _grade := Label.new()
+var _grade_caption := Label.new()
+var _bars: Dictionary[String, ProgressBar] = {}
+var _bar_values: Dictionary[String, Label] = {}
 
 
 func _ready() -> void:
@@ -17,6 +27,7 @@ func _ready() -> void:
 	%FeatPicker.setup("Feats", feats, rules.max_feats)
 	for picker: CollaboratorPicker in [%ProducerPicker, %BeatmakerPicker, %FeatPicker]:
 		picker.selection_changed.connect(_update_preview)
+	_build_layout()
 
 	_song = GameManager.career.find_song(context.get("song_id", ""))
 	_show_social_prices()
@@ -109,6 +120,15 @@ func _update_preview() -> void:
 	parts.append("Feats: %d" % preview.feat_value)
 	var note_label := "Nota" if _song != null else "Nota estimada"
 	%PreviewLabel.text = "%s  |  %s: %d" % ["  |  ".join(parts), note_label, preview.quality]
+	_grade.text = str(preview.quality)
+	_grade.add_theme_color_override("font_color", Color("#46d483") if preview.quality >= 70 else (Color("#f5b82e") if preview.quality >= 45 else Color("#ff8a94")))
+	_grade_caption.text = note_label.to_upper()
+	for attribute in GameManager.balance.song_quality.attributes:
+		_set_bar(attribute.id, preview.attribute_values[attribute.id])
+	_set_bar("feats", preview.feat_value)
+	for item: Array in TEAM:
+		var picker: CollaboratorPicker = get_node("%" + item[2])
+		_team_tabs[item[0]].text = "%s  %s" % [item[1], picker.count_text()]
 
 	var hiring := GameManager.music.hiring_cost(credits, _song, GameManager.career)
 	if _song == null or not sample.equals(_song.sample):
@@ -128,6 +148,177 @@ func _update_preview() -> void:
 		%ConfirmButton.text = "Salvar alterações (%s)" % Fmt.money(total)
 	else:
 		%ConfirmButton.text = "Produzir (%s)" % Fmt.money(total)
+
+
+func _set_bar(id: String, value: int) -> void:
+	if not _bars.has(id):
+		return
+	var bar := _bars[id]
+	bar.create_tween().tween_property(bar, "value", float(value), 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_bar_values[id].text = str(value)
+
+
+# ---- montagem
+
+func _build_layout() -> void:
+	var column: VBoxContainer = $Column
+	column.add_theme_constant_override("separation", 10)
+	# Cabeçalho: área, título, frase de apoio e Voltar discreto à direita.
+	var header := HBoxContainer.new()
+	column.add_child(header)
+	column.move_child(header, 0)
+	var titles := VBoxContainer.new()
+	titles.add_theme_constant_override("separation", 0)
+	titles.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(titles)
+	var kicker := Label.new()
+	kicker.text = "ESTÚDIO"
+	kicker.theme_type_variation = &"Kicker"
+	titles.add_child(kicker)
+	%Title.reparent(titles)
+	%Title.tooltip_text = "Monte a equipe: talento sobe a nota, consistência reduz a variação e o cachê é pago uma vez."
+	%Title.mouse_filter = Control.MOUSE_FILTER_PASS
+	%BackButton.reparent(header)
+	%BackButton.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	# Identidade à esquerda: nome, capa, diss e sample juntos.
+	var form: VBoxContainer = $Column/Body/Form/FormColumn
+	form.add_theme_constant_override("separation", 10)
+	$Column/Body/Form.custom_minimum_size.x = 300
+	# Capa compacta: a prévia menor e os botões de imagem numa linha só.
+	var cover: Control = %CoverPicker
+	cover.get_node("Preview").custom_minimum_size.y = 72
+	cover.get_node("FileButton").reparent(cover.get_node("PasteRow"))
+	cover.get_node("PasteRow").move_child(cover.get_node("PasteRow/FileButton"), 0)
+	cover.get_node("PasteRow/FileButton").text = "Imagem"
+	_section_label(form, "SAMPLE", form.get_child_count())
+	for node: Control in [%SampleOption, %OwnSongOption, %SampleInfo]:
+		node.reparent(form)
+		node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	%SampleInfo.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	%SampleInfo.theme_type_variation = &"MutedLabel"
+	$Column/SampleRow.visible = false
+	# Equipe no centro, uma função por aba.
+	var team := PanelContainer.new()
+	team.name = "TeamCard"
+	team.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	$Column/Body.add_child(team)
+	var team_column := VBoxContainer.new()
+	team_column.add_theme_constant_override("separation", 10)
+	team.add_child(team_column)
+	var tabs := HBoxContainer.new()
+	tabs.add_theme_constant_override("separation", 6)
+	team_column.add_child(tabs)
+	var team_label := Label.new()
+	team_label.text = "EQUIPE"
+	team_label.tooltip_text = "Talento sobe a nota, consistência reduz a variação e o cachê é pago uma vez."
+	team_label.mouse_filter = Control.MOUSE_FILTER_PASS
+	team_label.theme_type_variation = &"SectionLabel"
+	team_label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	team_label.custom_minimum_size.x = 64
+	tabs.add_child(team_label)
+	var group := ButtonGroup.new()
+	for item: Array in TEAM:
+		var tab := Button.new()
+		tab.name = "Team_%s" % item[0]
+		tab.theme_type_variation = &"ChipButton"
+		tab.toggle_mode = true
+		tab.button_group = group
+		tab.focus_mode = Control.FOCUS_NONE
+		tab.pressed.connect(_show_team.bind(item[0]))
+		tabs.add_child(tab)
+		_team_tabs[item[0]] = tab
+		var picker: CollaboratorPicker = get_node("%" + item[2])
+		picker.reparent(team_column)
+		picker.show_header(false)
+		picker.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_show_team("feats" if context.has("diss_target") else "producers")
+	# Barra de resumo: nota, atributos e custo, com a ação principal.
+	var summary := PanelContainer.new()
+	summary.name = "SummaryBar"
+	summary.theme_type_variation = &"HeroPanel"
+	column.add_child(summary)
+	column.move_child(summary, $Column/ButtonRow.get_index())
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 26)
+	summary.add_child(row)
+	var grade_box := VBoxContainer.new()
+	grade_box.add_theme_constant_override("separation", -4)
+	grade_box.custom_minimum_size.x = 110
+	row.add_child(grade_box)
+	_grade_caption.theme_type_variation = &"Kicker"
+	grade_box.add_child(_grade_caption)
+	_grade.name = "GradeValue"
+	_grade.theme_type_variation = &"HeroTitle"
+	_grade.add_theme_font_size_override("font_size", 40)
+	grade_box.add_child(_grade)
+	var bars := GridContainer.new()
+	bars.columns = 6
+	bars.add_theme_constant_override("h_separation", 10)
+	bars.add_theme_constant_override("v_separation", 4)
+	bars.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	bars.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(bars)
+	var specs: Array = []
+	for attribute in GameManager.balance.song_quality.attributes:
+		specs.append([attribute.id, attribute.display_name])
+	specs.append(["feats", "Feats"])
+	for spec: Array in specs:
+		var name_label := Label.new()
+		name_label.text = spec[1]
+		name_label.theme_type_variation = &"StatCaption"
+		name_label.custom_minimum_size.x = 70
+		bars.add_child(name_label)
+		var bar := ProgressBar.new()
+		bar.show_percentage = false
+		bar.max_value = 100
+		bar.custom_minimum_size = Vector2(70, 6)
+		bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		bars.add_child(bar)
+		_bars[spec[0]] = bar
+		var value := Label.new()
+		value.theme_type_variation = &"ChipLabel"
+		value.custom_minimum_size.x = 28
+		value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		bars.add_child(value)
+		_bar_values[spec[0]] = value
+	var money := VBoxContainer.new()
+	money.add_theme_constant_override("separation", 8)
+	money.custom_minimum_size.x = 360
+	money.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(money)
+	%CostLabel.reparent(money)
+	%CostLabel.theme_type_variation = &"StatCaption"
+	%CostLabel.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	%ConfirmButton.reparent(money)
+	%MessageLabel.reparent(money)
+	%MessageLabel.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	%ConfirmButton.theme_type_variation = &"PrimaryButton"
+	%ConfirmButton.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	%PreviewLabel.visible = false
+	$Column/ButtonRow.visible = false
+
+
+func _section_label(parent: Container, text: String, index: int) -> void:
+	var label := Label.new()
+	label.text = text
+	label.theme_type_variation = &"SectionLabel"
+	parent.add_child(label)
+	parent.move_child(label, index)
+
+
+func _show_team(team_id: String) -> void:
+	for item: Array in TEAM:
+		var picker: CollaboratorPicker = get_node("%" + item[2])
+		picker.visible = item[0] == team_id
+		_team_tabs[item[0]].set_pressed_no_signal(item[0] == team_id)
+
+
+## Quem automatiza cliques chega a um colaborador abrindo a aba da função dele.
+func reveal(control: Control) -> void:
+	for item: Array in TEAM:
+		if get_node("%" + item[2]).is_ancestor_of(control):
+			_show_team(item[0])
 
 
 func _on_confirm_pressed() -> void:
@@ -172,6 +363,7 @@ func _build_diss_option() -> void:
 	_diss.tooltip_text = "Uma diss é uma música normal com um alvo: ao ser lançada, começa ou esquenta um beef."
 	_diss.disabled = _diss.item_count == 1
 	%CoverPicker.get_parent().add_child(_diss)
+	%CoverPicker.get_parent().move_child(_diss, %CoverPicker.get_index() + 1)
 
 
 func _go_back() -> void:

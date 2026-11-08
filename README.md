@@ -217,7 +217,14 @@ salvar e menu. A barra superior mostra o nome da área, as subabas dela, dinheir
 energia (com as mudanças aparecendo na hora) e "Próxima semana", que avança e salva. Telas internas
 (editores, relatórios) acendem a área a que pertencem. O Início é a vitrine da carreira: o artista no
 palco com nome, fase, progresso e carro; o próximo passo; atalhos com contexto (o que é, o estado e a
-ação); a agenda e o resultado da semana. As áreas e subabas ficam em `GameShell.SECTIONS`.
+ação); a agenda e o resultado da semana. As áreas e subabas ficam em `GameShell.SECTIONS`. Cada área tem uma cor
+própria (Início dourado, Música violeta, Carreira ciano, Palco rosa, Social coral, Estilo azul), usada
+no ícone ao lado do nome da área, na linha da barra superior, no trilho, nas subabas e na luz do fundo.
+
+**Criação de música:** à esquerda a faixa (nome, capa, diss, sample); no centro a equipe, uma função
+por aba (Produtores, Beatmakers, Feats, com a contagem); embaixo a barra de resumo com a nota estimada,
+os atributos em barras animadas, o custo e "Produzir". **Perfil público:** banner com retrato, fase,
+nome, descrição e números de público; catálogo embaixo e edição do perfil numa coluna à direita.
 
 **Visual:** fundo com luzes de palco, cartões com profundidade, capas geradas (gradiente e vinil
 únicos por nome) para músicas, projetos e propostas sem imagem, e o personagem como foto do artista

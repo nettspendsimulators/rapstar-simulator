@@ -70,6 +70,12 @@ static func fit_long_texts(node: Node) -> void:
 		fit_long_texts(child)
 
 
+## Mostra a parte da tela onde um controle está (por exemplo, a aba que o contém).
+## Telas com conteúdo em abas sobrescrevem; quem automatiza cliques chama antes de clicar.
+func reveal(_control: Control) -> void:
+	pass
+
+
 ## Sobrescreva para mostrar os dados atuais da carreira.
 func refresh() -> void:
 	pass

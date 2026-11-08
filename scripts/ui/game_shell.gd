@@ -12,24 +12,24 @@ signal navigate_requested(screen_id: StringName, context: Dictionary)
 
 ## Áreas do jogo: id, rótulo, ícone, frase de apoio e itens [rótulo, ícone, tela, contexto, nome].
 const SECTIONS := [
-	{"id": "home", "label": "Início", "icon": "home", "hint": "Sua carreira em um olhar", "items": [
+	{"id": "home", "accent": Color("#f5b82e"), "label": "Início", "icon": "home", "hint": "Sua carreira em um olhar", "items": [
 		["Início", "home", Screen.HUB, {}, "HomeButton"],
 	]},
-	{"id": "music", "label": "Música", "icon": "music", "hint": "Criar, gravar e lançar", "items": [
+	{"id": "music", "accent": Color("#b07cff"), "label": "Música", "icon": "music", "hint": "Criar, gravar e lançar", "items": [
 		["Músicas", "music", Screen.SONGS, {}, "SongsButton"],
 		["Projetos", "album", Screen.ALBUMS, {}, "AlbumsButton"],
 		["Lançamentos", "release", Screen.RELEASES, {}, "ReleasesButton"],
 		["Videoclipes", "video", Screen.VIDEOS, {}, "VideosButton"],
 		["Marketing", "marketing", Screen.MARKETING_HUB, {}, "MarketingButton"],
 	]},
-	{"id": "career", "label": "Carreira", "icon": "chart", "hint": "Números, público e dinheiro", "items": [
+	{"id": "career", "accent": Color("#3ec7e0"), "label": "Carreira", "icon": "chart", "hint": "Números, público e dinheiro", "items": [
 		["Desempenho", "chart", Screen.PERFORMANCE, {}, "PerformanceButton"],
 		["Plataformas", "platforms", Screen.PLATFORMS, {}, "PlatformsButton"],
 		["Perfil público", "profile", Screen.ARTIST_PROFILE, {}, "ProfileButton"],
 		["Finanças", "career", Screen.CAREER, {}, "CareerButton"],
 		["Trabalhar", "work", Screen.WORK, {}, "WorkButton"],
 	]},
-	{"id": "stage", "label": "Palco", "icon": "mic", "hint": "Shows, turnês, festivais e merch", "items": [
+	{"id": "stage", "accent": Color("#ff5ea8"), "label": "Palco", "icon": "mic", "hint": "Shows, turnês, festivais e merch", "items": [
 		["Shows", "mic", Screen.LIVE, {"tab": 0}, "LiveButton"],
 		["Ofertas", "mic", Screen.LIVE, {"tab": 1}, "OffersButton"],
 		["Turnês", "tour", Screen.LIVE, {"tab": 2}, "ToursButton"],
@@ -37,10 +37,10 @@ const SECTIONS := [
 		["Merch", "merch", Screen.LIVE, {"tab": 4}, "MerchButton"],
 		["Histórico", "calendar", Screen.LIVE, {"tab": 5}, "LiveHistoryButton"],
 	]},
-	{"id": "social", "label": "Social", "icon": "social", "hint": "Amizades, rivalidades e beefs", "items": [
+	{"id": "social", "accent": Color("#ff8a5c"), "label": "Social", "icon": "social", "hint": "Amizades, rivalidades e beefs", "items": [
 		["Relações", "social", Screen.SOCIAL, {}, "SocialButton"],
 	]},
-	{"id": "style", "label": "Estilo", "icon": "character", "hint": "Visual e garagem", "items": [
+	{"id": "style", "accent": Color("#5b9dff"), "label": "Estilo", "icon": "character", "hint": "Visual e garagem", "items": [
 		["Personagem", "character", Screen.CHARACTER, {}, "CharacterButton"],
 		["Carros", "car", Screen.GARAGE, {}, "GarageButton"],
 	]},
@@ -57,6 +57,7 @@ const CHIP_COLORS := {"money": Color("#46d483"), "fame": Color("#f5b82e"), "fans
 
 ## Área da tela aberta. A rolagem horizontal só aparece se uma tela não couber na janela.
 var content := ScrollContainer.new()
+var _section_icon := TextureRect.new()
 var _section_title := Label.new()
 var _section_hint := Label.new()
 var _tabs := HBoxContainer.new()
@@ -70,6 +71,7 @@ var _toast := PanelContainer.new()
 var _toast_label := Label.new()
 var _menu_confirm := ConfirmationDialog.new()
 var _current_section := ""
+var _top_line: StyleBoxFlat
 var _last: Dictionary = {}
 var _last_career: CareerData
 var _toast_tween: Tween
@@ -197,6 +199,7 @@ func _show_section(section_id: String) -> void:
 		if section["id"] == section_id:
 			_section_title.text = section["label"]
 			_section_hint.text = section["hint"]
+			_apply_accent(section)
 	var multiple := false
 	for key in _nav:
 		var button := _nav[key]
@@ -206,6 +209,46 @@ func _show_section(section_id: String) -> void:
 			multiple = true
 	# Uma área com um item só não precisa de abas: o nome dela já diz onde você está.
 	_tabs.visible = multiple
+
+
+## Cada área tem uma cor: ícone ao lado do nome, linha da barra superior e luz do fundo.
+func _apply_accent(section: Dictionary) -> void:
+	var accent: Color = section["accent"]
+	_section_icon.texture = load("res://assets/icons/%s.svg" % section["icon"])
+	_section_icon.modulate = accent
+	_top_line.border_color = Color(accent, 0.45)
+	var background := get_parent().get_node_or_null("AppBackground") as AppBackground
+	if background != null:
+		background.set_accent(accent)
+
+
+## Estilos de uma cor de área para o botão do trilho e as subabas dela.
+static func _accent_styles(button: Button, accent: Color, rail: bool) -> void:
+	var pressed := StyleBoxFlat.new()
+	if rail:
+		pressed.bg_color = Color(accent, 0.14)
+		pressed.border_color = Color(accent, 0.6)
+		pressed.set_border_width_all(1)
+		pressed.set_corner_radius_all(14)
+		pressed.shadow_color = Color(accent, 0.18)
+		pressed.shadow_size = 12
+		pressed.content_margin_left = 4
+		pressed.content_margin_right = 4
+		pressed.content_margin_top = 8
+		pressed.content_margin_bottom = 6
+	else:
+		pressed.bg_color = Color(accent, 0.0)
+		pressed.border_color = accent
+		pressed.border_width_bottom = 3
+		pressed.content_margin_left = 12
+		pressed.content_margin_right = 12
+		pressed.content_margin_top = 10
+		pressed.content_margin_bottom = 10
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("hover_pressed", pressed)
+	if rail:
+		for key in ["font_pressed_color", "font_hover_pressed_color", "icon_pressed_color", "icon_hover_pressed_color"]:
+			button.add_theme_color_override(key, accent.lightened(0.15))
 
 
 ## Números da barra contam até o novo valor, para a mudança ser percebida.
@@ -277,12 +320,13 @@ func _build_rail() -> void:
 		button.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
 		button.toggle_mode = true
 		button.focus_mode = Control.FOCUS_NONE
-		button.custom_minimum_size = Vector2(72, 56)
+		button.custom_minimum_size = Vector2(72, 52)
 		button.tooltip_text = "%s — %s" % [section["label"], section["hint"]]
 		var first: Array = section["items"][0]
 		button.pressed.connect(func() -> void: navigate_requested.emit(first[2], first[3].duplicate()))
 		column.add_child(button)
 		_rail[section_id] = button
+		_accent_styles(button, section["accent"], true)
 		var badge := Label.new()
 		badge.theme_type_variation = &"CountBadge"
 		badge.visible = false
@@ -305,6 +349,7 @@ func _build_rail() -> void:
 			tab.set_meta("section", section_id)
 			tab.set_meta("first", index == 0)
 			tab.pressed.connect(func() -> void: navigate_requested.emit(item[2], item[3].duplicate()))
+			_accent_styles(tab, section["accent"], false)
 			_tabs.add_child(tab)
 			_nav[item[4]] = tab
 	var spacer := Control.new()
@@ -328,6 +373,15 @@ func _build_top_bar(parent: Container) -> void:
 	var bar := PanelContainer.new()
 	bar.name = "TopBar"
 	bar.theme_type_variation = &"TopBar"
+	_top_line = StyleBoxFlat.new()
+	_top_line.bg_color = Color("#100e18b8")
+	_top_line.border_width_bottom = 1
+	_top_line.border_color = Color("#241f33")
+	_top_line.content_margin_left = 28
+	_top_line.content_margin_right = 20
+	_top_line.content_margin_top = 10
+	_top_line.content_margin_bottom = 4
+	bar.add_theme_stylebox_override("panel", _top_line)
 	parent.add_child(bar)
 	var rows := VBoxContainer.new()
 	rows.add_theme_constant_override("separation", 0)
@@ -336,10 +390,15 @@ func _build_top_bar(parent: Container) -> void:
 	row.add_theme_constant_override("separation", 14)
 	rows.add_child(row)
 	var where := HBoxContainer.new()
-	where.add_theme_constant_override("separation", 18)
 	where.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	where.clip_contents = true
 	row.add_child(where)
+	_section_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_section_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_section_icon.custom_minimum_size = Vector2(26, 26)
+	_section_icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	where.add_child(_section_icon)
+	where.add_theme_constant_override("separation", 12)
 	_section_title.name = "SectionTitle"
 	_section_title.theme_type_variation = &"SectionTitle"
 	_section_title.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -453,7 +512,8 @@ func _float_delta(target: Label, key: String, change: int) -> void:
 	label.global_position = target.global_position + Vector2(0, 24)
 	var tween := label.create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(label, "global_position:y", label.global_position.y + 18, 1.6)
+	# Aparece logo abaixo do número e some, sem cobrir o valor nem as subabas.
+	tween.tween_property(label, "global_position:y", label.global_position.y + 4, 1.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label, "modulate:a", 0.0, 1.6).set_delay(0.6)
 	tween.chain().tween_callback(label.queue_free)
 

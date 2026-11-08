@@ -27,6 +27,7 @@ func _ready() -> void:
 	backdrop.floor_ratio = 0.94
 	holder.add_child(backdrop)
 	view.name = "CharacterPreview"
+	view.idle = true
 	view.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	view.offset_top = 12

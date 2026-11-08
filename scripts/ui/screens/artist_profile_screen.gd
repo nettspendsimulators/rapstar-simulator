@@ -12,6 +12,10 @@ const FORMAT_BY_FILTER := {FILTER_ALBUMS: "album", FILTER_EPS: "ep", FILTER_MIXT
 
 ## Id do colaborador em exibição. Vazio para o próprio artista.
 var _collaborator_id: String = ""
+var _portrait := CharacterView.new()
+var _kicker := Label.new()
+var _numbers: Dictionary[String, Label] = {}
+var _number_boxes: Dictionary[String, Control] = {}
 
 
 func _ready() -> void:
@@ -34,7 +38,108 @@ func _ready() -> void:
 	%BioButton.pressed.connect(_on_bio_pressed)
 	%CustomizeButton.pressed.connect(navigate.bind(Screen.CHARACTER, {"back": Screen.ARTIST_PROFILE}))
 	%BackButton.pressed.connect(navigate.bind(Screen.HUB))
+	_build_banner()
 	super()
+
+
+## Banner do perfil: retrato, fase, nome, descrição e os números de público em destaque. O catálogo
+## fica embaixo, e a edição do perfil (foto, descrição, visual) vai para a coluna da direita.
+func _build_banner() -> void:
+	var column: VBoxContainer = $Column
+	column.add_theme_constant_override("separation", 14)
+	var banner := PanelContainer.new()
+	banner.name = "ProfileBanner"
+	banner.theme_type_variation = &"HeroPanel"
+	column.add_child(banner)
+	column.move_child(banner, 1)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 22)
+	banner.add_child(row)
+	var frame := PanelContainer.new()
+	frame.theme_type_variation = &"StagePanel"
+	frame.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
+	frame.custom_minimum_size = Vector2(112, 112)
+	frame.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(frame)
+	var holder := Control.new()
+	frame.add_child(holder)
+	var light := StageBackdrop.new()
+	light.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	light.floor_ratio = 1.2
+	holder.add_child(light)
+	_portrait.focus = "head"
+	_portrait.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_portrait.offset_top = 8
+	holder.add_child(_portrait)
+	var texts := VBoxContainer.new()
+	texts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	texts.alignment = BoxContainer.ALIGNMENT_CENTER
+	texts.add_theme_constant_override("separation", 2)
+	row.add_child(texts)
+	_kicker.theme_type_variation = &"Kicker"
+	texts.add_child(_kicker)
+	%NameLabel.reparent(texts)
+	%NameLabel.theme_type_variation = &"HeroTitle"
+	%NameLabel.add_theme_font_size_override("font_size", 38)
+	%NameLabel.clip_text = true
+	%NameLabel.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	%BioLabel.reparent(texts)
+	%BioLabel.theme_type_variation = &"MutedLabel"
+	%BioLabel.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	%BioLabel.max_lines_visible = 2
+	var numbers := HBoxContainer.new()
+	numbers.name = "ProfileNumbers"
+	numbers.add_theme_constant_override("separation", 26)
+	numbers.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(numbers)
+	for spec: Array in [["listeners", "Ouvintes"], ["followers", "Seguidores"], ["subscribers", "Inscritos"], ["plays", "Reproduções"]]:
+		var box := VBoxContainer.new()
+		box.add_theme_constant_override("separation", -2)
+		numbers.add_child(box)
+		var value := Label.new()
+		value.theme_type_variation = &"BigNumber"
+		value.add_theme_font_size_override("font_size", 26)
+		box.add_child(value)
+		var caption := Label.new()
+		caption.text = spec[1].to_upper()
+		caption.theme_type_variation = &"SectionLabel"
+		box.add_child(caption)
+		_numbers[spec[0]] = value
+		_number_boxes[spec[0]] = box
+	%StatsLabel.visible = false
+	# Catálogo primeiro; edição do perfil à direita, mais estreita.
+	var body: HBoxContainer = $Column/Body
+	body.move_child($Column/Body/Side, body.get_child_count() - 1)
+	$Column/Body/Side.custom_minimum_size.x = 260
+	# Capa compacta: prévia menor e os botões de imagem numa linha.
+	var cover: Control = %CoverPicker
+	cover.get_node("Preview").custom_minimum_size.y = 80
+	cover.get_node("FileButton").reparent(cover.get_node("PasteRow"))
+	cover.get_node("PasteRow").move_child(cover.get_node("PasteRow/FileButton"), 0)
+	cover.get_node("PasteRow/FileButton").text = "Foto"
+	cover.get_node("PasteRow/PasteButton").text = "Colar"
+	# Filtro do catálogo e troca de perfil numa linha só; o nome da área já está na barra superior.
+	var tools := HBoxContainer.new()
+	tools.add_theme_constant_override("separation", 10)
+	$Column/Body/Main.add_child(tools)
+	$Column/Body/Main.move_child(tools, %FilterOption.get_index())
+	%FilterOption.reparent(tools)
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	tools.add_child(spacer)
+	%ArtistOption.reparent(tools)
+	%ArtistOption.tooltip_text = "Ver o perfil de outro artista"
+	$Column/HeaderRow.visible = false
+	var catalog_title := Label.new()
+	catalog_title.text = "CATÁLOGO"
+	catalog_title.theme_type_variation = &"SectionLabel"
+	$Column/Body/Main.add_child(catalog_title)
+	$Column/Body/Main.move_child(catalog_title, 0)
+	var edit_title := Label.new()
+	edit_title.text = "EDITAR PERFIL"
+	edit_title.theme_type_variation = &"SectionLabel"
+	%OwnProfile.add_child(edit_title)
+	%OwnProfile.move_child(edit_title, 0)
 
 
 func refresh() -> void:
@@ -55,6 +160,13 @@ func _show_own_profile() -> void:
 	%NameLabel.text = career.artist_name
 	%BioLabel.text = streaming.artist_bio(career)
 	var youtube := career.platform_stats_for("youtube")
+	_portrait.visible = true
+	_portrait.appearance = career.appearance
+	_kicker.text = "PERFIL PÚBLICO  •  %s" % GameManager.progression.stage_for(career.fame).display_name.to_upper()
+	_set_number("listeners", streaming.total_listeners(career))
+	_set_number("followers", streaming.total_followers(career) - youtube.followers)
+	_set_number("subscribers", youtube.followers)
+	_set_number("plays", streaming.total_plays(career))
 	%StatsLabel.text = "Ouvintes: %s  |  Seguidores: %s  |  Inscritos: %s  |  Reproduções: %s\nFama: %s  |  Catálogo: %s" % [
 		Fmt.number(streaming.total_listeners(career)),
 		Fmt.number(streaming.total_followers(career) - youtube.followers),
@@ -72,10 +184,24 @@ func _show_collaborator_profile() -> void:
 	var followers := roundi(listeners * rules.collaborator_followers_rate)
 	%CollaboratorCover.show_cover("")
 	%NameLabel.text = person.display_name
+	_portrait.visible = false
+	_kicker.text = "ARTISTA  •  %s" % person.tier_label().to_upper()
+	_set_number("listeners", listeners)
+	_set_number("followers", followers)
+	_set_number("subscribers", -1)
+	_set_number("plays", -1)
 	%BioLabel.text = "Artista convidado, com talento %d e consistência %d." % [person.skill, person.consistency]
 	%StatsLabel.text = "Ouvintes: %s  |  Seguidores: %s  |  Parcerias com você: %d" % [
 		Fmt.number(listeners), Fmt.number(followers), _collaboration_songs().size()
 	]
+
+
+## Valor negativo esconde o número (perfis de outros artistas não têm todos).
+func _set_number(key: String, value: int) -> void:
+	if not _numbers.has(key):
+		return
+	_number_boxes[key].visible = value >= 0
+	_numbers[key].text = Fmt.number(maxi(value, 0))
 
 
 func _collaborator() -> CollaboratorDefinition:

@@ -1,6 +1,7 @@
 class_name CollaboratorPicker
 extends VBoxContainer
-## Lista de colaboradores de uma função, com limite de seleção.
+## Lista de colaboradores de uma função, com limite de seleção, em duas colunas.
+## O título com a contagem pode ficar fora (por exemplo, numa aba): veja count_text().
 
 signal selection_changed
 
@@ -20,9 +21,11 @@ func setup(title: String, options: Array[CollaboratorDefinition], limit: int) ->
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	add_child(scroll)
-	var list := VBoxContainer.new()
+	var list := GridContainer.new()
+	list.columns = 2
 	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	list.add_theme_constant_override("separation", 0)
+	list.add_theme_constant_override("h_separation", 18)
+	list.add_theme_constant_override("v_separation", 2)
 	scroll.add_child(list)
 
 	for person in options:
@@ -30,6 +33,7 @@ func setup(title: String, options: Array[CollaboratorDefinition], limit: int) ->
 		check.text = "%s (%d) %s" % [person.display_name, person.skill, Fmt.money(person.cost)]
 		check.tooltip_text = "Talento %d, consistência %d, custo %s" % [person.skill, person.consistency, Fmt.money(person.cost)]
 		check.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		check.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		check.toggled.connect(_on_toggled)
 		list.add_child(check)
 		_checks[String(person.id)] = check
@@ -54,6 +58,15 @@ func selected_ids() -> Array[String]:
 		if _checks[id].button_pressed:
 			ids.append(id)
 	return ids
+
+
+## "2/3": quantos já foram escolhidos e o limite.
+func count_text() -> String:
+	return "%d/%d" % [selected_ids().size(), _limit]
+
+
+func show_header(on: bool) -> void:
+	_header.visible = on
 
 
 func _on_toggled(_pressed: bool) -> void:

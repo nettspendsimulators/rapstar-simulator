@@ -101,6 +101,7 @@ func _build_hero(body: HBoxContainer) -> void:
 	_backdrop.floor_ratio = 0.66
 	holder.add_child(_backdrop)
 	_character.name = "HubCharacter"
+	_character.idle = true
 	_character.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_character.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_character.anchor_bottom = 0.69

@@ -1,13 +1,18 @@
 class_name AppBackground
 extends Control
 ## Fundo de todas as telas: gradiente escuro com luzes suaves, como um palco antes do show.
+## A luz principal assume a cor da área aberta (set_accent), então cada área tem o seu clima.
+
+var _key_light: TextureRect
+var _accent_tween: Tween
 
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_layer(_linear(Color("#17132a"), Color("#09080d")), Control.PRESET_FULL_RECT, Vector2.ZERO)
-	_glow(Color(0.48, 0.24, 1.0, 0.22), Vector2(0.78, -0.05), 0.75)
+	_key_light = _glow(Color(1, 1, 1, 0.24), Vector2(0.78, -0.05), 0.75)
+	_key_light.modulate = Color(0.48, 0.24, 1.0)
 	_glow(Color(0.96, 0.72, 0.18, 0.10), Vector2(0.05, 1.05), 0.6)
 
 
@@ -24,7 +29,17 @@ func _linear(top: Color, bottom: Color) -> GradientTexture2D:
 	return texture
 
 
-func _glow(color: Color, where: Vector2, radius: float) -> void:
+## Troca a cor da luz principal com uma transição suave.
+func set_accent(color: Color) -> void:
+	if _key_light == null:
+		return
+	if _accent_tween != null:
+		_accent_tween.kill()
+	_accent_tween = create_tween()
+	_accent_tween.tween_property(_key_light, "modulate", color, 0.6).set_trans(Tween.TRANS_SINE)
+
+
+func _glow(color: Color, where: Vector2, radius: float) -> TextureRect:
 	var gradient := Gradient.new()
 	gradient.set_color(0, color)
 	gradient.set_color(1, Color(color, 0.0))
@@ -45,6 +60,7 @@ func _glow(color: Color, where: Vector2, radius: float) -> void:
 	rect.anchor_top = where.y - radius * 1.2
 	rect.anchor_bottom = where.y + radius * 1.2
 	add_child(rect)
+	return rect
 
 
 func _layer(texture: Texture2D, preset: int, _offset: Vector2) -> void:

@@ -2,7 +2,7 @@ extends Screen
 ## Menu principal: arte de abertura com artistas no palco à direita e, à esquerda, a marca, o
 ## atalho para continuar a última carreira e as demais opções em ordem de importância.
 
-const VERSION := "v14"
+const VERSION := "v15"
 
 var _continue_card := PanelContainer.new()
 var _continue_view := CharacterView.new()
@@ -149,6 +149,7 @@ func _build_key_art(body: HBoxContainer) -> void:
 		view.anchor_bottom = spec[3]
 		view.modulate = Color(spec[4], spec[4], spec[4] * 1.1, 1.0)
 		view.appearance = GameManager.characters.random_appearance(rng)
+		view.idle = true
 		art.add_child(view)
 		_crew.append(view)
 	_lift_in(art)

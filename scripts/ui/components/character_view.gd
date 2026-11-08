@@ -35,8 +35,31 @@ var _opt: Dictionary = {}
 var _skin: Color
 
 
+## Respiração sutil (personagem em destaque: Início, criação, menu). Só escala, sem redesenhar.
+var idle: bool = false:
+	set(value):
+		idle = value
+		_update_idle()
+
+var _idle_tween: Tween
+
+
 func _ready() -> void:
 	resized.connect(queue_redraw)
+	resized.connect(func() -> void: pivot_offset = Vector2(size.x / 2.0, size.y))
+	_update_idle()
+
+
+func _update_idle() -> void:
+	if _idle_tween != null:
+		_idle_tween.kill()
+		_idle_tween = null
+	scale = Vector2.ONE
+	if not idle or not is_inside_tree():
+		return
+	_idle_tween = create_tween().set_loops()
+	_idle_tween.tween_property(self, "scale", Vector2(1.0, 1.008), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_idle_tween.tween_property(self, "scale", Vector2.ONE, 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func _draw() -> void:
@@ -160,7 +183,8 @@ func _shape(points: Array, base: Color, outline: bool = true, depth: float = 5.0
 
 
 func _shadow_of(base: Color) -> Color:
-	var shadow := base.darkened(0.28)
+	# Cores claras pedem sombra mais leve, senão o contraste vira mancha.
+	var shadow := base.darkened(lerpf(0.3, 0.17, clampf((base.v - 0.55) / 0.4, 0.0, 1.0)))
 	shadow.h = fposmod(base.h + wrapf(0.72 - base.h, -0.5, 0.5) * 0.1, 1.0)
 	return shadow
 
