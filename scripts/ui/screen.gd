@@ -34,6 +34,7 @@ const SHOW_EDITOR := &"show_editor"
 const TOUR_EDITOR := &"tour_editor"
 const FESTIVAL := &"festival"
 const SHOW_REPORT := &"show_report"
+const LABEL := &"label"
 
 const BACK_ICON := preload("res://assets/icons/back.svg")
 

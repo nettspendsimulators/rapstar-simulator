@@ -2,7 +2,7 @@ extends Screen
 ## Menu principal: arte de abertura com artistas no palco à direita e, à esquerda, a marca, o
 ## atalho para continuar a última carreira e as demais opções em ordem de importância.
 
-const VERSION := "v16"
+const VERSION := "v17"
 
 var _continue_card := PanelContainer.new()
 var _continue_view := CharacterView.new()

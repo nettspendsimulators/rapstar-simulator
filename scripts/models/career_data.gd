@@ -18,6 +18,8 @@ var social := SocialData.new()
 var vehicles: Array[OwnedVehicle] = []
 ## Peças de roupa e acessórios comprados (ids de data/character.tres). Básicas não entram aqui.
 var wardrobe: Array[String] = []
+## Gravadoras: contrato, propostas, gravadora própria e catálogo sob selo.
+var label := LabelData.new()
 ## Foto do perfil público, gerenciada pelo CoverSystem.
 var artist_cover: String = ""
 ## Texto próprio do perfil. Vazio usa a descrição automática, que muda com a carreira.
@@ -205,6 +207,7 @@ func to_dict() -> Dictionary:
 		"social": social.to_dict(),
 		"vehicles": vehicles.map(func(item: OwnedVehicle) -> Dictionary: return item.to_dict()),
 		"wardrobe": wardrobe.duplicate(),
+		"label": label.to_dict(),
 		"artist_cover": artist_cover,
 		"artist_bio": artist_bio,
 		"money": money,
@@ -242,6 +245,7 @@ static func from_dict(data: Dictionary) -> CareerData:
 	career.infinite_energy = bool(data.get("infinite_energy", false))
 	career.social = SocialData.from_dict(data.get("social", {}))
 	career.wardrobe.assign(data.get("wardrobe", []))
+	career.label = LabelData.from_dict(data.get("label", {}))
 	for item: Dictionary in data.get("vehicles", []):
 		career.vehicles.append(OwnedVehicle.from_dict(item))
 	career.artist_cover = data.get("artist_cover", "")

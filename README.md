@@ -295,6 +295,29 @@ fama, fãs e streams.
   (`CharacterLayout`), com abas Corpo, Rosto, Cabelo, Roupas e Acessórios, selo de preço e faixa na cor
   do nível.
 
+**Gravadoras** (Carreira → Gravadora; regras em `data/labels.tres`, sistema em `LabelSystem`):
+
+- **8 gravadoras** do universo do jogo, de Underground a Major, cada uma com logo, perfil, elenco de
+  artistas do catálogo e termos próprios: parte do artista, adiantamento, duração, orçamento e quanto
+  paga de marketing, clipes e lançamentos, além de bônus de alcance nas plataformas e de propostas de
+  show. As maiores pagam mais e ficam com mais.
+- **Independente:** 100% das receitas, todos os custos. É o estado padrão e uma estratégia válida.
+- **Propostas** chegam pela semana conforme fama, reputação e streams recentes (até 3, valem 3
+  semanas). Cada uma mostra termos, benefícios e limites antes de assinar; dá para recusar.
+- **Contrato:** o adiantamento entra nas finanças e é recuperado da parte do artista. Streams e vendas
+  são divididos no `EconomySystem` (o histórico mostra bruto, gravadora e adiantamento); marketing,
+  clipes e lançamentos têm parte paga pela gravadora até o orçamento; o alcance e as propostas de show
+  aumentam. Rescindir custa o que falta recuperar mais 25% do adiantamento. No fim, a gravadora propõe
+  renovar (com parte melhor se o adiantamento foi pago).
+- **Gravadora própria:** custa $120 mil (precisa de 400 de fama), sem contrato ativo; 30% vira o caixa
+  inicial. Nome, sigla, formato e cores do logo. O dono não divide receitas e ganha alcance pelo nível
+  (Pequena, Independente, Média, Grande), que sobe com caixa e reputação. O caixa é separado do dinheiro
+  do artista, com depósitos, saques e livro-caixa.
+- **Artistas contratados:** artistas do jogo sem gravadora (amigos fazem desconto, rivais recusam).
+  Contratação e salários saem do caixa; a gravadora fica com metade do faturamento deles e eles lançam
+  faixas que entram no catálogo.
+- **Catálogo:** lançamentos do jogador feitos sob um selo, mais as faixas dos contratados.
+
 **Ao vivo (shows, turnês, festivais e merch):** fica na área "Ao vivo" da navegação principal.
 
 - O calendário é por dia (7 por semana). Dois compromissos não podem cair no mesmo dia, e cidades
@@ -328,4 +351,5 @@ recebem o valor que completa a mesma nota. Saves até a v6 começam a carreira a
 edições dos festivais são criadas ao carregar. Saves até a v7 recebem aparência padrão, 20 anos,
 país Brasil, nome real e cidade vazios e energia normal. Saves até a v8 começam a rede social vazia. Saves até a v9 começam com a garagem vazia, e saves sem
 o campo de Energia Infinita ficam com ela desligada. Saves até a v10 recebem sexo masculino, corpo médio e
-sem maquiagem, e as roupas e acessórios que o personagem já veste entram no guarda-roupa.
+sem maquiagem, e as roupas e acessórios que o personagem já veste entram no guarda-roupa. Saves até a v11
+começam independentes, sem propostas nem gravadora própria.

@@ -307,7 +307,7 @@ func _process_song(career: CareerData, performance: SongPerformance, release_ent
 	var audience := 1.0 + _magnitude(total_followers(career)) * rules.audience_bonus_per_magnitude
 	var launch := 1.0 + (performance.launch_factor - 1.0) * pow(rules.launch_effect_decay, age_weeks)
 	var score := _discovery_score(career, performance, exposure, catalog_plays)
-	var discovery := 1.0 + score * rules.discovery_max_bonus
+	var discovery := (1.0 + score * rules.discovery_max_bonus) * (1.0 + label_discovery_bonus(career))
 	if performance.recommendation_weeks_left > 0:
 		performance.recommendation_weeks_left -= 1
 		discovery *= rules.recommendation_boost
@@ -394,6 +394,17 @@ func _affinity(platform: PlatformDefinition, song: SongData) -> float:
 
 ## De 0 a 1: o quanto marketing, popularidade, crescimento, catálogo e ouvintes ajudam o público
 ## a encontrar a música nesta semana.
+## Alcance extra da gravadora: o do contrato ativo ou o do nível da gravadora própria.
+func label_discovery_bonus(career: CareerData) -> float:
+	var contract := career.label.active_contract(career.current_week)
+	if contract != null:
+		return contract.discovery_bonus
+	var own := career.label.own
+	if own != null and _balance.labels != null and not _balance.labels.levels.is_empty():
+		return _balance.labels.levels[clampi(own.level, 0, _balance.labels.levels.size() - 1)].reach_bonus
+	return 0.0
+
+
 func _discovery_score(career: CareerData, performance: SongPerformance, exposure: int, catalog_plays: int) -> float:
 	var rules := _rules()
 	var growth := 0.0

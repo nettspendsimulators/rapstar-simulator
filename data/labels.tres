@@ -1,0 +1,250 @@
+[gd_resource type="Resource" script_class="LabelRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/labels/label_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/labels/label_definition.gd" id="2_label"]
+[ext_resource type="Script" path="res://scripts/definitions/labels/label_level_definition.gd" id="3_level"]
+
+[sub_resource type="Resource" id="porao"]
+script = ExtResource("2_label")
+id = "porao"
+display_name = "Porão Records"
+short = "PR"
+tier = "underground"
+profile = "Selo de porão: pouco dinheiro, muita liberdade e o artista fica com quase tudo."
+shape = "square"
+color = Color(0.169, 0.169, 0.188, 1)
+color2 = Color(0.275, 0.831, 0.514, 1)
+capital = 40000
+prestige = 12
+roster = Array[String](["s5", "len", "caldo"])
+min_fame = 0
+offer_weight = 1.4
+artist_share = 0.8
+base_advance = 4000
+contract_weeks = 26
+marketing_support = 0.2
+video_support = 0.1
+release_support = 0.5
+budget = 6000
+discovery_bonus = 0.05
+show_bonus = 0.05
+
+[sub_resource type="Resource" id="fita_crua"]
+script = ExtResource("2_label")
+id = "fita_crua"
+display_name = "Fita Crua"
+short = "FC"
+tier = "underground"
+profile = "Coletivo que vive de palco: abre portas para shows em casas pequenas."
+shape = "circle"
+color = Color(0.753, 0.188, 0.169, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+capital = 25000
+prestige = 10
+roster = Array[String](["ashbeck", "reuben_aziz"])
+min_fame = 0
+offer_weight = 1.2
+artist_share = 0.82
+base_advance = 2500
+contract_weeks = 26
+marketing_support = 0.1
+video_support = 0.0
+release_support = 0.3
+budget = 3000
+discovery_bonus = 0.03
+show_bonus = 0.18
+
+[sub_resource type="Resource" id="nova_rota"]
+script = ExtResource("2_label")
+id = "nova_rota"
+display_name = "Nova Rota Music"
+short = "NR"
+tier = "indie"
+profile = "Independente equilibrada: marketing digital e boas parcerias de playlist."
+shape = "hex"
+color = Color(0.184, 0.384, 0.847, 1)
+color2 = Color(0.624, 0.816, 1.000, 1)
+capital = 300000
+prestige = 32
+roster = Array[String](["skeletrix", "fakemink", "zeddy_will"])
+min_fame = 150
+offer_weight = 1.0
+artist_share = 0.72
+base_advance = 15000
+contract_weeks = 52
+marketing_support = 0.35
+video_support = 0.2
+release_support = 0.6
+budget = 25000
+discovery_bonus = 0.1
+show_bonus = 0.1
+
+[sub_resource type="Resource" id="concreto"]
+script = ExtResource("2_label")
+id = "concreto"
+display_name = "Concreto Sound"
+short = "CS"
+tier = "indie"
+profile = "Estética de rua: investe pesado em videoclipes e imagem."
+shape = "shield"
+color = Color(0.549, 0.525, 0.627, 1)
+color2 = Color(0.961, 0.722, 0.180, 1)
+capital = 260000
+prestige = 30
+roster = Array[String](["jawnino", "chy_cartier", "babydrill"])
+min_fame = 250
+offer_weight = 0.9
+artist_share = 0.7
+base_advance = 22000
+contract_weeks = 52
+marketing_support = 0.25
+video_support = 0.45
+release_support = 0.5
+budget = 30000
+discovery_bonus = 0.08
+show_bonus = 0.05
+
+[sub_resource type="Resource" id="mare_alta"]
+script = ExtResource("2_label")
+id = "mare_alta"
+display_name = "Maré Alta Entertainment"
+short = "MA"
+tier = "medium"
+profile = "Gravadora média completa: marketing forte, clipes e agenda de shows."
+shape = "circle"
+color = Color(0.180, 0.769, 0.714, 1)
+color2 = Color(0.059, 0.231, 0.278, 1)
+capital = 2500000
+prestige = 55
+roster = Array[String](["babytron", "veeze", "hunxho", "unknown_t"])
+min_fame = 800
+offer_weight = 0.8
+artist_share = 0.62
+base_advance = 60000
+contract_weeks = 78
+marketing_support = 0.45
+video_support = 0.35
+release_support = 0.8
+budget = 90000
+discovery_bonus = 0.16
+show_bonus = 0.15
+
+[sub_resource type="Resource" id="coroa"]
+script = ExtResource("2_label")
+id = "coroa"
+display_name = "Coroa Distribuição"
+short = "CD"
+tier = "medium"
+profile = "Mais distribuidora do que gravadora: alcance enorme e parte justa, pouco marketing."
+shape = "diamond"
+color = Color(0.851, 0.651, 0.137, 1)
+color2 = Color(0.227, 0.165, 0.063, 1)
+capital = 1800000
+prestige = 50
+roster = Array[String](["rio_da_yung_og", "knucks"])
+min_fame = 1200
+offer_weight = 0.8
+artist_share = 0.68
+base_advance = 40000
+contract_weeks = 52
+marketing_support = 0.2
+video_support = 0.1
+release_support = 1.0
+budget = 60000
+discovery_bonus = 0.22
+show_bonus = 0.05
+
+[sub_resource type="Resource" id="atlas"]
+script = ExtResource("2_label")
+id = "atlas"
+display_name = "Atlas Records"
+short = "AT"
+tier = "big"
+profile = "Grande gravadora: adiantamento alto, máquina de divulgação e palcos maiores."
+shape = "hex"
+color = Color(0.106, 0.102, 0.110, 1)
+color2 = Color(0.910, 0.886, 0.784, 1)
+capital = 40000000
+prestige = 78
+roster = Array[String](["nocap", "headie_one", "destroy_lonely"])
+min_fame = 3500
+offer_weight = 0.6
+artist_share = 0.52
+base_advance = 200000
+contract_weeks = 104
+marketing_support = 0.55
+video_support = 0.5
+release_support = 1.0
+budget = 300000
+discovery_bonus = 0.25
+show_bonus = 0.3
+
+[sub_resource type="Resource" id="orbita"]
+script = ExtResource("2_label")
+id = "orbita"
+display_name = "Órbita Music Group"
+short = "OMG"
+tier = "major"
+profile = "Major global: alcance máximo e muito dinheiro, mas fica com a maior parte."
+shape = "circle"
+color = Color(0.478, 0.247, 0.761, 1)
+color2 = Color(0.961, 0.722, 0.180, 1)
+capital = 300000000
+prestige = 96
+roster = Array[String](["don_toliver", "skepta", "ken_carson", "little_simz"])
+min_fame = 9000
+offer_weight = 0.5
+artist_share = 0.42
+base_advance = 650000
+contract_weeks = 104
+marketing_support = 0.7
+video_support = 0.6
+release_support = 1.0
+budget = 900000
+discovery_bonus = 0.35
+show_bonus = 0.45
+
+[sub_resource type="Resource" id="level_0"]
+script = ExtResource("3_level")
+display_name = "Pequena"
+upgrade_cost = 0
+min_reputation = 0
+max_artists = 2
+reach_bonus = 0.04
+show_bonus = 0.03
+artist_revenue_multiplier = 1.0
+
+[sub_resource type="Resource" id="level_1"]
+script = ExtResource("3_level")
+display_name = "Independente"
+upgrade_cost = 150000
+min_reputation = 25
+max_artists = 4
+reach_bonus = 0.09
+show_bonus = 0.08
+artist_revenue_multiplier = 1.15
+
+[sub_resource type="Resource" id="level_2"]
+script = ExtResource("3_level")
+display_name = "Média"
+upgrade_cost = 450000
+min_reputation = 70
+max_artists = 7
+reach_bonus = 0.15
+show_bonus = 0.14
+artist_revenue_multiplier = 1.3
+
+[sub_resource type="Resource" id="level_3"]
+script = ExtResource("3_level")
+display_name = "Grande"
+upgrade_cost = 1200000
+min_reputation = 150
+max_artists = 12
+reach_bonus = 0.24
+show_bonus = 0.22
+artist_revenue_multiplier = 1.5
+
+[resource]
+script = ExtResource("1_rules")
+labels = Array[ExtResource("2_label")]([SubResource("porao"), SubResource("fita_crua"), SubResource("nova_rota"), SubResource("concreto"), SubResource("mare_alta"), SubResource("coroa"), SubResource("atlas"), SubResource("orbita")])
+levels = Array[ExtResource("3_level")]([SubResource("level_0"), SubResource("level_1"), SubResource("level_2"), SubResource("level_3")])

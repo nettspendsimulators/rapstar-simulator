@@ -15,6 +15,7 @@
 [ext_resource type="Resource" path="res://data/character.tres" id="13_character"]
 [ext_resource type="Resource" path="res://data/social.tres" id="15_social"]
 [ext_resource type="Resource" path="res://data/vehicles.tres" id="16_vehicles"]
+[ext_resource type="Resource" path="res://data/labels.tres" id="17_labels"]
 [ext_resource type="Script" path="res://scripts/definitions/career_stage_definition.gd" id="14_stage"]
 
 [sub_resource type="Resource" id="job_delivery"]
@@ -176,6 +177,7 @@ live = ExtResource("12_live")
 character = ExtResource("13_character")
 social = ExtResource("15_social")
 vehicles = ExtResource("16_vehicles")
+labels = ExtResource("17_labels")
 career_stages = Array[ExtResource("14_stage")]([SubResource("stage_unknown"), SubResource("stage_underground"), SubResource("stage_rising"), SubResource("stage_relevant"), SubResource("stage_big"), SubResource("stage_star")])
 album_formats = Array[ExtResource("3_format")]([SubResource("format_ep"), SubResource("format_album"), SubResource("format_mixtape")])
 song_performance = SubResource("song_rules")

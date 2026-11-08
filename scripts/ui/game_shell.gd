@@ -26,6 +26,7 @@ const SECTIONS := [
 		["Desempenho", "chart", Screen.PERFORMANCE, {}, "PerformanceButton"],
 		["Plataformas", "platforms", Screen.PLATFORMS, {}, "PlatformsButton"],
 		["Perfil público", "profile", Screen.ARTIST_PROFILE, {}, "ProfileButton"],
+		["Gravadora", "label", Screen.LABEL, {}, "LabelButton"],
 		["Finanças", "career", Screen.CAREER, {}, "CareerButton"],
 		["Trabalhar", "work", Screen.WORK, {}, "WorkButton"],
 	]},

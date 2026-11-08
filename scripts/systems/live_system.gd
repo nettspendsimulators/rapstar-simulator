@@ -531,10 +531,21 @@ func perform(career: CareerData, show: LiveShow, report: WeekReport) -> void:
 
 func generate_offers(career: CareerData) -> void:
 	var r := rules()
-	var expected := minf(r.base_offers_per_week + career.fame * r.offers_per_fame, r.max_offers_per_week)
+	var expected := minf((r.base_offers_per_week + career.fame * r.offers_per_fame) * (1.0 + _label_show_bonus(career)), r.max_offers_per_week)
 	var count := floori(expected) + (1 if _rng.randf() < expected - floorf(expected) else 0)
 	for i in count:
 		career.live_shows.append(_make_offer(career))
+
+
+## Gravadoras abrem portas: o contrato ativo ou o nível da gravadora própria trazem mais propostas.
+func _label_show_bonus(career: CareerData) -> float:
+	var contract := career.label.active_contract(career.current_week)
+	if contract != null:
+		return contract.show_bonus
+	var own := career.label.own
+	if own != null and _balance.labels != null and not _balance.labels.levels.is_empty():
+		return _balance.labels.levels[clampi(own.level, 0, _balance.labels.levels.size() - 1)].show_bonus
+	return 0.0
 
 
 func history(career: CareerData) -> Array[LiveShow]:

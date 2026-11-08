@@ -33,6 +33,7 @@ const SCREENS := {
 	Screen.TOUR_EDITOR: preload("res://scenes/screens/tour_editor_screen.tscn"),
 	Screen.FESTIVAL: preload("res://scenes/screens/festival_screen.tscn"),
 	Screen.SHOW_REPORT: preload("res://scenes/screens/show_report_screen.tscn"),
+	Screen.LABEL: preload("res://scenes/screens/label_screen.tscn"),
 }
 
 ## Telas fora de uma carreira: aparecem sem o menu lateral e a barra de status.

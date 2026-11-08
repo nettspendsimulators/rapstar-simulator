@@ -11,13 +11,30 @@ func insufficient_funds(cost: int) -> ActionResult:
 	return ActionResult.failure("Dinheiro insuficiente: isso custa %s." % Fmt.money(cost))
 
 
+## Receitas de música (streams e vendas) de uma carreira contratada passam pela divisão do
+## contrato: o histórico mostra o líquido do artista e quanto ficou com a gravadora.
 func earn(career: CareerData, amount: int, description: String, category: String) -> void:
+	var contract := career.label.active_contract(career.current_week)
+	if contract != null and amount > 0 and category in LabelRules.SHARED_CATEGORIES:
+		var parts := contract.split(amount)
+		var detail := "bruto %s, gravadora %s" % [Fmt.money(amount), Fmt.money(parts["label"])]
+		if parts["recoup"] > 0:
+			detail += ", adiantamento %s" % Fmt.money(parts["recoup"])
+		_apply_transaction(career, parts["artist"], "%s (%s)" % [description, detail], category)
+		return
 	_apply_transaction(career, amount, description, category)
 
 
 ## Quem chama deve verificar can_afford antes: gastar nunca deixa o saldo negativo.
+## Com contrato, a gravadora paga parte de marketing, videoclipes e lançamentos (até o orçamento).
 func spend(career: CareerData, cost: int, description: String, category: String) -> void:
 	assert(can_afford(career, cost))
+	var contract := career.label.active_contract(career.current_week)
+	if contract != null and category in LabelRules.SUPPORTED_COSTS:
+		var covered := contract.cover(contract.support_for(category), cost)
+		if covered > 0:
+			_apply_transaction(career, -(cost - covered), "%s (gravadora pagou %s)" % [description, Fmt.money(covered)], category)
+			return
 	_apply_transaction(career, -cost, description, category)
 
 

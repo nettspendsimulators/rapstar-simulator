@@ -25,6 +25,13 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v10(payload["career"])
 	if version < 11:
 		_migrate_to_v11(payload["career"], balance)
+	if version < 12:
+		_migrate_to_v12(payload["career"])
+
+
+## v12: gravadoras. Toda carreira antiga começa independente, sem propostas nem selo próprio.
+static func _migrate_to_v12(career: Dictionary) -> void:
+	career["label"] = {"contract": null, "own": null, "offers": [], "history": [], "catalog": [], "periods": [], "next_offer": 1}
 
 
 ## v11: sexo, corpo e maquiagem entram no padrão (masculino, médio, sem maquiagem) e o guarda-roupa

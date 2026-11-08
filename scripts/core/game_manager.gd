@@ -16,6 +16,7 @@ var saves := SaveSystem.new(balance)
 var characters := CharacterSystem.new(balance)
 var vehicles := VehicleSystem.new(balance, economy)
 var wardrobe := WardrobeSystem.new(balance, economy)
+var labels := LabelSystem.new(balance, economy)
 var covers := CoverSystem.new(balance, saves)
 var performance := PerformanceSystem.new(balance, rng)
 var song_quality := SongQualitySystem.new(balance)
@@ -50,6 +51,8 @@ func _init() -> void:
 	tours.social = social
 	weeks.social = social
 	weeks.beefs = beefs
+	weeks.labels = labels
+	labels.social = social
 	social.streaming = streaming
 	social.live = live
 	social.beefs = beefs
@@ -191,6 +194,42 @@ func buy_and_wear(appearance: CharacterAppearance) -> ActionResult:
 		return bought
 	var worn := set_appearance(clean)
 	return ActionResult.success("%s Visual salvo." % bought.message) if worn.ok else worn
+
+
+func accept_label_offer(offer_id: String) -> ActionResult:
+	return _notify_if_ok(labels.accept_offer(career, offer_id))
+
+
+func decline_label_offer(offer_id: String) -> ActionResult:
+	return _notify_if_ok(labels.decline_offer(career, offer_id))
+
+
+func terminate_label_contract() -> ActionResult:
+	return _notify_if_ok(labels.terminate(career))
+
+
+func create_label(label_name: String, short: String, shape: String, color: Color, color2: Color) -> ActionResult:
+	return _notify_if_ok(labels.create_label(career, label_name, short, shape, color, color2))
+
+
+func label_deposit(amount: int) -> ActionResult:
+	return _notify_if_ok(labels.deposit(career, amount))
+
+
+func label_withdraw(amount: int) -> ActionResult:
+	return _notify_if_ok(labels.withdraw(career, amount))
+
+
+func upgrade_label() -> ActionResult:
+	return _notify_if_ok(labels.upgrade(career))
+
+
+func sign_label_artist(artist_id: String) -> ActionResult:
+	return _notify_if_ok(labels.sign_artist(career, artist_id))
+
+
+func release_label_artist(artist_id: String) -> ActionResult:
+	return _notify_if_ok(labels.release_artist(career, artist_id))
 
 
 func buy_vehicle(vehicle_id: String) -> ActionResult:

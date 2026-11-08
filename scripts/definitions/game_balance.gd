@@ -45,6 +45,7 @@ extends Resource
 
 @export_group("Carros")
 @export var vehicles: VehicleRules
+@export var labels: LabelRules
 
 @export_group("Progressão")
 ## Fases da carreira, da menor para a maior fama.

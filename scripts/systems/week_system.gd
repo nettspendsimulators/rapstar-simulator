@@ -17,6 +17,7 @@ var _festivals: FestivalSystem
 var _progression: ProgressionSystem
 var social: SocialSystem
 var beefs: BeefSystem
+var labels: LabelSystem
 
 
 func _init(balance: GameBalance, time: TimeSystem, economy: EconomySystem, work: WorkSystem, release: ReleaseSystem, marketing: MarketingSystem, streaming: StreamingSystem, videos: VideoSystem, live: LiveSystem, tours: TourSystem, festivals: FestivalSystem, progression: ProgressionSystem) -> void:
@@ -56,5 +57,8 @@ func process_week(career: CareerData, job: JobDefinition = null) -> WeekReport:
 		beefs.process_week(career, report)
 	_economy.restore_energy(career, _balance.energy_per_week, _balance.max_energy)
 	_progression.finish_week(career, report, before)
+	# Depois do fechamento: a gravadora própria usa os streams da semana e não mexe no saldo do artista.
+	if labels != null:
+		labels.process_week(career, report)
 	career.week_reports.append(report)
 	return report
