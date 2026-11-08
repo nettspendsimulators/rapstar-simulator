@@ -2,6 +2,7 @@ extends Screen
 ## Cria uma música nova ou edita uma não lançada (quando context tem song_id).
 
 var _song: SongData
+var _diss := OptionButton.new()
 
 
 func _ready() -> void:
@@ -15,6 +16,8 @@ func _ready() -> void:
 		picker.selection_changed.connect(_update_preview)
 
 	_song = GameManager.career.find_song(context.get("song_id", ""))
+	_show_social_prices()
+	_build_diss_option()
 	_fill_sample_options()
 	if _song != null:
 		%Title.text = "Editar música"
@@ -104,7 +107,7 @@ func _update_preview() -> void:
 	var note_label := "Nota" if _song != null else "Nota estimada"
 	%PreviewLabel.text = "%s  |  %s: %d" % ["  |  ".join(parts), note_label, preview.quality]
 
-	var hiring := GameManager.music.hiring_cost(credits, _song)
+	var hiring := GameManager.music.hiring_cost(credits, _song, GameManager.career)
 	if _song == null or not sample.equals(_song.sample):
 		hiring += GameManager.music.sample_cost(sample)
 	var total := hiring
@@ -127,13 +130,42 @@ func _update_preview() -> void:
 func _on_confirm_pressed() -> void:
 	var result: ActionResult
 	if _song != null:
-		result = GameManager.edit_song(_song.id, %TitleEdit.text, _credits(), %CoverPicker.cover_file, _sample())
+		result = GameManager.edit_song(_song.id, %TitleEdit.text, _credits(), %CoverPicker.cover_file, _sample(), _diss.get_selected_metadata())
 	else:
-		result = GameManager.create_song(%TitleEdit.text, _credits(), %CoverPicker.cover_file, _sample())
+		result = GameManager.create_song(%TitleEdit.text, _credits(), %CoverPicker.cover_file, _sample(), _diss.get_selected_metadata())
 	if result.ok:
 		navigate(Screen.SONG_DETAIL, {"song_id": result.value.id})
 	else:
 		%MessageLabel.text = result.message
+
+
+## Artistas conhecidos mostram o cachê com o efeito da relação (ou que recusam o feat).
+func _show_social_prices() -> void:
+	var social := GameManager.social
+	var career := GameManager.career
+	for person in GameManager.balance.collaborators.feats:
+		var current := social.peek(career, String(person.id))
+		if current != null and current.met:
+			%FeatPicker.set_label(String(person.id), "%s (%d) %s  •  %s" % [person.display_name, person.skill, social.price_text(career, String(person.id)), social.status(career, String(person.id))["label"]])
+
+
+## Diss: a música pode ter um artista conhecido como alvo. Continua sendo uma música normal.
+func _build_diss_option() -> void:
+	var social := GameManager.social
+	var career := GameManager.career
+	_diss.name = "DissOption"
+	_diss.add_item("Música normal")
+	_diss.set_item_metadata(0, "")
+	for artist_id in GameManager.beefs.diss_targets(career):
+		_diss.add_item("Diss contra %s (%s)" % [social.display_name(artist_id), social.status(career, artist_id)["label"].to_lower()])
+		_diss.set_item_metadata(_diss.item_count - 1, artist_id)
+	var target: String = _song.diss_target_id if _song != null else String(context.get("diss_target", ""))
+	for index in _diss.item_count:
+		if _diss.get_item_metadata(index) == target:
+			_diss.select(index)
+	_diss.tooltip_text = "Uma diss é uma música normal com um alvo: ao ser lançada, começa ou esquenta um beef."
+	_diss.disabled = _diss.item_count == 1
+	%CoverPicker.get_parent().add_child(_diss)
 
 
 func _go_back() -> void:

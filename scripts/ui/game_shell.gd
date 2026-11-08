@@ -12,6 +12,7 @@ const NAV := [
 		["Início", "home", Screen.HUB, {}, "HomeButton"],
 		["Perfil público", "profile", Screen.ARTIST_PROFILE, {}, "ProfileButton"],
 		["Personagem", "character", Screen.CHARACTER, {}, "CharacterButton"],
+		["Relações", "social", Screen.SOCIAL, {}, "SocialButton"],
 	]],
 	["MÚSICA", [
 		["Músicas", "music", Screen.SONGS, {}, "SongsButton"],
@@ -40,7 +41,7 @@ const PARENT := {
 	Screen.WEEK_REPORT: Screen.HUB, Screen.SONG_DETAIL: Screen.SONGS, Screen.SONG_EDITOR: Screen.SONGS,
 	Screen.PROJECT_EDITOR: Screen.ALBUMS, Screen.MARKETING: Screen.MARKETING_HUB, Screen.PLATFORM_PAGE: Screen.PLATFORMS,
 	Screen.VIDEO_EDITOR: Screen.VIDEOS, Screen.SHOW_EDITOR: Screen.LIVE, Screen.SHOW_REPORT: Screen.LIVE,
-	Screen.TOUR_EDITOR: Screen.LIVE, Screen.FESTIVAL: Screen.LIVE,
+	Screen.TOUR_EDITOR: Screen.LIVE, Screen.FESTIVAL: Screen.LIVE, Screen.ARTIST_RELATION: Screen.SOCIAL,
 }
 const LIVE_TAB_FOR := {Screen.TOUR_EDITOR: 2, Screen.FESTIVAL: 3}
 
@@ -143,6 +144,10 @@ func refresh() -> void:
 	_last = values
 	var offers := GameManager.live.shows_with_status(career, LiveShow.STATUS_OFFER).size()
 	_nav["LiveButton"].text = "Shows e ofertas" + ("  (%d)" % offers if offers > 0 else "")
+	var pending := GameManager.social.pending_invites(career).size()
+	for beef in career.social.beefs:
+		pending += 1 if beef.is_active() and beef.awaiting == Beef.TURN_PLAYER else 0
+	_nav["SocialButton"].text = "Relações" + ("  (%d)" % pending if pending > 0 else "")
 
 
 ## Números da barra contam até o novo valor, para a mudança ser percebida.

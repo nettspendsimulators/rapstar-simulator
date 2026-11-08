@@ -10,6 +10,7 @@ var _marketing: MarketingSystem
 var _streaming: StreamingSystem
 var _videos: VideoSystem
 var _rng: RandomNumberGenerator
+var social: SocialSystem
 
 
 func _init(balance: GameBalance, economy: EconomySystem, time: TimeSystem, performance: PerformanceSystem, marketing: MarketingSystem, streaming: StreamingSystem, videos: VideoSystem, rng: RandomNumberGenerator) -> void:
@@ -231,6 +232,10 @@ func _publish(career: CareerData, content: ReleasableContent, report: WeekReport
 	career.releases.append(release_entry)
 	_streaming.start_release(career, content)
 	_videos.on_content_released(career, content, report)
+	if social != null:
+		# Lançamento imediato não tem relatório próprio: os avisos entram no da semana atual.
+		var target := report if report != null else career.last_report()
+		social.on_content_released(career, content, target if target != null else WeekReport.new())
 
 	var multiplier := 1.0
 	if content is AlbumData:

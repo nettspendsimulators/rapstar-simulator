@@ -19,6 +19,13 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v7(payload["career"])
 	if version < 8:
 		_migrate_to_v8(payload["career"], balance)
+	if version < 9:
+		_migrate_to_v9(payload["career"])
+
+
+## v9: rede social. Ninguém se conhece ainda; nada mais da carreira muda.
+static func _migrate_to_v9(career: Dictionary) -> void:
+	career["social"] = {"relations": {}, "npc_relations": {}, "beefs": [], "invites": []}
 
 
 ## v8: identidade, aparência e energia infinita. O nome artístico continua o mesmo; o resto

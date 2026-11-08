@@ -40,6 +40,9 @@ extends Resource
 @export_group("Personagem")
 @export var character: CharacterRules
 
+@export_group("Relações")
+@export var social: SocialRules
+
 @export_group("Progressão")
 ## Fases da carreira, da menor para a maior fama.
 @export var career_stages: Array[CareerStageDefinition] = []

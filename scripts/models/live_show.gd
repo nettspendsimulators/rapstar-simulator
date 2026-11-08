@@ -51,6 +51,8 @@ var offer_expires_week: int = 0
 var upfront_paid: int = 0
 ## Relatório depois do show.
 var result: Dictionary = {}
+## Artista que convidou o jogador para este show (participação no show ou na turnê dele).
+var partner_id: String = ""
 
 
 func week() -> int:
@@ -102,14 +104,14 @@ func to_dict() -> Dictionary:
 		"production_id": production_id, "addons": addons, "crew": crew, "promotion": promotion, "guests": guests,
 		"merch_enabled": merch_enabled, "tour_id": tour_id, "festival_edition_id": festival_edition_id,
 		"lineup_position": lineup_position, "stage_name": stage_name, "set_type": set_type, "fee_model": fee_model,
-		"offer_expires_week": offer_expires_week, "upfront_paid": upfront_paid, "result": result,
+		"offer_expires_week": offer_expires_week, "upfront_paid": upfront_paid, "result": result, "partner_id": partner_id,
 	}
 
 
 static func from_dict(data: Dictionary) -> LiveShow:
 	var show := LiveShow.new()
 	for key in ["id", "kind", "status", "event_name", "event_type", "city_id", "venue_id", "venue_name", "model",
-			"production_id", "tour_id", "festival_edition_id", "lineup_position", "stage_name", "set_type", "fee_model"]:
+			"production_id", "tour_id", "festival_edition_id", "lineup_position", "stage_name", "set_type", "fee_model", "partner_id"]:
 		show.set(key, data.get(key, show.get(key)))
 	for key in ["capacity", "day", "fee", "promotion", "offer_expires_week", "upfront_paid"]:
 		show.set(key, int(data.get(key, 0)))

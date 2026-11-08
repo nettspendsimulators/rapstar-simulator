@@ -18,6 +18,7 @@ var covers := CoverSystem.new(balance, saves)
 var performance := PerformanceSystem.new(balance, rng)
 var song_quality := SongQualitySystem.new(balance)
 var work := WorkSystem.new(economy)
+var social := SocialSystem.new(balance, economy, rng)
 var music := MusicSystem.new(balance, economy, song_quality, rng)
 var albums := AlbumSystem.new(balance, economy)
 var marketing := MarketingSystem.new(balance, economy, rng)
@@ -36,8 +37,20 @@ var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, s
 var current_slot: String = SaveSystem.DEFAULT_SLOT
 
 
+var beefs := BeefSystem.new(balance, economy, social, streaming, rng)
+
+
 func _init() -> void:
 	rng.randomize()
+	music.social = social
+	releases.social = social
+	live.social = social
+	tours.social = social
+	weeks.social = social
+	weeks.beefs = beefs
+	social.streaming = streaming
+	social.live = live
+	social.beefs = beefs
 
 
 ## Carreira com identidade e aparência padrão, ainda sem slot próprio.
@@ -137,12 +150,28 @@ func work_job(job_id: StringName) -> ActionResult:
 	return ActionResult.success(job.get_report_text(), report)
 
 
-func create_song(title: String, credits: SongCredits = null, cover_file: String = "", sample: SongSample = null) -> ActionResult:
-	return _notify_if_ok(music.create_song(career, title, credits, cover_file, sample))
+func create_song(title: String, credits: SongCredits = null, cover_file: String = "", sample: SongSample = null, diss_target_id: String = "") -> ActionResult:
+	return _notify_if_ok(music.create_song(career, title, credits, cover_file, sample, diss_target_id))
 
 
-func edit_song(song_id: String, title: String, credits: SongCredits, cover_file: String, sample: SongSample = null) -> ActionResult:
-	return _notify_if_ok(music.edit_song(career, song_id, title, credits, cover_file, sample))
+func edit_song(song_id: String, title: String, credits: SongCredits, cover_file: String, sample: SongSample = null, diss_target_id: Variant = null) -> ActionResult:
+	return _notify_if_ok(music.edit_song(career, song_id, title, credits, cover_file, sample, diss_target_id))
+
+
+func social_interact(artist_id: String, interaction_id: String) -> ActionResult:
+	return _notify_if_ok(social.interact(career, artist_id, interaction_id))
+
+
+func accept_social_invite(invite_id: String) -> ActionResult:
+	return _notify_if_ok(social.accept_invite(career, invite_id))
+
+
+func decline_social_invite(invite_id: String) -> ActionResult:
+	return _notify_if_ok(social.decline_invite(career, invite_id))
+
+
+func ignore_beef(artist_id: String) -> ActionResult:
+	return _notify_if_ok(beefs.ignore(career, artist_id))
 
 
 func improve_song(content_id: String, attribute_id: String) -> ActionResult:

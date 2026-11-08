@@ -15,6 +15,8 @@ var _live: LiveSystem
 var _tours: TourSystem
 var _festivals: FestivalSystem
 var _progression: ProgressionSystem
+var social: SocialSystem
+var beefs: BeefSystem
 
 
 func _init(balance: GameBalance, time: TimeSystem, economy: EconomySystem, work: WorkSystem, release: ReleaseSystem, marketing: MarketingSystem, streaming: StreamingSystem, videos: VideoSystem, live: LiveSystem, tours: TourSystem, festivals: FestivalSystem, progression: ProgressionSystem) -> void:
@@ -49,6 +51,9 @@ func process_week(career: CareerData, job: JobDefinition = null) -> WeekReport:
 	_live.process_week(career, report)
 	_tours.process_week(career, report)
 	_festivals.process_week(career, report)
+	if social != null:
+		social.process_week(career, report)
+		beefs.process_week(career, report)
 	_economy.restore_energy(career, _balance.energy_per_week, _balance.max_energy)
 	_progression.finish_week(career, report, before)
 	career.week_reports.append(report)

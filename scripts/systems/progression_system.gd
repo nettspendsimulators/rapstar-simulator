@@ -125,6 +125,15 @@ func actions(career: CareerData) -> Array[Dictionary]:
 		steps.append({"text": "Você tem %d música(s) inédita(s). Melhore com energia e lance em Lançamentos." % unreleased.size(), "action": "releases", "label": "Lançar música"})
 	if offers > 0:
 		steps.append({"text": "%d proposta(s) de show esperando resposta em Shows e ofertas." % offers, "action": "offers", "label": "Ver propostas"})
+	var social_pending := 0
+	for invite in career.social.invites:
+		social_pending += 1 if invite.expires_week >= career.current_week else 0
+	for beef in career.social.beefs:
+		social_pending += 1 if beef.is_active() and beef.awaiting == Beef.TURN_PLAYER else 0
+	if social_pending > 0:
+		steps.append({"text": "%d convite(s) ou provocação(ões) de artistas esperando você em Relações." % social_pending, "action": "social", "label": "Ver relações"})
+	elif career.social.relations.is_empty() and career.fame >= 30:
+		steps.append({"text": "Conheça outros artistas: amizades barateiam feats e trazem convites.", "action": "social", "label": "Conhecer artistas"})
 	if not career.releases.is_empty() and career.marketing_campaigns.is_empty():
 		steps.append({"text": "Monte uma campanha de marketing antes do próximo lançamento para alcançar mais gente.", "action": "marketing", "label": "Criar campanha"})
 	if career.merch_items.is_empty() and career.fame >= 150:

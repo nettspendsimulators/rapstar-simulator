@@ -1,0 +1,176 @@
+[gd_resource type="Resource" script_class="SocialRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/social/social_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/social/social_interaction_definition.gd" id="2_item"]
+
+[sub_resource type="Resource" id="meet"]
+script = ExtResource("2_item")
+kind = "meet"
+id = "meet"
+display_name = "Puxar conversa"
+description = "Tente se apresentar. Artistas maiores que você nem sempre dão atenção."
+delta = 3
+min_value = -100
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 0
+followers = 0
+
+[sub_resource type="Resource" id="talk"]
+script = ExtResource("2_item")
+kind = "positive"
+id = "talk"
+display_name = "Conversar"
+description = "Trocar uma ideia sobre música e a cena."
+delta = 4
+min_value = -34
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 0
+followers = 0
+
+[sub_resource type="Resource" id="social"]
+script = ExtResource("2_item")
+kind = "positive"
+id = "social"
+display_name = "Interagir nas redes"
+description = "Curtir, comentar e compartilhar os posts dele."
+delta = 3
+min_value = -14
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 0
+followers = 30
+
+[sub_resource type="Resource" id="support"]
+script = ExtResource("2_item")
+kind = "positive"
+id = "support"
+display_name = "Apoiar o trabalho dele"
+description = "Divulgar o último lançamento do artista."
+delta = 5
+min_value = -14
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 0
+followers = 20
+
+[sub_resource type="Resource" id="hangout"]
+script = ExtResource("2_item")
+kind = "positive"
+id = "hangout"
+display_name = "Sair juntos"
+description = "Um rolê para se conhecerem melhor."
+delta = 7
+min_value = 15
+max_value = 100
+money_cost = 300
+energy_cost = 0
+fame = 0
+followers = 0
+
+[sub_resource type="Resource" id="studio"]
+script = ExtResource("2_item")
+kind = "positive"
+id = "studio"
+display_name = "Passar tempo no estúdio"
+description = "Uma sessão juntos, sem compromisso de lançar."
+delta = 9
+min_value = 30
+max_value = 100
+money_cost = 0
+energy_cost = 20
+fame = 0
+followers = 0
+
+[sub_resource type="Resource" id="appearance"]
+script = ExtResource("2_item")
+kind = "positive"
+id = "appearance"
+display_name = "Aparição conjunta"
+description = "Aparecer juntos em público e nas redes."
+delta = 6
+min_value = 30
+max_value = 100
+money_cost = 1000
+energy_cost = 0
+fame = 3
+followers = 120
+
+[sub_resource type="Resource" id="defend"]
+script = ExtResource("2_item")
+kind = "defend"
+id = "defend"
+display_name = "Defender publicamente"
+description = "Tomar o lado dele numa briga com outro artista."
+delta = 10
+min_value = 15
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 1
+followers = 40
+
+[sub_resource type="Resource" id="provoke"]
+script = ExtResource("2_item")
+kind = "provoke"
+id = "provoke"
+display_name = "Provocar"
+description = "Uma indireta pública. Pode virar beef."
+delta = -12
+min_value = -100
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 2
+followers = 60
+
+[sub_resource type="Resource" id="respond"]
+script = ExtResource("2_item")
+kind = "respond"
+id = "respond"
+display_name = "Responder provocação"
+description = "Rebater nas redes sem lançar música."
+delta = -6
+min_value = -100
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 2
+followers = 50
+
+[sub_resource type="Resource" id="apologize"]
+script = ExtResource("2_item")
+kind = "apology"
+id = "apologize"
+display_name = "Pedir desculpas"
+description = "Reconhecer o erro e baixar a temperatura."
+delta = 10
+min_value = -100
+max_value = -1
+money_cost = 0
+energy_cost = 0
+fame = 0
+followers = 0
+
+[sub_resource type="Resource" id="reconcile"]
+script = ExtResource("2_item")
+kind = "reconcile"
+id = "reconcile"
+display_name = "Propor encerrar o conflito"
+description = "Conversar para encerrar o beef publicamente."
+delta = 0
+min_value = -100
+max_value = 100
+money_cost = 0
+energy_cost = 0
+fame = 0
+followers = 0
+
+[resource]
+script = ExtResource("1_rules")
+interactions = Array[ExtResource("2_item")]([SubResource("meet"), SubResource("talk"), SubResource("social"), SubResource("support"), SubResource("hangout"), SubResource("studio"), SubResource("appearance"), SubResource("defend"), SubResource("provoke"), SubResource("respond"), SubResource("apologize"), SubResource("reconcile")])

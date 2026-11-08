@@ -8,7 +8,7 @@ const CATEGORY_LABELS := {
 	FinanceEntry.CATEGORY_SAMPLE: "Samples", FinanceEntry.CATEGORY_VIDEO: "Videoclipes",
 	FinanceEntry.CATEGORY_RELEASE: "Lançamentos", FinanceEntry.CATEGORY_STREAMS: "Streams",
 	FinanceEntry.CATEGORY_SALES: "Vendas", FinanceEntry.CATEGORY_LIVE: "Shows e turnês",
-	FinanceEntry.CATEGORY_MERCH: "Merch", FinanceEntry.CATEGORY_SPONSOR: "Patrocínios",
+	FinanceEntry.CATEGORY_MERCH: "Merch", FinanceEntry.CATEGORY_SPONSOR: "Patrocínios", FinanceEntry.CATEGORY_SOCIAL: "Relações",
 }
 
 var _journey := HBoxContainer.new()

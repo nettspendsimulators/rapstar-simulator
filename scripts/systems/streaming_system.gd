@@ -145,6 +145,16 @@ func add_followers(career: CareerData, amount: int) -> void:
 		career.platform_stats_for(platform.id).followers += roundi(amount * platform.audience_share / share_total)
 
 
+## Fãs perdidos (por exemplo, numa diss mal recebida), proporcionalmente em cada plataforma.
+func remove_followers(career: CareerData, amount: int) -> void:
+	var total := total_followers(career)
+	if amount <= 0 or total <= 0:
+		return
+	var share := minf(float(amount) / total, 1.0)
+	for stats: ArtistPlatformStats in career.platform_stats.values():
+		stats.followers = maxi(stats.followers - roundi(stats.followers * share), 0)
+
+
 func total_plays(career: CareerData) -> int:
 	var total := 0
 	for performance in career.song_performances:

@@ -36,6 +36,12 @@ func setup(title: String, options: Array[CollaboratorDefinition], limit: int) ->
 	_refresh_state()
 
 
+## Troca o texto de uma pessoa da lista (por exemplo, o cachê com desconto de amizade).
+func set_label(person_id: String, text: String) -> void:
+	if _checks.has(person_id):
+		_checks[person_id].text = text
+
+
 func set_selected_ids(ids: Array[String]) -> void:
 	for id in _checks:
 		_checks[id].set_pressed_no_signal(id in ids)

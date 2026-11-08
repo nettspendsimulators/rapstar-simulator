@@ -35,6 +35,7 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Sample | `data/samples.tres` |
 | Opção de produção de videoclipe, prazo, risco e desempenho | `data/videos.tres` |
 | Cidade, local, produção, equipe, merch, festival, patrocinador, tipo de turnê e regras ao vivo | `data/live.tres` |
+| Ações sociais, descontos por amizade, convites e regras de beef | `data/social.tres` |
 | Fase da carreira (nome, fama mínima, descrição) | `career_stages` em `data/game_balance.tres` |
 | Item do menu lateral | `NAV` em `scripts/ui/game_shell.gd` |
 | Cores, botões e painéis | `assets/theme/default_theme.tres` |
@@ -93,6 +94,10 @@ godot --headless --path . --script res://tests/test_character.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_progression.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_social.gd
 ```
 
 ## Regras do sistema musical
@@ -208,6 +213,17 @@ carreira, a agenda, os próximos passos e o resumo da última semana.
 nas plataformas quando não há foto. Músicas, projetos e propostas de show aparecem como grades de
 capas (`CardGrid`/`MediaCard`); detalhes ficam em abas ou sob demanda.
 
+**Relações:** cada artista do catálogo tem uma relação com o jogador (de -100 a 100), com status
+de Desconhecido a Melhor amigo, ou de Neutro a Grande rival, e histórico. A confiança cresce no
+máximo 12 pontos por semana com cada artista. Amizade barateia feats e participações em shows (melhor
+amigo do seu nível faz feat de graça de tempos em tempos; estrelas muito maiores limitam o desconto),
+traz convites (faixas, shows, datas de turnê, divulgação) e defesa em conflitos. Inimizade e beef
+fazem o artista recusar feats, shows e turnês. Diss tracks são músicas normais com um alvo: ao
+lançar, a repercussão depende da nota, o beef escala, o alvo reage (ignora, responde, lança outra
+diss ou propõe paz) e os aliados de cada lado tomam partido. Beefs esfriam sem resposta e podem ser
+encerrados, voltando a relação a neutro. As relações entre artistas são estáveis por padrão e só as
+mudanças ficam no save.
+
 **Fases da carreira:** Desconhecido, Underground, Em ascensão, Relevante, Grande artista e Estrela,
 pela fama. Subir de fase aparece no relatório da semana, que também mostra o saldo real de dinheiro,
 fama, fãs e streams.
@@ -249,4 +265,4 @@ presentes não são cobrados. Na v1, álbuns não lançados com 3 a 6 músicas v
 não mudam. Na v2, Beat, Produção e participações são mantidos sempre que possível, e Vocal e Letra
 recebem o valor que completa a mesma nota. Saves até a v6 começam a carreira ao vivo vazia, e as
 edições dos festivais são criadas ao carregar. Saves até a v7 recebem aparência padrão, 20 anos,
-país Brasil, nome real e cidade vazios e energia normal.
+país Brasil, nome real e cidade vazios e energia normal. Saves até a v8 começam a rede social vazia.

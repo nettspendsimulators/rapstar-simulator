@@ -7,6 +7,7 @@ const KIND_ICONS := {"release": "release", "show": "mic", "video": "video", "mar
 const ACTION_SCREENS := {
 	"new_song": [Screen.SONG_EDITOR, {}], "releases": [Screen.RELEASES, {}], "offers": [Screen.LIVE, {"tab": 1}],
 	"marketing": [Screen.MARKETING_HUB, {}], "merch": [Screen.LIVE, {"tab": 4}], "work": [Screen.WORK, {}],
+	"social": [Screen.SOCIAL, {}],
 }
 
 var _backdrop := StageBackdrop.new()

@@ -18,6 +18,8 @@ var _economy: EconomySystem
 var _streaming: StreamingSystem
 var _merch: MerchSystem
 var _rng: RandomNumberGenerator
+## Relações: preço e disposição dos convidados, parceiros e encontros em festivais.
+var social: SocialSystem
 
 
 func _init(balance: GameBalance, economy: EconomySystem, streaming: StreamingSystem, merch: MerchSystem, rng: RandomNumberGenerator) -> void:
@@ -229,7 +231,8 @@ func costs(career: CareerData, show: LiveShow, context: Dictionary) -> Dictionar
 	for guest in show.guests:
 		var person := _person(guest.get("artist_id", ""))
 		if person != null:
-			guests_cost += person.cost * float(r.guest_fee.get(guest.get("role", "guest"), 0.0))
+			var multiplier := social.price_multiplier(career, String(person.id)) if social != null else 1.0
+			guests_cost += person.cost * multiplier * float(r.guest_fee.get(guest.get("role", "guest"), 0.0))
 	var previous: String = context.get("previous_city", r.home_city_id)
 	var km := distance_km(previous, show.city_id)
 	var travel := float(r.local_transport)
@@ -384,7 +387,9 @@ func accept_offer(career: CareerData, offer_id: String, choices: LiveShow) -> Ac
 		offer.merch_enabled = choices.merch_enabled
 		offer.promotion = choices.promotion
 		offer.set_type = choices.set_type
-	var error := conflict_error(career, offer)
+	var error := guests_refusal(career, offer)
+	if error.is_empty():
+		error = conflict_error(career, offer)
 	if not error.is_empty():
 		return ActionResult.failure(error)
 	var upfront: int = estimate(career, offer)["total_expenses"]
@@ -512,6 +517,8 @@ func perform(career: CareerData, show: LiveShow, report: WeekReport) -> void:
 	result["week"] = career.current_week
 	show.result = result
 	show.status = LiveShow.STATUS_DONE
+	if social != null:
+		social.on_show_performed(career, show, report)
 	var line := WeekReportEntry.new()
 	line.title = "Show: %s" % show.venue_name
 	line.note = "Público %s de %s (%d%%), qualidade %d, repercussão %s. Resultado: %s." % [
@@ -557,7 +564,36 @@ func _validate(career: CareerData, show: LiveShow) -> String:
 		return "Escolha uma data a partir da semana %s." % Fmt.number(career.current_week + 1)
 	if show.ticket_price <= 0.0 and show.event_type != PRIVATE_EVENT:
 		return "Defina o preço do ingresso."
+	var refusal := guests_refusal(career, show)
+	if not refusal.is_empty():
+		return refusal
 	return conflict_error(career, show)
+
+
+## Convidados em inimizade ou beef recusam subir no palco com o jogador.
+func guests_refusal(career: CareerData, show: LiveShow) -> String:
+	if social == null:
+		return ""
+	for guest in show.guests:
+		var reason := social.refusal(career, guest.get("artist_id", ""))
+		if not reason.is_empty():
+			return reason
+	return ""
+
+
+## Propostas de um amigo: subir no palco do show dele (1) ou algumas datas da turnê dele.
+func partner_offers(career: CareerData, artist_id: String, artist_name: String, count: int) -> void:
+	for index in count:
+		var offer := _make_offer(career)
+		offer.partner_id = artist_id
+		offer.event_type = "Participação especial"
+		offer.event_name = ("Show de %s" % artist_name) if count == 1 else ("Turnê de %s — data %d" % [artist_name, index + 1])
+		offer.model = LiveRules.MODEL_FIXED
+		offer.fee = maxi(roundi(offer.fee * 0.6), rules().min_offer_fee)
+		offer.covers_travel = true
+		offer.covers_lodging = true
+		offer.day += index * 3
+		career.live_shows.append(offer)
 
 
 func _money_result(career: CareerData, show: LiveShow, tickets: Vector2i, show_quality: int) -> Dictionary:

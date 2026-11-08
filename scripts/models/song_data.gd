@@ -22,6 +22,10 @@ var production_roll: float = 0.0
 func status_label() -> String:
 	return "Lançada" if is_released() else "Não lançada"
 
+## Diss track: artista alvo (vazio numa música normal) e o beef ligado ao lançamento.
+var diss_target_id: String = ""
+var beef_id: String = ""
+
 
 func attribute_value(attribute_id: String) -> int:
 	return mini(attribute_bases.get(attribute_id, 0) + attribute_points.get(attribute_id, 0), 100)
@@ -36,6 +40,8 @@ func to_dict() -> Dictionary:
 	data["feat_score"] = feat_score
 	data["beat_roll"] = beat_roll
 	data["production_roll"] = production_roll
+	data["diss_target_id"] = diss_target_id
+	data["beef_id"] = beef_id
 	return data
 
 
@@ -48,6 +54,8 @@ static func from_dict(data: Dictionary) -> SongData:
 	song.attribute_points = _int_values(data.get("attribute_points", {}))
 	song.feat_score = int(data.get("feat_score", 0))
 	song.beat_roll = float(data.get("beat_roll", 0.0))
+	song.diss_target_id = data.get("diss_target_id", "")
+	song.beef_id = data.get("beef_id", "")
 	song.production_roll = float(data.get("production_roll", 0.0))
 	return song
 

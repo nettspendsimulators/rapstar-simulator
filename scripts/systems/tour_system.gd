@@ -8,6 +8,7 @@ var _economy: EconomySystem
 var _live: LiveSystem
 var _streaming: StreamingSystem
 var _rng: RandomNumberGenerator
+var social: SocialSystem
 
 
 func _init(balance: GameBalance, economy: EconomySystem, live: LiveSystem, streaming: StreamingSystem, rng: RandomNumberGenerator) -> void:
@@ -24,6 +25,9 @@ func create_tour(career: CareerData, tour_name: String, goal: String, project_id
 		return ActionResult.failure("Dê um nome para a turnê.")
 	if types.is_empty():
 		return ActionResult.failure("Escolha pelo menos um tipo de turnê.")
+	var partner_error := _partner_refusal(career, co_headliner_id)
+	if not partner_error.is_empty():
+		return ActionResult.failure(partner_error)
 	var tour := LiveTour.new()
 	tour.id = career.new_id("tour")
 	tour.name = clean_name
@@ -41,6 +45,9 @@ func update_tour(career: CareerData, tour_id: String, tour_name: String, goal: S
 		return ActionResult.failure("Só turnês em planejamento podem ser alteradas.")
 	if tour_name.strip_edges().is_empty() or types.is_empty():
 		return ActionResult.failure("A turnê precisa de nome e de pelo menos um tipo.")
+	var partner_error := _partner_refusal(career, co_headliner_id)
+	if not partner_error.is_empty():
+		return ActionResult.failure(partner_error)
 	tour.name = tour_name.strip_edges()
 	tour.goal = goal.strip_edges()
 	tour.project_id = project_id
@@ -61,7 +68,9 @@ func save_date(career: CareerData, tour_id: String, show: LiveShow) -> ActionRes
 	show.kind = LiveShow.KIND_TOUR
 	show.status = LiveShow.STATUS_DRAFT
 	show.tour_id = tour.id
-	var error := _live.conflict_error(career, show)
+	var error := _live.guests_refusal(career, show)
+	if error.is_empty():
+		error = _live.conflict_error(career, show)
 	if not error.is_empty():
 		return ActionResult.failure(error)
 	var existing := career.find_live_show(show.id) if not show.id.is_empty() else null
@@ -254,6 +263,8 @@ func process_week(career: CareerData, report: WeekReport) -> void:
 			line.title = "Turnê concluída: %s" % tour.name
 			line.note = "%d shows, %s pessoas, resultado %s." % [summary["shows"], Fmt.number(summary["audience"]), Fmt.signed_money(summary["profit"])]
 			report.entries.append(line)
+			if social != null:
+				social.on_tour_completed(career, tour, report)
 
 
 ## Relatório consolidado a partir dos shows realizados.
@@ -324,3 +335,10 @@ func _done_count(career: CareerData, tour: LiveTour) -> int:
 
 func _rules() -> LiveRules:
 	return _balance.live
+
+
+## Rivais recusam dividir uma turnê.
+func _partner_refusal(career: CareerData, co_headliner_id: String) -> String:
+	if social == null or co_headliner_id.is_empty():
+		return ""
+	return social.refusal(career, co_headliner_id)

@@ -18,6 +18,8 @@ var _balance: GameBalance
 var _economy: EconomySystem
 var _quality: SongQualitySystem
 var _rng: RandomNumberGenerator
+## Relações mudam o cachê dos feats e quem aceita participar.
+var social: SocialSystem
 
 
 func _init(balance: GameBalance, economy: EconomySystem, quality: SongQualitySystem, rng: RandomNumberGenerator) -> void:
@@ -27,7 +29,7 @@ func _init(balance: GameBalance, economy: EconomySystem, quality: SongQualitySys
 	_rng = rng
 
 
-func create_song(career: CareerData, title: String, credits: SongCredits = null, cover_file: String = "", sample: SongSample = null) -> ActionResult:
+func create_song(career: CareerData, title: String, credits: SongCredits = null, cover_file: String = "", sample: SongSample = null, diss_target_id: String = "") -> ActionResult:
 	var clean_title := title.strip_edges()
 	if clean_title.is_empty():
 		return ActionResult.failure("Dê um nome para a música.")
@@ -39,9 +41,12 @@ func create_song(career: CareerData, title: String, credits: SongCredits = null,
 	var sample_error := _validate_sample(career, song_sample, "")
 	if not sample_error.is_empty():
 		return ActionResult.failure(sample_error)
+	var social_error := _social_error(career, song_credits, SongCredits.new(), diss_target_id)
+	if not social_error.is_empty():
+		return ActionResult.failure(social_error)
 	var production_cost := _balance.song_production_cost
 	var hires := _new_hires(song_credits, SongCredits.new())
-	var total_cost := production_cost + _hires_cost(hires) + sample_cost(song_sample)
+	var total_cost := production_cost + _hires_cost(hires, career) + sample_cost(song_sample)
 	if not _economy.can_afford(career, total_cost):
 		return _economy.insufficient_funds(total_cost)
 
@@ -62,15 +67,17 @@ func create_song(career: CareerData, title: String, credits: SongCredits = null,
 	song.feat_score = _quality.feats_score(song_credits)
 	song.credits = song_credits
 	song.sample = song_sample
+	song.diss_target_id = diss_target_id
 	_update_quality(song)
 	career.songs.append(song)
+	_record_feats(career, hires, clean_title)
 	return ActionResult.success("\"%s\" produzida. Nota: %d." % [song.title, song.quality], song)
 
 
 ## Só colaboradores novos são pagos, e remover alguém não gera reembolso.
 ## A nota só muda nas partes cujos colaboradores mudaram. As melhorias são mantidas.
 ## Sem informar sample, a música mantém o atual. Um SongSample vazio remove o sample.
-func edit_song(career: CareerData, song_id: String, title: String, credits: SongCredits, cover_file: String, sample: SongSample = null) -> ActionResult:
+func edit_song(career: CareerData, song_id: String, title: String, credits: SongCredits, cover_file: String, sample: SongSample = null, diss_target_id: Variant = null) -> ActionResult:
 	var song := career.find_song(song_id)
 	if song == null:
 		return ActionResult.failure("Música não encontrada.")
@@ -86,9 +93,13 @@ func edit_song(career: CareerData, song_id: String, title: String, credits: Song
 	var sample_error := _validate_sample(career, new_sample, song.id)
 	if not sample_error.is_empty():
 		return ActionResult.failure(sample_error)
+	var target: String = song.diss_target_id if diss_target_id == null else String(diss_target_id)
+	var social_error := _social_error(career, credits, song.credits, target)
+	if not social_error.is_empty():
+		return ActionResult.failure(social_error)
 	var hires := _new_hires(credits, song.credits)
 	var new_sample_cost := 0 if new_sample.equals(song.sample) else sample_cost(new_sample)
-	var hires_cost := _hires_cost(hires) + new_sample_cost
+	var hires_cost := _hires_cost(hires, career) + new_sample_cost
 	if not _economy.can_afford(career, hires_cost):
 		return _economy.insufficient_funds(hires_cost)
 
@@ -102,6 +113,8 @@ func edit_song(career: CareerData, song_id: String, title: String, credits: Song
 	_apply_credits_changes(song, credits)
 	_update_quality(song)
 	song.credits = credits
+	song.diss_target_id = target
+	_record_feats(career, hires, clean_title)
 	career.refresh_album_qualities()
 	return ActionResult.success("\"%s\" atualizada. Nota: %d." % [song.title, song.quality], song)
 
@@ -149,9 +162,10 @@ func sample_cost(sample: SongSample) -> int:
 
 
 ## Quanto custariam os colaboradores novos em relação à música, sem alterar nada.
-func hiring_cost(credits: SongCredits, song: SongData = null) -> int:
+## Sem carreira, mostra o cachê do catálogo; com carreira, já com o efeito das relações.
+func hiring_cost(credits: SongCredits, song: SongData = null, career: CareerData = null) -> int:
 	var previous := song.credits if song != null else SongCredits.new()
-	return _hires_cost(_new_hires(credits, previous))
+	return _hires_cost(_new_hires(credits, previous), career)
 
 
 ## Nota que a música teria com estes colaboradores, sem alterar nada.
@@ -245,18 +259,57 @@ func _collect_hires(hires: Array[Hire], role_label: String, pool: Array[Collabor
 			hires.append(hire)
 
 
-func _hires_cost(hires: Array[Hire]) -> int:
+func _hires_cost(hires: Array[Hire], career: CareerData = null) -> int:
 	var total := 0
 	for hire in hires:
-		total += hire.person.cost
+		total += _hire_price(hire, career)
 	return total
+
+
+## Feats passam pelo SocialSystem (amizade dá desconto, tensão encarece); os outros papéis não.
+func _hire_price(hire: Hire, career: CareerData) -> int:
+	if career != null and social != null and hire.role_label == "Feat":
+		return social.feat_price(career, hire.person)
+	return hire.person.cost
+
+
+## Artistas em inimizade ou beef recusam o feat; uma diss precisa de um alvo conhecido e não pode
+## ter o próprio alvo como participação.
+func _social_error(career: CareerData, credits: SongCredits, previous: SongCredits, diss_target_id: String) -> String:
+	if social == null:
+		return ""
+	for artist_id in credits.feat_ids:
+		if artist_id in previous.feat_ids:
+			continue
+		var reason := social.refusal(career, artist_id)
+		if not reason.is_empty():
+			return reason
+	if not diss_target_id.is_empty():
+		var current := social.peek(career, diss_target_id)
+		if current == null or not current.met:
+			return "Você só pode fazer uma diss contra um artista que já conhece."
+		if diss_target_id in credits.feat_ids:
+			return "O alvo da diss não pode participar da própria diss."
+	return ""
+
+
+func _record_feats(career: CareerData, hires: Array[Hire], title: String) -> void:
+	if social == null:
+		return
+	var ids: Array[String] = []
+	for hire in hires:
+		if hire.role_label == "Feat":
+			ids.append(String(hire.person.id))
+	social.record_feats(career, ids, title)
 
 
 ## Cada contratação vira uma linha própria no histórico financeiro.
 func _pay_hires(career: CareerData, hires: Array[Hire], song_title: String) -> void:
 	for hire in hires:
 		var description := "%s %s: %s" % [hire.role_label, hire.person.display_name, song_title]
-		_economy.spend(career, hire.person.cost, description, FinanceEntry.CATEGORY_COLLABORATOR)
+		var price := _hire_price(hire, career)
+		if price > 0:
+			_economy.spend(career, price, description, FinanceEntry.CATEGORY_COLLABORATOR)
 
 
 ## Devolve a mensagem de erro, ou um texto vazio se os créditos forem válidos.
