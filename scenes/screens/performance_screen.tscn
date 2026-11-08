@@ -33,20 +33,17 @@ metadata/_tab_index = 0
 
 [node name="TotalsLabel" type="Label" parent="Column/Tabs/Resumo"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLabel"
 autowrap_mode = 3
 
 [node name="RecordsLabel" type="Label" parent="Column/Tabs/Resumo"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 autowrap_mode = 3
 
 [node name="RecentLabel" type="Label" parent="Column/Tabs/Resumo"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 autowrap_mode = 3
 

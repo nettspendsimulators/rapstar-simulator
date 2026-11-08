@@ -134,7 +134,7 @@ func _build() -> void:
 	_date_button("Remover data", _remove_date, true)
 
 	var side := PanelContainer.new()
-	side.custom_minimum_size = Vector2(400, 0)
+	side.custom_minimum_size = Vector2(340, 0)
 	body.add_child(side)
 	var side_scroll := ScrollContainer.new()
 	side_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -220,7 +220,7 @@ func _fill_dates(career: CareerData) -> void:
 			var projection := live.estimate(career, show)
 			outcome = "Prev. %s" % Fmt.signed_money(projection["profit"])
 			fatigue = projection["fatigue"]
-		_dates.add_row([live.day_label(show.day), live.city_label(show.city_id), show.venue_name, Fmt.number(show.capacity),
+		_dates.add_row([live.short_day_label(show.day), live.city_label(show.city_id), show.venue_name, Fmt.number(show.capacity),
 			Fmt.money(roundi(show.ticket_price)), outcome, "%d/100" % fatigue], show.id)
 
 
@@ -256,7 +256,8 @@ func _fill_summary(career: CareerData) -> void:
 			lines.append("Patrocínios: %s" % Fmt.money(f["sponsor_cash"]))
 		lines.append("Resultado previsto: %s" % Fmt.signed_money(f["profit"]))
 		if _tour.is_open():
-			lines.append("Dinheiro disponível: %s" % Fmt.money(career.money))
+			var pay: int = f["upfront"] - f["sponsor_cash"]
+			lines.append("Dinheiro: %s  →  depois de confirmar: %s" % [Fmt.money(career.money), Fmt.money(career.money - pay)])
 		for conflict: String in f["conflicts"]:
 			lines.append("Conflito: %s" % conflict)
 		for warning: String in f["warnings"]:

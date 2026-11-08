@@ -147,6 +147,10 @@ func label(text: String, font_size: int, color: Color, bold: bool = false, node_
 		result.add_theme_font_override("font", bold_font())
 	if not node_name.is_empty():
 		result.name = node_name
+	if font_size >= 28:
+		# Nomes grandes de artista ou música não podem alargar a página.
+		result.clip_text = true
+		result.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	return result
 
 

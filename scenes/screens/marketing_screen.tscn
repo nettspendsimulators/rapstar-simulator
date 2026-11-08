@@ -29,19 +29,16 @@ theme_override_constants/separation = 4
 
 [node name="SongLabel" type="Label" parent="Column/InfoPanel/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 autowrap_mode = 3
 
 [node name="BudgetLabel" type="Label" parent="Column/InfoPanel/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 autowrap_mode = 3
 
 [node name="ForecastLabel" type="Label" parent="Column/InfoPanel/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 autowrap_mode = 3
 
@@ -53,7 +50,6 @@ script = ExtResource("2_table")
 
 [node name="MessageLabel" type="Label" parent="Column"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
 theme_type_variation = &"MessageLabel"
 autowrap_mode = 3

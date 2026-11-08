@@ -5,7 +5,8 @@ Jogo de gerenciamento de carreira musical, feito em Godot 4.7 (GDScript), para d
 ## Estrutura
 
 ```
-assets/theme/       Tema visual da interface
+assets/theme/       Tema visual (cores, botões, painéis, abas, tabelas, fontes de destaque)
+assets/icons/       Ícones SVG do menu, dos indicadores e das caixas de seleção
 data/               game_balance.tres (valores) e collaborators.tres (colaboradores)
 scenes/             main.tscn, screens/ (uma cena por tela) e components/
 scripts/
@@ -14,7 +15,8 @@ scripts/
   models/           Dados da carreira: CareerData, SongData, AlbumData, ScheduledRelease...
   systems/          Regras: tempo, semana, trabalho, música, nota, álbum, lançamento,
                     desempenho, economia, capas, save e migração
-  ui/               Navegação, tabela reutilizável, componentes e script de cada tela
+  ui/               GameShell (menu lateral + barra de status), tabela reutilizável,
+                    componentes e script de cada tela
 tests/              Testes das regras, sem interface, e um save v1 real em fixtures/
 ```
 
@@ -33,6 +35,9 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Sample | `data/samples.tres` |
 | Opção de produção de videoclipe, prazo, risco e desempenho | `data/videos.tres` |
 | Cidade, local, produção, equipe, merch, festival, patrocinador, tipo de turnê e regras ao vivo | `data/live.tres` |
+| Fase da carreira (nome, fama mínima, descrição) | `career_stages` em `data/game_balance.tres` |
+| Item do menu lateral | `NAV` em `scripts/ui/game_shell.gd` |
+| Cores, botões e painéis | `assets/theme/default_theme.tres` |
 | Peça de aparência (pele, cabelo, barba, roupa, acessório...), países e idades | `data/character.tres` (estilo novo: uma função de desenho em `character_view.gd`) |
 | Pesos da nota, custo e limite das melhorias | `song_quality` em `data/game_balance.tres` |
 | Formato de projeto | Nova entrada em `album_formats` em `data/game_balance.tres` |
@@ -84,6 +89,10 @@ godot --headless --path . --script res://tests/test_live.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_character.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_progression.gd
 ```
 
 ## Regras do sistema musical
@@ -188,6 +197,15 @@ não devolve o dinheiro: o retorno depende do desempenho do lançamento.
 
 **Reputação:** muda ao lançar (qualidade acima de 50 aumenta, abaixo de 50 diminui) e nos shows
 (show muito bom aumenta, show ruim ou compromisso contratado cancelado diminui).
+
+**Navegação:** dentro de uma carreira, a barra superior mostra o artista, a fase, a semana, o
+dinheiro, a fama, os fãs e a energia (com as mudanças aparecendo na hora), e tem "Próxima semana",
+que avança e salva automaticamente. O menu lateral leva a todas as áreas. O Início reúne a fase da
+carreira, a agenda, os próximos passos e o resumo da última semana.
+
+**Fases da carreira:** Desconhecido, Underground, Em ascensão, Relevante, Grande artista e Estrela,
+pela fama. Subir de fase aparece no relatório da semana, que também mostra o saldo real de dinheiro,
+fama, fãs e streams.
 
 **Personagem e carreiras:** cada carreira tem nome artístico (identidade pública), nome real, idade
 (cresce um ano a cada 52 semanas), país, cidade, aparência e a opção de energia infinita. A aparência

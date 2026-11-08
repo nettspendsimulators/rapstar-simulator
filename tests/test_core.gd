@@ -150,8 +150,9 @@ func _test_album_tracks() -> void:
 	_check(game.releases.unreleased_content(game.career).is_empty(), "nada pendente")
 	_check(game.career.releases.size() == 2, "só single e álbum geram lançamento")
 	var report: WeekReport = game.next_week()
-	_check(report.entries.size() == 2, "single e álbum no relatório")
-	_check(report.entries[1].sales > 0 and report.entries[1].streams > 0, "projeto gera vendas e streams")
+	var content_lines := report.entries.filter(func(entry: WeekReportEntry) -> bool: return entry.streams > 0 or entry.sales > 0)
+	_check(content_lines.size() == 2, "single e álbum no relatório")
+	_check(content_lines[1].sales > 0 and content_lines[1].streams > 0, "projeto gera vendas e streams")
 	game.free()
 
 

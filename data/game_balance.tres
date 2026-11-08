@@ -13,6 +13,7 @@
 [ext_resource type="Resource" path="res://data/videos.tres" id="11_videos"]
 [ext_resource type="Resource" path="res://data/live.tres" id="12_live"]
 [ext_resource type="Resource" path="res://data/character.tres" id="13_character"]
+[ext_resource type="Script" path="res://scripts/definitions/career_stage_definition.gd" id="14_stage"]
 
 [sub_resource type="Resource" id="job_delivery"]
 script = ExtResource("2_job")
@@ -118,6 +119,48 @@ energy_cost = 25
 script = ExtResource("5_quality")
 attributes = Array[ExtResource("7_attribute")]([SubResource("attribute_vocal"), SubResource("attribute_lyrics"), SubResource("attribute_beat"), SubResource("attribute_production")])
 
+[sub_resource type="Resource" id="stage_unknown"]
+script = ExtResource("14_stage")
+id = "unknown"
+display_name = "Desconhecido"
+min_fame = 0
+description = "Ninguém conhece seu som ainda. Grave, lance e faça os primeiros shows pequenos."
+
+[sub_resource type="Resource" id="stage_underground"]
+script = ExtResource("14_stage")
+id = "underground"
+display_name = "Underground"
+min_fame = 60
+description = "A cena começou a reparar em você. Bares e casas underground passam a chamar."
+
+[sub_resource type="Resource" id="stage_rising"]
+script = ExtResource("14_stage")
+id = "rising"
+display_name = "Em ascensão"
+min_fame = 300
+description = "Seu público cresce a cada lançamento. Clubes, primeiras turnês e marcas aparecem."
+
+[sub_resource type="Resource" id="stage_relevant"]
+script = ExtResource("14_stage")
+id = "relevant"
+display_name = "Relevante"
+min_fame = 1200
+description = "Você é um nome conhecido. Casas grandes, festivais e campanhas maiores ficam ao alcance."
+
+[sub_resource type="Resource" id="stage_big"]
+script = ExtResource("14_stage")
+id = "big"
+display_name = "Grande artista"
+min_fame = 3500
+description = "Arenas, palcos principais de festivais e patrocínios de peso fazem parte da rotina."
+
+[sub_resource type="Resource" id="stage_star"]
+script = ExtResource("14_stage")
+id = "star"
+display_name = "Estrela"
+min_fame = 9000
+description = "Você é uma estrela da música: estádios, headliner de festivais e o mundo inteiro ouvindo."
+
 [resource]
 script = ExtResource("1_balance")
 jobs = Array[ExtResource("2_job")]([SubResource("job_delivery"), SubResource("job_waiter"), SubResource("job_heavy")])
@@ -129,6 +172,7 @@ samples = ExtResource("10_samples")
 videos = ExtResource("11_videos")
 live = ExtResource("12_live")
 character = ExtResource("13_character")
+career_stages = Array[ExtResource("14_stage")]([SubResource("stage_unknown"), SubResource("stage_underground"), SubResource("stage_rising"), SubResource("stage_relevant"), SubResource("stage_big"), SubResource("stage_star")])
 album_formats = Array[ExtResource("3_format")]([SubResource("format_ep"), SubResource("format_album"), SubResource("format_mixtape")])
 song_performance = SubResource("song_rules")
 album_performance = SubResource("album_rules")

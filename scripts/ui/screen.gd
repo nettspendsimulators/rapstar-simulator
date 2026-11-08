@@ -39,6 +39,25 @@ var context: Dictionary = {}
 func _ready() -> void:
 	GameManager.career_changed.connect(refresh)
 	refresh()
+	fit_long_texts(self)
+
+
+## Nomes longos (músicas, artistas, projetos) não podem alargar a tela: listas de opções cortam o
+## texto e títulos terminam em reticências. Vale para todas as telas.
+static func fit_long_texts(node: Node) -> void:
+	for child in node.get_children():
+		if child is OptionButton:
+			child.fit_to_longest_item = false
+			child.clip_text = true
+			child.custom_minimum_size.x = maxf(child.custom_minimum_size.x, 150.0)
+		elif child is Label and child.autowrap_mode == TextServer.AUTOWRAP_OFF:
+			if child.theme_type_variation in [&"TitleLabel", &"HeaderLabel"]:
+				child.clip_text = true
+				child.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+			elif child.text.length() > 70 and not child.clip_text:
+				# Frases longas quebram linha em vez de alargar a tela.
+				child.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		fit_long_texts(child)
 
 
 ## Sobrescreva para mostrar os dados atuais da carreira.

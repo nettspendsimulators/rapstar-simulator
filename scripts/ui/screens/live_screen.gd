@@ -146,6 +146,7 @@ func _build_merch_tab() -> void:
 	for product in GameManager.balance.live.merch_products:
 		_product.add_item("%s (%s/un.)" % [product.display_name, Fmt.money(product.unit_cost)])
 		_product.set_item_metadata(_product.item_count - 1, product.id)
+	_product.custom_minimum_size.x = 240
 	_product.item_selected.connect(func(_index: int) -> void: _on_product_selected())
 	form.add_child(_product)
 	_quantity.min_value = 10
@@ -188,7 +189,7 @@ func _fill_shows() -> void:
 	_shows.clear_rows()
 	for show in live.shows_with_status(career, LiveShow.STATUS_SCHEDULED):
 		var projection := live.estimate(career, show)
-		_shows.add_row([_event(show), live.day_label(show.day), live.city_label(show.city_id),
+		_shows.add_row([_event(show), live.short_day_label(show.day), live.city_label(show.city_id),
 			"%s de %s" % [Fmt.number(projection["attendance"]), Fmt.number(show.capacity)], live.terms_text(show),
 			Fmt.signed_money(projection["artist_income"] + projection["merch_net"] - show.upfront_paid)], show.id)
 
@@ -199,7 +200,7 @@ func _fill_offers() -> void:
 	_offers.clear_rows()
 	for offer in live.shows_with_status(career, LiveShow.STATUS_OFFER):
 		var projection := live.estimate(career, offer)
-		_offers.add_row([_event(offer), live.day_label(offer.day), offer.venue_name,
+		_offers.add_row([_event(offer), live.short_day_label(offer.day), offer.venue_name,
 			"%s (cap. %s)" % [Fmt.number(projection["attendance"]), Fmt.number(offer.capacity)], live.terms_text(offer),
 			Fmt.signed_money(projection["profit"])], offer.id)
 	_tabs.set_tab_title(1, "Ofertas (%d)" % live.shows_with_status(career, LiveShow.STATUS_OFFER).size())
@@ -271,7 +272,7 @@ func _fill_history() -> void:
 				"%d%%" % report["occupancy"], "—", Fmt.signed_money(report["profit"])], "tour:%s" % tour.id)
 	for show in live.history(career):
 		var result := show.result
-		_history.add_row([_event(show), live.day_label(show.day), Fmt.number(result.get("attendance", 0)),
+		_history.add_row([_event(show), live.short_day_label(show.day), Fmt.number(result.get("attendance", 0)),
 			"%d%%" % int(result.get("occupancy", 0)), result.get("quality", 0), Fmt.signed_money(result.get("profit", 0))], show.id)
 
 
@@ -337,7 +338,8 @@ func _update_merch_cost() -> void:
 	if _product.item_count == 0:
 		return
 	var cost := GameManager.merch.manufacture_cost(_product.get_selected_metadata(), int(_quantity.value))
-	_merch_cost.text = "Custo: %s" % Fmt.money(cost)
+	var money := GameManager.career.money
+	_merch_cost.text = "Custo: %s  •  Dinheiro: %s  →  depois: %s" % [Fmt.money(cost), Fmt.money(money), Fmt.money(money - cost)]
 
 
 func _manufacture() -> void:

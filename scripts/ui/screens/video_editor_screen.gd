@@ -176,12 +176,13 @@ func _update_summary() -> void:
 	var choices := _choices()
 	var error := GameManager.videos.validate_choices(choices)
 	var evaluation := GameManager.videos.evaluate(song, choices)
-	%SummaryLabel.text = "Custo total: %s  |  Prazo: %d semana(s), pronto na semana %s  |  Risco de problemas: %d%%  |  Dinheiro: %s" % [
+	%SummaryLabel.text = "Custo total: %s  |  Prazo: %d semana(s), pronto na semana %s  |  Risco de problemas: %d%%  |  Dinheiro: %s  →  depois: %s" % [
 		Fmt.money(evaluation.cost),
 		evaluation.weeks,
 		Fmt.number(career.current_week + evaluation.weeks),
 		roundi(evaluation.problem_chance * 100),
 		Fmt.money(career.money),
+		Fmt.money(career.money - evaluation.cost),
 	]
 	%ScoresLabel.text = _scores_text(evaluation)
 	%ConfirmButton.disabled = not error.is_empty() or evaluation.cost > career.money

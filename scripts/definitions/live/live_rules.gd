@@ -47,6 +47,8 @@ const POSITION_LABELS := {
 @export var price_elasticity: float = 1.2
 ## Fama que dobra o preço que o público aceita pagar.
 @export var price_fame_reference: int = 8000
+## Quanto a fama pode subir o preço que o público aceita (0,8 = até 80% acima da referência).
+@export var max_price_fame_bonus: float = 0.8
 @export var min_price_factor: float = 0.1
 @export var max_price_factor: float = 1.5
 @export var promotion_max_bonus: float = 0.3
@@ -108,6 +110,8 @@ const POSITION_LABELS := {
 @export_group("Resultados")
 @export var fan_rate: float = 0.05
 @export var attendees_per_fame: int = 400
+## Fama a partir da qual cada show rende metade da fama: no topo, manter-se é mais difícil.
+@export var show_fame_softcap: int = 4000
 @export var reputation_quality: int = 70
 
 @export_group("Merchandising")

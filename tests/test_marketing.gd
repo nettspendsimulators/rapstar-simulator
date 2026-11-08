@@ -431,7 +431,8 @@ func _test_no_campaign_changes_nothing() -> void:
 	var money: int = game.career.money
 	var report: WeekReport = game.next_week()
 	_check(song.is_released() and game.career.money == money, "agendar sem marketing segue igual")
-	_check(report.entries.size() == 1, "relatório sem linhas de campanha")
+	var lines := report.entries.filter(func(entry: WeekReportEntry) -> bool: return not entry.title.contains("proposta(s) de show"))
+	_check(lines.size() == 1, "relatório sem linhas de campanha")
 	_check(game.career.marketing_campaigns.is_empty(), "sem campanha criada")
 	game.free()
 

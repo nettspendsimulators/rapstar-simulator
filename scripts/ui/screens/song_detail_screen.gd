@@ -36,7 +36,7 @@ func _build_attribute_rows() -> void:
 		%AttributesGrid.add_child(value_label)
 
 		var cost_label := Label.new()
-		cost_label.text = "%d de energia" % attribute.energy_cost
+		cost_label.text = "sem custo (energia infinita)" if GameManager.career.infinite_energy else "%d de energia" % attribute.energy_cost
 		%AttributesGrid.add_child(cost_label)
 
 		var button := Button.new()
@@ -52,8 +52,8 @@ func refresh() -> void:
 	var career := GameManager.career
 	%Title.text = _song.title
 	%CoverView.show_cover(_song.cover_file)
-	%StatsLabel.text = "Dinheiro: %s  |  Energia: %d/%d" % [
-		Fmt.money(career.money), career.energy, GameManager.balance.max_energy
+	%StatsLabel.text = "Dinheiro: %s  |  Energia: %s" % [
+		Fmt.money(career.money), GameManager.energy_text()
 	]
 	%QualityLabel.text = "Nota geral: %d" % _song.quality
 	%StatusLabel.text = _status_text()

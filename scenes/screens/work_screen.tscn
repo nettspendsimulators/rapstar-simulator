@@ -22,7 +22,8 @@ text = "Trabalhar"
 
 [node name="Hint" type="Label" parent="Column"]
 layout_mode = 2
-text = "Escolha um trabalho. Trabalhar consome a semana inteira."
+text = "Precisa de dinheiro? Um trabalho paga um valor fixo e ocupa a semana inteira: ao confirmar, a semana avança (lançamentos, plataformas e shows da semana acontecem normalmente)."
+autowrap_mode = 3
 
 [node name="JobsTable" type="Tree" parent="Column"]
 unique_name_in_owner = true
@@ -48,4 +49,4 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"PrimaryButton"
-text = "Confirmar trabalho"
+text = "Trabalhar esta semana"

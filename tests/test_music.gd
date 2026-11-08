@@ -334,7 +334,8 @@ func _test_schedule_flow() -> void:
 
 	var fame_before: int = game.career.fame
 	var next: WeekReport = game.next_week()
-	_check(next.entries.size() == 1 and next.entries[0].streams > 0, "rende na semana seguinte")
+	var music_lines := next.entries.filter(func(entry: WeekReportEntry) -> bool: return not entry.title.contains("proposta(s) de show"))
+	_check(music_lines.size() == 1 and music_lines[0].streams > 0, "rende na semana seguinte")
 	_check(game.career.money == money_at_release + next.total_money(), "dinheiro entra pelo sistema existente")
 	_check(game.career.fame == fame_before + next.total_fame(), "fama entra pelo sistema existente")
 	_check(game.career.find_active_schedule(song.id) == null, "agendamento encerrado")

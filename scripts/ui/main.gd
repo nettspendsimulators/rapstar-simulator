@@ -31,7 +31,11 @@ const SCREENS := {
 	Screen.SHOW_REPORT: preload("res://scenes/screens/show_report_screen.tscn"),
 }
 
+## Telas fora de uma carreira: aparecem sem o menu lateral e a barra de status.
+const OUTSIDE_CAREER := [Screen.MAIN_MENU, Screen.CAREERS, Screen.NEW_CAREER]
+
 var _current: Screen
+var _shell: GameShell
 
 
 func _ready() -> void:
@@ -39,10 +43,37 @@ func _ready() -> void:
 
 
 func show_screen(screen_id: StringName, screen_context: Dictionary = {}) -> void:
+	var screen: Screen = SCREENS[screen_id].instantiate()
+	screen.context = screen_context
+	screen.navigate_requested.connect(show_screen)
+	if screen_id in OUTSIDE_CAREER or GameManager.career == null:
+		_clear()
+		_current = screen
+		add_child(screen)
+		return
 	if _current != null:
 		remove_child(_current)
 		_current.queue_free()
-	_current = SCREENS[screen_id].instantiate()
-	_current.context = screen_context
-	_current.navigate_requested.connect(show_screen)
-	add_child(_current)
+		_current = null
+	if _shell == null:
+		_shell = GameShell.new()
+		_shell.name = "GameShell"
+		_shell.navigate_requested.connect(show_screen)
+		add_child(_shell)
+	_shell.set_screen(screen, screen_id, screen_context)
+
+
+## A moldura da carreira, quando está aberta.
+func shell() -> GameShell:
+	return _shell
+
+
+func _clear() -> void:
+	if _current != null:
+		remove_child(_current)
+		_current.queue_free()
+		_current = null
+	if _shell != null:
+		remove_child(_shell)
+		_shell.queue_free()
+		_shell = null

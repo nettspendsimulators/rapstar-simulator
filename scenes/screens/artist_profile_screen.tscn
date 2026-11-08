@@ -85,13 +85,11 @@ theme_type_variation = &"HeaderLabel"
 
 [node name="BioLabel" type="Label" parent="Column/Body/Main"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 autowrap_mode = 3
 
 [node name="StatsLabel" type="Label" parent="Column/Body/Main"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 autowrap_mode = 3
 

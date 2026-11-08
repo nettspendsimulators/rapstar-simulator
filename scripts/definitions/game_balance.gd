@@ -40,6 +40,10 @@ extends Resource
 @export_group("Personagem")
 @export var character: CharacterRules
 
+@export_group("Progressão")
+## Fases da carreira, da menor para a maior fama.
+@export var career_stages: Array[CareerStageDefinition] = []
+
 @export_group("Capas")
 ## As capas são recortadas em quadrado e salvas neste tamanho, em pixels.
 @export var cover_size: int = 512

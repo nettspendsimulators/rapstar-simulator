@@ -48,7 +48,7 @@ func _fill_summary() -> void:
 		plays.append(snapshot.plays)
 		followers.append(snapshot.followers)
 	%PlaysChart.show_values("Reproduções por semana", plays)
-	%FollowersChart.show_values("Seguidores", followers)
+	%FollowersChart.show_values("Fãs (seguidores + inscritos)", followers)
 
 
 func _recent_releases() -> String:

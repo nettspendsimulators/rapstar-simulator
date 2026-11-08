@@ -47,6 +47,17 @@ func festival_day(day: int, edition_week: int) -> int:
 	return day - first_day_of_week(edition_week) - FESTIVAL_FIRST_WEEKDAY + 2
 
 
+## Quanto o público aceita pagar a mais pela fama do artista, com teto.
+func price_fame_multiplier(career: CareerData) -> float:
+	return 1.0 + minf(float(career.fame) / rules().price_fame_reference, rules().max_price_fame_bonus)
+
+
+## Versão curta para tabelas: "Sem 7 · Sex".
+func short_day_label(day: int) -> String:
+	const NAMES := ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]
+	return "Sem %s · %s" % [Fmt.number((day - 1) / 7 + 1), NAMES[(day - 1) % 7]]
+
+
 func city_label(city_id: String) -> String:
 	var city := rules().find_city(city_id)
 	return city.display_name if city != null else "?"
@@ -149,7 +160,7 @@ func demand(career: CareerData, show: LiveShow, context: Dictionary, noisy: bool
 	if show.kind == LiveShow.KIND_FESTIVAL or show.event_type == PRIVATE_EVENT:
 		return Vector2i(roundi(show.capacity * clampf(0.92 * noise, 0.0, 1.0)), 0)
 	var venue := r.find_venue(show.venue_id)
-	var reference_price := venue.base_ticket_price * (1.0 + float(career.fame) / r.price_fame_reference)
+	var reference_price := venue.base_ticket_price * price_fame_multiplier(career)
 	var price_factor := clampf(pow(reference_price / maxf(show.ticket_price, 1.0), r.price_elasticity), r.min_price_factor, r.max_price_factor)
 	var promotion := 1.0 + minf(show.promotion / maxf(show.capacity * r.promotion_per_seat, 1.0), 1.0) * r.promotion_max_bonus
 	promotion *= 1.0 + float(context.get("promotion_bonus", 0.0))
@@ -442,7 +453,18 @@ func process_week(career: CareerData, report: WeekReport) -> void:
 		line.sales = online["units"]
 		line.money = online["net"]
 		report.entries.append(line)
+	var before := career.live_shows.size()
 	generate_offers(career)
+	var new_offers := career.live_shows.slice(before)
+	if not new_offers.is_empty():
+		var best: LiveShow = new_offers[0]
+		for offer: LiveShow in new_offers:
+			if offer.capacity > best.capacity:
+				best = offer
+		var notice := WeekReportEntry.new()
+		notice.title = "%d nova(s) proposta(s) de show" % new_offers.size()
+		notice.note = "Maior delas: %s, %s (%s). Responda em Shows e ofertas." % [best.event_name, day_label(best.day), terms_text(best)]
+		report.entries.append(notice)
 
 
 func perform(career: CareerData, show: LiveShow, report: WeekReport) -> void:
@@ -464,7 +486,7 @@ func perform(career: CareerData, show: LiveShow, report: WeekReport) -> void:
 	var impact := _impact(career, show)
 	buzz += (impact - 1.0) * 5.0
 	var new_fans := roundi(attendance * r.fan_rate * show_quality / 50.0)
-	var fame := roundi(float(attendance) / r.attendees_per_fame * show_quality / 50.0 * impact)
+	var fame := roundi(float(attendance) / r.attendees_per_fame * show_quality / 50.0 * impact / (1.0 + float(career.fame) / r.show_fame_softcap))
 	var reputation := 1 if show_quality >= r.reputation_quality else (-1 if show_quality < 30 else 0)
 	var income: int = money["artist_income"]
 	if income > 0:
@@ -641,7 +663,7 @@ func _make_offer(career: CareerData) -> LiveShow:
 		venue_id = r.venues[maxi(_venue_index(venue_id) - 1, 0)].id
 	apply_venue(show, city.id, venue_id)
 	var venue := r.find_venue(venue_id)
-	show.ticket_price = venue.base_ticket_price * (1.0 + float(career.fame) / r.price_fame_reference)
+	show.ticket_price = venue.base_ticket_price * price_fame_multiplier(career)
 	show.vip_price = show.ticket_price * r.vip_price_multiplier
 	var events: Array = OFFER_EVENTS.get(venue_id, ["Show"])
 	show.event_type = events[_rng.randi() % events.size()]

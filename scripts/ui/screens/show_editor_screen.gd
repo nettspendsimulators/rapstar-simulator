@@ -98,7 +98,7 @@ func _build_layout() -> void:
 	_grid.add_theme_constant_override("v_separation", 6)
 	scroll.add_child(_grid)
 	var side := PanelContainer.new()
-	side.custom_minimum_size = Vector2(380, 0)
+	side.custom_minimum_size = Vector2(330, 0)
 	body.add_child(side)
 	var side_scroll := ScrollContainer.new()
 	side_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -235,7 +235,7 @@ func _build_fields() -> void:
 	for role_id in LiveRules.GUEST_ROLES:
 		_guest_role.add_item(LiveRules.GUEST_ROLE_LABELS[role_id])
 		_guest_role.set_item_metadata(_guest_role.item_count - 1, role_id)
-	var guest_row := HBoxContainer.new()
+	var guest_row := HFlowContainer.new()
 	_guest_artist.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_guest_artist.clip_text = true
 	guest_row.add_child(_guest_artist)
@@ -330,7 +330,7 @@ func _on_changed(source: Control = null) -> void:
 		live.apply_venue(_show, _city.get_selected_metadata(), _venue.get_selected_metadata())
 		if source == _venue:
 			var venue := rules.find_venue(_show.venue_id)
-			_price.set_value_no_signal(roundi(venue.base_ticket_price * (1.0 + float(GameManager.career.fame) / rules.price_fame_reference)))
+			_price.set_value_no_signal(roundi(venue.base_ticket_price * live.price_fame_multiplier(GameManager.career)))
 			_vip_price.set_value_no_signal(_price.value * rules.vip_price_multiplier)
 	_show.day = live.first_day_of_week(int(_week.value)) + _weekday.selected
 	_show.ticket_price = _price.value
@@ -387,7 +387,13 @@ func _update_estimate() -> void:
 	lines.append("Qualidade prevista: %d/100" % p["quality"])
 	if p["fatigue"] > 0:
 		lines.append("Desgaste da turnê: %d/100" % p["fatigue"])
-	lines.append("Dinheiro disponível: %s" % Fmt.money(career.money))
+	if _mode == "view":
+		lines.append("Dinheiro disponível: %s" % Fmt.money(career.money))
+	else:
+		var pay: int = p["total_expenses"] if _mode != "tour_date" else 0
+		lines.append("Dinheiro: %s  →  depois de confirmar: %s" % [Fmt.money(career.money), Fmt.money(career.money - pay)])
+		if pay > career.money:
+			lines.append("Dinheiro insuficiente para as despesas.")
 	if _mode != "view" and _mode != "offer":
 		var conflict := live.conflict_error(career, _show)
 		if not conflict.is_empty():

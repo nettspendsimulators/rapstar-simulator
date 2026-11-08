@@ -12,8 +12,9 @@ func _ready() -> void:
 
 func refresh() -> void:
 	var career := GameManager.career
-	%StatsLabel.text = "Dinheiro: %s  |  Energia: %d/%d" % [
-		Fmt.money(career.money), career.energy, GameManager.balance.max_energy
+	var released := career.songs.filter(func(song: SongData) -> bool: return song.is_released()).size()
+	%StatsLabel.text = "%d música(s)  •  %d lançada(s)  •  %d inédita(s)  •  Energia: %s (melhorias usam energia, não dinheiro)" % [
+		career.songs.size(), released, career.songs.size() - released, GameManager.energy_text()
 	]
 	%SongsTable.clear_rows()
 	for song in career.songs:

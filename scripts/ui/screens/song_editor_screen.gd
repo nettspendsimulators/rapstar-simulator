@@ -114,7 +114,7 @@ func _update_preview() -> void:
 		total += production
 		cost_text = "Produção: %s  +  Contratações: %s  =  Total: %s" % [Fmt.money(production), Fmt.money(hiring), Fmt.money(total)]
 	var money := GameManager.career.money
-	%CostLabel.text = "%s  |  Seu dinheiro: %s" % [cost_text, Fmt.money(money)]
+	%CostLabel.text = "%s  |  Seu dinheiro: %s  →  depois: %s" % [cost_text, Fmt.money(money), Fmt.money(money - total)]
 	%ConfirmButton.disabled = total > money
 	if total > money:
 		%ConfirmButton.text = "Dinheiro insuficiente"

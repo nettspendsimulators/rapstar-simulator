@@ -23,10 +23,29 @@ func clear_rows() -> void:
 	create_item()
 
 
+const GOOD := Color("#46d483")
+const WAIT := Color("#4fa3ff")
+const BUSY := Color("#f5b82e")
+const BAD := Color("#ff5f6d")
+const DIM := Color("#8c86a0")
+## Estados reconhecidos pelo começo do texto da célula. Todas as tabelas usam as mesmas cores.
+const STATE_COLORS := [
+	["Lançad", GOOD], ["Disponível", GOOD], ["Pronta", GOOD], ["Pronto", GOOD], ["Concluíd", GOOD], ["Realizado", GOOD],
+	["Liberad", GOOD], ["Agendad", WAIT], ["Confirmad", WAIT], ["Em planejamento", WAIT], ["Oferta", WAIT],
+	["Em produção", BUSY], ["Em andamento", BUSY], ["Ativa", BUSY], ["Pausad", BUSY], ["Planejad", WAIT],
+	["Bloquead", BAD], ["Cancelad", BAD], ["Esgotad", BAD], ["Sem estoque", BAD], ["Recusad", BAD],
+	["Não lançad", DIM], ["Inédita", DIM], ["—", DIM],
+]
+
+
 func add_row(cells: Array, row_value: Variant = null, cover_file: String = "") -> void:
 	var item := create_item(get_root())
 	for column in cells.size():
-		item.set_text(column, str(cells[column]))
+		var text := str(cells[column])
+		item.set_text(column, text)
+		var color := cell_color(text)
+		if color != Color.TRANSPARENT:
+			item.set_custom_color(column, color)
 	item.set_metadata(0, row_value)
 	var texture := GameManager.covers.get_texture(cover_file)
 	if texture != null:
@@ -45,3 +64,15 @@ func select_value(row_value: Variant) -> void:
 		if item.get_metadata(0) == row_value:
 			item.select(0)
 			return
+
+
+## Cor de destaque para estados e valores com sinal; transparente quando o texto é comum.
+static func cell_color(text: String) -> Color:
+	if text.begins_with("+$") or (text.begins_with("+") and text.length() > 1 and text[1].is_valid_int()):
+		return GOOD
+	if text.begins_with("-$") or (text.begins_with("-") and text.length() > 1 and text[1].is_valid_int()):
+		return BAD
+	for pair: Array in STATE_COLORS:
+		if text.begins_with(pair[0]):
+			return pair[1]
+	return Color.TRANSPARENT

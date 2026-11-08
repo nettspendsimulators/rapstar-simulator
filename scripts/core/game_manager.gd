@@ -28,7 +28,8 @@ var merch := MerchSystem.new(balance, economy, rng)
 var live := LiveSystem.new(balance, economy, streaming, merch, rng)
 var tours := TourSystem.new(balance, economy, live, streaming, rng)
 var festivals := FestivalSystem.new(balance, live, rng)
-var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming, videos, live, tours, festivals)
+var progression := ProgressionSystem.new(balance, streaming, live)
+var weeks := WeekSystem.new(balance, time, economy, work, releases, marketing, streaming, videos, live, tours, festivals, progression)
 
 
 ## Slot (arquivo) da carreira aberta. Salvar e carregar usam sempre este slot.
@@ -264,6 +265,13 @@ func set_artist_cover(cover_file: String) -> void:
 func set_artist_bio(bio: String) -> void:
 	career.artist_bio = bio.strip_edges()
 	career_changed.emit()
+
+
+## Energia como o jogador vê: "infinita" quando a carreira tem essa opção ligada.
+func energy_text() -> String:
+	if career.infinite_energy:
+		return "infinita"
+	return "%d/%d" % [career.energy, balance.max_energy]
 
 
 func _notify_if_ok(result: ActionResult) -> ActionResult:
