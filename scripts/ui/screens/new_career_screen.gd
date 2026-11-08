@@ -7,6 +7,8 @@ var _real_name := LineEdit.new()
 var _age := SpinBox.new()
 var _country := OptionButton.new()
 var _city := LineEdit.new()
+var _infinite_energy := false
+var _energy_on := Button.new()
 var _editor := CharacterEditor.new()
 var _preview := CharacterView.new()
 var _message := Label.new()
@@ -31,9 +33,13 @@ func _ready() -> void:
 	var identity_panel := PanelContainer.new()
 	identity_panel.custom_minimum_size = Vector2(320, 0)
 	body.add_child(identity_panel)
+	var identity_scroll := ScrollContainer.new()
+	identity_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	identity_panel.add_child(identity_scroll)
 	var identity := VBoxContainer.new()
 	identity.add_theme_constant_override("separation", 6)
-	identity_panel.add_child(identity)
+	identity.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	identity_scroll.add_child(identity)
 	_header(identity, "Identidade")
 	_name.name = "NameEdit"
 	_name.placeholder_text = "Como o público vai te chamar?"
@@ -60,6 +66,7 @@ func _ready() -> void:
 	_city.placeholder_text = "Onde você mora"
 	_city.max_length = 40
 	_field(identity, "Cidade", _city)
+	_build_energy_toggle(identity)
 	var hint := Label.new()
 	hint.text = "O nome artístico é a sua identidade pública. A idade aumenta com os anos da carreira."
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -128,10 +135,42 @@ func _field(parent: Container, label_text: String, control: Control) -> void:
 	parent.add_child(control)
 
 
+## Energia Infinita: OFF usa a energia normal; ON, nenhuma atividade gasta energia nesta carreira.
+func _build_energy_toggle(parent: Container) -> void:
+	var label := Label.new()
+	label.text = "Energia Infinita"
+	parent.add_child(label)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	parent.add_child(row)
+	var group := ButtonGroup.new()
+	var off := Button.new()
+	off.name = "EnergyOff"
+	off.text = "OFF"
+	_energy_on.name = "EnergyOn"
+	_energy_on.text = "ON"
+	for button: Button in [off, _energy_on]:
+		button.theme_type_variation = &"ChipButton"
+		button.toggle_mode = true
+		button.button_group = group
+		button.focus_mode = Control.FOCUS_NONE
+		button.custom_minimum_size = Vector2(64, 0)
+		row.add_child(button)
+	off.button_pressed = true
+	off.pressed.connect(func() -> void: _infinite_energy = false)
+	_energy_on.pressed.connect(func() -> void: _infinite_energy = true)
+	var note := Label.new()
+	note.text = "Quando ativada, sua energia não será consumida durante a carreira."
+	note.theme_type_variation = &"MutedLabel"
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	parent.add_child(note)
+
+
 func _start() -> void:
 	var identity := {
 		"real_name": _real_name.text, "age": int(_age.value),
 		"country": _country.get_item_text(_country.selected), "city": _city.text,
+		"infinite_energy": _infinite_energy,
 	}
 	var result := GameManager.create_career(_name.text, identity, _editor.get_appearance())
 	if result.ok:

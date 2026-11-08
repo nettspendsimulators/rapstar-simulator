@@ -13,6 +13,7 @@ const NAV := [
 		["Perfil público", "profile", Screen.ARTIST_PROFILE, {}, "ProfileButton"],
 		["Personagem", "character", Screen.CHARACTER, {}, "CharacterButton"],
 		["Relações", "social", Screen.SOCIAL, {}, "SocialButton"],
+		["Carros", "car", Screen.GARAGE, {}, "GarageButton"],
 	]],
 	["MÚSICA", [
 		["Músicas", "music", Screen.SONGS, {}, "SongsButton"],
@@ -295,7 +296,7 @@ func _build_sidebar(body: HBoxContainer) -> void:
 		header.theme_type_variation = &"SectionLabel"
 		if column.get_child_count() > 0:
 			var gap := Control.new()
-			gap.custom_minimum_size = Vector2(0, 4)
+			gap.custom_minimum_size = Vector2(0, 2)
 			column.add_child(gap)
 		column.add_child(header)
 		for item: Array in section[1]:

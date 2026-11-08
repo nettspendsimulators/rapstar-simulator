@@ -36,6 +36,8 @@ tests/              Testes das regras, sem interface, e um save v1 real em fixtu
 | Opção de produção de videoclipe, prazo, risco e desempenho | `data/videos.tres` |
 | Cidade, local, produção, equipe, merch, festival, patrocinador, tipo de turnê e regras ao vivo | `data/live.tres` |
 | Ações sociais, descontos por amizade, convites e regras de beef | `data/social.tres` |
+| Carro da concessionária (marca, modelo, ano, categoria, preço, imagem em `assets/cars/`) | `data/vehicles.tres` |
+| Artista (nota, cachê-base de feat, país, nível) | `feats` em `data/collaborators.tres` |
 | Fase da carreira (nome, fama mínima, descrição) | `career_stages` em `data/game_balance.tres` |
 | Item do menu lateral | `NAV` em `scripts/ui/game_shell.gd` |
 | Cores, botões e painéis | `assets/theme/default_theme.tres` |
@@ -98,6 +100,10 @@ godot --headless --path . --script res://tests/test_progression.gd
 
 ```bash
 godot --headless --path . --script res://tests/test_social.gd
+```
+
+```bash
+godot --headless --path . --script res://tests/test_content.gd
 ```
 
 ## Regras do sistema musical
@@ -213,6 +219,12 @@ carreira, a agenda, os próximos passos e o resumo da última semana.
 nas plataformas quando não há foto. Músicas, projetos e propostas de show aparecem como grades de
 capas (`CardGrid`/`MediaCard`); detalhes ficam em abas ou sob demanda.
 
+**Carros:** a área Carros tem a concessionária (34 carros, filtro por categoria, foto, preço e quanto
+sobra) e a garagem. Cada modelo é comprado uma vez, à vista, e aparece no Início.
+
+**Artistas:** 70 artistas (EUA, Reino Unido e Canadá), do underground a superstar, cada um com seu
+cachê-base de feat. O preço final passa pelas relações. Os cachês são valores internos do jogo.
+
 **Relações:** cada artista do catálogo tem uma relação com o jogador (de -100 a 100), com status
 de Desconhecido a Melhor amigo, ou de Neutro a Grande rival, e histórico. A confiança cresce no
 máximo 12 pontos por semana com cada artista. Amizade barateia feats e participações em shows (melhor
@@ -265,4 +277,5 @@ presentes não são cobrados. Na v1, álbuns não lançados com 3 a 6 músicas v
 não mudam. Na v2, Beat, Produção e participações são mantidos sempre que possível, e Vocal e Letra
 recebem o valor que completa a mesma nota. Saves até a v6 começam a carreira ao vivo vazia, e as
 edições dos festivais são criadas ao carregar. Saves até a v7 recebem aparência padrão, 20 anos,
-país Brasil, nome real e cidade vazios e energia normal. Saves até a v8 começam a rede social vazia.
+país Brasil, nome real e cidade vazios e energia normal. Saves até a v8 começam a rede social vazia. Saves até a v9 começam com a garagem vazia, e saves sem
+o campo de Energia Infinita ficam com ela desligada.

@@ -43,6 +43,9 @@ extends Resource
 @export_group("Relações")
 @export var social: SocialRules
 
+@export_group("Carros")
+@export var vehicles: VehicleRules
+
 @export_group("Progressão")
 ## Fases da carreira, da menor para a maior fama.
 @export var career_stages: Array[CareerStageDefinition] = []

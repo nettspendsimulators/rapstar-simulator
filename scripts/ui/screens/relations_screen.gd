@@ -194,6 +194,9 @@ func _row(career: CareerData, social: SocialSystem, artist_id: String) -> Button
 	row.add_child(texts)
 	var name := Label.new()
 	name.text = social.display_name(artist_id)
+	var person := social.person(artist_id)
+	if person != null and not person.tier_label().is_empty():
+		name.text += "   ·  %s, %s" % [person.tier_label(), person.country]
 	name.theme_type_variation = &"ChipLabel"
 	name.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	texts.add_child(name)

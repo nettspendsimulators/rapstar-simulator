@@ -68,7 +68,7 @@ func _test_catalog() -> void:
 	var catalog: CollaboratorCatalog = game.balance.collaborators
 	_check(catalog.producers.size() == 20, "20 produtores")
 	_check(catalog.beatmakers.size() == 20, "20 beatmakers")
-	_check(catalog.feats.size() == 20, "20 feats")
+	_check(catalog.feats.size() == 70, "70 feats (20 originais + 50 rappers dos EUA e do Reino Unido)")
 	var feat_names := CollaboratorCatalog.names(catalog.feats, ["tyler_the_creator", "a_ap_rocky"])
 	_check(feat_names == PackedStringArray(["Tyler, The Creator", "A$AP Rocky"]), "nomes com vírgula e símbolo")
 	game.free()

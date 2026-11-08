@@ -103,7 +103,8 @@ func _build_header(parent: Container, social: SocialSystem) -> void:
 	_bar_slot.name = "BarSlot"
 	texts.add_child(_bar_slot)
 	var personality := Label.new()
-	personality.text = "Jeito: %s" % social.personality_text(_artist_id)
+	var person := social.person(_artist_id)
+	personality.text = "%s  •  %s  •  Jeito: %s" % [person.tier_label(), person.country, social.personality_text(_artist_id)] if person != null else "Jeito: %s" % social.personality_text(_artist_id)
 	personality.theme_type_variation = &"MutedLabel"
 	texts.add_child(personality)
 	_price.name = "PriceLabel"

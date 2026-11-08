@@ -33,10 +33,16 @@ func clear_cards(empty_text: String = "") -> void:
 		_flow.add_child(_empty)
 
 
+## Tamanho da imagem dos cartões desta grade.
+var art_size := Vector2(MediaCard.COVER, MediaCard.COVER)
+
+
 func add_card(value: Variant, title: String, subtitle: String, cover: Texture2D, badge: String = "", badge_color: Color = Color.TRANSPARENT, corner: String = "") -> MediaCard:
 	if _empty.get_parent() == _flow:
 		_flow.remove_child(_empty)
-	var card := MediaCard.new().setup(value, title, subtitle, cover, badge, badge_color, corner)
+	var card := MediaCard.new()
+	card.art_size = art_size
+	card.setup(value, title, subtitle, cover, badge, badge_color, corner)
 	card.name = "Card%d" % _flow.get_child_count()
 	card.button_pressed = value == _selected and value != null
 	card.pressed.connect(_on_card_pressed.bind(card))

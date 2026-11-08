@@ -28,6 +28,7 @@ const SCREENS := {
 	Screen.CAREERS: preload("res://scenes/screens/careers_screen.tscn"),
 	Screen.SOCIAL: preload("res://scenes/screens/relations_screen.tscn"),
 	Screen.ARTIST_RELATION: preload("res://scenes/screens/artist_relation_screen.tscn"),
+	Screen.GARAGE: preload("res://scenes/screens/garage_screen.tscn"),
 	Screen.SHOW_EDITOR: preload("res://scenes/screens/show_editor_screen.tscn"),
 	Screen.TOUR_EDITOR: preload("res://scenes/screens/tour_editor_screen.tscn"),
 	Screen.FESTIVAL: preload("res://scenes/screens/festival_screen.tscn"),

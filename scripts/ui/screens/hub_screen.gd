@@ -17,6 +17,9 @@ var _stage := Label.new()
 var _week := Label.new()
 var _stage_bar := ProgressBar.new()
 var _stage_hint := Label.new()
+var _car := HBoxContainer.new()
+var _car_photo := TextureRect.new()
+var _car_name := Label.new()
 var _focus_text := Label.new()
 var _focus_button := Button.new()
 var _more_steps := VBoxContainer.new()
@@ -58,6 +61,11 @@ func refresh() -> void:
 	_week.text = "%d anos  •  %s" % [GameManager.characters.current_age(career), GameManager.characters.location_label(career.country, career.city)]
 	_stage_bar.value = progression.stage_progress(career.fame) * 100.0
 	_stage_hint.text = "Rumo a %s: faltam %s de fama" % [following.display_name, Fmt.number(following.min_fame - career.fame)] if following != null else "Você chegou ao topo."
+	var garage := GameManager.vehicles.garage(career)
+	_car.visible = not garage.is_empty()
+	if not garage.is_empty():
+		_car_photo.texture = garage[0].image
+		_car_name.text = "Na garagem: %s%s" % [garage[0].display_name(), "  (+%d)" % (garage.size() - 1) if garage.size() > 1 else ""]
 	_fill_focus(career)
 	_fill_agenda(career)
 	_fill_week(career.last_report())
@@ -114,6 +122,17 @@ func _build_stage(body: HBoxContainer) -> void:
 	_stage_hint.theme_type_variation = &"MutedLabel"
 	_stage_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(_stage_hint)
+	# Último carro comprado, como um detalhe do estilo de vida do artista.
+	_car.name = "HubCar"
+	_car.alignment = BoxContainer.ALIGNMENT_CENTER
+	_car.add_theme_constant_override("separation", 8)
+	_car_photo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_car_photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	_car_photo.custom_minimum_size = Vector2(64, 36)
+	_car.add_child(_car_photo)
+	_car_name.theme_type_variation = &"MutedLabel"
+	_car.add_child(_car_name)
+	column.add_child(_car)
 	var customize := Button.new()
 	customize.name = "CustomizeButton"
 	customize.text = "Personalizar visual"

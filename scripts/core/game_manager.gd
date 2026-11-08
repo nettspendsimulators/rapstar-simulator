@@ -14,6 +14,7 @@ var time := TimeSystem.new()
 var economy := EconomySystem.new()
 var saves := SaveSystem.new(balance)
 var characters := CharacterSystem.new(balance)
+var vehicles := VehicleSystem.new(balance, economy)
 var covers := CoverSystem.new(balance, saves)
 var performance := PerformanceSystem.new(balance, rng)
 var song_quality := SongQualitySystem.new(balance)
@@ -79,6 +80,7 @@ func create_career(artist_name: String, identity: Dictionary, appearance: Charac
 		career = previous
 		return applied
 	career.appearance = characters.sanitize(appearance)
+	career.infinite_energy = bool(identity.get("infinite_energy", false))
 	current_slot = saves.new_slot_id()
 	var saved := saves.save_career(career, current_slot)
 	career_changed.emit()
@@ -168,6 +170,10 @@ func accept_social_invite(invite_id: String) -> ActionResult:
 
 func decline_social_invite(invite_id: String) -> ActionResult:
 	return _notify_if_ok(social.decline_invite(career, invite_id))
+
+
+func buy_vehicle(vehicle_id: String) -> ActionResult:
+	return _notify_if_ok(vehicles.buy(career, vehicle_id))
 
 
 func ignore_beef(artist_id: String) -> ActionResult:

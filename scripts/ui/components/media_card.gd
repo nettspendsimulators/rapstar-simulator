@@ -13,12 +13,16 @@ var _badge := Label.new()
 var _corner := Label.new()
 
 
+## Tamanho da imagem do cartão (capas são quadradas; fotos de carro, largas).
+var art_size := Vector2(COVER, COVER)
+
+
 func setup(card_value: Variant, title: String, subtitle: String, cover: Texture2D, badge: String = "", badge_color: Color = Color.TRANSPARENT, corner: String = "") -> MediaCard:
 	value = card_value
 	theme_type_variation = &"MediaCard"
 	toggle_mode = true
 	focus_mode = Control.FOCUS_NONE
-	custom_minimum_size = Vector2(COVER + 24, COVER + 104)
+	custom_minimum_size = Vector2(art_size.x + 24, art_size.y + 104)
 	clip_contents = false
 	var column := VBoxContainer.new()
 	column.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -30,7 +34,7 @@ func setup(card_value: Variant, title: String, subtitle: String, cover: Texture2
 	column.add_theme_constant_override("separation", 4)
 	add_child(column)
 	var art := Control.new()
-	art.custom_minimum_size = Vector2(COVER, COVER)
+	art.custom_minimum_size = art_size
 	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	column.add_child(art)
 	_cover.texture = cover

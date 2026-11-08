@@ -14,6 +14,8 @@ var appearance := CharacterAppearance.new()
 var infinite_energy: bool = false
 ## Relações com os artistas, beefs e convites desta carreira.
 var social := SocialData.new()
+## Carros comprados (garagem).
+var vehicles: Array[OwnedVehicle] = []
 ## Foto do perfil público, gerenciada pelo CoverSystem.
 var artist_cover: String = ""
 ## Texto próprio do perfil. Vazio usa a descrição automática, que muda com a carreira.
@@ -199,6 +201,7 @@ func to_dict() -> Dictionary:
 		"appearance": appearance.to_dict(),
 		"infinite_energy": infinite_energy,
 		"social": social.to_dict(),
+		"vehicles": vehicles.map(func(item: OwnedVehicle) -> Dictionary: return item.to_dict()),
 		"artist_cover": artist_cover,
 		"artist_bio": artist_bio,
 		"money": money,
@@ -235,6 +238,8 @@ static func from_dict(data: Dictionary) -> CareerData:
 	career.appearance = CharacterAppearance.from_dict(data.get("appearance", {}))
 	career.infinite_energy = bool(data.get("infinite_energy", false))
 	career.social = SocialData.from_dict(data.get("social", {}))
+	for item: Dictionary in data.get("vehicles", []):
+		career.vehicles.append(OwnedVehicle.from_dict(item))
 	career.artist_cover = data.get("artist_cover", "")
 	career.artist_bio = data.get("artist_bio", "")
 	career.money = int(data.get("money", 0))

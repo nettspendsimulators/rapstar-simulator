@@ -11,7 +11,10 @@ func _ready() -> void:
 	var rules := balance.song_quality
 	%ProducerPicker.setup("Produtores", catalog.producers, rules.max_producers)
 	%BeatmakerPicker.setup("Beatmakers", catalog.beatmakers, rules.max_beatmakers)
-	%FeatPicker.setup("Feats", catalog.feats, rules.max_feats)
+	# Do cachê mais acessível ao mais caro: o jogador acha logo quem cabe no orçamento.
+	var feats: Array[CollaboratorDefinition] = catalog.feats.duplicate()
+	feats.sort_custom(func(a: CollaboratorDefinition, b: CollaboratorDefinition) -> bool: return a.cost < b.cost)
+	%FeatPicker.setup("Feats", feats, rules.max_feats)
 	for picker: CollaboratorPicker in [%ProducerPicker, %BeatmakerPicker, %FeatPicker]:
 		picker.selection_changed.connect(_update_preview)
 
@@ -144,9 +147,12 @@ func _show_social_prices() -> void:
 	var social := GameManager.social
 	var career := GameManager.career
 	for person in GameManager.balance.collaborators.feats:
-		var current := social.peek(career, String(person.id))
+		var artist_id := String(person.id)
+		var current := social.peek(career, artist_id)
+		var label := "%s (%d)  %s  •  %s" % [person.display_name, person.skill, Fmt.money(person.cost), person.tier_label()]
 		if current != null and current.met:
-			%FeatPicker.set_label(String(person.id), "%s (%d) %s  •  %s" % [person.display_name, person.skill, social.price_text(career, String(person.id)), social.status(career, String(person.id))["label"]])
+			label = "%s (%d)  %s  •  %s" % [person.display_name, person.skill, social.price_text(career, artist_id), social.status(career, artist_id)["label"]]
+		%FeatPicker.set_label(artist_id, label)
 
 
 ## Diss: a música pode ter um artista conhecido como alvo. Continua sendo uma música normal.

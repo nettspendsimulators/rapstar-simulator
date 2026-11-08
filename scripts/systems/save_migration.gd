@@ -21,6 +21,15 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v8(payload["career"], balance)
 	if version < 9:
 		_migrate_to_v9(payload["career"])
+	if version < 10:
+		_migrate_to_v10(payload["career"])
+
+
+## v10: garagem vazia. Energia Infinita ausente fica desligada; nada mais muda.
+static func _migrate_to_v10(career: Dictionary) -> void:
+	career["vehicles"] = []
+	if not career.has("infinite_energy"):
+		career["infinite_energy"] = false
 
 
 ## v9: rede social. Ninguém se conhece ainda; nada mais da carreira muda.

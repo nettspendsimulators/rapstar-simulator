@@ -1,0 +1,382 @@
+[gd_resource type="Resource" script_class="VehicleRules" format=3]
+
+[ext_resource type="Script" path="res://scripts/definitions/vehicles/vehicle_rules.gd" id="1_rules"]
+[ext_resource type="Script" path="res://scripts/definitions/vehicles/vehicle_definition.gd" id="2_vehicle"]
+[ext_resource type="Texture2D" path="res://assets/cars/toyota_camry_xse_2025.webp" id="img_toyota_camry_xse_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/infiniti_q50_red_sport_2020.webp" id="img_infiniti_q50_red_sport_2020"]
+[ext_resource type="Texture2D" path="res://assets/cars/bmw_330i_2025.webp" id="img_bmw_330i_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/mercedes_e450_all_terrain_2025.webp" id="img_mercedes_e450_all_terrain_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/porsche_panamera_2025.webp" id="img_porsche_panamera_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/audi_rs7_performance_2025.webp" id="img_audi_rs7_performance_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/mercedes_maybach_s680_2024.webp" id="img_mercedes_maybach_s680_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/rolls_royce_ghost_2023.webp" id="img_rolls_royce_ghost_2023"]
+[ext_resource type="Texture2D" path="res://assets/cars/rolls_royce_spectre_2025.webp" id="img_rolls_royce_spectre_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/chevrolet_tahoe_2025.webp" id="img_chevrolet_tahoe_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/land_rover_defender_110_2025.webp" id="img_land_rover_defender_110_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/gmc_yukon_denali_2025.webp" id="img_gmc_yukon_denali_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/cadillac_escalade_2025.webp" id="img_cadillac_escalade_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/range_rover_sport_2025.webp" id="img_range_rover_sport_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/bmw_x6_m_competition_2025.webp" id="img_bmw_x6_m_competition_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/mercedes_amg_g63_2024.webp" id="img_mercedes_amg_g63_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/bentley_bentayga_2023.webp" id="img_bentley_bentayga_2023"]
+[ext_resource type="Texture2D" path="res://assets/cars/lamborghini_urus_s_2024.webp" id="img_lamborghini_urus_s_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/rolls_royce_cullinan_2024.webp" id="img_rolls_royce_cullinan_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/ford_f150_raptor_2024.webp" id="img_ford_f150_raptor_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/dodge_charger_rt_2021.webp" id="img_dodge_charger_rt_2021"]
+[ext_resource type="Texture2D" path="res://assets/cars/ford_mustang_dark_horse_2024.webp" id="img_ford_mustang_dark_horse_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/dodge_challenger_widebody_2020.webp" id="img_dodge_challenger_widebody_2020"]
+[ext_resource type="Texture2D" path="res://assets/cars/chevrolet_camaro_zl1_2024.webp" id="img_chevrolet_camaro_zl1_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/bmw_m4_competition_2021.webp" id="img_bmw_m4_competition_2021"]
+[ext_resource type="Texture2D" path="res://assets/cars/chevrolet_corvette_z06_2024.webp" id="img_chevrolet_corvette_z06_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/nissan_gtr_nismo_2024.webp" id="img_nissan_gtr_nismo_2024"]
+[ext_resource type="Texture2D" path="res://assets/cars/porsche_911_turbo_s_2023.webp" id="img_porsche_911_turbo_s_2023"]
+[ext_resource type="Texture2D" path="res://assets/cars/ferrari_488_gtb_2019.webp" id="img_ferrari_488_gtb_2019"]
+[ext_resource type="Texture2D" path="res://assets/cars/mclaren_720s_2021.webp" id="img_mclaren_720s_2021"]
+[ext_resource type="Texture2D" path="res://assets/cars/ferrari_296_gtb_2025.webp" id="img_ferrari_296_gtb_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/mclaren_750s_2025.webp" id="img_mclaren_750s_2025"]
+[ext_resource type="Texture2D" path="res://assets/cars/lamborghini_aventador_svj_2019.webp" id="img_lamborghini_aventador_svj_2019"]
+[ext_resource type="Texture2D" path="res://assets/cars/lamborghini_revuelto_2025.webp" id="img_lamborghini_revuelto_2025"]
+
+[sub_resource type="Resource" id="toyota_camry_xse_2025"]
+script = ExtResource("2_vehicle")
+id = "toyota_camry_xse_2025"
+brand = "Toyota"
+model = "Camry XSE"
+year = 2025
+category = "normal"
+price = 35000
+image = ExtResource("img_toyota_camry_xse_2025")
+
+[sub_resource type="Resource" id="infiniti_q50_red_sport_2020"]
+script = ExtResource("2_vehicle")
+id = "infiniti_q50_red_sport_2020"
+brand = "Infiniti"
+model = "Q50 Red Sport 400"
+year = 2020
+category = "premium"
+price = 56000
+image = ExtResource("img_infiniti_q50_red_sport_2020")
+
+[sub_resource type="Resource" id="bmw_330i_2025"]
+script = ExtResource("2_vehicle")
+id = "bmw_330i_2025"
+brand = "BMW"
+model = "330i"
+year = 2025
+category = "premium"
+price = 50000
+image = ExtResource("img_bmw_330i_2025")
+
+[sub_resource type="Resource" id="mercedes_e450_all_terrain_2025"]
+script = ExtResource("2_vehicle")
+id = "mercedes_e450_all_terrain_2025"
+brand = "Mercedes-Benz"
+model = "E 450 All-Terrain"
+year = 2025
+category = "luxury_sedan"
+price = 80000
+image = ExtResource("img_mercedes_e450_all_terrain_2025")
+
+[sub_resource type="Resource" id="porsche_panamera_2025"]
+script = ExtResource("2_vehicle")
+id = "porsche_panamera_2025"
+brand = "Porsche"
+model = "Panamera"
+year = 2025
+category = "luxury_sedan"
+price = 105000
+image = ExtResource("img_porsche_panamera_2025")
+
+[sub_resource type="Resource" id="audi_rs7_performance_2025"]
+script = ExtResource("2_vehicle")
+id = "audi_rs7_performance_2025"
+brand = "Audi"
+model = "RS 7 Performance"
+year = 2025
+category = "sport"
+price = 130000
+image = ExtResource("img_audi_rs7_performance_2025")
+
+[sub_resource type="Resource" id="mercedes_maybach_s680_2024"]
+script = ExtResource("2_vehicle")
+id = "mercedes_maybach_s680_2024"
+brand = "Mercedes-Maybach"
+model = "S 680"
+year = 2024
+category = "ultra_luxury"
+price = 230000
+image = ExtResource("img_mercedes_maybach_s680_2024")
+
+[sub_resource type="Resource" id="rolls_royce_ghost_2023"]
+script = ExtResource("2_vehicle")
+id = "rolls_royce_ghost_2023"
+brand = "Rolls-Royce"
+model = "Ghost"
+year = 2023
+category = "ultra_luxury"
+price = 350000
+image = ExtResource("img_rolls_royce_ghost_2023")
+
+[sub_resource type="Resource" id="rolls_royce_spectre_2025"]
+script = ExtResource("2_vehicle")
+id = "rolls_royce_spectre_2025"
+brand = "Rolls-Royce"
+model = "Spectre"
+year = 2025
+category = "ultra_luxury"
+price = 400000
+image = ExtResource("img_rolls_royce_spectre_2025")
+
+[sub_resource type="Resource" id="chevrolet_tahoe_2025"]
+script = ExtResource("2_vehicle")
+id = "chevrolet_tahoe_2025"
+brand = "Chevrolet"
+model = "Tahoe"
+year = 2025
+category = "suv"
+price = 60000
+image = ExtResource("img_chevrolet_tahoe_2025")
+
+[sub_resource type="Resource" id="land_rover_defender_110_2025"]
+script = ExtResource("2_vehicle")
+id = "land_rover_defender_110_2025"
+brand = "Land Rover"
+model = "Defender 110"
+year = 2025
+category = "suv"
+price = 65000
+image = ExtResource("img_land_rover_defender_110_2025")
+
+[sub_resource type="Resource" id="gmc_yukon_denali_2025"]
+script = ExtResource("2_vehicle")
+id = "gmc_yukon_denali_2025"
+brand = "GMC"
+model = "Yukon Denali"
+year = 2025
+category = "luxury_suv"
+price = 80000
+image = ExtResource("img_gmc_yukon_denali_2025")
+
+[sub_resource type="Resource" id="cadillac_escalade_2025"]
+script = ExtResource("2_vehicle")
+id = "cadillac_escalade_2025"
+brand = "Cadillac"
+model = "Escalade"
+year = 2025
+category = "luxury_suv"
+price = 90000
+image = ExtResource("img_cadillac_escalade_2025")
+
+[sub_resource type="Resource" id="range_rover_sport_2025"]
+script = ExtResource("2_vehicle")
+id = "range_rover_sport_2025"
+brand = "Range Rover"
+model = "Sport"
+year = 2025
+category = "luxury_suv"
+price = 90000
+image = ExtResource("img_range_rover_sport_2025")
+
+[sub_resource type="Resource" id="bmw_x6_m_competition_2025"]
+script = ExtResource("2_vehicle")
+id = "bmw_x6_m_competition_2025"
+brand = "BMW"
+model = "X6 M Competition"
+year = 2025
+category = "luxury_suv"
+price = 135000
+image = ExtResource("img_bmw_x6_m_competition_2025")
+
+[sub_resource type="Resource" id="mercedes_amg_g63_2024"]
+script = ExtResource("2_vehicle")
+id = "mercedes_amg_g63_2024"
+brand = "Mercedes-AMG"
+model = "G 63"
+year = 2024
+category = "luxury_suv"
+price = 180000
+image = ExtResource("img_mercedes_amg_g63_2024")
+
+[sub_resource type="Resource" id="bentley_bentayga_2023"]
+script = ExtResource("2_vehicle")
+id = "bentley_bentayga_2023"
+brand = "Bentley"
+model = "Bentayga"
+year = 2023
+category = "luxury_suv"
+price = 200000
+image = ExtResource("img_bentley_bentayga_2023")
+
+[sub_resource type="Resource" id="lamborghini_urus_s_2024"]
+script = ExtResource("2_vehicle")
+id = "lamborghini_urus_s_2024"
+brand = "Lamborghini"
+model = "Urus S"
+year = 2024
+category = "luxury_suv"
+price = 240000
+image = ExtResource("img_lamborghini_urus_s_2024")
+
+[sub_resource type="Resource" id="rolls_royce_cullinan_2024"]
+script = ExtResource("2_vehicle")
+id = "rolls_royce_cullinan_2024"
+brand = "Rolls-Royce"
+model = "Cullinan"
+year = 2024
+category = "ultra_luxury"
+price = 400000
+image = ExtResource("img_rolls_royce_cullinan_2024")
+
+[sub_resource type="Resource" id="ford_f150_raptor_2024"]
+script = ExtResource("2_vehicle")
+id = "ford_f150_raptor_2024"
+brand = "Ford"
+model = "F-150 Raptor"
+year = 2024
+category = "pickup"
+price = 80000
+image = ExtResource("img_ford_f150_raptor_2024")
+
+[sub_resource type="Resource" id="dodge_charger_rt_2021"]
+script = ExtResource("2_vehicle")
+id = "dodge_charger_rt_2021"
+brand = "Dodge"
+model = "Charger R/T"
+year = 2021
+category = "muscle"
+price = 40000
+image = ExtResource("img_dodge_charger_rt_2021")
+
+[sub_resource type="Resource" id="ford_mustang_dark_horse_2024"]
+script = ExtResource("2_vehicle")
+id = "ford_mustang_dark_horse_2024"
+brand = "Ford"
+model = "Mustang Dark Horse"
+year = 2024
+category = "muscle"
+price = 62000
+image = ExtResource("img_ford_mustang_dark_horse_2024")
+
+[sub_resource type="Resource" id="dodge_challenger_widebody_2020"]
+script = ExtResource("2_vehicle")
+id = "dodge_challenger_widebody_2020"
+brand = "Dodge"
+model = "Challenger Widebody"
+year = 2020
+category = "muscle"
+price = 65000
+image = ExtResource("img_dodge_challenger_widebody_2020")
+
+[sub_resource type="Resource" id="chevrolet_camaro_zl1_2024"]
+script = ExtResource("2_vehicle")
+id = "chevrolet_camaro_zl1_2024"
+brand = "Chevrolet"
+model = "Camaro ZL1"
+year = 2024
+category = "muscle"
+price = 75000
+image = ExtResource("img_chevrolet_camaro_zl1_2024")
+
+[sub_resource type="Resource" id="bmw_m4_competition_2021"]
+script = ExtResource("2_vehicle")
+id = "bmw_m4_competition_2021"
+brand = "BMW"
+model = "M4 Competition"
+year = 2021
+category = "sport"
+price = 80000
+image = ExtResource("img_bmw_m4_competition_2021")
+
+[sub_resource type="Resource" id="chevrolet_corvette_z06_2024"]
+script = ExtResource("2_vehicle")
+id = "chevrolet_corvette_z06_2024"
+brand = "Chevrolet"
+model = "Corvette Z06"
+year = 2024
+category = "sport"
+price = 110000
+image = ExtResource("img_chevrolet_corvette_z06_2024")
+
+[sub_resource type="Resource" id="nissan_gtr_nismo_2024"]
+script = ExtResource("2_vehicle")
+id = "nissan_gtr_nismo_2024"
+brand = "Nissan"
+model = "GT-R NISMO"
+year = 2024
+category = "sport"
+price = 220000
+image = ExtResource("img_nissan_gtr_nismo_2024")
+
+[sub_resource type="Resource" id="porsche_911_turbo_s_2023"]
+script = ExtResource("2_vehicle")
+id = "porsche_911_turbo_s_2023"
+brand = "Porsche"
+model = "911 Turbo S"
+year = 2023
+category = "sport"
+price = 230000
+image = ExtResource("img_porsche_911_turbo_s_2023")
+
+[sub_resource type="Resource" id="ferrari_488_gtb_2019"]
+script = ExtResource("2_vehicle")
+id = "ferrari_488_gtb_2019"
+brand = "Ferrari"
+model = "488 GTB"
+year = 2019
+category = "supercar"
+price = 250000
+image = ExtResource("img_ferrari_488_gtb_2019")
+
+[sub_resource type="Resource" id="mclaren_720s_2021"]
+script = ExtResource("2_vehicle")
+id = "mclaren_720s_2021"
+brand = "McLaren"
+model = "720S"
+year = 2021
+category = "supercar"
+price = 300000
+image = ExtResource("img_mclaren_720s_2021")
+
+[sub_resource type="Resource" id="ferrari_296_gtb_2025"]
+script = ExtResource("2_vehicle")
+id = "ferrari_296_gtb_2025"
+brand = "Ferrari"
+model = "296 GTB"
+year = 2025
+category = "supercar"
+price = 350000
+image = ExtResource("img_ferrari_296_gtb_2025")
+
+[sub_resource type="Resource" id="mclaren_750s_2025"]
+script = ExtResource("2_vehicle")
+id = "mclaren_750s_2025"
+brand = "McLaren"
+model = "750S"
+year = 2025
+category = "supercar"
+price = 350000
+image = ExtResource("img_mclaren_750s_2025")
+
+[sub_resource type="Resource" id="lamborghini_aventador_svj_2019"]
+script = ExtResource("2_vehicle")
+id = "lamborghini_aventador_svj_2019"
+brand = "Lamborghini"
+model = "Aventador SVJ"
+year = 2019
+category = "supercar"
+price = 520000
+image = ExtResource("img_lamborghini_aventador_svj_2019")
+
+[sub_resource type="Resource" id="lamborghini_revuelto_2025"]
+script = ExtResource("2_vehicle")
+id = "lamborghini_revuelto_2025"
+brand = "Lamborghini"
+model = "Revuelto"
+year = 2025
+category = "supercar"
+price = 600000
+image = ExtResource("img_lamborghini_revuelto_2025")
+
+[resource]
+script = ExtResource("1_rules")
+vehicles = Array[ExtResource("2_vehicle")]([SubResource("toyota_camry_xse_2025"), SubResource("infiniti_q50_red_sport_2020"), SubResource("bmw_330i_2025"), SubResource("mercedes_e450_all_terrain_2025"), SubResource("porsche_panamera_2025"), SubResource("audi_rs7_performance_2025"), SubResource("mercedes_maybach_s680_2024"), SubResource("rolls_royce_ghost_2023"), SubResource("rolls_royce_spectre_2025"), SubResource("chevrolet_tahoe_2025"), SubResource("land_rover_defender_110_2025"), SubResource("gmc_yukon_denali_2025"), SubResource("cadillac_escalade_2025"), SubResource("range_rover_sport_2025"), SubResource("bmw_x6_m_competition_2025"), SubResource("mercedes_amg_g63_2024"), SubResource("bentley_bentayga_2023"), SubResource("lamborghini_urus_s_2024"), SubResource("rolls_royce_cullinan_2024"), SubResource("ford_f150_raptor_2024"), SubResource("dodge_charger_rt_2021"), SubResource("ford_mustang_dark_horse_2024"), SubResource("dodge_challenger_widebody_2020"), SubResource("chevrolet_camaro_zl1_2024"), SubResource("bmw_m4_competition_2021"), SubResource("chevrolet_corvette_z06_2024"), SubResource("nissan_gtr_nismo_2024"), SubResource("porsche_911_turbo_s_2023"), SubResource("ferrari_488_gtb_2019"), SubResource("mclaren_720s_2021"), SubResource("ferrari_296_gtb_2025"), SubResource("mclaren_750s_2025"), SubResource("lamborghini_aventador_svj_2019"), SubResource("lamborghini_revuelto_2025")])

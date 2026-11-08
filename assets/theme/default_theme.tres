@@ -212,15 +212,15 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="nav_normal"]
 content_margin_left = 14.0
-content_margin_top = 4.0
+content_margin_top = 3.0
 content_margin_right = 12.0
-content_margin_bottom = 4.0
+content_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="nav_hover"]
 content_margin_left = 14.0
-content_margin_top = 4.0
+content_margin_top = 3.0
 content_margin_right = 12.0
-content_margin_bottom = 4.0
+content_margin_bottom = 3.0
 bg_color = Color(0.137, 0.125, 0.188, 1.000)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -229,9 +229,9 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="nav_pressed"]
 content_margin_left = 14.0
-content_margin_top = 4.0
+content_margin_top = 3.0
 content_margin_right = 12.0
-content_margin_bottom = 4.0
+content_margin_bottom = 3.0
 bg_color = Color(0.165, 0.133, 0.078, 1.000)
 border_width_left = 3
 border_color = Color(0.961, 0.722, 0.180, 1.000)
@@ -242,9 +242,9 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="nav_hover_pressed"]
 content_margin_left = 14.0
-content_margin_top = 4.0
+content_margin_top = 3.0
 content_margin_right = 12.0
-content_margin_bottom = 4.0
+content_margin_bottom = 3.0
 bg_color = Color(0.200, 0.161, 0.102, 1.000)
 border_width_left = 3
 border_color = Color(0.961, 0.722, 0.180, 1.000)
@@ -255,9 +255,9 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="nav_focus"]
 content_margin_left = 14.0
-content_margin_top = 4.0
+content_margin_top = 3.0
 content_margin_right = 12.0
-content_margin_bottom = 4.0
+content_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="chip_normal"]
 content_margin_left = 12.0

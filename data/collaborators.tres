@@ -330,6 +330,8 @@ display_name = "Drake"
 skill = 92
 consistency = 88
 cost = 500000
+country = "Canadá"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_kendrick_lamar"]
 script = ExtResource("2_person")
@@ -338,6 +340,8 @@ display_name = "Kendrick Lamar"
 skill = 98
 consistency = 92
 cost = 400000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_j_cole"]
 script = ExtResource("2_person")
@@ -346,6 +350,8 @@ display_name = "J. Cole"
 skill = 92
 consistency = 88
 cost = 350000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_travis_scott"]
 script = ExtResource("2_person")
@@ -354,6 +360,8 @@ display_name = "Travis Scott"
 skill = 90
 consistency = 80
 cost = 500000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_future"]
 script = ExtResource("2_person")
@@ -362,6 +370,8 @@ display_name = "Future"
 skill = 86
 consistency = 76
 cost = 400000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_lil_wayne"]
 script = ExtResource("2_person")
@@ -370,6 +380,8 @@ display_name = "Lil Wayne"
 skill = 88
 consistency = 62
 cost = 300000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_nicki_minaj"]
 script = ExtResource("2_person")
@@ -378,6 +390,8 @@ display_name = "Nicki Minaj"
 skill = 88
 consistency = 76
 cost = 350000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_sza"]
 script = ExtResource("2_person")
@@ -386,6 +400,8 @@ display_name = "SZA"
 skill = 91
 consistency = 82
 cost = 300000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_doja_cat"]
 script = ExtResource("2_person")
@@ -394,6 +410,8 @@ display_name = "Doja Cat"
 skill = 87
 consistency = 74
 cost = 250000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_tyler_the_creator"]
 script = ExtResource("2_person")
@@ -402,6 +420,8 @@ display_name = "Tyler, The Creator"
 skill = 92
 consistency = 84
 cost = 250000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_playboi_carti"]
 script = ExtResource("2_person")
@@ -410,6 +430,8 @@ display_name = "Playboi Carti"
 skill = 82
 consistency = 58
 cost = 300000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_21_savage"]
 script = ExtResource("2_person")
@@ -418,6 +440,8 @@ display_name = "21 Savage"
 skill = 85
 consistency = 82
 cost = 250000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_a_ap_rocky"]
 script = ExtResource("2_person")
@@ -426,6 +450,8 @@ display_name = "A$AP Rocky"
 skill = 85
 consistency = 74
 cost = 250000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_jid"]
 script = ExtResource("2_person")
@@ -434,6 +460,8 @@ display_name = "JID"
 skill = 89
 consistency = 88
 cost = 100000
+country = "Estados Unidos"
+tier = "big"
 
 [sub_resource type="Resource" id="feat_baby_keem"]
 script = ExtResource("2_person")
@@ -442,6 +470,8 @@ display_name = "Baby Keem"
 skill = 83
 consistency = 70
 cost = 150000
+country = "Estados Unidos"
+tier = "big"
 
 [sub_resource type="Resource" id="feat_don_toliver"]
 script = ExtResource("2_person")
@@ -450,6 +480,8 @@ display_name = "Don Toliver"
 skill = 82
 consistency = 78
 cost = 200000
+country = "Estados Unidos"
+tier = "big"
 
 [sub_resource type="Resource" id="feat_megan_thee_stallion"]
 script = ExtResource("2_person")
@@ -458,6 +490,8 @@ display_name = "Megan Thee Stallion"
 skill = 83
 consistency = 76
 cost = 250000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_nas"]
 script = ExtResource("2_person")
@@ -466,6 +500,8 @@ display_name = "Nas"
 skill = 95
 consistency = 86
 cost = 200000
+country = "Estados Unidos"
+tier = "big"
 
 [sub_resource type="Resource" id="feat_eminem"]
 script = ExtResource("2_person")
@@ -474,6 +510,8 @@ display_name = "Eminem"
 skill = 94
 consistency = 84
 cost = 500000
+country = "Estados Unidos"
+tier = "superstar"
 
 [sub_resource type="Resource" id="feat_lil_uzi_vert"]
 script = ExtResource("2_person")
@@ -482,9 +520,511 @@ display_name = "Lil Uzi Vert"
 skill = 83
 consistency = 62
 cost = 250000
+country = "Estados Unidos"
+tier = "superstar"
+
+[sub_resource type="Resource" id="feat_ken_carson"]
+script = ExtResource("2_person")
+id = &"ken_carson"
+display_name = "Ken Carson"
+skill = 82
+consistency = 74
+cost = 120000
+country = "Estados Unidos"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_destroy_lonely"]
+script = ExtResource("2_person")
+id = &"destroy_lonely"
+display_name = "Destroy Lonely"
+skill = 80
+consistency = 72
+cost = 90000
+country = "Estados Unidos"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_homixide_beno"]
+script = ExtResource("2_person")
+id = &"homixide_beno"
+display_name = "Homixide Beno"
+skill = 72
+consistency = 62
+cost = 25000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_homixide_meechie"]
+script = ExtResource("2_person")
+id = &"homixide_meechie"
+display_name = "Homixide Meechie"
+skill = 71
+consistency = 62
+cost = 22000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_babytron"]
+script = ExtResource("2_person")
+id = &"babytron"
+display_name = "BabyTron"
+skill = 78
+consistency = 70
+cost = 45000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_rio_da_yung_og"]
+script = ExtResource("2_person")
+id = &"rio_da_yung_og"
+display_name = "Rio Da Yung Og"
+skill = 76
+consistency = 66
+cost = 35000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_rmc_mike"]
+script = ExtResource("2_person")
+id = &"rmc_mike"
+display_name = "RMC Mike"
+skill = 76
+consistency = 68
+cost = 30000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_doe_boy"]
+script = ExtResource("2_person")
+id = &"doe_boy"
+display_name = "Doe Boy"
+skill = 74
+consistency = 70
+cost = 40000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_sada_baby"]
+script = ExtResource("2_person")
+id = &"sada_baby"
+display_name = "Sada Baby"
+skill = 78
+consistency = 66
+cost = 55000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_babyface_ray"]
+script = ExtResource("2_person")
+id = &"babyface_ray"
+display_name = "Babyface Ray"
+skill = 80
+consistency = 76
+cost = 60000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_icewear_vezzo"]
+script = ExtResource("2_person")
+id = &"icewear_vezzo"
+display_name = "Icewear Vezzo"
+skill = 77
+consistency = 72
+cost = 40000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_veeze"]
+script = ExtResource("2_person")
+id = &"veeze"
+display_name = "Veeze"
+skill = 80
+consistency = 70
+cost = 50000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_rylo_rodriguez"]
+script = ExtResource("2_person")
+id = &"rylo_rodriguez"
+display_name = "Rylo Rodriguez"
+skill = 81
+consistency = 74
+cost = 65000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_nocap"]
+script = ExtResource("2_person")
+id = &"nocap"
+display_name = "NoCap"
+skill = 80
+consistency = 72
+cost = 80000
+country = "Estados Unidos"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_babydrill"]
+script = ExtResource("2_person")
+id = &"babydrill"
+display_name = "BabyDrill"
+skill = 72
+consistency = 64
+cost = 20000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_hunxho"]
+script = ExtResource("2_person")
+id = &"hunxho"
+display_name = "Hunxho"
+skill = 77
+consistency = 70
+cost = 45000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_hurricane_wisdom"]
+script = ExtResource("2_person")
+id = &"hurricane_wisdom"
+display_name = "Hurricane Wisdom"
+skill = 75
+consistency = 66
+cost = 30000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_bunnab"]
+script = ExtResource("2_person")
+id = &"bunnab"
+display_name = "BunnaB"
+skill = 75
+consistency = 68
+cost = 28000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_zeddy_will"]
+script = ExtResource("2_person")
+id = &"zeddy_will"
+display_name = "Zeddy Will"
+skill = 72
+consistency = 60
+cost = 18000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_s5"]
+script = ExtResource("2_person")
+id = &"s5"
+display_name = "S5"
+skill = 66
+consistency = 58
+cost = 8000
+country = "Estados Unidos"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_yhapojj"]
+script = ExtResource("2_person")
+id = &"yhapojj"
+display_name = "Yhapojj"
+skill = 70
+consistency = 58
+cost = 12000
+country = "Estados Unidos"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_xaviersobased"]
+script = ExtResource("2_person")
+id = &"xaviersobased"
+display_name = "xaviersobased"
+skill = 69
+consistency = 56
+cost = 10000
+country = "Estados Unidos"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_skeletrix"]
+script = ExtResource("2_person")
+id = &"skeletrix"
+display_name = "Skeletrix"
+skill = 67
+consistency = 55
+cost = 8000
+country = "Estados Unidos"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_fakemink"]
+script = ExtResource("2_person")
+id = &"fakemink"
+display_name = "Fakemink"
+skill = 72
+consistency = 60
+cost = 15000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_rico_ace"]
+script = ExtResource("2_person")
+id = &"rico_ace"
+display_name = "Rico Ace"
+skill = 69
+consistency = 60
+cost = 10000
+country = "Estados Unidos"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_loe_shimmy"]
+script = ExtResource("2_person")
+id = &"loe_shimmy"
+display_name = "Loe Shimmy"
+skill = 74
+consistency = 64
+cost = 30000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_samara_cyn"]
+script = ExtResource("2_person")
+id = &"samara_cyn"
+display_name = "Samara Cyn"
+skill = 76
+consistency = 72
+cost = 25000
+country = "Estados Unidos"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_cash_cobain"]
+script = ExtResource("2_person")
+id = &"cash_cobain"
+display_name = "Cash Cobain"
+skill = 78
+consistency = 72
+cost = 70000
+country = "Estados Unidos"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_chy_cartier"]
+script = ExtResource("2_person")
+id = &"chy_cartier"
+display_name = "Chy Cartier"
+skill = 70
+consistency = 62
+cost = 12000
+country = "Estados Unidos"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_jawnino"]
+script = ExtResource("2_person")
+id = &"jawnino"
+display_name = "Jawnino"
+skill = 72
+consistency = 62
+cost = 15000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_central_cee"]
+script = ExtResource("2_person")
+id = &"central_cee"
+display_name = "Central Cee"
+skill = 86
+consistency = 82
+cost = 250000
+country = "Reino Unido"
+tier = "superstar"
+
+[sub_resource type="Resource" id="feat_dave"]
+script = ExtResource("2_person")
+id = &"dave"
+display_name = "Dave"
+skill = 92
+consistency = 90
+cost = 300000
+country = "Reino Unido"
+tier = "superstar"
+
+[sub_resource type="Resource" id="feat_little_simz"]
+script = ExtResource("2_person")
+id = &"little_simz"
+display_name = "Little Simz"
+skill = 91
+consistency = 88
+cost = 180000
+country = "Reino Unido"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_skepta"]
+script = ExtResource("2_person")
+id = &"skepta"
+display_name = "Skepta"
+skill = 87
+consistency = 82
+cost = 200000
+country = "Reino Unido"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_j_hus"]
+script = ExtResource("2_person")
+id = &"j_hus"
+display_name = "J Hus"
+skill = 86
+consistency = 78
+cost = 160000
+country = "Reino Unido"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_headie_one"]
+script = ExtResource("2_person")
+id = &"headie_one"
+display_name = "Headie One"
+skill = 82
+consistency = 76
+cost = 110000
+country = "Reino Unido"
+tier = "big"
+
+[sub_resource type="Resource" id="feat_unknown_t"]
+script = ExtResource("2_person")
+id = &"unknown_t"
+display_name = "Unknown T"
+skill = 77
+consistency = 70
+cost = 50000
+country = "Reino Unido"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_knucks"]
+script = ExtResource("2_person")
+id = &"knucks"
+display_name = "Knucks"
+skill = 83
+consistency = 80
+cost = 60000
+country = "Reino Unido"
+tier = "mid"
+
+[sub_resource type="Resource" id="feat_pozer"]
+script = ExtResource("2_person")
+id = &"pozer"
+display_name = "Pozer"
+skill = 73
+consistency = 64
+cost = 25000
+country = "Reino Unido"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_mazza_l20"]
+script = ExtResource("2_person")
+id = &"mazza_l20"
+display_name = "Mazza L20"
+skill = 75
+consistency = 66
+cost = 30000
+country = "Reino Unido"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_yt"]
+script = ExtResource("2_person")
+id = &"yt"
+display_name = "YT"
+skill = 76
+consistency = 68
+cost = 28000
+country = "Reino Unido"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_feng"]
+script = ExtResource("2_person")
+id = &"feng"
+display_name = "Feng"
+skill = 70
+consistency = 60
+cost = 10000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_teebofg"]
+script = ExtResource("2_person")
+id = &"teebofg"
+display_name = "TeeboFG"
+skill = 69
+consistency = 58
+cost = 9000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_sinn6r"]
+script = ExtResource("2_person")
+id = &"sinn6r"
+display_name = "SINN6R"
+skill = 73
+consistency = 64
+cost = 22000
+country = "Reino Unido"
+tier = "emerging"
+
+[sub_resource type="Resource" id="feat_ciel"]
+script = ExtResource("2_person")
+id = &"ciel"
+display_name = "Ciel"
+skill = 72
+consistency = 62
+cost = 12000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_len"]
+script = ExtResource("2_person")
+id = &"len"
+display_name = "Len"
+skill = 70
+consistency = 60
+cost = 8000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_caldo"]
+script = ExtResource("2_person")
+id = &"caldo"
+display_name = "Caldo"
+skill = 69
+consistency = 58
+cost = 8000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_reuben_aziz"]
+script = ExtResource("2_person")
+id = &"reuben_aziz"
+display_name = "Reuben Aziz"
+skill = 71
+consistency = 62
+cost = 9000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_ashbeck"]
+script = ExtResource("2_person")
+id = &"ashbeck"
+display_name = "Ashbeck"
+skill = 68
+consistency = 56
+cost = 7000
+country = "Reino Unido"
+tier = "underground"
+
+[sub_resource type="Resource" id="feat_namesbliss"]
+script = ExtResource("2_person")
+id = &"namesbliss"
+display_name = "Namesbliss"
+skill = 78
+consistency = 70
+cost = 20000
+country = "Reino Unido"
+tier = "emerging"
 
 [resource]
 script = ExtResource("1_catalog")
 producers = Array[ExtResource("2_person")]([SubResource("producer_metro_boomin"), SubResource("producer_kanye_west"), SubResource("producer_pharrell_williams"), SubResource("producer_dr_dre"), SubResource("producer_the_alchemist"), SubResource("producer_madlib"), SubResource("producer_mike_dean"), SubResource("producer_hit_boy"), SubResource("producer_southside"), SubResource("producer_tay_keith"), SubResource("producer_pi_erre_bourne"), SubResource("producer_kenny_beats"), SubResource("producer_wheezy"), SubResource("producer_murda_beatz"), SubResource("producer_cardo"), SubResource("producer_dj_premier"), SubResource("producer_clams_casino"), SubResource("producer_9th_wonder"), SubResource("producer_conductor_williams"), SubResource("producer_apollo_brown")])
 beatmakers = Array[ExtResource("2_person")]([SubResource("beatmaker_j_dilla"), SubResource("beatmaker_nujabes"), SubResource("beatmaker_metro_boomin"), SubResource("beatmaker_madlib"), SubResource("beatmaker_the_alchemist"), SubResource("beatmaker_dj_premier"), SubResource("beatmaker_rza"), SubResource("beatmaker_pete_rock"), SubResource("beatmaker_9th_wonder"), SubResource("beatmaker_knxwledge"), SubResource("beatmaker_kenny_beats"), SubResource("beatmaker_pi_erre_bourne"), SubResource("beatmaker_cardo"), SubResource("beatmaker_southside"), SubResource("beatmaker_tay_keith"), SubResource("beatmaker_clams_casino"), SubResource("beatmaker_wheezy"), SubResource("beatmaker_conductor_williams"), SubResource("beatmaker_wondagurl"), SubResource("beatmaker_bangladesh")])
-feats = Array[ExtResource("2_person")]([SubResource("feat_drake"), SubResource("feat_kendrick_lamar"), SubResource("feat_j_cole"), SubResource("feat_travis_scott"), SubResource("feat_future"), SubResource("feat_lil_wayne"), SubResource("feat_nicki_minaj"), SubResource("feat_sza"), SubResource("feat_doja_cat"), SubResource("feat_tyler_the_creator"), SubResource("feat_playboi_carti"), SubResource("feat_21_savage"), SubResource("feat_a_ap_rocky"), SubResource("feat_jid"), SubResource("feat_baby_keem"), SubResource("feat_don_toliver"), SubResource("feat_megan_thee_stallion"), SubResource("feat_nas"), SubResource("feat_eminem"), SubResource("feat_lil_uzi_vert")])
+feats = Array[ExtResource("2_person")]([SubResource("feat_drake"), SubResource("feat_kendrick_lamar"), SubResource("feat_j_cole"), SubResource("feat_travis_scott"), SubResource("feat_future"), SubResource("feat_lil_wayne"), SubResource("feat_nicki_minaj"), SubResource("feat_sza"), SubResource("feat_doja_cat"), SubResource("feat_tyler_the_creator"), SubResource("feat_playboi_carti"), SubResource("feat_21_savage"), SubResource("feat_a_ap_rocky"), SubResource("feat_jid"), SubResource("feat_baby_keem"), SubResource("feat_don_toliver"), SubResource("feat_megan_thee_stallion"), SubResource("feat_nas"), SubResource("feat_eminem"), SubResource("feat_lil_uzi_vert"), SubResource("feat_ken_carson"), SubResource("feat_destroy_lonely"), SubResource("feat_homixide_beno"), SubResource("feat_homixide_meechie"), SubResource("feat_babytron"), SubResource("feat_rio_da_yung_og"), SubResource("feat_rmc_mike"), SubResource("feat_doe_boy"), SubResource("feat_sada_baby"), SubResource("feat_babyface_ray"), SubResource("feat_icewear_vezzo"), SubResource("feat_veeze"), SubResource("feat_rylo_rodriguez"), SubResource("feat_nocap"), SubResource("feat_babydrill"), SubResource("feat_hunxho"), SubResource("feat_hurricane_wisdom"), SubResource("feat_bunnab"), SubResource("feat_zeddy_will"), SubResource("feat_s5"), SubResource("feat_yhapojj"), SubResource("feat_xaviersobased"), SubResource("feat_skeletrix"), SubResource("feat_fakemink"), SubResource("feat_rico_ace"), SubResource("feat_loe_shimmy"), SubResource("feat_samara_cyn"), SubResource("feat_cash_cobain"), SubResource("feat_chy_cartier"), SubResource("feat_jawnino"), SubResource("feat_central_cee"), SubResource("feat_dave"), SubResource("feat_little_simz"), SubResource("feat_skepta"), SubResource("feat_j_hus"), SubResource("feat_headie_one"), SubResource("feat_unknown_t"), SubResource("feat_knucks"), SubResource("feat_pozer"), SubResource("feat_mazza_l20"), SubResource("feat_yt"), SubResource("feat_feng"), SubResource("feat_teebofg"), SubResource("feat_sinn6r"), SubResource("feat_ciel"), SubResource("feat_len"), SubResource("feat_caldo"), SubResource("feat_reuben_aziz"), SubResource("feat_ashbeck"), SubResource("feat_namesbliss")])
