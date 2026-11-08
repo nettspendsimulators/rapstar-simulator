@@ -23,6 +23,7 @@ func _init() -> void:
 	_test_age_progression()
 	_test_legacy_single_save_listed()
 	_test_v7_migration()
+	_test_editor_coverage()
 	_clean_saves()
 	print("%d verificações, %d falhas" % [_checks, _failures])
 	quit(1 if _failures > 0 else 0)
@@ -301,6 +302,29 @@ func _test_v7_migration() -> void:
 	_check(career.age == game.characters.rules().default_age and career.country == game.characters.rules().default_country, "identidade padrão")
 	_check(career.real_name == "" and not career.infinite_energy, "nome real vazio e energia normal")
 	_check(game.save_game().ok and int(JSON.parse_string(FileAccess.get_file_as_string(save_path))["version"]) == SaveSystem.SAVE_VERSION, "salva no formato novo")
+	game.free()
+
+
+## O editor por miniaturas e o desenho cobrem todo o catálogo: cada categoria está em uma aba,
+## cada miniatura recorta uma região que existe e cada estilo tem desenho.
+func _test_editor_coverage() -> void:
+	var game := _game()
+	var rules: CharacterRules = game.characters.rules()
+	var regions := CharacterLayout.FOCUS_RECTS
+	var view_source: String = FileAccess.get_file_as_string("res://scripts/ui/components/character_view.gd")
+	for item: Dictionary in CharacterRules.CATEGORIES:
+		var category: String = item["id"]
+		var tabs := 0
+		for group: Dictionary in CharacterLayout.GROUPS:
+			tabs += 1 if category in group["categories"] else 0
+		_check(tabs == 1, "categoria %s em exatamente uma aba do editor" % category)
+		if category in CharacterRules.COLOR_CATEGORIES:
+			continue
+		for option in rules.options_for(category):
+			var focus: String = CharacterLayout.ACCESSORY_FOCUS.get(option.style, "") if category == "accessory" else CharacterLayout.FOCUS.get(category, "")
+			_check(regions.has(focus), "miniatura de %s recorta uma região conhecida (%s)" % [option.id, focus])
+			# none, bald, normal e sneakers são o desenho padrão de cada camada.
+			_check(option.style in ["none", "bald", "normal", "sneakers"] or ('"%s"' % option.style) in view_source, "estilo %s tem desenho" % option.style)
 	game.free()
 
 

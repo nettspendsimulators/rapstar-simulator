@@ -10,7 +10,7 @@ var _city := LineEdit.new()
 var _infinite_energy := false
 var _energy_on := Button.new()
 var _editor := CharacterEditor.new()
-var _preview := CharacterView.new()
+var _stage := CharacterStage.new()
 var _message := Label.new()
 var _rng := RandomNumberGenerator.new()
 
@@ -22,7 +22,7 @@ func _ready() -> void:
 	column.add_theme_constant_override("separation", 8)
 	add_child(column)
 	var title := Label.new()
-	title.text = "Nova carreira"
+	title.text = "Crie seu artista"
 	title.theme_type_variation = &"TitleLabel"
 	column.add_child(title)
 	var body := HBoxContainer.new()
@@ -31,7 +31,7 @@ func _ready() -> void:
 	column.add_child(body)
 
 	var identity_panel := PanelContainer.new()
-	identity_panel.custom_minimum_size = Vector2(320, 0)
+	identity_panel.custom_minimum_size = Vector2(290, 0)
 	body.add_child(identity_panel)
 	var identity_scroll := ScrollContainer.new()
 	identity_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -72,27 +72,32 @@ func _ready() -> void:
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	identity.add_child(hint)
 
+	# Centro: o personagem grande, iluminado, com o sorteio logo abaixo.
+	var center := VBoxContainer.new()
+	center.custom_minimum_size = Vector2(300, 0)
+	center.add_theme_constant_override("separation", 8)
+	body.add_child(center)
+	_stage.name = "CharacterStage"
+	_stage.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_stage.custom_minimum_size = Vector2(300, 420)
+	center.add_child(_stage)
+	var random := Button.new()
+	random.name = "RandomButton"
+	random.text = "Sortear visual"
+	random.icon = load("res://assets/icons/character.svg")
+	random.pressed.connect(func() -> void: _editor.randomize_appearance(_rng))
+	center.add_child(random)
+
+	# Direita: o editor por miniaturas.
+	var editor_panel := PanelContainer.new()
+	editor_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	body.add_child(editor_panel)
 	var scroll := ScrollContainer.new()
-	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	body.add_child(scroll)
+	editor_panel.add_child(scroll)
 	_editor.name = "CharacterEditor"
 	_editor.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(_editor)
-
-	var preview_panel := PanelContainer.new()
-	preview_panel.custom_minimum_size = Vector2(260, 0)
-	body.add_child(preview_panel)
-	var preview_column := VBoxContainer.new()
-	preview_panel.add_child(preview_column)
-	_preview.name = "CharacterPreview"
-	_preview.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	preview_column.add_child(_preview)
-	var random := Button.new()
-	random.name = "RandomButton"
-	random.text = "Aleatório"
-	random.pressed.connect(func() -> void: _editor.randomize_appearance(_rng))
-	preview_column.add_child(random)
 
 	_message.name = "MessageLabel"
 	_message.theme_type_variation = &"MessageLabel"
@@ -115,8 +120,8 @@ func _ready() -> void:
 	start.pressed.connect(_start)
 	row.add_child(start)
 
-	_editor.appearance_changed.connect(func(appearance: CharacterAppearance) -> void: _preview.appearance = appearance)
-	_preview.appearance = _editor.get_appearance()
+	_editor.appearance_changed.connect(func(appearance: CharacterAppearance) -> void: _stage.appearance = appearance)
+	_stage.appearance = _editor.get_appearance()
 	_name.grab_focus.call_deferred()
 	super()
 

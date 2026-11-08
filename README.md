@@ -219,6 +219,16 @@ carreira, a agenda, os próximos passos e o resumo da última semana.
 nas plataformas quando não há foto. Músicas, projetos e propostas de show aparecem como grades de
 capas (`CardGrid`/`MediaCard`); detalhes ficam em abas ou sob demanda.
 
+**Design system:** o tema (`assets/theme/default_theme.tres`) define a paleta (fundo grafite-violeta,
+superfícies em três níveis, dourado para ação e destaque, violeta para fase, verde e vermelho para
+ganho e perda), duas famílias de fonte (Bahnschrift nos títulos, números e botões principais; Segoe UI
+no texto), e as variações usadas em todas as telas: `PrimaryButton`, `DangerButton`, `ChipButton`
+(filtros e abas internas), `NavButton`, `SwatchButton`, `Card`, `HeroPanel`, `StagePanel`,
+`MediaCard`, `StatChip` e os rótulos `TitleLabel`, `HeaderLabel`, `SectionLabel`, `StatValue`,
+`StatCaption`, `BadgeLabel` e `StageLabel`. Abas são pílulas, tabelas não têm grade e têm linhas
+altas, botões têm volume na borda inferior. Uma tela nova deve usar essas variações, não cores
+soltas.
+
 **Carros:** a área Carros tem a concessionária (34 carros, filtro por categoria, foto, preço e quanto
 sobra) e a garagem. Cada modelo é comprado uma vez, à vista, e aparece no Início.
 
@@ -243,8 +253,16 @@ fama, fãs e streams.
 **Personagem e carreiras:** cada carreira tem nome artístico (identidade pública), nome real, idade
 (cresce um ano a cada 52 semanas), país, cidade, aparência e a opção de energia infinita. A aparência
 é montada por peças independentes de `data/character.tres` e desenhada em camadas pelo
-`CharacterView`, no hub, na lista de carreiras, na criação e em Personagem. Trocar a aparência só muda
-a aparência e grava no save da carreira. Com energia infinita, as atividades não gastam energia.
+`CharacterView`, no hub, na lista de carreiras, na criação e em Personagem. O desenho usa formas
+suaves (curvas Catmull-Rom), contorno, sombra e brilho recortados da própria forma (luz de cima à
+esquerda) e detalhes de material (costuras, nervuras, bolsos, xadrez, gomos da puffer, elos da
+corrente, reflexo dos óculos). O `CharacterEditor` mostra cada peça como miniatura desenhada no
+próprio personagem, recortada na região do corpo dela (`CharacterLayout`), com abas Rosto, Cabelo,
+Roupas e Acessórios e amostras redondas para as cores; o `CharacterStage` é o palco grande e iluminado
+da criação e da tela de personagem. Peças novas com um estilo existente aparecem no editor sem
+código novo; um estilo novo pede uma função de desenho e entra na verificação de cobertura de
+`tests/test_character.gd`. Trocar a aparência só muda a aparência e grava no save da carreira. Com
+energia infinita, as atividades não gastam energia.
 
 **Ao vivo (shows, turnês, festivais e merch):** fica na área "Ao vivo" da navegação principal.
 
