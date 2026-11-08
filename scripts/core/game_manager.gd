@@ -15,6 +15,7 @@ var economy := EconomySystem.new()
 var saves := SaveSystem.new(balance)
 var characters := CharacterSystem.new(balance)
 var vehicles := VehicleSystem.new(balance, economy)
+var wardrobe := WardrobeSystem.new(balance, economy)
 var covers := CoverSystem.new(balance, saves)
 var performance := PerformanceSystem.new(balance, rng)
 var song_quality := SongQualitySystem.new(balance)
@@ -79,7 +80,8 @@ func create_career(artist_name: String, identity: Dictionary, appearance: Charac
 	if not applied.ok:
 		career = previous
 		return applied
-	career.appearance = characters.sanitize(appearance)
+	# A carreira começa só com peças básicas; o resto é comprado na loja de roupas.
+	career.appearance = characters.starter_only(appearance)
 	career.infinite_energy = bool(identity.get("infinite_energy", false))
 	current_slot = saves.new_slot_id()
 	var saved := saves.save_career(career, current_slot)
@@ -121,8 +123,13 @@ func delete_career(slot: String) -> ActionResult:
 
 
 ## Troca a aparência sem tocar no resto da carreira e grava no slot da carreira.
+## Veste um visual. Todas as peças precisam estar no guarda-roupa (as básicas sempre estão).
 func set_appearance(appearance: CharacterAppearance) -> ActionResult:
-	career.appearance = characters.sanitize(appearance)
+	var clean := characters.sanitize(appearance)
+	var missing := wardrobe.missing(career, clean)
+	if not missing.is_empty():
+		return ActionResult.failure("Compre antes de vestir: %s (%s)." % [", ".join(missing.map(func(item: CharacterOptionDefinition) -> String: return item.display_name)), Fmt.money(wardrobe.missing_cost(career, clean))])
+	career.appearance = clean
 	var saved := save_game()
 	career_changed.emit()
 	return ActionResult.success("Aparência salva." if saved.ok else saved.message)
@@ -170,6 +177,20 @@ func accept_social_invite(invite_id: String) -> ActionResult:
 
 func decline_social_invite(invite_id: String) -> ActionResult:
 	return _notify_if_ok(social.decline_invite(career, invite_id))
+
+
+func buy_wardrobe_item(option_id: String) -> ActionResult:
+	return _notify_if_ok(wardrobe.buy(career, option_id))
+
+
+## Compra o que falta no visual e já veste. Se o dinheiro não der, nada muda.
+func buy_and_wear(appearance: CharacterAppearance) -> ActionResult:
+	var clean := characters.sanitize(appearance)
+	var bought := wardrobe.buy_look(career, clean)
+	if not bought.ok:
+		return bought
+	var worn := set_appearance(clean)
+	return ActionResult.success("%s Visual salvo." % bought.message) if worn.ok else worn
 
 
 func buy_vehicle(vehicle_id: String) -> ActionResult:

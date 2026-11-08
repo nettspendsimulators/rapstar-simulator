@@ -13,6 +13,7 @@ var _editor := CharacterEditor.new()
 var _stage := CharacterStage.new()
 var _message := Label.new()
 var _rng := RandomNumberGenerator.new()
+var _sex_buttons: Dictionary[String, Button] = {}
 
 
 func _ready() -> void:
@@ -56,6 +57,7 @@ func _ready() -> void:
 	_age.value = rules.default_age
 	_age.suffix = "anos"
 	_field(identity, "Idade", _age)
+	_build_sex_toggle(identity)
 	_country.name = "CountryOption"
 	for country in rules.countries:
 		_country.add_item(country)
@@ -68,7 +70,7 @@ func _ready() -> void:
 	_field(identity, "Cidade", _city)
 	_build_energy_toggle(identity)
 	var hint := Label.new()
-	hint.text = "O nome artístico é a sua identidade pública. A idade aumenta com os anos da carreira."
+	hint.text = "O nome artístico é a sua identidade pública. A idade aumenta com os anos da carreira. Você começa com peças básicas; roupas e acessórios melhores ficam na loja do guarda-roupa."
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	identity.add_child(hint)
 
@@ -96,6 +98,8 @@ func _ready() -> void:
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	editor_panel.add_child(scroll)
 	_editor.name = "CharacterEditor"
+	# Na criação só há peças básicas; o resto é comprado no guarda-roupa durante a carreira.
+	_editor.starter = true
 	_editor.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(_editor)
 
@@ -120,7 +124,10 @@ func _ready() -> void:
 	start.pressed.connect(_start)
 	row.add_child(start)
 
-	_editor.appearance_changed.connect(func(appearance: CharacterAppearance) -> void: _stage.appearance = appearance)
+	_editor.appearance_changed.connect(func(appearance: CharacterAppearance) -> void:
+		_stage.appearance = appearance
+		for option_id in _sex_buttons:
+			_sex_buttons[option_id].set_pressed_no_signal(appearance.get_choice("sex") == option_id))
 	_stage.appearance = _editor.get_appearance()
 	_name.grab_focus.call_deferred()
 	super()
@@ -138,6 +145,29 @@ func _field(parent: Container, label_text: String, control: Control) -> void:
 	label.text = label_text
 	parent.add_child(label)
 	parent.add_child(control)
+
+
+## Sexo do personagem: muda o corpo, o rosto e as peças disponíveis. Também fica na aba Corpo.
+func _build_sex_toggle(parent: Container) -> void:
+	var label := Label.new()
+	label.text = "Sexo"
+	parent.add_child(label)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	parent.add_child(row)
+	var group := ButtonGroup.new()
+	for spec: Array in [["SexMale", "Masculino", "sex_male"], ["SexFemale", "Feminino", "sex_female"]]:
+		var button := Button.new()
+		button.name = spec[0]
+		button.text = spec[1]
+		button.theme_type_variation = &"ChipButton"
+		button.toggle_mode = true
+		button.button_group = group
+		button.focus_mode = Control.FOCUS_NONE
+		button.button_pressed = spec[2] == "sex_male"
+		button.pressed.connect(_editor.choose.bind(spec[2]))
+		row.add_child(button)
+		_sex_buttons[spec[2]] = button
 
 
 ## Energia Infinita: OFF usa a energia normal; ON, nenhuma atividade gasta energia nesta carreira.

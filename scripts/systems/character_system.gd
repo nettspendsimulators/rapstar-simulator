@@ -21,21 +21,50 @@ func default_appearance() -> CharacterAppearance:
 	return appearance
 
 
-## Remove peças que não existem mais e completa categorias faltando com o padrão.
+## Remove peças que não existem mais, completa categorias faltando com o padrão e troca peças
+## que não combinam com o sexo escolhido (barba numa personagem feminina, saia num masculino).
 func sanitize(appearance: CharacterAppearance) -> CharacterAppearance:
 	var clean := default_appearance()
 	if appearance == null:
 		return clean
+	if rules().find_option("sex", appearance.get_choice("sex")) != null:
+		clean.choices["sex"] = appearance.get_choice("sex")
+	var sex := clean.sex()
 	for item: Dictionary in CharacterRules.CATEGORIES:
 		var category: String = item["id"]
 		if CharacterRules.is_multiple(category):
 			continue
-		if rules().find_option(category, appearance.get_choice(category)) != null:
-			clean.choices[category] = appearance.get_choice(category)
+		var found := rules().find_option(category, appearance.get_choice(category))
+		if found != null and found.allows_sex(sex):
+			clean.choices[category] = found.id
 	for option_id in appearance.accessories:
-		if rules().find_option("accessory", option_id) != null and not clean.has_accessory(option_id):
+		var found := rules().find_option("accessory", option_id)
+		if found != null and found.allows_sex(sex) and not clean.has_accessory(option_id):
 			clean.accessories.append(option_id)
 	return clean
+
+
+## Só peças básicas: roupas e acessórios melhores são comprados durante a carreira.
+func starter_only(appearance: CharacterAppearance) -> CharacterAppearance:
+	var clean := sanitize(appearance)
+	for category: String in CharacterRules.WEAR_CATEGORIES:
+		if CharacterRules.is_multiple(category):
+			continue
+		var found := rules().find_option(category, clean.get_choice(category))
+		if found != null and found.tier != "basic":
+			clean.choices[category] = rules().defaults.get(category, "")
+	clean.accessories.assign(clean.accessories.filter(func(option_id: String) -> bool:
+		return rules().find_option("accessory", option_id).tier == "basic"))
+	return clean
+
+
+## Opções de uma categoria que combinam com o sexo (e, se pedido, só as básicas).
+func options_for(category: String, sex: String, starter: bool = false) -> Array[CharacterOptionDefinition]:
+	var result: Array[CharacterOptionDefinition] = []
+	for candidate in rules().options_for(category):
+		if candidate.allows_sex(sex) and (not starter or candidate.tier == "basic" or not CharacterRules.is_wear(category)):
+			result.append(candidate)
+	return result
 
 
 ## Peça escolhida numa categoria, já resolvida para a definição (cai no padrão se faltar).
@@ -46,20 +75,30 @@ func option(appearance: CharacterAppearance, category: String) -> CharacterOptio
 	return found
 
 
-func random_appearance(rng: RandomNumberGenerator) -> CharacterAppearance:
+## Visual sorteado. "starter" limita roupas e acessórios às peças básicas (criação da carreira).
+## Personagens femininas não sorteiam barba; masculinos raramente usam maquiagem.
+func random_appearance(rng: RandomNumberGenerator, starter: bool = false) -> CharacterAppearance:
 	var appearance := CharacterAppearance.new()
+	appearance.choices["sex"] = "sex_female" if rng.randf() < 0.5 else "sex_male"
+	var sex := appearance.sex()
 	for item: Dictionary in CharacterRules.CATEGORIES:
 		var category: String = item["id"]
-		var options := rules().options_for(category)
+		if category == "sex":
+			continue
+		var options := options_for(category, sex, starter)
 		if options.is_empty():
 			continue
 		if CharacterRules.is_multiple(category):
 			for candidate in options:
-				if rng.randf() < 0.25:
+				if rng.randf() < 0.2:
 					appearance.accessories.append(candidate.id)
+		elif category == "makeup" and sex == "male" and rng.randf() < 0.85:
+			appearance.choices[category] = "makeup_none"
+		elif category == "beard" and rng.randf() < 0.3:
+			appearance.choices[category] = "beard_none"
 		else:
 			appearance.choices[category] = options[rng.randi() % options.size()].id
-	return appearance
+	return sanitize(appearance)
 
 
 ## Idade atual: a idade do início da carreira mais os anos que passaram no calendário do jogo.

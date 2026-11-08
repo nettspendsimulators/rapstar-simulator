@@ -3,6 +3,60 @@
 [ext_resource type="Script" path="res://scripts/definitions/character/character_rules.gd" id="1_rules"]
 [ext_resource type="Script" path="res://scripts/definitions/character/character_option_definition.gd" id="2_option"]
 
+[sub_resource type="Resource" id="sex_male"]
+script = ExtResource("2_option")
+id = "sex_male"
+display_name = "Masculino"
+category = "sex"
+style = "male"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="sex_female"]
+script = ExtResource("2_option")
+id = "sex_female"
+display_name = "Feminino"
+category = "sex"
+style = "female"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="build_slim"]
+script = ExtResource("2_option")
+id = "build_slim"
+display_name = "Magro"
+category = "build"
+style = "slim"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="build_regular"]
+script = ExtResource("2_option")
+id = "build_regular"
+display_name = "Médio"
+category = "build"
+style = "regular"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="build_athletic"]
+script = ExtResource("2_option")
+id = "build_athletic"
+display_name = "Atlético"
+category = "build"
+style = "athletic"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="build_heavy"]
+script = ExtResource("2_option")
+id = "build_heavy"
+display_name = "Robusto"
+category = "build"
+style = "heavy"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
 [sub_resource type="Resource" id="skin_1"]
 script = ExtResource("2_option")
 id = "skin_1"
@@ -67,6 +121,262 @@ category = "skin"
 color = Color(0.243, 0.141, 0.086, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
+[sub_resource type="Resource" id="eyes_dark"]
+script = ExtResource("2_option")
+id = "eyes_dark"
+display_name = "Pretos"
+category = "eye_color"
+color = Color(0.114, 0.075, 0.051, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_brown"]
+script = ExtResource("2_option")
+id = "eyes_brown"
+display_name = "Castanhos"
+category = "eye_color"
+color = Color(0.357, 0.227, 0.118, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_hazel"]
+script = ExtResource("2_option")
+id = "eyes_hazel"
+display_name = "Mel"
+category = "eye_color"
+color = Color(0.604, 0.416, 0.173, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_green"]
+script = ExtResource("2_option")
+id = "eyes_green"
+display_name = "Verdes"
+category = "eye_color"
+color = Color(0.247, 0.478, 0.227, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_blue"]
+script = ExtResource("2_option")
+id = "eyes_blue"
+display_name = "Azuis"
+category = "eye_color"
+color = Color(0.227, 0.447, 0.722, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="eyes_gray"]
+script = ExtResource("2_option")
+id = "eyes_gray"
+display_name = "Cinza"
+category = "eye_color"
+color = Color(0.490, 0.529, 0.565, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_thin"]
+script = ExtResource("2_option")
+id = "brows_thin"
+display_name = "Finas"
+category = "brows"
+style = "thin"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_normal"]
+script = ExtResource("2_option")
+id = "brows_normal"
+display_name = "Médias"
+category = "brows"
+style = "normal"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_thick"]
+script = ExtResource("2_option")
+id = "brows_thick"
+display_name = "Grossas"
+category = "brows"
+style = "thick"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_arched"]
+script = ExtResource("2_option")
+id = "brows_arched"
+display_name = "Arqueadas"
+category = "brows"
+style = "arched"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="brows_cut"]
+script = ExtResource("2_option")
+id = "brows_cut"
+display_name = "Com corte"
+category = "brows"
+style = "cut"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="makeup_none"]
+script = ExtResource("2_option")
+id = "makeup_none"
+display_name = "Nenhuma"
+category = "makeup"
+style = "none"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="makeup_gloss"]
+script = ExtResource("2_option")
+id = "makeup_gloss"
+display_name = "Gloss"
+category = "makeup"
+style = "gloss"
+color = Color(0.851, 0.541, 0.541, 1)
+color2 = Color(1.000, 1.000, 1.000, 1)
+
+[sub_resource type="Resource" id="makeup_red"]
+script = ExtResource("2_option")
+id = "makeup_red"
+display_name = "Batom vermelho"
+category = "makeup"
+style = "lips"
+color = Color(0.702, 0.071, 0.165, 1)
+color2 = Color(1.000, 1.000, 1.000, 1)
+
+[sub_resource type="Resource" id="makeup_berry"]
+script = ExtResource("2_option")
+id = "makeup_berry"
+display_name = "Batom escuro"
+category = "makeup"
+style = "lips"
+color = Color(0.369, 0.102, 0.200, 1)
+color2 = Color(1.000, 1.000, 1.000, 1)
+
+[sub_resource type="Resource" id="makeup_liner"]
+script = ExtResource("2_option")
+id = "makeup_liner"
+display_name = "Delineado"
+category = "makeup"
+style = "liner"
+color = Color(0.078, 0.063, 0.086, 1)
+color2 = Color(0.078, 0.063, 0.086, 1)
+
+[sub_resource type="Resource" id="makeup_glam"]
+script = ExtResource("2_option")
+id = "makeup_glam"
+display_name = "Delineado e batom"
+category = "makeup"
+style = "glam"
+color = Color(0.620, 0.165, 0.235, 1)
+color2 = Color(0.078, 0.063, 0.086, 1)
+
+[sub_resource type="Resource" id="beard_none"]
+script = ExtResource("2_option")
+id = "beard_none"
+display_name = "Sem barba"
+category = "beard"
+style = "none"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="beard_stubble"]
+script = ExtResource("2_option")
+id = "beard_stubble"
+display_name = "Por fazer"
+category = "beard"
+style = "stubble"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_mustache"]
+script = ExtResource("2_option")
+id = "beard_mustache"
+display_name = "Bigode"
+category = "beard"
+style = "mustache"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_goatee"]
+script = ExtResource("2_option")
+id = "beard_goatee"
+display_name = "Cavanhaque"
+category = "beard"
+style = "goatee"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_patch"]
+script = ExtResource("2_option")
+id = "beard_patch"
+display_name = "Mosca"
+category = "beard"
+style = "patch"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_anchor"]
+script = ExtResource("2_option")
+id = "beard_anchor"
+display_name = "Âncora"
+category = "beard"
+style = "anchor"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_chinstrap"]
+script = ExtResource("2_option")
+id = "beard_chinstrap"
+display_name = "Contorno"
+category = "beard"
+style = "chinstrap"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_short"]
+script = ExtResource("2_option")
+id = "beard_short"
+display_name = "Curta"
+category = "beard"
+style = "short"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_medium"]
+script = ExtResource("2_option")
+id = "beard_medium"
+display_name = "Média"
+category = "beard"
+style = "medium"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_full"]
+script = ExtResource("2_option")
+id = "beard_full"
+display_name = "Cheia"
+category = "beard"
+style = "full"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
+[sub_resource type="Resource" id="beard_long"]
+script = ExtResource("2_option")
+id = "beard_long"
+display_name = "Longa"
+category = "beard"
+style = "long"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+sexes = Array[String](["male"])
+
 [sub_resource type="Resource" id="hair_bald"]
 script = ExtResource("2_option")
 id = "hair_bald"
@@ -85,6 +395,15 @@ style = "buzz"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
+[sub_resource type="Resource" id="hair_fade"]
+script = ExtResource("2_option")
+id = "hair_fade"
+display_name = "Degradê"
+category = "hair"
+style = "fade"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
 [sub_resource type="Resource" id="hair_short"]
 script = ExtResource("2_option")
 id = "hair_short"
@@ -94,12 +413,30 @@ style = "short"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
+[sub_resource type="Resource" id="hair_sidepart"]
+script = ExtResource("2_option")
+id = "hair_sidepart"
+display_name = "Repartido"
+category = "hair"
+style = "sidepart"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
 [sub_resource type="Resource" id="hair_waves"]
 script = ExtResource("2_option")
 id = "hair_waves"
 display_name = "Waves"
 category = "hair"
 style = "waves"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_hightop"]
+script = ExtResource("2_option")
+id = "hair_hightop"
+display_name = "High top"
+category = "hair"
+style = "hightop"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
@@ -118,6 +455,15 @@ id = "hair_afro"
 display_name = "Black power"
 category = "hair"
 style = "afro"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_puff"]
+script = ExtResource("2_option")
+id = "hair_puff"
+display_name = "Puff"
+category = "hair"
+style = "puff"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
@@ -148,15 +494,6 @@ style = "braids"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
-[sub_resource type="Resource" id="hair_long"]
-script = ExtResource("2_option")
-id = "hair_long"
-display_name = "Longo"
-category = "hair"
-style = "long"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
 [sub_resource type="Resource" id="hair_mohawk"]
 script = ExtResource("2_option")
 id = "hair_mohawk"
@@ -172,6 +509,51 @@ id = "hair_bun"
 display_name = "Coque"
 category = "hair"
 style = "bun"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_spacebuns"]
+script = ExtResource("2_option")
+id = "hair_spacebuns"
+display_name = "Dois coques"
+category = "hair"
+style = "spacebuns"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_ponytail"]
+script = ExtResource("2_option")
+id = "hair_ponytail"
+display_name = "Rabo de cavalo"
+category = "hair"
+style = "ponytail"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_bob"]
+script = ExtResource("2_option")
+id = "hair_bob"
+display_name = "Chanel"
+category = "hair"
+style = "bob"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_long"]
+script = ExtResource("2_option")
+id = "hair_long"
+display_name = "Longo liso"
+category = "hair"
+style = "long"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+
+[sub_resource type="Resource" id="hair_wavy"]
+script = ExtResource("2_option")
+id = "hair_wavy"
+display_name = "Longo ondulado"
+category = "hair"
+style = "wavy"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
@@ -263,171 +645,6 @@ category = "hair_color"
 color = Color(0.478, 0.247, 0.761, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
-[sub_resource type="Resource" id="brows_thin"]
-script = ExtResource("2_option")
-id = "brows_thin"
-display_name = "Finas"
-category = "brows"
-style = "thin"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="brows_normal"]
-script = ExtResource("2_option")
-id = "brows_normal"
-display_name = "Médias"
-category = "brows"
-style = "normal"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="brows_thick"]
-script = ExtResource("2_option")
-id = "brows_thick"
-display_name = "Grossas"
-category = "brows"
-style = "thick"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="brows_arched"]
-script = ExtResource("2_option")
-id = "brows_arched"
-display_name = "Arqueadas"
-category = "brows"
-style = "arched"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="brows_cut"]
-script = ExtResource("2_option")
-id = "brows_cut"
-display_name = "Com corte"
-category = "brows"
-style = "cut"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="eyes_dark"]
-script = ExtResource("2_option")
-id = "eyes_dark"
-display_name = "Pretos"
-category = "eye_color"
-color = Color(0.114, 0.075, 0.051, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="eyes_brown"]
-script = ExtResource("2_option")
-id = "eyes_brown"
-display_name = "Castanhos"
-category = "eye_color"
-color = Color(0.357, 0.227, 0.118, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="eyes_hazel"]
-script = ExtResource("2_option")
-id = "eyes_hazel"
-display_name = "Mel"
-category = "eye_color"
-color = Color(0.604, 0.416, 0.173, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="eyes_green"]
-script = ExtResource("2_option")
-id = "eyes_green"
-display_name = "Verdes"
-category = "eye_color"
-color = Color(0.247, 0.478, 0.227, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="eyes_blue"]
-script = ExtResource("2_option")
-id = "eyes_blue"
-display_name = "Azuis"
-category = "eye_color"
-color = Color(0.227, 0.447, 0.722, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="eyes_gray"]
-script = ExtResource("2_option")
-id = "eyes_gray"
-display_name = "Cinza"
-category = "eye_color"
-color = Color(0.490, 0.529, 0.565, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_none"]
-script = ExtResource("2_option")
-id = "beard_none"
-display_name = "Sem barba"
-category = "beard"
-style = "none"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_stubble"]
-script = ExtResource("2_option")
-id = "beard_stubble"
-display_name = "Por fazer"
-category = "beard"
-style = "stubble"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_mustache"]
-script = ExtResource("2_option")
-id = "beard_mustache"
-display_name = "Bigode"
-category = "beard"
-style = "mustache"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_goatee"]
-script = ExtResource("2_option")
-id = "beard_goatee"
-display_name = "Cavanhaque"
-category = "beard"
-style = "goatee"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_chinstrap"]
-script = ExtResource("2_option")
-id = "beard_chinstrap"
-display_name = "Contorno"
-category = "beard"
-style = "chinstrap"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_short"]
-script = ExtResource("2_option")
-id = "beard_short"
-display_name = "Curta"
-category = "beard"
-style = "short"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_full"]
-script = ExtResource("2_option")
-id = "beard_full"
-display_name = "Cheia"
-category = "beard"
-style = "full"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="beard_long"]
-script = ExtResource("2_option")
-id = "beard_long"
-display_name = "Longa"
-category = "beard"
-style = "long"
-color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
 [sub_resource type="Resource" id="top_tee_white"]
 script = ExtResource("2_option")
 id = "top_tee_white"
@@ -455,14 +672,14 @@ style = "tshirt"
 color = Color(0.753, 0.188, 0.169, 1)
 color2 = Color(0.561, 0.122, 0.110, 1)
 
-[sub_resource type="Resource" id="top_tee_gold"]
+[sub_resource type="Resource" id="top_oversized_black"]
 script = ExtResource("2_option")
-id = "top_tee_gold"
-display_name = "Camiseta dourada"
+id = "top_oversized_black"
+display_name = "Oversized preta"
 category = "top"
-style = "tshirt"
-color = Color(0.851, 0.651, 0.137, 1)
-color2 = Color(0.659, 0.490, 0.071, 1)
+style = "oversized"
+color = Color(0.125, 0.125, 0.141, 1)
+color2 = Color(0.227, 0.227, 0.251, 1)
 
 [sub_resource type="Resource" id="top_tank_white"]
 script = ExtResource("2_option")
@@ -482,32 +699,15 @@ style = "tank"
 color = Color(0.122, 0.122, 0.133, 1)
 color2 = Color(0.227, 0.227, 0.243, 1)
 
-[sub_resource type="Resource" id="top_shirt_white"]
+[sub_resource type="Resource" id="top_crop_white"]
 script = ExtResource("2_option")
-id = "top_shirt_white"
-display_name = "Camisa social branca"
+id = "top_crop_white"
+display_name = "Cropped branco"
 category = "top"
-style = "shirt"
-color = Color(0.957, 0.957, 0.957, 1)
-color2 = Color(0.812, 0.812, 0.812, 1)
-
-[sub_resource type="Resource" id="top_shirt_flannel"]
-script = ExtResource("2_option")
-id = "top_shirt_flannel"
-display_name = "Camisa xadrez"
-category = "top"
-style = "shirt"
-color = Color(0.639, 0.188, 0.184, 1)
-color2 = Color(0.165, 0.165, 0.165, 1)
-
-[sub_resource type="Resource" id="top_shirt_denim"]
-script = ExtResource("2_option")
-id = "top_shirt_denim"
-display_name = "Camisa jeans"
-category = "top"
-style = "shirt"
-color = Color(0.306, 0.435, 0.620, 1)
-color2 = Color(0.212, 0.314, 0.478, 1)
+style = "crop"
+color = Color(0.945, 0.945, 0.945, 1)
+color2 = Color(0.839, 0.839, 0.839, 1)
+sexes = Array[String](["female"])
 
 [sub_resource type="Resource" id="top_hoodie_gray"]
 script = ExtResource("2_option")
@@ -527,6 +727,95 @@ style = "hoodie"
 color = Color(0.137, 0.137, 0.153, 1)
 color2 = Color(0.227, 0.227, 0.251, 1)
 
+[sub_resource type="Resource" id="top_tee_gold"]
+script = ExtResource("2_option")
+id = "top_tee_gold"
+display_name = "Camiseta dourada"
+category = "top"
+style = "tshirt"
+color = Color(0.851, 0.651, 0.137, 1)
+color2 = Color(0.659, 0.490, 0.071, 1)
+tier = "common"
+price = 250
+
+[sub_resource type="Resource" id="top_oversized_cream"]
+script = ExtResource("2_option")
+id = "top_oversized_cream"
+display_name = "Oversized creme"
+category = "top"
+style = "oversized"
+color = Color(0.910, 0.863, 0.769, 1)
+color2 = Color(0.788, 0.725, 0.596, 1)
+tier = "common"
+price = 350
+
+[sub_resource type="Resource" id="top_graphic_black"]
+script = ExtResource("2_option")
+id = "top_graphic_black"
+display_name = "Camiseta estampada"
+category = "top"
+style = "graphic"
+color = Color(0.122, 0.122, 0.133, 1)
+color2 = Color(0.961, 0.722, 0.180, 1)
+tier = "common"
+price = 450
+
+[sub_resource type="Resource" id="top_crop_black"]
+script = ExtResource("2_option")
+id = "top_crop_black"
+display_name = "Cropped preto"
+category = "top"
+style = "crop"
+color = Color(0.122, 0.122, 0.133, 1)
+color2 = Color(0.227, 0.227, 0.243, 1)
+tier = "common"
+price = 300
+sexes = Array[String](["female"])
+
+[sub_resource type="Resource" id="top_polo_navy"]
+script = ExtResource("2_option")
+id = "top_polo_navy"
+display_name = "Polo marinho"
+category = "top"
+style = "polo"
+color = Color(0.122, 0.173, 0.302, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+tier = "common"
+price = 500
+
+[sub_resource type="Resource" id="top_shirt_white"]
+script = ExtResource("2_option")
+id = "top_shirt_white"
+display_name = "Camisa social branca"
+category = "top"
+style = "shirt"
+color = Color(0.957, 0.957, 0.957, 1)
+color2 = Color(0.812, 0.812, 0.812, 1)
+tier = "common"
+price = 600
+
+[sub_resource type="Resource" id="top_shirt_flannel"]
+script = ExtResource("2_option")
+id = "top_shirt_flannel"
+display_name = "Camisa xadrez"
+category = "top"
+style = "shirt"
+color = Color(0.639, 0.188, 0.184, 1)
+color2 = Color(0.165, 0.165, 0.165, 1)
+tier = "common"
+price = 550
+
+[sub_resource type="Resource" id="top_shirt_denim"]
+script = ExtResource("2_option")
+id = "top_shirt_denim"
+display_name = "Camisa jeans"
+category = "top"
+style = "shirt"
+color = Color(0.306, 0.435, 0.620, 1)
+color2 = Color(0.212, 0.314, 0.478, 1)
+tier = "common"
+price = 650
+
 [sub_resource type="Resource" id="top_hoodie_purple"]
 script = ExtResource("2_option")
 id = "top_hoodie_purple"
@@ -535,6 +824,8 @@ category = "top"
 style = "hoodie"
 color = Color(0.420, 0.247, 0.659, 1)
 color2 = Color(0.310, 0.173, 0.502, 1)
+tier = "common"
+price = 400
 
 [sub_resource type="Resource" id="top_jersey_blue"]
 script = ExtResource("2_option")
@@ -544,6 +835,8 @@ category = "top"
 style = "jersey"
 color = Color(0.141, 0.325, 0.710, 1)
 color2 = Color(0.945, 0.945, 0.945, 1)
+tier = "common"
+price = 700
 
 [sub_resource type="Resource" id="top_jersey_yellow"]
 script = ExtResource("2_option")
@@ -553,6 +846,63 @@ category = "top"
 style = "jersey"
 color = Color(0.949, 0.765, 0.000, 1)
 color2 = Color(0.110, 0.478, 0.227, 1)
+tier = "common"
+price = 700
+
+[sub_resource type="Resource" id="top_graphic_tour"]
+script = ExtResource("2_option")
+id = "top_graphic_tour"
+display_name = "Camiseta de turnê vintage"
+category = "top"
+style = "graphic"
+color = Color(0.227, 0.176, 0.310, 1)
+color2 = Color(1.000, 0.369, 0.659, 1)
+tier = "premium"
+price = 1800
+
+[sub_resource type="Resource" id="top_hoodie_designer"]
+script = ExtResource("2_option")
+id = "top_hoodie_designer"
+display_name = "Moletom de grife"
+category = "top"
+style = "hoodie_designer"
+color = Color(0.914, 0.894, 0.855, 1)
+color2 = Color(0.690, 0.553, 0.235, 1)
+tier = "premium"
+price = 4800
+
+[sub_resource type="Resource" id="top_silk_black"]
+script = ExtResource("2_option")
+id = "top_silk_black"
+display_name = "Camisa de seda preta"
+category = "top"
+style = "silk"
+color = Color(0.078, 0.071, 0.086, 1)
+color2 = Color(0.788, 0.635, 0.290, 1)
+tier = "luxury"
+price = 18000
+
+[sub_resource type="Resource" id="top_monogram"]
+script = ExtResource("2_option")
+id = "top_monogram"
+display_name = "Camiseta monograma"
+category = "top"
+style = "monogram"
+color = Color(0.353, 0.275, 0.188, 1)
+color2 = Color(0.851, 0.706, 0.416, 1)
+tier = "luxury"
+price = 22000
+
+[sub_resource type="Resource" id="top_iced_tee"]
+script = ExtResource("2_option")
+id = "top_iced_tee"
+display_name = "Camiseta cravejada"
+category = "top"
+style = "iced_tee"
+color = Color(0.071, 0.071, 0.078, 1)
+color2 = Color(0.910, 0.957, 1.000, 1)
+tier = "exclusive"
+price = 120000
 
 [sub_resource type="Resource" id="jacket_none"]
 script = ExtResource("2_option")
@@ -563,6 +913,17 @@ style = "none"
 color = Color(0.949, 0.949, 0.949, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
+[sub_resource type="Resource" id="jacket_track"]
+script = ExtResource("2_option")
+id = "jacket_track"
+display_name = "Jaqueta esportiva"
+category = "jacket"
+style = "track"
+color = Color(0.114, 0.169, 0.333, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+tier = "common"
+price = 600
+
 [sub_resource type="Resource" id="jacket_bomber"]
 script = ExtResource("2_option")
 id = "jacket_bomber"
@@ -571,6 +932,8 @@ category = "jacket"
 style = "bomber"
 color = Color(0.294, 0.353, 0.200, 1)
 color2 = Color(0.769, 0.416, 0.110, 1)
+tier = "common"
+price = 900
 
 [sub_resource type="Resource" id="jacket_denim"]
 script = ExtResource("2_option")
@@ -580,15 +943,8 @@ category = "jacket"
 style = "denim"
 color = Color(0.302, 0.431, 0.639, 1)
 color2 = Color(0.788, 0.635, 0.290, 1)
-
-[sub_resource type="Resource" id="jacket_leather"]
-script = ExtResource("2_option")
-id = "jacket_leather"
-display_name = "Jaqueta de couro"
-category = "jacket"
-style = "leather"
-color = Color(0.106, 0.102, 0.110, 1)
-color2 = Color(0.333, 0.333, 0.349, 1)
+tier = "common"
+price = 800
 
 [sub_resource type="Resource" id="jacket_puffer"]
 script = ExtResource("2_option")
@@ -598,6 +954,8 @@ category = "jacket"
 style = "puffer"
 color = Color(0.816, 0.290, 0.173, 1)
 color2 = Color(0.639, 0.216, 0.122, 1)
+tier = "premium"
+price = 2600
 
 [sub_resource type="Resource" id="jacket_varsity"]
 script = ExtResource("2_option")
@@ -607,6 +965,74 @@ category = "jacket"
 style = "varsity"
 color = Color(0.478, 0.114, 0.165, 1)
 color2 = Color(0.941, 0.918, 0.847, 1)
+tier = "premium"
+price = 3200
+
+[sub_resource type="Resource" id="jacket_leather"]
+script = ExtResource("2_option")
+id = "jacket_leather"
+display_name = "Jaqueta de couro"
+category = "jacket"
+style = "leather"
+color = Color(0.106, 0.102, 0.110, 1)
+color2 = Color(0.333, 0.333, 0.349, 1)
+tier = "premium"
+price = 5500
+
+[sub_resource type="Resource" id="jacket_trench"]
+script = ExtResource("2_option")
+id = "jacket_trench"
+display_name = "Sobretudo"
+category = "jacket"
+style = "trench"
+color = Color(0.706, 0.604, 0.431, 1)
+color2 = Color(0.431, 0.353, 0.220, 1)
+tier = "premium"
+price = 6500
+
+[sub_resource type="Resource" id="jacket_puffer_gold"]
+script = ExtResource("2_option")
+id = "jacket_puffer_gold"
+display_name = "Puffer metalizada"
+category = "jacket"
+style = "puffer"
+color = Color(0.788, 0.635, 0.290, 1)
+color2 = Color(0.541, 0.416, 0.133, 1)
+tier = "luxury"
+price = 16000
+
+[sub_resource type="Resource" id="jacket_fur"]
+script = ExtResource("2_option")
+id = "jacket_fur"
+display_name = "Casaco de pele"
+category = "jacket"
+style = "fur"
+color = Color(0.227, 0.165, 0.133, 1)
+color2 = Color(0.353, 0.267, 0.212, 1)
+tier = "luxury"
+price = 38000
+
+[sub_resource type="Resource" id="jacket_fur_white"]
+script = ExtResource("2_option")
+id = "jacket_fur_white"
+display_name = "Casaco de pele branco"
+category = "jacket"
+style = "fur"
+color = Color(0.937, 0.914, 0.878, 1)
+color2 = Color(0.812, 0.773, 0.714, 1)
+tier = "exclusive"
+price = 160000
+
+[sub_resource type="Resource" id="jacket_studded"]
+script = ExtResource("2_option")
+id = "jacket_studded"
+display_name = "Couro cravejado"
+category = "jacket"
+style = "studded"
+color = Color(0.071, 0.067, 0.075, 1)
+color2 = Color(0.910, 0.886, 0.784, 1)
+tier = "exclusive"
+price = 220000
 
 [sub_resource type="Resource" id="bottom_jeans_blue"]
 script = ExtResource("2_option")
@@ -626,28 +1052,10 @@ style = "jeans"
 color = Color(0.149, 0.153, 0.169, 1)
 color2 = Color(0.227, 0.231, 0.251, 1)
 
-[sub_resource type="Resource" id="bottom_cargo_khaki"]
-script = ExtResource("2_option")
-id = "bottom_cargo_khaki"
-display_name = "Cargo cáqui"
-category = "bottom"
-style = "cargo"
-color = Color(0.549, 0.478, 0.322, 1)
-color2 = Color(0.431, 0.373, 0.243, 1)
-
-[sub_resource type="Resource" id="bottom_cargo_black"]
-script = ExtResource("2_option")
-id = "bottom_cargo_black"
-display_name = "Cargo preta"
-category = "bottom"
-style = "cargo"
-color = Color(0.169, 0.169, 0.180, 1)
-color2 = Color(0.267, 0.267, 0.282, 1)
-
 [sub_resource type="Resource" id="bottom_sweat_gray"]
 script = ExtResource("2_option")
 id = "bottom_sweat_gray"
-display_name = "Moletom cinza"
+display_name = "Calça moletom cinza"
 category = "bottom"
 style = "sweatpants"
 color = Color(0.545, 0.553, 0.573, 1)
@@ -662,6 +1070,60 @@ style = "shorts"
 color = Color(0.149, 0.153, 0.169, 1)
 color2 = Color(0.227, 0.231, 0.251, 1)
 
+[sub_resource type="Resource" id="bottom_skirt_black"]
+script = ExtResource("2_option")
+id = "bottom_skirt_black"
+display_name = "Saia preta"
+category = "bottom"
+style = "skirt"
+color = Color(0.122, 0.122, 0.133, 1)
+color2 = Color(0.227, 0.227, 0.243, 1)
+sexes = Array[String](["female"])
+
+[sub_resource type="Resource" id="bottom_baggy_blue"]
+script = ExtResource("2_option")
+id = "bottom_baggy_blue"
+display_name = "Jeans largo"
+category = "bottom"
+style = "baggy"
+color = Color(0.290, 0.416, 0.620, 1)
+color2 = Color(0.200, 0.314, 0.494, 1)
+tier = "common"
+price = 350
+
+[sub_resource type="Resource" id="bottom_cargo_khaki"]
+script = ExtResource("2_option")
+id = "bottom_cargo_khaki"
+display_name = "Cargo cáqui"
+category = "bottom"
+style = "cargo"
+color = Color(0.549, 0.478, 0.322, 1)
+color2 = Color(0.431, 0.373, 0.243, 1)
+tier = "common"
+price = 400
+
+[sub_resource type="Resource" id="bottom_cargo_black"]
+script = ExtResource("2_option")
+id = "bottom_cargo_black"
+display_name = "Cargo preta"
+category = "bottom"
+style = "cargo"
+color = Color(0.169, 0.169, 0.180, 1)
+color2 = Color(0.267, 0.267, 0.282, 1)
+tier = "common"
+price = 400
+
+[sub_resource type="Resource" id="bottom_track_black"]
+script = ExtResource("2_option")
+id = "bottom_track_black"
+display_name = "Calça esportiva"
+category = "bottom"
+style = "track"
+color = Color(0.114, 0.114, 0.133, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+tier = "common"
+price = 300
+
 [sub_resource type="Resource" id="bottom_shorts_denim"]
 script = ExtResource("2_option")
 id = "bottom_shorts_denim"
@@ -670,6 +1132,53 @@ category = "bottom"
 style = "shorts"
 color = Color(0.337, 0.459, 0.651, 1)
 color2 = Color(0.247, 0.357, 0.533, 1)
+tier = "common"
+price = 250
+
+[sub_resource type="Resource" id="bottom_skirt_denim"]
+script = ExtResource("2_option")
+id = "bottom_skirt_denim"
+display_name = "Saia jeans"
+category = "bottom"
+style = "skirt"
+color = Color(0.306, 0.435, 0.620, 1)
+color2 = Color(0.212, 0.314, 0.478, 1)
+tier = "common"
+price = 350
+sexes = Array[String](["female"])
+
+[sub_resource type="Resource" id="bottom_camo"]
+script = ExtResource("2_option")
+id = "bottom_camo"
+display_name = "Cargo camuflada"
+category = "bottom"
+style = "camo"
+color = Color(0.353, 0.388, 0.251, 1)
+color2 = Color(0.227, 0.255, 0.157, 1)
+tier = "premium"
+price = 2200
+
+[sub_resource type="Resource" id="bottom_leather"]
+script = ExtResource("2_option")
+id = "bottom_leather"
+display_name = "Calça de couro"
+category = "bottom"
+style = "leather_pants"
+color = Color(0.078, 0.075, 0.082, 1)
+color2 = Color(0.227, 0.227, 0.243, 1)
+tier = "premium"
+price = 4800
+
+[sub_resource type="Resource" id="bottom_designer_cargo"]
+script = ExtResource("2_option")
+id = "bottom_designer_cargo"
+display_name = "Cargo de grife"
+category = "bottom"
+style = "cargo"
+color = Color(0.910, 0.882, 0.824, 1)
+color2 = Color(0.690, 0.553, 0.235, 1)
+tier = "luxury"
+price = 14000
 
 [sub_resource type="Resource" id="shoes_white"]
 script = ExtResource("2_option")
@@ -689,24 +1198,6 @@ style = "sneakers"
 color = Color(0.118, 0.118, 0.125, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
-[sub_resource type="Resource" id="shoes_red"]
-script = ExtResource("2_option")
-id = "shoes_red"
-display_name = "Tênis vermelho"
-category = "shoes"
-style = "sneakers"
-color = Color(0.753, 0.188, 0.169, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="shoes_boots"]
-script = ExtResource("2_option")
-id = "shoes_boots"
-display_name = "Bota"
-category = "shoes"
-style = "boots"
-color = Color(0.420, 0.290, 0.165, 1)
-color2 = Color(0.227, 0.153, 0.090, 1)
-
 [sub_resource type="Resource" id="shoes_slides"]
 script = ExtResource("2_option")
 id = "shoes_slides"
@@ -716,6 +1207,72 @@ style = "slides"
 color = Color(0.118, 0.118, 0.125, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
+[sub_resource type="Resource" id="shoes_red"]
+script = ExtResource("2_option")
+id = "shoes_red"
+display_name = "Tênis vermelho"
+category = "shoes"
+style = "sneakers"
+color = Color(0.753, 0.188, 0.169, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+tier = "common"
+price = 300
+
+[sub_resource type="Resource" id="shoes_hightop"]
+script = ExtResource("2_option")
+id = "shoes_hightop"
+display_name = "Cano alto"
+category = "shoes"
+style = "hightop"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.753, 0.188, 0.169, 1)
+tier = "common"
+price = 650
+
+[sub_resource type="Resource" id="shoes_boots"]
+script = ExtResource("2_option")
+id = "shoes_boots"
+display_name = "Bota"
+category = "shoes"
+style = "boots"
+color = Color(0.659, 0.478, 0.235, 1)
+color2 = Color(0.227, 0.153, 0.090, 1)
+tier = "common"
+price = 900
+
+[sub_resource type="Resource" id="shoes_retro"]
+script = ExtResource("2_option")
+id = "shoes_retro"
+display_name = "Retrô de basquete"
+category = "shoes"
+style = "retro"
+color = Color(0.949, 0.949, 0.949, 1)
+color2 = Color(0.114, 0.310, 0.710, 1)
+tier = "premium"
+price = 2800
+
+[sub_resource type="Resource" id="shoes_designer"]
+script = ExtResource("2_option")
+id = "shoes_designer"
+display_name = "Tênis de grife"
+category = "shoes"
+style = "designer"
+color = Color(0.949, 0.937, 0.910, 1)
+color2 = Color(0.078, 0.078, 0.078, 1)
+tier = "luxury"
+price = 12000
+
+[sub_resource type="Resource" id="shoes_iced"]
+script = ExtResource("2_option")
+id = "shoes_iced"
+display_name = "Tênis cravejado"
+category = "shoes"
+style = "designer"
+color = Color(0.851, 0.706, 0.416, 1)
+color2 = Color(1.000, 0.953, 0.769, 1)
+tier = "exclusive"
+price = 90000
+
 [sub_resource type="Resource" id="head_none"]
 script = ExtResource("2_option")
 id = "head_none"
@@ -723,33 +1280,6 @@ display_name = "Nada"
 category = "headwear"
 style = "none"
 color = Color(0.949, 0.949, 0.949, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="head_cap_black"]
-script = ExtResource("2_option")
-id = "head_cap_black"
-display_name = "Boné preto"
-category = "headwear"
-style = "cap"
-color = Color(0.118, 0.118, 0.125, 1)
-color2 = Color(0.851, 0.651, 0.137, 1)
-
-[sub_resource type="Resource" id="head_cap_red"]
-script = ExtResource("2_option")
-id = "head_cap_red"
-display_name = "Boné vermelho"
-category = "headwear"
-style = "cap"
-color = Color(0.753, 0.188, 0.169, 1)
-color2 = Color(0.949, 0.949, 0.949, 1)
-
-[sub_resource type="Resource" id="head_cap_back"]
-script = ExtResource("2_option")
-id = "head_cap_back"
-display_name = "Boné para trás"
-category = "headwear"
-style = "cap_back"
-color = Color(0.141, 0.325, 0.710, 1)
 color2 = Color(0.949, 0.949, 0.949, 1)
 
 [sub_resource type="Resource" id="head_beanie"]
@@ -761,15 +1291,6 @@ style = "beanie"
 color = Color(0.227, 0.227, 0.251, 1)
 color2 = Color(0.333, 0.333, 0.361, 1)
 
-[sub_resource type="Resource" id="head_bucket"]
-script = ExtResource("2_option")
-id = "head_bucket"
-display_name = "Bucket hat"
-category = "headwear"
-style = "bucket"
-color = Color(0.788, 0.706, 0.541, 1)
-color2 = Color(0.659, 0.584, 0.424, 1)
-
 [sub_resource type="Resource" id="head_durag"]
 script = ExtResource("2_option")
 id = "head_durag"
@@ -779,32 +1300,78 @@ style = "durag"
 color = Color(0.118, 0.118, 0.125, 1)
 color2 = Color(0.227, 0.227, 0.251, 1)
 
-[sub_resource type="Resource" id="acc_chain_gold"]
+[sub_resource type="Resource" id="head_bandana"]
 script = ExtResource("2_option")
-id = "acc_chain_gold"
-display_name = "Corrente de ouro"
-category = "accessory"
-style = "chain"
-color = Color(0.890, 0.698, 0.235, 1)
-color2 = Color(0.965, 0.843, 0.478, 1)
+id = "head_bandana"
+display_name = "Bandana"
+category = "headwear"
+style = "bandana"
+color = Color(0.702, 0.071, 0.165, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
 
-[sub_resource type="Resource" id="acc_chain_silver"]
+[sub_resource type="Resource" id="head_cap_black"]
 script = ExtResource("2_option")
-id = "acc_chain_silver"
-display_name = "Corrente de prata"
+id = "head_cap_black"
+display_name = "Boné preto"
+category = "headwear"
+style = "cap"
+color = Color(0.118, 0.118, 0.125, 1)
+color2 = Color(0.851, 0.651, 0.137, 1)
+tier = "common"
+price = 200
+
+[sub_resource type="Resource" id="head_cap_red"]
+script = ExtResource("2_option")
+id = "head_cap_red"
+display_name = "Boné vermelho"
+category = "headwear"
+style = "cap"
+color = Color(0.753, 0.188, 0.169, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+tier = "common"
+price = 200
+
+[sub_resource type="Resource" id="head_cap_back"]
+script = ExtResource("2_option")
+id = "head_cap_back"
+display_name = "Boné para trás"
+category = "headwear"
+style = "cap_back"
+color = Color(0.141, 0.325, 0.710, 1)
+color2 = Color(0.949, 0.949, 0.949, 1)
+tier = "common"
+price = 220
+
+[sub_resource type="Resource" id="head_bucket"]
+script = ExtResource("2_option")
+id = "head_bucket"
+display_name = "Bucket hat"
+category = "headwear"
+style = "bucket"
+color = Color(0.788, 0.706, 0.541, 1)
+color2 = Color(0.659, 0.584, 0.424, 1)
+tier = "common"
+price = 350
+
+[sub_resource type="Resource" id="head_bucket_designer"]
+script = ExtResource("2_option")
+id = "head_bucket_designer"
+display_name = "Bucket de grife"
+category = "headwear"
+style = "bucket"
+color = Color(0.353, 0.275, 0.188, 1)
+color2 = Color(0.851, 0.706, 0.416, 1)
+tier = "luxury"
+price = 9000
+
+[sub_resource type="Resource" id="acc_studs"]
+script = ExtResource("2_option")
+id = "acc_studs"
+display_name = "Brincos pequenos"
 category = "accessory"
-style = "chain"
+style = "earrings"
 color = Color(0.788, 0.800, 0.824, 1)
 color2 = Color(0.933, 0.941, 0.957, 1)
-
-[sub_resource type="Resource" id="acc_sunglasses"]
-script = ExtResource("2_option")
-id = "acc_sunglasses"
-display_name = "Óculos escuros"
-category = "accessory"
-style = "sunglasses"
-color = Color(0.078, 0.078, 0.086, 1)
-color2 = Color(0.227, 0.227, 0.251, 1)
 
 [sub_resource type="Resource" id="acc_glasses"]
 script = ExtResource("2_option")
@@ -815,33 +1382,170 @@ style = "glasses"
 color = Color(0.165, 0.165, 0.180, 1)
 color2 = Color(0.749, 0.878, 1.000, 1)
 
+[sub_resource type="Resource" id="acc_watch_basic"]
+script = ExtResource("2_option")
+id = "acc_watch_basic"
+display_name = "Relógio digital"
+category = "accessory"
+style = "watch"
+color = Color(0.165, 0.165, 0.180, 1)
+color2 = Color(0.275, 0.831, 0.514, 1)
+
+[sub_resource type="Resource" id="acc_sunglasses"]
+script = ExtResource("2_option")
+id = "acc_sunglasses"
+display_name = "Óculos escuros"
+category = "accessory"
+style = "sunglasses"
+color = Color(0.078, 0.078, 0.086, 1)
+color2 = Color(0.227, 0.227, 0.251, 1)
+tier = "common"
+price = 250
+
+[sub_resource type="Resource" id="acc_bracelet"]
+script = ExtResource("2_option")
+id = "acc_bracelet"
+display_name = "Pulseira"
+category = "accessory"
+style = "bracelet"
+color = Color(0.788, 0.800, 0.824, 1)
+color2 = Color(0.933, 0.941, 0.957, 1)
+tier = "common"
+price = 300
+
+[sub_resource type="Resource" id="acc_bag"]
+script = ExtResource("2_option")
+id = "acc_bag"
+display_name = "Bolsa transversal"
+category = "accessory"
+style = "bag"
+color = Color(0.118, 0.118, 0.125, 1)
+color2 = Color(0.788, 0.635, 0.290, 1)
+tier = "common"
+price = 600
+
+[sub_resource type="Resource" id="acc_chain_silver"]
+script = ExtResource("2_option")
+id = "acc_chain_silver"
+display_name = "Corrente de prata"
+category = "accessory"
+style = "chain"
+color = Color(0.788, 0.800, 0.824, 1)
+color2 = Color(0.933, 0.941, 0.957, 1)
+tier = "premium"
+price = 1500
+
+[sub_resource type="Resource" id="acc_rings"]
+script = ExtResource("2_option")
+id = "acc_rings"
+display_name = "Anéis"
+category = "accessory"
+style = "rings"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(0.965, 0.843, 0.478, 1)
+tier = "premium"
+price = 2400
+
 [sub_resource type="Resource" id="acc_earrings"]
 script = ExtResource("2_option")
 id = "acc_earrings"
-display_name = "Brincos"
+display_name = "Brincos de ouro"
 category = "accessory"
 style = "earrings"
 color = Color(0.890, 0.698, 0.235, 1)
 color2 = Color(0.965, 0.843, 0.478, 1)
+tier = "premium"
+price = 2000
+
+[sub_resource type="Resource" id="acc_hoops"]
+script = ExtResource("2_option")
+id = "acc_hoops"
+display_name = "Argolas"
+category = "accessory"
+style = "hoops"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(0.965, 0.843, 0.478, 1)
+tier = "premium"
+price = 2800
+
+[sub_resource type="Resource" id="acc_chain_gold"]
+script = ExtResource("2_option")
+id = "acc_chain_gold"
+display_name = "Corrente de ouro"
+category = "accessory"
+style = "chain"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(0.965, 0.843, 0.478, 1)
+tier = "luxury"
+price = 12000
+
+[sub_resource type="Resource" id="acc_pearls"]
+script = ExtResource("2_option")
+id = "acc_pearls"
+display_name = "Colar de pérolas"
+category = "accessory"
+style = "pearls"
+color = Color(0.957, 0.937, 0.902, 1)
+color2 = Color(1.000, 1.000, 1.000, 1)
+tier = "luxury"
+price = 15000
 
 [sub_resource type="Resource" id="acc_watch"]
 script = ExtResource("2_option")
 id = "acc_watch"
-display_name = "Relógio"
+display_name = "Relógio de ouro"
 category = "accessory"
 style = "watch"
 color = Color(0.890, 0.698, 0.235, 1)
 color2 = Color(0.118, 0.118, 0.125, 1)
+tier = "luxury"
+price = 28000
+
+[sub_resource type="Resource" id="acc_cuban"]
+script = ExtResource("2_option")
+id = "acc_cuban"
+display_name = "Cordão cubano"
+category = "accessory"
+style = "cuban"
+color = Color(0.890, 0.698, 0.235, 1)
+color2 = Color(1.000, 0.953, 0.769, 1)
+tier = "luxury"
+price = 40000
+
+[sub_resource type="Resource" id="acc_iced_chain"]
+script = ExtResource("2_option")
+id = "acc_iced_chain"
+display_name = "Corrente cravejada"
+category = "accessory"
+style = "iced"
+color = Color(0.910, 0.957, 1.000, 1)
+color2 = Color(1.000, 1.000, 1.000, 1)
+tier = "exclusive"
+price = 180000
+
+[sub_resource type="Resource" id="acc_iced_watch"]
+script = ExtResource("2_option")
+id = "acc_iced_watch"
+display_name = "Relógio cravejado"
+category = "accessory"
+style = "watch"
+color = Color(0.910, 0.957, 1.000, 1)
+color2 = Color(0.749, 0.878, 1.000, 1)
+tier = "exclusive"
+price = 250000
 
 [resource]
 script = ExtResource("1_rules")
-options = Array[ExtResource("2_option")]([SubResource("skin_1"), SubResource("skin_2"), SubResource("skin_3"), SubResource("skin_4"), SubResource("skin_5"), SubResource("skin_6"), SubResource("skin_7"), SubResource("skin_8"), SubResource("hair_bald"), SubResource("hair_buzz"), SubResource("hair_short"), SubResource("hair_waves"), SubResource("hair_curly"), SubResource("hair_afro"), SubResource("hair_twists"), SubResource("hair_dreads"), SubResource("hair_braids"), SubResource("hair_long"), SubResource("hair_mohawk"), SubResource("hair_bun"), SubResource("hc_black"), SubResource("hc_dark_brown"), SubResource("hc_brown"), SubResource("hc_blond"), SubResource("hc_platinum"), SubResource("hc_red"), SubResource("hc_gray"), SubResource("hc_blue"), SubResource("hc_pink"), SubResource("hc_green"), SubResource("hc_purple"), SubResource("brows_thin"), SubResource("brows_normal"), SubResource("brows_thick"), SubResource("brows_arched"), SubResource("brows_cut"), SubResource("eyes_dark"), SubResource("eyes_brown"), SubResource("eyes_hazel"), SubResource("eyes_green"), SubResource("eyes_blue"), SubResource("eyes_gray"), SubResource("beard_none"), SubResource("beard_stubble"), SubResource("beard_mustache"), SubResource("beard_goatee"), SubResource("beard_chinstrap"), SubResource("beard_short"), SubResource("beard_full"), SubResource("beard_long"), SubResource("top_tee_white"), SubResource("top_tee_black"), SubResource("top_tee_red"), SubResource("top_tee_gold"), SubResource("top_tank_white"), SubResource("top_tank_black"), SubResource("top_shirt_white"), SubResource("top_shirt_flannel"), SubResource("top_shirt_denim"), SubResource("top_hoodie_gray"), SubResource("top_hoodie_black"), SubResource("top_hoodie_purple"), SubResource("top_jersey_blue"), SubResource("top_jersey_yellow"), SubResource("jacket_none"), SubResource("jacket_bomber"), SubResource("jacket_denim"), SubResource("jacket_leather"), SubResource("jacket_puffer"), SubResource("jacket_varsity"), SubResource("bottom_jeans_blue"), SubResource("bottom_jeans_black"), SubResource("bottom_cargo_khaki"), SubResource("bottom_cargo_black"), SubResource("bottom_sweat_gray"), SubResource("bottom_shorts_black"), SubResource("bottom_shorts_denim"), SubResource("shoes_white"), SubResource("shoes_black"), SubResource("shoes_red"), SubResource("shoes_boots"), SubResource("shoes_slides"), SubResource("head_none"), SubResource("head_cap_black"), SubResource("head_cap_red"), SubResource("head_cap_back"), SubResource("head_beanie"), SubResource("head_bucket"), SubResource("head_durag"), SubResource("acc_chain_gold"), SubResource("acc_chain_silver"), SubResource("acc_sunglasses"), SubResource("acc_glasses"), SubResource("acc_earrings"), SubResource("acc_watch")])
+options = Array[ExtResource("2_option")]([SubResource("sex_male"), SubResource("sex_female"), SubResource("build_slim"), SubResource("build_regular"), SubResource("build_athletic"), SubResource("build_heavy"), SubResource("skin_1"), SubResource("skin_2"), SubResource("skin_3"), SubResource("skin_4"), SubResource("skin_5"), SubResource("skin_6"), SubResource("skin_7"), SubResource("skin_8"), SubResource("eyes_dark"), SubResource("eyes_brown"), SubResource("eyes_hazel"), SubResource("eyes_green"), SubResource("eyes_blue"), SubResource("eyes_gray"), SubResource("brows_thin"), SubResource("brows_normal"), SubResource("brows_thick"), SubResource("brows_arched"), SubResource("brows_cut"), SubResource("makeup_none"), SubResource("makeup_gloss"), SubResource("makeup_red"), SubResource("makeup_berry"), SubResource("makeup_liner"), SubResource("makeup_glam"), SubResource("beard_none"), SubResource("beard_stubble"), SubResource("beard_mustache"), SubResource("beard_goatee"), SubResource("beard_patch"), SubResource("beard_anchor"), SubResource("beard_chinstrap"), SubResource("beard_short"), SubResource("beard_medium"), SubResource("beard_full"), SubResource("beard_long"), SubResource("hair_bald"), SubResource("hair_buzz"), SubResource("hair_fade"), SubResource("hair_short"), SubResource("hair_sidepart"), SubResource("hair_waves"), SubResource("hair_hightop"), SubResource("hair_curly"), SubResource("hair_afro"), SubResource("hair_puff"), SubResource("hair_twists"), SubResource("hair_dreads"), SubResource("hair_braids"), SubResource("hair_mohawk"), SubResource("hair_bun"), SubResource("hair_spacebuns"), SubResource("hair_ponytail"), SubResource("hair_bob"), SubResource("hair_long"), SubResource("hair_wavy"), SubResource("hc_black"), SubResource("hc_dark_brown"), SubResource("hc_brown"), SubResource("hc_blond"), SubResource("hc_platinum"), SubResource("hc_red"), SubResource("hc_gray"), SubResource("hc_blue"), SubResource("hc_pink"), SubResource("hc_green"), SubResource("hc_purple"), SubResource("top_tee_white"), SubResource("top_tee_black"), SubResource("top_tee_red"), SubResource("top_oversized_black"), SubResource("top_tank_white"), SubResource("top_tank_black"), SubResource("top_crop_white"), SubResource("top_hoodie_gray"), SubResource("top_hoodie_black"), SubResource("top_tee_gold"), SubResource("top_oversized_cream"), SubResource("top_graphic_black"), SubResource("top_crop_black"), SubResource("top_polo_navy"), SubResource("top_shirt_white"), SubResource("top_shirt_flannel"), SubResource("top_shirt_denim"), SubResource("top_hoodie_purple"), SubResource("top_jersey_blue"), SubResource("top_jersey_yellow"), SubResource("top_graphic_tour"), SubResource("top_hoodie_designer"), SubResource("top_silk_black"), SubResource("top_monogram"), SubResource("top_iced_tee"), SubResource("jacket_none"), SubResource("jacket_track"), SubResource("jacket_bomber"), SubResource("jacket_denim"), SubResource("jacket_puffer"), SubResource("jacket_varsity"), SubResource("jacket_leather"), SubResource("jacket_trench"), SubResource("jacket_puffer_gold"), SubResource("jacket_fur"), SubResource("jacket_fur_white"), SubResource("jacket_studded"), SubResource("bottom_jeans_blue"), SubResource("bottom_jeans_black"), SubResource("bottom_sweat_gray"), SubResource("bottom_shorts_black"), SubResource("bottom_skirt_black"), SubResource("bottom_baggy_blue"), SubResource("bottom_cargo_khaki"), SubResource("bottom_cargo_black"), SubResource("bottom_track_black"), SubResource("bottom_shorts_denim"), SubResource("bottom_skirt_denim"), SubResource("bottom_camo"), SubResource("bottom_leather"), SubResource("bottom_designer_cargo"), SubResource("shoes_white"), SubResource("shoes_black"), SubResource("shoes_slides"), SubResource("shoes_red"), SubResource("shoes_hightop"), SubResource("shoes_boots"), SubResource("shoes_retro"), SubResource("shoes_designer"), SubResource("shoes_iced"), SubResource("head_none"), SubResource("head_beanie"), SubResource("head_durag"), SubResource("head_bandana"), SubResource("head_cap_black"), SubResource("head_cap_red"), SubResource("head_cap_back"), SubResource("head_bucket"), SubResource("head_bucket_designer"), SubResource("acc_studs"), SubResource("acc_glasses"), SubResource("acc_watch_basic"), SubResource("acc_sunglasses"), SubResource("acc_bracelet"), SubResource("acc_bag"), SubResource("acc_chain_silver"), SubResource("acc_rings"), SubResource("acc_earrings"), SubResource("acc_hoops"), SubResource("acc_chain_gold"), SubResource("acc_pearls"), SubResource("acc_watch"), SubResource("acc_cuban"), SubResource("acc_iced_chain"), SubResource("acc_iced_watch")])
 defaults = {
+"sex": "sex_male",
+"build": "build_regular",
 "skin": "skin_4",
 "hair": "hair_short",
 "hair_color": "hc_black",
 "brows": "brows_normal",
 "eye_color": "eyes_brown",
+"makeup": "makeup_none",
 "beard": "beard_none",
 "top": "top_tee_white",
 "jacket": "jacket_none",

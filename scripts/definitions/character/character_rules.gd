@@ -4,19 +4,32 @@ extends Resource
 
 ## Categorias na ordem do editor. "multiple" permite várias peças ao mesmo tempo.
 const CATEGORIES := [
+	{"id": "sex", "label": "Sexo"},
+	{"id": "build", "label": "Corpo"},
 	{"id": "skin", "label": "Pele"},
+	{"id": "eye_color", "label": "Cor dos olhos"},
+	{"id": "brows", "label": "Sobrancelhas"},
+	{"id": "makeup", "label": "Maquiagem"},
+	{"id": "beard", "label": "Barba"},
 	{"id": "hair", "label": "Cabelo"},
 	{"id": "hair_color", "label": "Cor do cabelo"},
-	{"id": "brows", "label": "Sobrancelhas"},
-	{"id": "eye_color", "label": "Cor dos olhos"},
-	{"id": "beard", "label": "Barba"},
 	{"id": "top", "label": "Parte de cima"},
 	{"id": "jacket", "label": "Jaqueta"},
-	{"id": "bottom", "label": "Calça"},
+	{"id": "bottom", "label": "Parte de baixo"},
 	{"id": "shoes", "label": "Calçado"},
 	{"id": "headwear", "label": "Cabeça"},
 	{"id": "accessory", "label": "Acessórios", "multiple": true},
 ]
+## Categorias vendidas na loja de roupas: têm nível e preço. As outras são o próprio corpo.
+const WEAR_CATEGORIES := ["top", "jacket", "bottom", "shoes", "headwear", "accessory"]
+## Níveis das peças, do mais simples ao mais raro, com rótulo e cor.
+const TIERS := {
+	"basic": {"label": "Básica", "color": Color("#a39eb4"), "rank": 0},
+	"common": {"label": "Comum", "color": Color("#46d483"), "rank": 1},
+	"premium": {"label": "Premium", "color": Color("#4fa3ff"), "rank": 2},
+	"luxury": {"label": "Luxo", "color": Color("#b07cff"), "rank": 3},
+	"exclusive": {"label": "Exclusiva", "color": Color("#f5b82e"), "rank": 4},
+}
 ## Categorias que são só uma cor: o editor mostra uma amostra da cor.
 const COLOR_CATEGORIES := ["skin", "hair_color", "eye_color"]
 
@@ -53,3 +66,19 @@ static func is_multiple(category: String) -> bool:
 		if item["id"] == category:
 			return item.get("multiple", false)
 	return false
+
+
+static func is_wear(category: String) -> bool:
+	return category in WEAR_CATEGORIES
+
+
+static func tier_label(tier: String) -> String:
+	return TIERS.get(tier, TIERS["basic"])["label"]
+
+
+static func tier_color(tier: String) -> Color:
+	return TIERS.get(tier, TIERS["basic"])["color"]
+
+
+static func tier_rank(tier: String) -> int:
+	return TIERS.get(tier, TIERS["basic"])["rank"]

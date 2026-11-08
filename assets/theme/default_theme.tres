@@ -861,6 +861,28 @@ corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 
+[sub_resource type="StyleBoxFlat" id="price_badge"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.043, 0.039, 0.067, 0.850)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="tier_chip"]
+content_margin_left = 8.0
+content_margin_top = 1.0
+content_margin_right = 8.0
+content_margin_bottom = 1.0
+bg_color = Color(1.000, 1.000, 1.000, 1.000)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="count_badge"]
 content_margin_left = 5.0
 content_margin_top = 0.0
@@ -1584,6 +1606,16 @@ LogoMark/colors/font_color = Color(0.086, 0.075, 0.110, 1.000)
 LogoMark/fonts/font = SubResource("display_font")
 LogoMark/font_sizes/font_size = 28
 LogoMark/styles/normal = SubResource("logomark")
+PriceBadge/base_type = &"Label"
+PriceBadge/colors/font_color = Color(0.953, 0.941, 0.969, 1.000)
+PriceBadge/fonts/font = SubResource("display_semibold")
+PriceBadge/font_sizes/font_size = 11
+PriceBadge/styles/normal = SubResource("price_badge")
+TierChip/base_type = &"Label"
+TierChip/colors/font_color = Color(0.086, 0.075, 0.110, 1.000)
+TierChip/fonts/font = SubResource("display_semibold")
+TierChip/font_sizes/font_size = 12
+TierChip/styles/normal = SubResource("tier_chip")
 CountBadge/base_type = &"Label"
 CountBadge/colors/font_color = Color(1.000, 1.000, 1.000, 1.000)
 CountBadge/fonts/font = SubResource("display_semibold")

@@ -490,7 +490,12 @@ func _test_v8_migration() -> void:
 	_check(career.money == int(old["money"]) and career.fame == int(old["fame"]) and career.reputation == int(old["reputation"]), "dinheiro, fama e reputação")
 	_check(career.songs.size() == old["songs"].size() and career.albums.size() == old["albums"].size() and career.releases.size() == old["releases"].size(), "músicas, projetos e lançamentos")
 	_check(career.live_shows.size() == old["live_shows"].size() and career.live_tours.size() == old["live_tours"].size() and career.merch_items.size() == old["merch_items"].size(), "shows, turnês e merch")
-	_check(career.platform_stats.size() == old["platform_stats"].size() and career.appearance.to_dict() == CharacterAppearance.from_dict(old["appearance"]).to_dict(), "plataformas e aparência")
+	# A aparência antiga fica igual; a v11 só acrescenta sexo, corpo e maquiagem no padrão.
+	var old_look := CharacterAppearance.from_dict(old["appearance"])
+	var kept := old_look.accessories == career.appearance.accessories
+	for category in old_look.choices:
+		kept = kept and career.appearance.get_choice(category) == old_look.get_choice(category)
+	_check(career.platform_stats.size() == old["platform_stats"].size() and kept, "plataformas e aparência")
 	_check(career.social.relations.is_empty() and career.social.beefs.is_empty() and career.social.invites.is_empty(), "rede social começa vazia")
 	_check(career.songs.all(func(song: SongData) -> bool: return song.diss_target_id.is_empty()), "músicas antigas não viram diss")
 	game.next_week()

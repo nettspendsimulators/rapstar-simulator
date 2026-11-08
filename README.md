@@ -267,18 +267,33 @@ pela fama. Subir de fase aparece no relatório da semana, que também mostra o s
 fama, fãs e streams.
 
 **Personagem e carreiras:** cada carreira tem nome artístico (identidade pública), nome real, idade
-(cresce um ano a cada 52 semanas), país, cidade, aparência e a opção de energia infinita. A aparência
-é montada por peças independentes de `data/character.tres` e desenhada em camadas pelo
-`CharacterView`, no hub, na lista de carreiras, na criação e em Personagem. O desenho usa formas
-suaves (curvas Catmull-Rom), contorno, sombra e brilho recortados da própria forma (luz de cima à
-esquerda) e detalhes de material (costuras, nervuras, bolsos, xadrez, gomos da puffer, elos da
-corrente, reflexo dos óculos). O `CharacterEditor` mostra cada peça como miniatura desenhada no
-próprio personagem, recortada na região do corpo dela (`CharacterLayout`), com abas Rosto, Cabelo,
-Roupas e Acessórios e amostras redondas para as cores; o `CharacterStage` é o palco grande e iluminado
-da criação e da tela de personagem. Peças novas com um estilo existente aparecem no editor sem
-código novo; um estilo novo pede uma função de desenho e entra na verificação de cobertura de
-`tests/test_character.gd`. Trocar a aparência só muda a aparência e grava no save da carreira. Com
-energia infinita, as atividades não gastam energia.
+(cresce um ano a cada 52 semanas), país, cidade, aparência, guarda-roupa e a opção de energia infinita.
+
+- **Corpo:** sexo (masculino ou feminino) e tipo físico (magro, médio, atlético, robusto) são
+  categorias da aparência. O sexo muda a cabeça (maxilar e queixo), cílios, lábios, tronco (ombros,
+  cintura, quadril) e as peças disponíveis (barba só no masculino; cropped e saia só no feminino).
+  O tipo físico muda a largura do tronco e das pernas.
+- **Catálogo** (`data/character.tres`, 158 peças): 8 tons de pele, 6 cores de olhos, 5 sobrancelhas,
+  6 maquiagens, 11 barbas, 20 cabelos, 11 cores de cabelo, 25 partes de cima, 12 jaquetas e casacos,
+  14 partes de baixo, 9 calçados, 9 itens de cabeça e 16 acessórios.
+- **Níveis e preços:** roupas e acessórios têm nível (Básica, Comum, Premium, Luxo, Exclusiva) e preço.
+  Básicas são de graça; as outras custam de algumas centenas (comum) a milhares (premium), dezenas de
+  milhares (luxo) e centenas de milhares (exclusiva). Características do corpo e cortes de cabelo são
+  sempre de graça.
+- **Criação:** só peças básicas, com sexo escolhido no painel de identidade ou na aba Corpo.
+- **Guarda-roupa** (Estilo → Personagem): o personagem grande é um provador. Tocar numa peça veste na
+  hora; o cartão da peça mostra nível, categoria e preço, com Comprar. Salvar só veste peças compradas:
+  se o visual tiver peças da loja, o botão vira "Comprar e vestir" com o total, e sem dinheiro nada
+  muda. Filtros Tudo / Meus itens / Loja. Compras entram nas finanças como "Roupas"; as peças ficam no
+  guarda-roupa da carreira (`CareerData.wardrobe`) e não se misturam entre saves.
+- **Desenho:** o `CharacterView` desenha em camadas, com formas suaves, contorno, sombra e brilho
+  recortados da própria forma e detalhes de material. Peças melhores têm mais acabamento (seda com
+  brilho, monograma, pelo, tachas, sola grossa) e as exclusivas cintilam. Um estilo novo pede uma
+  função de desenho e entra na verificação de cobertura de `tests/test_character.gd`; peças novas com
+  um estilo existente só precisam de uma entrada nos dados.
+- O `CharacterEditor` mostra cada peça como miniatura no próprio personagem, recortada na região dela
+  (`CharacterLayout`), com abas Corpo, Rosto, Cabelo, Roupas e Acessórios, selo de preço e faixa na cor
+  do nível.
 
 **Ao vivo (shows, turnês, festivais e merch):** fica na área "Ao vivo" da navegação principal.
 
@@ -312,4 +327,5 @@ não mudam. Na v2, Beat, Produção e participações são mantidos sempre que p
 recebem o valor que completa a mesma nota. Saves até a v6 começam a carreira ao vivo vazia, e as
 edições dos festivais são criadas ao carregar. Saves até a v7 recebem aparência padrão, 20 anos,
 país Brasil, nome real e cidade vazios e energia normal. Saves até a v8 começam a rede social vazia. Saves até a v9 começam com a garagem vazia, e saves sem
-o campo de Energia Infinita ficam com ela desligada.
+o campo de Energia Infinita ficam com ela desligada. Saves até a v10 recebem sexo masculino, corpo médio e
+sem maquiagem, e as roupas e acessórios que o personagem já veste entram no guarda-roupa.

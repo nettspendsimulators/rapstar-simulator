@@ -23,6 +23,26 @@ static func migrate(payload: Dictionary, balance: GameBalance) -> void:
 		_migrate_to_v9(payload["career"])
 	if version < 10:
 		_migrate_to_v10(payload["career"])
+	if version < 11:
+		_migrate_to_v11(payload["career"], balance)
+
+
+## v11: sexo, corpo e maquiagem entram no padrão (masculino, médio, sem maquiagem) e o guarda-roupa
+## começa com as peças que o personagem já veste, para ninguém perder o visual.
+static func _migrate_to_v11(career: Dictionary, balance: GameBalance) -> void:
+	var appearance: Dictionary = career.get("appearance", {})
+	var choices: Dictionary = appearance.get("choices", {})
+	for category: String in ["sex", "build", "makeup"]:
+		if not choices.has(category):
+			choices[category] = balance.character.defaults.get(category, "")
+	appearance["choices"] = choices
+	career["appearance"] = appearance
+	var worn: Array = choices.values() + Array(appearance.get("accessories", []))
+	var wardrobe: Array = []
+	for option in balance.character.options:
+		if option.id in worn and CharacterRules.is_wear(option.category) and option.price > 0 and not option.id in wardrobe:
+			wardrobe.append(option.id)
+	career["wardrobe"] = wardrobe
 
 
 ## v10: garagem vazia. Energia Infinita ausente fica desligada; nada mais muda.
