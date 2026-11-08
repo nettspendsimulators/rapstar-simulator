@@ -1,7 +1,10 @@
 extends Screen
-## Carreiras salvas: cada uma é um save independente. Carregar, criar uma nova ou excluir.
+## Carreiras salvas: cada uma é um save independente, mostrada como um pôster com o artista no
+## palco, a fase e os números principais. Jogar, criar uma nova ou excluir.
 
-var _list := VBoxContainer.new()
+const STAGE_LIGHTS := ["#8c86a0", "#2ec4b6", "#a25cff", "#4fa3ff", "#f5b82e", "#ff5ea8"]
+
+var _list := HFlowContainer.new()
 var _message := Label.new()
 var _confirm := ConfirmationDialog.new()
 var _pending_delete: String = ""
@@ -11,17 +14,26 @@ func _ready() -> void:
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 8)
 	add_child(column)
+	var kicker := Label.new()
+	kicker.text = "RAPSTAR"
+	kicker.theme_type_variation = &"Kicker"
+	column.add_child(kicker)
 	var title := Label.new()
-	title.text = "Carreiras"
+	title.text = "Suas carreiras"
 	title.theme_type_variation = &"TitleLabel"
 	column.add_child(title)
+	var subtitle := Label.new()
+	subtitle.text = "Cada carreira tem o próprio save. Excluir uma não afeta as outras."
+	subtitle.theme_type_variation = &"MutedLabel"
+	column.add_child(subtitle)
 	var scroll := ScrollContainer.new()
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	column.add_child(scroll)
 	_list.name = "CareerList"
 	_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_list.add_theme_constant_override("separation", 8)
+	_list.add_theme_constant_override("h_separation", 18)
+	_list.add_theme_constant_override("v_separation", 18)
 	scroll.add_child(_list)
 	_message.name = "MessageLabel"
 	_message.theme_type_variation = &"MessageLabel"
@@ -38,7 +50,8 @@ func _ready() -> void:
 	row.add_child(spacer)
 	var create := Button.new()
 	create.name = "NewCareerButton"
-	create.text = "+ NOVA CARREIRA"
+	create.text = "Nova carreira"
+	create.icon = load("res://assets/icons/plus.svg")
 	create.theme_type_variation = &"PrimaryButton"
 	create.pressed.connect(navigate.bind(Screen.NEW_CAREER))
 	row.add_child(create)
@@ -66,45 +79,78 @@ func refresh() -> void:
 
 func _card(number: int, info: Dictionary) -> PanelContainer:
 	var characters := GameManager.characters
+	var progression := GameManager.progression
 	var panel := PanelContainer.new()
 	panel.name = "Career_%s" % info["slot"]
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 16)
-	panel.add_child(row)
+	panel.theme_type_variation = &"Card"
+	panel.custom_minimum_size = Vector2(260, 0)
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 6)
+	panel.add_child(column)
+	# Pôster: o artista no palco, com a luz da fase da carreira.
+	var poster := PanelContainer.new()
+	poster.theme_type_variation = &"StagePanel"
+	poster.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
+	poster.custom_minimum_size = Vector2(0, 230)
+	column.add_child(poster)
+	var holder := Control.new()
+	poster.add_child(holder)
+	var backdrop := StageBackdrop.new()
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	backdrop.floor_ratio = 0.93
+	backdrop.light = Color(STAGE_LIGHTS[mini(progression.stage_index(info["fame"]), STAGE_LIGHTS.size() - 1)])
+	holder.add_child(backdrop)
 	var view := CharacterView.new()
-	view.custom_minimum_size = Vector2(70, 140)
+	view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	view.offset_top = 12
+	view.offset_bottom = -6
+	view.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	view.appearance = CharacterAppearance.from_dict(info["appearance"])
-	row.add_child(view)
-	var text := VBoxContainer.new()
-	text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(text)
+	holder.add_child(view)
+	var kicker := Label.new()
+	kicker.theme_type_variation = &"Kicker"
+	kicker.text = "CARREIRA %d  •  %s" % [number, progression.stage_for(info["fame"]).display_name.to_upper()]
+	column.add_child(kicker)
 	var name_label := Label.new()
-	name_label.theme_type_variation = &"HeaderLabel"
-	name_label.text = "Carreira %d — %s" % [number, info["artist_name"]]
-	text.add_child(name_label)
+	name_label.theme_type_variation = &"ChipLabel"
+	name_label.add_theme_font_size_override("font_size", 20)
+	name_label.text = info["artist_name"]
+	name_label.clip_text = true
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	name_label.tooltip_text = "Carreira %d — %s" % [number, info["artist_name"]]
+	name_label.mouse_filter = Control.MOUSE_FILTER_PASS
+	column.add_child(name_label)
 	var details := Label.new()
+	details.theme_type_variation = &"MutedLabel"
 	var parts := PackedStringArray()
 	if not String(info["real_name"]).is_empty():
 		parts.append(info["real_name"])
 	parts.append("%d anos" % characters.age_at(info["age"], info["week"]))
 	if not String(info["country"]).is_empty():
 		parts.append(characters.location_label(info["country"], info["city"]))
-	details.text = "%s\nFama: %s  •  Dinheiro: %s  •  Semana %s  •  Energia infinita: %s\nÚltimo salvamento: %s" % [
-		"  •  ".join(parts), Fmt.number(info["fame"]), Fmt.money(info["money"]), Fmt.number(info["week"]),
+	details.text = "%s
+Semana %s  •  Fama %s  •  %s
+Energia infinita: %s  •  Salvo: %s" % [
+		"  •  ".join(parts), Fmt.number(info["week"]), Fmt.number(info["fame"]), Fmt.money(info["money"]),
 		"ON" if info["infinite_energy"] else "OFF", _when(info["saved_at"])]
-	text.add_child(details)
-	var buttons := VBoxContainer.new()
-	buttons.alignment = BoxContainer.ALIGNMENT_CENTER
-	row.add_child(buttons)
-	var load := Button.new()
-	load.name = "LoadButton"
-	load.text = "Carregar"
-	load.theme_type_variation = &"PrimaryButton"
-	load.pressed.connect(_on_load.bind(info["slot"]))
-	buttons.add_child(load)
+	details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(details)
+	var buttons := HBoxContainer.new()
+	buttons.add_theme_constant_override("separation", 8)
+	column.add_child(buttons)
+	var play := Button.new()
+	play.name = "LoadButton"
+	play.text = "Jogar"
+	play.icon = load("res://assets/icons/next.svg")
+	play.theme_type_variation = &"PrimaryButton"
+	play.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	play.pressed.connect(_on_load.bind(info["slot"]))
+	buttons.add_child(play)
 	var delete := Button.new()
 	delete.name = "DeleteButton"
 	delete.text = "Excluir"
+	delete.theme_type_variation = &"DangerButton"
+	delete.tooltip_text = "Apaga esta carreira (pede confirmação)"
 	delete.pressed.connect(_ask_delete.bind(info["slot"], info["artist_name"]))
 	buttons.add_child(delete)
 	return panel

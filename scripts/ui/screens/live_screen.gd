@@ -35,6 +35,8 @@ func _ready() -> void:
 	column.add_child(title)
 	column.add_child(_stats)
 	_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	# As abas desta tela ficam no topo da área Palco; aqui só o conteúdo da aba.
+	_tabs.tabs_visible = false
 	column.add_child(_tabs)
 	_build_shows_tab()
 	_build_offers_tab()

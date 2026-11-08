@@ -212,7 +212,11 @@ func _head_points() -> Array:
 
 func _draw_neck() -> void:
 	var neck := _shape([Vector2(90, 92), Vector2(110, 92), Vector2(112, 118), Vector2(100, 122), Vector2(88, 118)], _skin, true, 3.0, 0.0)
-	_fill(_smooth([Vector2(90, 96), Vector2(110, 96), Vector2(110, 104), Vector2(100, 108), Vector2(90, 104)]), Color(_skin.darkened(0.35), 0.55))
+	_fill(_smooth([Vector2(89, 95), Vector2(111, 95), Vector2(111, 106), Vector2(100, 111), Vector2(89, 106)]), Color(_skin.darkened(0.4), 0.35))
+	_fill(_smooth([Vector2(90, 96), Vector2(110, 96), Vector2(110, 104), Vector2(100, 108), Vector2(90, 104)]), Color(_skin.darkened(0.35), 0.5))
+	# Clavículas sugeridas na base do pescoço.
+	for side: int in [-1, 1]:
+		_curve([Vector2(100 + side * 4, 119), Vector2(100 + side * 10, 117), Vector2(100 + side * 16, 118)], Color(_skin.darkened(0.3), 0.45), 1.0)
 
 
 func _draw_head() -> void:
@@ -240,6 +244,8 @@ func _draw_face() -> void:
 		draw_circle(c + Vector2(side * 0.5 - 1.3, -1.3), 1.0, Color(1, 1, 1, 0.95))
 		# Pálpebra superior marcada e inferior suave.
 		_curve([c + Vector2(-9.5 * side, 0.8), c + Vector2(-4 * side, -4.4), c + Vector2(4 * side, -4.6), c + Vector2(9.8 * side, -0.2)], Color(lid, 0.95), 2.2)
+		# Cílios: o traço engrossa e sobe no canto de fora.
+		_curve([c + Vector2(8.6 * side, -1.2), c + Vector2(10.8 * side, -2.6), c + Vector2(12.6 * side, -4.0)], Color(lid, 0.85), 1.5)
 		_curve([c + Vector2(-7 * side, 2.6), c + Vector2(0, 3.8), c + Vector2(7 * side, 2.2)], Color(lid, 0.35), 1.0)
 		_curve([c + Vector2(-8 * side, -6.5), c + Vector2(0, -8), c + Vector2(8 * side, -6.2)], Color(_skin.darkened(0.18), 0.6), 1.2)
 	_draw_brows()
@@ -290,6 +296,13 @@ func _hairline_cap(depth: float, part: bool = false) -> Array:
 	return [Vector2(68, 64), Vector2(68, 44), Vector2(76, 28), Vector2(90, 20), Vector2(110, 20), Vector2(124, 28),
 		Vector2(132, 44), Vector2(132, 64), Vector2(127, 56), Vector2(122, 44 + depth * 0.2), Vector2(112, 40 + depth * 0.15),
 		Vector2(100 + (6 if part else 0), 41 + depth * 0.1), Vector2(88, 40 + depth * 0.15), Vector2(78, 44 + depth * 0.2), Vector2(73, 56)]
+
+
+## Faixa de brilho do cabelo, do lado da luz: dá volume e acabamento de fio.
+func _hair_sheen(color: Color) -> void:
+	var sheen := Color(color.lightened(0.55), 0.28 if color.v < 0.5 else 0.2)
+	_curve([Vector2(76, 36), Vector2(84, 27), Vector2(96, 23), Vector2(106, 23)], sheen, 3.2)
+	_curve([Vector2(80, 39), Vector2(88, 31), Vector2(98, 28)], Color(sheen, sheen.a * 0.6), 1.6)
 
 
 func _draw_back_hair() -> void:
@@ -346,6 +359,7 @@ func _draw_front_hair() -> void:
 					draw_circle(p, 0.7, Color(shade, 0.6))
 		"short", "waves", "twists", "dreads", "braids", "bun", "afro":
 			var cap := _shape(_hairline_cap(6.0), color, true, 5.0, 0.2)
+			_hair_sheen(color)
 			match _style("hair"):
 				"waves":
 					for row in 4:
@@ -373,6 +387,7 @@ func _draw_front_hair() -> void:
 				_shape(_ellipse_points(p, Vector2(6.5, 6.5), 8), color, true, 2.5, 0.25)
 		"long":
 			_shape(_hairline_cap(10.0, true), color, true, 5.0, 0.2)
+			_hair_sheen(color)
 			_curve([Vector2(106, 20), Vector2(104, 30), Vector2(100, 42)], Color(shade, 0.8), 1.4)
 			for side: int in [-1, 1]:
 				_shape([Vector2(100 + side * 30, 44), Vector2(100 + side * 33, 70), Vector2(100 + side * 34, 98), Vector2(100 + side * 28, 96), Vector2(100 + side * 26, 66)], color, true, 3.0, 0.15)
@@ -398,8 +413,8 @@ func _draw_beard() -> void:
 			var band := _smooth(_jaw_band(62.0, 0.0))
 			var dots := _skin.lerp(color.darkened(0.4), 0.55)
 			_fill(band, Color(dots, 0.28))
-			for i in 90:
-				var p := Vector2(72 + (i * 29) % 56, 70 + (i * 17) % 34)
+			for i in 160:
+				var p := Vector2(72.0 + fmod(i * 37.71, 56.0), 66.0 + fmod(i * 23.37 + float(i * i % 7), 42.0))
 				if Geometry2D.is_point_in_polygon(p, band):
 					draw_circle(p, 0.6, Color(dots, 0.7))
 		"mustache":

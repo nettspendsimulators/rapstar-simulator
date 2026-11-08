@@ -35,6 +35,8 @@ const TOUR_EDITOR := &"tour_editor"
 const FESTIVAL := &"festival"
 const SHOW_REPORT := &"show_report"
 
+const BACK_ICON := preload("res://assets/icons/back.svg")
+
 ## Dados passados pela tela anterior, como o id do item a editar. Disponível em _ready.
 var context: Dictionary = {}
 
@@ -49,6 +51,11 @@ func _ready() -> void:
 ## texto e títulos terminam em reticências. Vale para todas as telas.
 static func fit_long_texts(node: Node) -> void:
 	for child in node.get_children():
+		# Voltar é ação terciária em todo o jogo: discreta, com seta, sem disputar com a principal.
+		if child is Button and String(child.name) in ["BackButton", "CancelButton"] and child.theme_type_variation == &"":
+			child.theme_type_variation = &"GhostButton"
+			if child.name == &"BackButton" and child.icon == null:
+				child.icon = BACK_ICON
 		if child is OptionButton:
 			child.fit_to_longest_item = false
 			child.clip_text = true

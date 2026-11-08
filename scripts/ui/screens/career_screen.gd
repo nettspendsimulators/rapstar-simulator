@@ -1,6 +1,6 @@
 extends Screen
-## Carreira e finanças: a jornada pelas fases da carreira, os números gerais e para onde o
-## dinheiro foi (receitas e despesas por área), com o histórico completo.
+## Finanças: quanto entrou, quanto saiu e para onde foi. Em cima, quatro números; à esquerda, o
+## peso de cada área em barras; à direita, o histórico completo.
 
 const CATEGORY_LABELS := {
 	FinanceEntry.CATEGORY_WORK: "Trabalho", FinanceEntry.CATEGORY_PRODUCTION: "Produção",
@@ -10,72 +10,66 @@ const CATEGORY_LABELS := {
 	FinanceEntry.CATEGORY_SALES: "Vendas", FinanceEntry.CATEGORY_LIVE: "Shows e turnês",
 	FinanceEntry.CATEGORY_MERCH: "Merch", FinanceEntry.CATEGORY_SPONSOR: "Patrocínios", FinanceEntry.CATEGORY_SOCIAL: "Relações", FinanceEntry.CATEGORY_VEHICLE: "Carros",
 }
+const MAX_AREAS := 8
 
-var _journey := HBoxContainer.new()
-var _finance := Label.new()
+var _balance := StatTile.new("Saldo", "money", Color("#46d483"))
+var _income := StatTile.new("Receitas", "plus", Color("#46d483"))
+var _expenses := StatTile.new("Despesas", "release", Color("#ff5f6d"))
+var _result := StatTile.new("Resultado", "chart", Color("#f5b82e"))
+var _areas := VBoxContainer.new()
 
 
 func _ready() -> void:
+	%Title.text = "Finanças"
+	$Column/SummaryPanel.visible = false
+	var subtitle := Label.new()
+	subtitle.text = "De onde o dinheiro vem e para onde ele vai, desde o começo da carreira."
+	subtitle.theme_type_variation = &"MutedLabel"
+	%Column.add_child(subtitle)
+	%Column.move_child(subtitle, 1)
+	var tiles := HBoxContainer.new()
+	tiles.name = "FinanceTiles"
+	tiles.add_theme_constant_override("separation", 14)
+	for tile in [_balance, _income, _expenses, _result]:
+		tiles.add_child(tile)
+	%Column.add_child(tiles)
+	%Column.move_child(tiles, 2)
+	var body := HBoxContainer.new()
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	body.add_theme_constant_override("separation", 16)
+	%Column.add_child(body)
+	%Column.move_child(body, 3)
+	var areas_card := PanelContainer.new()
+	areas_card.name = "AreasCard"
+	areas_card.theme_type_variation = &"Card"
+	areas_card.custom_minimum_size = Vector2(330, 0)
+	body.add_child(areas_card)
+	var areas_column := VBoxContainer.new()
+	areas_column.add_theme_constant_override("separation", 10)
+	areas_card.add_child(areas_column)
+	var areas_title := Label.new()
+	areas_title.text = "POR ÁREA"
+	areas_title.theme_type_variation = &"SectionLabel"
+	areas_column.add_child(areas_title)
+	_areas.name = "FinanceAreas"
+	_areas.add_theme_constant_override("separation", 9)
+	areas_column.add_child(_areas)
+	var history := VBoxContainer.new()
+	history.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	history.add_theme_constant_override("separation", 8)
+	body.add_child(history)
+	%FinanceHeader.reparent(history)
+	%FinanceHeader.text = "HISTÓRICO"
+	%FinanceHeader.theme_type_variation = &"SectionLabel"
+	%FinanceTable.reparent(history)
 	%FinanceTable.set_headers(["Descrição", "Área", "Semana", "Valor"])
 	%FinanceTable.set_column_expand_ratio(0, 4)
 	%BackButton.pressed.connect(navigate.bind(Screen.HUB))
-	_journey.name = "StageJourney"
-	_journey.add_theme_constant_override("separation", 6)
-	%Summary.add_child(_journey)
-	%Summary.move_child(_journey, 1)
-	_finance.name = "FinanceSummary"
-	_finance.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	%Column.add_child(_finance)
-	%Column.move_child(_finance, %FinanceTable.get_index())
-	%FinanceHeader.text = "Para onde vai o dinheiro"
 	super()
 
 
 func refresh() -> void:
 	var career := GameManager.career
-	var progression := GameManager.progression
-	var stage := progression.stage_for(career.fame)
-	%Title.text = "Carreira e finanças"
-	%ArtistLabel.text = "%s  —  %s" % [career.artist_name, stage.display_name]
-	_fill_journey(career)
-	%StatsLabel.text = "Semana %s  •  Dinheiro: %s  •  Fama: %s  •  Fãs: %s  •  Reputação: %s  •  Energia: %s" % [
-		Fmt.number(career.current_week), Fmt.money(career.money), Fmt.number(career.fame),
-		Fmt.number(GameManager.streaming.total_followers(career)), Fmt.signed_number(career.reputation), GameManager.energy_text()]
-	var shows_done := GameManager.live.history(career).size()
-	%CatalogLabel.text = "Músicas: %d  •  Projetos: %d  •  Lançamentos: %d  •  Videoclipes: %d  •  Shows realizados: %d" % [
-		career.songs.size(), career.albums.size(), career.releases.size(), career.music_videos.size(), shows_done]
-	%TotalsLabel.text = "Reproduções totais: %s  •  Ouvintes: %s" % [
-		Fmt.number(GameManager.streaming.total_plays(career)), Fmt.number(GameManager.streaming.total_listeners(career))]
-	_fill_finance(career)
-
-
-func _fill_journey(career: CareerData) -> void:
-	for child in _journey.get_children():
-		_journey.remove_child(child)
-		child.queue_free()
-	var progression := GameManager.progression
-	var current := progression.stage_index(career.fame)
-	for index in progression.stages().size():
-		var stage := progression.stages()[index]
-		var pill := Label.new()
-		pill.text = stage.display_name
-		pill.tooltip_text = "%s (a partir de %s de fama)" % [stage.description, Fmt.number(stage.min_fame)]
-		pill.mouse_filter = Control.MOUSE_FILTER_PASS
-		if index == current:
-			pill.theme_type_variation = &"StageLabel"
-		elif index < current:
-			pill.add_theme_color_override("font_color", Color("#46d483"))
-		else:
-			pill.theme_type_variation = &"MutedLabel"
-		_journey.add_child(pill)
-		if index < progression.stages().size() - 1:
-			var arrow := Label.new()
-			arrow.text = "›"
-			arrow.theme_type_variation = &"MutedLabel"
-			_journey.add_child(arrow)
-
-
-func _fill_finance(career: CareerData) -> void:
 	var income := 0
 	var expenses := 0
 	var by_category := {}
@@ -85,14 +79,55 @@ func _fill_finance(career: CareerData) -> void:
 			income += entry.amount
 		else:
 			expenses -= entry.amount
-	var parts := PackedStringArray()
-	var keys := by_category.keys()
-	keys.sort_custom(func(a: String, b: String) -> bool: return absi(by_category[a]) > absi(by_category[b]))
-	for key: String in keys:
-		parts.append("%s %s" % [CATEGORY_LABELS.get(key, key), Fmt.signed_money(by_category[key])])
-	_finance.text = "Receitas: %s  •  Despesas: %s  •  Resultado: %s\n%s" % [
-		Fmt.money(income), Fmt.money(expenses), Fmt.signed_money(income - expenses), "  •  ".join(parts)]
+	_balance.set_value(Fmt.money(career.money), "Semana %s" % Fmt.number(career.current_week))
+	_income.set_value(Fmt.money(income), "%d área(s) rendendo" % by_category.values().filter(func(v: int) -> bool: return v > 0).size(), 1 if income > 0 else 0)
+	_expenses.set_value(Fmt.money(expenses), "produção, equipe, divulgação...", -1 if expenses > 0 else 0)
+	_result.set_value(Fmt.signed_money(income - expenses), "receitas menos despesas", signi(income - expenses))
+	_fill_areas(by_category)
 	%FinanceTable.clear_rows()
 	for index in range(career.finance_history.size() - 1, -1, -1):
 		var entry := career.finance_history[index]
 		%FinanceTable.add_row([entry.description, CATEGORY_LABELS.get(entry.category, entry.category), Fmt.number(entry.week), Fmt.signed_money(entry.amount)])
+
+
+## Uma barra por área, do maior peso ao menor: verde quando rende, vermelha quando custa.
+func _fill_areas(by_category: Dictionary) -> void:
+	for child in _areas.get_children():
+		_areas.remove_child(child)
+		child.queue_free()
+	if by_category.is_empty():
+		var empty := Label.new()
+		empty.text = "Nenhum movimento ainda."
+		empty.theme_type_variation = &"MutedLabel"
+		_areas.add_child(empty)
+		return
+	var keys := by_category.keys()
+	keys.sort_custom(func(a: String, b: String) -> bool: return absi(by_category[a]) > absi(by_category[b]))
+	var biggest := maxi(absi(by_category[keys[0]]), 1)
+	for key: String in keys.slice(0, MAX_AREAS):
+		var amount: int = by_category[key]
+		var row := VBoxContainer.new()
+		row.add_theme_constant_override("separation", 3)
+		var line := HBoxContainer.new()
+		row.add_child(line)
+		var name_label := Label.new()
+		name_label.text = CATEGORY_LABELS.get(key, key)
+		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		line.add_child(name_label)
+		var value := Label.new()
+		value.text = Fmt.signed_money(amount)
+		value.add_theme_color_override("font_color", Color("#46d483") if amount > 0 else Color("#ff8a94"))
+		line.add_child(value)
+		var bar := ProgressBar.new()
+		bar.show_percentage = false
+		bar.custom_minimum_size = Vector2(0, 6)
+		bar.max_value = biggest
+		bar.value = absi(amount)
+		bar.theme_type_variation = &"EnergyBar" if amount > 0 else &"DangerBar"
+		row.add_child(bar)
+		_areas.add_child(row)
+	if keys.size() > MAX_AREAS:
+		var more := Label.new()
+		more.text = "+ %d área(s) menores no histórico" % (keys.size() - MAX_AREAS)
+		more.theme_type_variation = &"MutedLabel"
+		_areas.add_child(more)

@@ -209,10 +209,15 @@ não devolve o dinheiro: o retorno depende do desempenho do lançamento.
 **Reputação:** muda ao lançar (qualidade acima de 50 aumenta, abaixo de 50 diminui) e nos shows
 (show muito bom aumenta, show ruim ou compromisso contratado cancelado diminui).
 
-**Navegação:** dentro de uma carreira, a barra superior mostra o artista, a fase, a semana, o
-dinheiro, a fama, os fãs e a energia (com as mudanças aparecendo na hora), e tem "Próxima semana",
-que avança e salva automaticamente. O menu lateral leva a todas as áreas. O Início reúne a fase da
-carreira, a agenda, os próximos passos e o resumo da última semana.
+**Navegação:** dentro de uma carreira, o trilho à esquerda tem as 6 áreas do jogo — Início,
+Música (músicas, projetos, lançamentos, videoclipes, marketing), Carreira (desempenho, plataformas,
+perfil público, finanças, trabalhar), Palco (shows, ofertas, turnês, festivais, merch, histórico),
+Social (relações) e Estilo (personagem, carros) — com contadores de pendências, o retrato do artista,
+salvar e menu. A barra superior mostra o nome da área, as subabas dela, dinheiro, fama, fãs e
+energia (com as mudanças aparecendo na hora) e "Próxima semana", que avança e salva. Telas internas
+(editores, relatórios) acendem a área a que pertencem. O Início é a vitrine da carreira: o artista no
+palco com nome, fase, progresso e carro; o próximo passo; atalhos com contexto (o que é, o estado e a
+ação); a agenda e o resultado da semana. As áreas e subabas ficam em `GameShell.SECTIONS`.
 
 **Visual:** fundo com luzes de palco, cartões com profundidade, capas geradas (gradiente e vinil
 únicos por nome) para músicas, projetos e propostas sem imagem, e o personagem como foto do artista
@@ -225,7 +230,11 @@ ganho e perda), duas famílias de fonte (Bahnschrift nos títulos, números e bo
 no texto), e as variações usadas em todas as telas: `PrimaryButton`, `DangerButton`, `ChipButton`
 (filtros e abas internas), `NavButton`, `SwatchButton`, `Card`, `HeroPanel`, `StagePanel`,
 `MediaCard`, `StatChip` e os rótulos `TitleLabel`, `HeaderLabel`, `SectionLabel`, `StatValue`,
-`StatCaption`, `BadgeLabel` e `StageLabel`. Abas são pílulas, tabelas não têm grade e têm linhas
+`StatCaption`, `BadgeLabel` e `StageLabel`; na moldura, `Rail`, `RailButton`, `SubTab`,
+`SectionTitle`, `LogoMark`, `CountBadge` e `Toast`; e `GhostButton` (ação terciária, como Voltar),
+`ActionTile`, `Kicker`, `HeroTitle`, `BigNumber`, `GlassPanel` e o componente `StatTile`. Hierarquia de
+botões: `PrimaryButton` (a ação da tela), botão padrão (secundária), `GhostButton` (terciária) e
+`DangerButton` (destrutiva). Telas entram com fade e escala leve; cartões e atalhos sobem no hover. Abas são pílulas, tabelas não têm grade e têm linhas
 altas, botões têm volume na borda inferior. Uma tela nova deve usar essas variações, não cores
 soltas.
 

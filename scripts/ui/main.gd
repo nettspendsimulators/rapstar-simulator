@@ -87,8 +87,14 @@ func _clear() -> void:
 		_shell = null
 
 
-## Entrada suave de cada tela.
+## Entrada de cada tela: aparece e assenta, crescendo de leve a partir do centro. A escala não
+## briga com os containers, que só controlam posição e tamanho.
 static func _enter(screen: Control) -> void:
 	screen.modulate.a = 0.0
+	screen.scale = Vector2(0.985, 0.985)
+	var settle := func() -> void: screen.pivot_offset = screen.size / 2.0
+	screen.resized.connect(settle)
 	var tween := screen.create_tween()
-	tween.tween_property(screen, "modulate:a", 1.0, 0.16).set_trans(Tween.TRANS_QUAD)
+	tween.set_parallel(true)
+	tween.tween_property(screen, "modulate:a", 1.0, 0.18).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(screen, "scale", Vector2.ONE, 0.26).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
