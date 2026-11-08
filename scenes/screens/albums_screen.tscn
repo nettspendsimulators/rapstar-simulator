@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/screens/albums_screen.gd" id="1_script"]
-[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
-[ext_resource type="Script" path="res://scripts/ui/components/cover_preview.gd" id="3_cover"]
 
 [node name="AlbumsScreen" type="MarginContainer"]
 layout_mode = 1
@@ -12,79 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
-
-[node name="Column" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Column"]
-layout_mode = 2
-theme_type_variation = &"TitleLabel"
-text = "Meus Projetos"
-
-[node name="MoneyLabel" type="Label" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Hint" type="Label" parent="Column"]
-layout_mode = 2
-text = "Um projeto pode ser Álbum, EP ou Mixtape. Crie agora, mesmo vazio, e adicione músicas ao longo da carreira."
-
-[node name="Body" type="HBoxContainer" parent="Column"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="ProjectsTable" type="Tree" parent="Column/Body"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_table")
-
-[node name="Detail" type="PanelContainer" parent="Column/Body"]
-custom_minimum_size = Vector2(340, 0)
-layout_mode = 2
-
-[node name="DetailColumn" type="VBoxContainer" parent="Column/Body/Detail"]
-layout_mode = 2
-
-[node name="DetailCover" type="TextureRect" parent="Column/Body/Detail/DetailColumn"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 160)
-layout_mode = 2
-script = ExtResource("3_cover")
-
-[node name="DetailScroll" type="ScrollContainer" parent="Column/Body/Detail/DetailColumn"]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="DetailLabel" type="Label" parent="Column/Body/Detail/DetailColumn/DetailScroll"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(290, 0)
-layout_mode = 2
-autowrap_mode = 3
-
-[node name="ButtonRow" type="HBoxContainer" parent="Column"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Voltar"
-
-[node name="EditButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Editar"
-
-[node name="MarketingButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Marketing"
-
-[node name="NewButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"PrimaryButton"
-text = "Criar Projeto"

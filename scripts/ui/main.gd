@@ -1,3 +1,4 @@
+class_name Main
 extends Control
 ## Cena raiz: troca a tela visível. Cada tela é recriada ao ser aberta.
 
@@ -39,6 +40,9 @@ var _shell: GameShell
 
 
 func _ready() -> void:
+	var background := AppBackground.new()
+	background.name = "AppBackground"
+	add_child(background)
 	show_screen(Screen.MAIN_MENU)
 
 
@@ -50,6 +54,7 @@ func show_screen(screen_id: StringName, screen_context: Dictionary = {}) -> void
 		_clear()
 		_current = screen
 		add_child(screen)
+		_enter(screen)
 		return
 	if _current != null:
 		remove_child(_current)
@@ -77,3 +82,10 @@ func _clear() -> void:
 		remove_child(_shell)
 		_shell.queue_free()
 		_shell = null
+
+
+## Entrada suave de cada tela.
+static func _enter(screen: Control) -> void:
+	screen.modulate.a = 0.0
+	var tween := screen.create_tween()
+	tween.tween_property(screen, "modulate:a", 1.0, 0.16).set_trans(Tween.TRANS_QUAD)

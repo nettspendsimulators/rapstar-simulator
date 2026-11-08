@@ -1,5 +1,10 @@
 extends Screen
-## Desempenho musical: totais, evolução, músicas, plataformas e histórico.
+## Desempenho musical: totais em destaque, evolução, músicas, plataformas e histórico.
+
+const TILES := [["plays", "REPRODUÇÕES", "music", "#46d483"], ["listeners", "OUVINTES", "platforms", "#4fa3ff"],
+	["followers", "SEGUIDORES", "fans", "#a25cff"], ["subscribers", "INSCRITOS", "video", "#ff5f6d"], ["revenue", "RECEITA", "money", "#f5b82e"]]
+
+var _tiles: Dictionary[String, Label] = {}
 
 
 func _ready() -> void:
@@ -8,6 +13,9 @@ func _ready() -> void:
 	%PlatformsTable.set_headers(["Plataforma", "Reproduções", "Ouvintes", "Seguidores", "Receita"])
 	%HistoryTable.set_headers(["Semana", "Reproduções", "Ouvintes", "Seguidores", "Receita"])
 	%HistoryTable.set_column_expand_ratio(0, 1)
+	_build_tiles()
+	%RecordsLabel.theme_type_variation = &"MutedLabel"
+	%RecentLabel.theme_type_variation = &"MutedLabel"
 	%BackButton.pressed.connect(navigate.bind(Screen.HUB))
 	super()
 
@@ -26,16 +34,14 @@ func _fill_summary() -> void:
 	var revenue := 0
 	for stats: ArtistPlatformStats in career.platform_stats.values():
 		revenue += stats.revenue
-	%TotalsLabel.text = "Reproduções totais: %s  |  Ouvintes: %s  |  Seguidores: %s  |  Inscritos: %s  |  Receita: %s" % [
-		Fmt.number(streaming.total_plays(career)),
-		Fmt.number(streaming.total_listeners(career)),
-		Fmt.number(streaming.total_followers(career) - youtube.followers),
-		Fmt.number(youtube.followers),
-		Fmt.money(revenue),
-	]
+	_tiles["plays"].text = Fmt.number(streaming.total_plays(career))
+	_tiles["listeners"].text = Fmt.number(streaming.total_listeners(career))
+	_tiles["followers"].text = Fmt.number(streaming.total_followers(career) - youtube.followers)
+	_tiles["subscribers"].text = Fmt.number(youtube.followers)
+	_tiles["revenue"].text = Fmt.money(revenue)
 	var top := streaming.top_songs(career)
 	var best := streaming.best_release(career)
-	%RecordsLabel.text = "Recordes: maior público %s ouvintes  |  melhor semana %s reproduções  |  música mais popular: %s  |  melhor lançamento: %s" % [
+	%RecordsLabel.text = "Recordes: maior público %s ouvintes  •  melhor semana %s reproduções  •  música mais popular: %s  •  melhor lançamento: %s" % [
 		Fmt.number(streaming.peak_listeners(career)),
 		Fmt.number(streaming.peak_week_plays(career)),
 		career.find_song(top[0].song_id).title if not top.is_empty() else "—",
@@ -49,6 +55,45 @@ func _fill_summary() -> void:
 		followers.append(snapshot.followers)
 	%PlaysChart.show_values("Reproduções por semana", plays)
 	%FollowersChart.show_values("Fãs (seguidores + inscritos)", followers)
+
+
+func _build_tiles() -> void:
+	var grid := GridContainer.new()
+	grid.name = "Tiles"
+	grid.columns = TILES.size()
+	grid.add_theme_constant_override("h_separation", 12)
+	%Resumo.add_child(grid)
+	%Resumo.move_child(grid, 0)
+	for item: Array in TILES:
+		var card := PanelContainer.new()
+		card.name = "Tile_" + item[0]
+		card.theme_type_variation = &"Card"
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		grid.add_child(card)
+		var box := VBoxContainer.new()
+		box.add_theme_constant_override("separation", 0)
+		card.add_child(box)
+		var top := HBoxContainer.new()
+		top.add_theme_constant_override("separation", 6)
+		box.add_child(top)
+		var icon := TextureRect.new()
+		icon.texture = load("res://assets/icons/%s.svg" % item[2])
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.custom_minimum_size = Vector2(16, 16)
+		icon.modulate = Color(item[3])
+		top.add_child(icon)
+		var caption := Label.new()
+		caption.text = item[1]
+		caption.theme_type_variation = &"SectionLabel"
+		top.add_child(caption)
+		var value := Label.new()
+		value.name = "Value"
+		value.theme_type_variation = &"StatValue"
+		value.clip_text = true
+		value.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		box.add_child(value)
+		_tiles[item[0]] = value
 
 
 func _recent_releases() -> String:

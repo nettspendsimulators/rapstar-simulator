@@ -104,23 +104,34 @@ func agenda(career: CareerData) -> Array[Dictionary]:
 
 ## Sugestões do que fazer agora, a partir do estado da carreira. No máximo três.
 func next_steps(career: CareerData) -> PackedStringArray:
-	var steps := PackedStringArray()
+	var texts := PackedStringArray()
+	for item in actions(career):
+		texts.append(item["text"])
+	return texts
+
+
+## As mesmas sugestões, com a área do jogo que resolve cada uma (action):
+## "new_song", "releases", "offers", "marketing", "merch", "work" ou "" (só informação).
+func actions(career: CareerData) -> Array[Dictionary]:
+	var steps: Array[Dictionary] = []
 	var unreleased := career.songs.filter(func(song: SongData) -> bool: return not song.is_released())
 	var scheduled := career.scheduled_releases.filter(func(item: ScheduledRelease) -> bool: return item.is_active())
 	var offers := _live.shows_with_status(career, LiveShow.STATUS_OFFER).size()
 	if career.songs.is_empty():
-		steps.append("Grave sua primeira música em Músicas → Nova música.")
+		steps.append({"text": "Grave sua primeira música em Músicas → Nova música.", "action": "new_song", "label": "Gravar música"})
 	elif career.money < 200:
-		steps.append("O dinheiro está curto: trabalhe uma semana para pagar as próximas produções.")
+		steps.append({"text": "O dinheiro está curto: trabalhe uma semana para pagar as próximas produções.", "action": "work", "label": "Trabalhar"})
 	if not unreleased.is_empty() and scheduled.is_empty():
-		steps.append("Você tem %d música(s) inédita(s). Melhore com energia e lance em Lançamentos." % unreleased.size())
+		steps.append({"text": "Você tem %d música(s) inédita(s). Melhore com energia e lance em Lançamentos." % unreleased.size(), "action": "releases", "label": "Lançar música"})
 	if offers > 0:
-		steps.append("%d proposta(s) de show esperando resposta em Shows e ofertas." % offers)
+		steps.append({"text": "%d proposta(s) de show esperando resposta em Shows e ofertas." % offers, "action": "offers", "label": "Ver propostas"})
 	if not career.releases.is_empty() and career.marketing_campaigns.is_empty():
-		steps.append("Monte uma campanha de marketing antes do próximo lançamento para alcançar mais gente.")
+		steps.append({"text": "Monte uma campanha de marketing antes do próximo lançamento para alcançar mais gente.", "action": "marketing", "label": "Criar campanha"})
 	if career.merch_items.is_empty() and career.fame >= 150:
-		steps.append("Seus fãs já compram produtos: fabrique merch para vender nos shows e na loja.")
+		steps.append({"text": "Seus fãs já compram produtos: fabrique merch para vender nos shows e na loja.", "action": "merch", "label": "Fazer merch"})
+	if steps.is_empty():
+		steps.append({"text": "Grave uma nova música para manter o público ouvindo.", "action": "new_song", "label": "Gravar música"})
 	var following := next_stage(career.fame)
 	if following != null:
-		steps.append("Faltam %s de fama para virar %s." % [Fmt.number(following.min_fame - career.fame), following.display_name])
+		steps.append({"text": "Faltam %s de fama para virar %s." % [Fmt.number(following.min_fame - career.fame), following.display_name], "action": "", "label": ""})
 	return steps.slice(0, 3)

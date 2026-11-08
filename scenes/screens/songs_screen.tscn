@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/screens/songs_screen.gd" id="1_script"]
-[ext_resource type="Script" path="res://scripts/ui/data_table.gd" id="2_table"]
 
 [node name="SongsScreen" type="MarginContainer"]
 layout_mode = 1
@@ -11,40 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
-
-[node name="Column" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Column"]
-layout_mode = 2
-theme_type_variation = &"TitleLabel"
-text = "Minhas Músicas"
-
-[node name="StatsLabel" type="Label" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Hint" type="Label" parent="Column"]
-layout_mode = 2
-text = "Clique em uma música para abrir os detalhes e melhorar os atributos."
-
-[node name="SongsTable" type="Tree" parent="Column"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("2_table")
-
-[node name="ButtonRow" type="HBoxContainer" parent="Column"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Voltar"
-
-[node name="NewButton" type="Button" parent="Column/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"PrimaryButton"
-text = "Nova música"

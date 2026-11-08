@@ -20,7 +20,7 @@ func build(page: PlatformPage) -> void:
 	var banner_row := page.hbox(24)
 	banner.add_child(banner_row)
 	var avatar := page.panel(CARD, 999, 4)
-	avatar.add_child(page.cover(career.artist_cover, 150))
+	avatar.add_child(page.artist_avatar(career, 150))
 	banner_row.add_child(avatar)
 	var info := page.vbox(8)
 	info.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -66,7 +66,7 @@ func build(page: PlatformPage) -> void:
 		var card := page.panel(CARD, 4, 14)
 		var line := page.hbox(16)
 		card.add_child(line)
-		line.add_child(page.cover(song.cover_file, 90))
+		line.add_child(page.cover(song.cover_file, 90, song.title))
 		var track := page.vbox(6)
 		track.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		line.add_child(track)

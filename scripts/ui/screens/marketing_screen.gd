@@ -18,6 +18,19 @@ func _ready() -> void:
 	%CancelButton.pressed.connect(_on_cancel_pressed)
 	%BackButton.pressed.connect(func() -> void: navigate(context.get("back", Screen.MARKETING_HUB), {"song_id": _content.id}))
 	_setup_week_input()
+	# Ficha da música ou do projeto fica sob demanda: o essencial é orçamento e campanha.
+	%SongLabel.visible = false
+	%SongLabel.theme_type_variation = &"MutedLabel"
+	var details := Button.new()
+	details.name = "DetailsToggle"
+	details.text = "Ver ficha do lançamento"
+	details.theme_type_variation = &"ChipButton"
+	details.toggle_mode = true
+	details.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	details.toggled.connect(func(on: bool) -> void:
+		%SongLabel.visible = on
+		details.text = "Esconder ficha" if on else "Ver ficha do lançamento")
+	%SongLabel.get_parent().add_child(details)
 	super()
 
 

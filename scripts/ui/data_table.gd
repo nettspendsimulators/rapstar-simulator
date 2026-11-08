@@ -38,7 +38,8 @@ const STATE_COLORS := [
 ]
 
 
-func add_row(cells: Array, row_value: Variant = null, cover_file: String = "") -> void:
+## Linhas de mídia (com cover_file informado) sem capa recebem a arte gerada pelo nome.
+func add_row(cells: Array, row_value: Variant = null, cover_file: Variant = null) -> void:
 	var item := create_item(get_root())
 	for column in cells.size():
 		var text := str(cells[column])
@@ -47,7 +48,9 @@ func add_row(cells: Array, row_value: Variant = null, cover_file: String = "") -
 		if color != Color.TRANSPARENT:
 			item.set_custom_color(column, color)
 	item.set_metadata(0, row_value)
-	var texture := GameManager.covers.get_texture(cover_file)
+	var texture: Texture2D = null
+	if cover_file is String:
+		texture = CoverArt.texture_for(cover_file, str(cells[0]) if not cells.is_empty() else "")
 	if texture != null:
 		item.set_icon(0, texture)
 		item.set_icon_max_width(0, ICON_SIZE)

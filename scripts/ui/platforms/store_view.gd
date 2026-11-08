@@ -37,7 +37,7 @@ func build(page: PlatformPage) -> void:
 		var card := page.panel(CARD, 12, 14)
 		var card_column := page.vbox(6)
 		card.add_child(card_column)
-		var art := page.cover(content.cover_file, 200)
+		var art := page.cover(content.cover_file, 200, content.title)
 		art.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		card_column.add_child(art)
 		card_column.add_child(page.label(content.title, 17, TEXT, true))

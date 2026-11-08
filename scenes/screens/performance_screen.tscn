@@ -28,14 +28,9 @@ size_flags_vertical = 3
 current_tab = 0
 
 [node name="Resumo" type="VBoxContainer" parent="Column/Tabs"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="TotalsLabel" type="Label" parent="Column/Tabs/Resumo"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"HeaderLabel"
-autowrap_mode = 3
+metadata/_tab_index = 0
 
 [node name="RecordsLabel" type="Label" parent="Column/Tabs/Resumo"]
 unique_name_in_owner = true

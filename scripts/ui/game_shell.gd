@@ -100,6 +100,7 @@ func set_screen(screen: Screen, screen_id: StringName, screen_context: Dictionar
 	screen.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	screen.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	content.add_child(screen)
+	Main._enter(screen)
 	var area: StringName = PARENT.get(screen_id, screen_id)
 	var tab := int(screen_context.get("tab", LIVE_TAB_FOR.get(screen_id, 0)))
 	if area == Screen.LIVE and tab == 1:
@@ -127,9 +128,8 @@ func refresh() -> void:
 	var values := {
 		"money": career.money, "fame": career.fame, "fans": GameManager.streaming.total_followers(career),
 	}
-	_chips["money"].text = Fmt.money(values["money"])
-	_chips["fame"].text = Fmt.number(values["fame"])
-	_chips["fans"].text = Fmt.number(values["fans"])
+	for key: String in values:
+		_count_to(key, values[key], _last_career == career)
 	_chips["energy"].text = "∞" if career.infinite_energy else GameManager.energy_text()
 	_energy_bar.max_value = GameManager.balance.max_energy
 	_energy_bar.value = GameManager.balance.max_energy if career.infinite_energy else career.energy
@@ -143,6 +143,19 @@ func refresh() -> void:
 	_last = values
 	var offers := GameManager.live.shows_with_status(career, LiveShow.STATUS_OFFER).size()
 	_nav["LiveButton"].text = "Shows e ofertas" + ("  (%d)" % offers if offers > 0 else "")
+
+
+## Números da barra contam até o novo valor, para a mudança ser percebida.
+func _count_to(key: String, target: int, animate: bool) -> void:
+	var label := _chips[key]
+	var start := int(_last.get(key, target)) if animate else target
+	var show := func(value: float) -> void:
+		label.text = Fmt.money(roundi(value)) if key == "money" else Fmt.number(roundi(value))
+	if start == target:
+		show.call(target)
+		return
+	var tween := label.create_tween()
+	tween.tween_method(show, float(start), float(target), 0.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 
 func show_toast(text: String) -> void:

@@ -182,13 +182,38 @@ func pill(text: String, background: Color, foreground: Color, font_size: int = 1
 	return result
 
 
-func cover(file_name: String, side: float) -> CoverPreview:
+func cover(file_name: String, side: float, seed_text: String = "") -> CoverPreview:
 	var result := CoverPreview.new()
 	result.custom_minimum_size = Vector2(side, side)
 	result.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	result.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	result.ready.connect(func() -> void: result.show_cover(file_name))
+	result.ready.connect(func() -> void: result.show_cover(file_name, seed_text))
 	return result
+
+
+## Foto do artista; sem foto escolhida, o próprio personagem sobre um fundo de estúdio.
+func artist_avatar(career: CareerData, side: float) -> Control:
+	if not career.artist_cover.is_empty():
+		return cover(career.artist_cover, side)
+	var frame := Control.new()
+	frame.custom_minimum_size = Vector2(side, side)
+	frame.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	frame.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	frame.clip_contents = true
+	var backdrop := TextureRect.new()
+	backdrop.texture = CoverArt.generated(career.artist_name + " perfil")
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_SCALE
+	backdrop.modulate = Color(0.55, 0.55, 0.6)
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	frame.add_child(backdrop)
+	var person := CharacterView.new()
+	person.appearance = career.appearance
+	person.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	person.offset_top = side * 0.05
+	person.offset_bottom = side * 0.9
+	frame.add_child(person)
+	return frame
 
 
 func hbox(separation: int = 12) -> HBoxContainer:

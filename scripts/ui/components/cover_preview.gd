@@ -11,8 +11,11 @@ func _ready() -> void:
 	stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
 
-func show_cover(file_name: String) -> void:
+## Sem imagem e com um nome, mostra a arte gerada para o nome (CoverArt).
+func show_cover(file_name: String, seed_text: String = "") -> void:
 	texture = GameManager.covers.get_texture(file_name)
+	if texture == null and not seed_text.is_empty():
+		texture = CoverArt.generated(seed_text)
 	queue_redraw()
 
 

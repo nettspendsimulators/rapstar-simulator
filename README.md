@@ -203,6 +203,11 @@ dinheiro, a fama, os fãs e a energia (com as mudanças aparecendo na hora), e t
 que avança e salva automaticamente. O menu lateral leva a todas as áreas. O Início reúne a fase da
 carreira, a agenda, os próximos passos e o resumo da última semana.
 
+**Visual:** fundo com luzes de palco, cartões com profundidade, capas geradas (gradiente e vinil
+únicos por nome) para músicas, projetos e propostas sem imagem, e o personagem como foto do artista
+nas plataformas quando não há foto. Músicas, projetos e propostas de show aparecem como grades de
+capas (`CardGrid`/`MediaCard`); detalhes ficam em abas ou sob demanda.
+
 **Fases da carreira:** Desconhecido, Underground, Em ascensão, Relevante, Grande artista e Estrela,
 pela fama. Subir de fase aparece no relatório da semana, que também mostra o saldo real de dinheiro,
 fama, fãs e streams.

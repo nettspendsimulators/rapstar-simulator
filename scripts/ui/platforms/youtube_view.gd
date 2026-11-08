@@ -30,7 +30,7 @@ func build(page: PlatformPage) -> void:
 	var channel := page.hbox(20)
 	column.add_child(channel)
 	var avatar := page.panel(CARD, 999, 3)
-	avatar.add_child(page.cover(career.artist_cover, 110))
+	avatar.add_child(page.artist_avatar(career, 110))
 	channel.add_child(avatar)
 	var info := page.vbox(4)
 	info.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -55,7 +55,7 @@ func build(page: PlatformPage) -> void:
 		var card := page.vbox(6)
 		var thumb := page.panel(Color.BLACK, 10, 0)
 		thumb.custom_minimum_size = Vector2(260, 146)
-		var art := page.cover(video.cover_file if not video.cover_file.is_empty() else song.cover_file, 146)
+		var art := page.cover(video.cover_file if not video.cover_file.is_empty() else song.cover_file, 146, song.title)
 		art.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		thumb.add_child(art)
 		card.add_child(thumb)
@@ -72,7 +72,7 @@ func build(page: PlatformPage) -> void:
 		var row := page.panel(CARD, 10, 8)
 		var line := page.hbox(14)
 		row.add_child(line)
-		line.add_child(page.cover(song.cover_file, 40))
+		line.add_child(page.cover(song.cover_file, 40, song.title))
 		line.add_child(page.label(song.title, 16, TEXT))
 		line.add_child(page.spacer())
 		line.add_child(page.label("%s visualizações" % Fmt.number(page.plays(performance)), 14, SUBTLE))

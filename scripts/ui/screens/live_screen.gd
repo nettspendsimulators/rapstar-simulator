@@ -8,7 +8,7 @@ var _stats := Label.new()
 var _tabs := TabContainer.new()
 var _message := Label.new()
 var _shows := DataTable.new()
-var _offers := DataTable.new()
+var _offers := CardGrid.new()
 var _tours := DataTable.new()
 var _festivals := DataTable.new()
 var _merch := DataTable.new()
@@ -22,7 +22,7 @@ var _merch_cost := Label.new()
 
 
 func _ready() -> void:
-	for pair in [[_shows, "ShowsTable"], [_offers, "OffersTable"], [_tours, "ToursTable"], [_festivals, "FestivalsTable"],
+	for pair in [[_shows, "ShowsTable"], [_offers, "OffersGrid"], [_tours, "ToursTable"], [_festivals, "FestivalsTable"],
 			[_merch, "MerchTable"], [_history, "HistoryTable"], [_tabs, "LiveTabs"], [_message, "MessageLabel"],
 			[_product, "ProductOption"], [_quantity, "QuantityInput"], [_price, "MerchPriceInput"], [_stats, "StatsLabel"]]:
 		pair[0].name = pair[1]
@@ -61,9 +61,10 @@ func _ready() -> void:
 
 func refresh() -> void:
 	var career := GameManager.career
-	_stats.text = "Dinheiro: %s   •   Fama: %s   •   Fãs: %s   •   Estoque de merch: %s itens" % [
-		Fmt.money(career.money), Fmt.number(career.fame), Fmt.number(GameManager.streaming.total_followers(career)),
-		Fmt.number(GameManager.merch.total_stock(career))]
+	_stats.text = "%d proposta(s)  •  %d show(s) marcado(s)  •  %d turnê(s)  •  %s itens de merch em estoque" % [
+		GameManager.live.shows_with_status(career, LiveShow.STATUS_OFFER).size(), GameManager.live.shows_with_status(career, LiveShow.STATUS_SCHEDULED).size(),
+		career.live_tours.size(), Fmt.number(GameManager.merch.total_stock(career))]
+	_stats.theme_type_variation = &"MutedLabel"
 	_fill_shows()
 	_fill_offers()
 	_fill_tours()
@@ -75,17 +76,19 @@ func refresh() -> void:
 
 # ---- abas
 
-func _page(hint: String, table: DataTable, headers: PackedStringArray) -> HBoxContainer:
+func _page(hint: String, table: Control, headers: PackedStringArray) -> HBoxContainer:
 	var page := VBoxContainer.new()
 	page.add_theme_constant_override("separation", 8)
 	_tabs.add_child(page)
 	var label := Label.new()
 	label.text = hint
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.theme_type_variation = &"MutedLabel"
 	page.add_child(label)
 	table.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	page.add_child(table)
-	table.set_headers(headers)
+	if table is DataTable:
+		table.set_headers(headers)
 	var buttons := HBoxContainer.new()
 	buttons.add_theme_constant_override("separation", 8)
 	page.add_child(buttons)
@@ -112,9 +115,8 @@ func _build_shows_tab() -> void:
 
 
 func _build_offers_tab() -> void:
-	var row := _page("Propostas de contratantes, do underground aos grandes palcos. Abra uma proposta para montar o show e aceitar.",
-		_offers, ["Evento", "Data", "Local", "Público esperado", "Condições", "Lucro estimado"])
-	_offers.item_activated.connect(_open_offer)
+	var row := _page("Propostas de contratantes, do underground aos grandes palcos. Escolha um cartaz e abra para montar o show e aceitar.",
+		_offers, [])
 	_button(row, "Recusar", _reject_offer)
 	_button(row, "Ver e aceitar", _open_offer, true)
 
@@ -197,12 +199,19 @@ func _fill_shows() -> void:
 func _fill_offers() -> void:
 	var career := GameManager.career
 	var live := GameManager.live
-	_offers.clear_rows()
-	for offer in live.shows_with_status(career, LiveShow.STATUS_OFFER):
+	var selected: Variant = _offers.selected_value()
+	var offers := live.shows_with_status(career, LiveShow.STATUS_OFFER)
+	_offers.clear_cards("Nenhuma proposta agora. Elas chegam toda semana, maiores conforme sua fama cresce." if offers.is_empty() else "")
+	for offer in offers:
 		var projection := live.estimate(career, offer)
-		_offers.add_row([_event(offer), live.short_day_label(offer.day), offer.venue_name,
-			"%s (cap. %s)" % [Fmt.number(projection["attendance"]), Fmt.number(offer.capacity)], live.terms_text(offer),
-			Fmt.signed_money(projection["profit"])], offer.id)
+		var profit: int = projection["profit"]
+		var card := _offers.add_card(offer.id, _event(offer), "%s  •  %s pessoas" % [live.city_label(offer.city_id), Fmt.number(projection["attendance"])],
+			CoverArt.generated(offer.venue_id + offer.city_id), "Lucro estimado %s" % Fmt.signed_money(profit),
+			Color("#46d483") if profit >= 0 else Color("#ff5f6d"), live.short_day_label(offer.day))
+		card.tooltip_text = "%s
+%s
+%s" % [offer.venue_name, live.terms_text(offer), "Vence na semana %s" % Fmt.number(offer.offer_expires_week)]
+	_offers.select_value(selected)
 	_tabs.set_tab_title(1, "Ofertas (%d)" % live.shows_with_status(career, LiveShow.STATUS_OFFER).size())
 
 
